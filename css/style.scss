@@ -1,0 +1,38 @@
+$font1:'Open Sans', sans-serif;
+@media (max-width: 1200px) {
+  .body {
+    width: auto;
+  }
+  .navMyWidth{
+    width: auto;
+  }
+  .asd {
+    width: auto;
+    padding: 0px;
+  }
+  .regWelcome{
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+  }
+  .regInputs {
+    width: 90%;
+  }
+  .inBody{
+    width: auto;
+  }
+  .my-custom-nav .navbar-collapse .navbar-nav > li {padding-left:15px!important;}
+
+  .my-custom-nav .user-dropdown > .dropdown-menu > li {padding-left:5px!important;}
+
+
+}
+
+
+
+@mixin welcomeFont(){
+  font-family: $font1;
+}
+.regWelcome{
+  @include welcomeFont;
+  width: 100%;
+}

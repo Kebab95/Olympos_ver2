@@ -1,0 +1,38 @@
+.body{
+    width: 70%;
+    margin: auto;
+}
+.navMyWidth{
+    width: 80%;
+}
+.cursor {cursor:pointer}
+.regInputs {
+    width: 40%;
+    padding: 10px;
+}
+.regInputs div,label {
+    padding: 5px;
+}
+.regWelcome{
+
+    background-color: #5E90AE;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+.verticalCenter {
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+ }
+.inBody {
+    width: 80%;
+    margin: auto;
+}
+#footer {
+    padding-top: 10px;
+    height: 40px;
+    background-color: #f5f5f5;
+}
+#footer div div{
+    padding-top: 1px;
+}
