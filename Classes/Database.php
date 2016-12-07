@@ -63,7 +63,7 @@ class Database
 
 	// General SQL function if you want custome querys.
 	public function sql($operation, $newDb = false){
-		// echo $operation;
+		//echo $operation;
 		/*
 		if ($newDb){
 			$this->Connect("");
@@ -99,6 +99,9 @@ class Database
 	}
 	public function insert($tableName, $columns, $values, $etc = ""){
 		return $this->sql(self::returnInsertQuery($tableName,$columns,$values,$etc));
+	}
+	public function returnUpdateQuery($tableName, $values, $where, $etc = ""){
+		return "UPDATE ".$tableName." SET ".$values." WHERE ".$where." ".$etc.";";
 	}
 	public function update($tableName, $values, $where, $etc = ""){
 		return $this->sql("UPDATE ".$tableName." SET ".$values." WHERE ".$where." ".$etc.";");

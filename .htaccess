@@ -1,0 +1,9 @@
+Options -Indexes
+RewriteEngine on
+
+RewriteBase /Olympos_ver2/
+
+
+#RewriteCond %(REQUEST_FILENAME) !-f
+#RewriteCond %(REQUEST_FILENAME) !-d
+#RewriteRule ^profile/(.*)?$ index.php?profile=$1 [QSA,L]

@@ -20,6 +20,5 @@
 		<strong>Danger!</strong> Indicates a dangerous or potentially negative action.
 	</div>
 </div>
-</div>
 
-<h1 class="regInputs">asdasd</h1>
+

@@ -2,23 +2,39 @@
 class DBData
 {
 	private static $dataSchema="data";
+	private static $orgSchema ="org";
 
 	private static $mainUserTable ="main_user";
+	private static $mainUserSeq = "main_user_seq";
 	private static $emailDataTable ="email_data";
 	private static $telefonDataTable ="telefon_data";
 	private static $userTypeTable ="user_type";
 	private static $permissionTable="permission";
+	private static $postalAddDataTable ="postal_address_data";
 	private static $organizationTable="org_data";
+
+	private static $clubMemberHistoryTable ="club_mship_history";
+	private static $clubLeaderTable ="club_leader";
+	private static $fedLeaderTable="federation_leader";
 	//Schema nevek
 
 	public static  function getDataSchema(){
 		return self::$dataSchema;
+	}
+	public static  function getOrgSchema(){
+		return self::$orgSchema;
 	}
 
 	//Tábla nevek
 
 	public static function getMainUserTable(){
 		return self::getDataSchema().".".self::$mainUserTable;
+	}
+	public static function getMainUserSeq(){
+		return self::getDataSchema().".".self::$mainUserSeq;
+	}
+	public static function getPostalAddDataTable(){
+		return self::getDataSchema().".".self::$postalAddDataTable;
 	}
 	public static function getEmailDataTable(){
 		return self::getDataSchema().".".self::$emailDataTable;
@@ -32,8 +48,19 @@ class DBData
 	public static function getPermissionTable(){
 		return self::getDataSchema().".".self::$permissionTable;
 	}
+	
 	public static function getOrganizationTable(){
-		return self::getDataSchema().".".self::$organizationTable;
+		return self::getOrgSchema().".".self::$organizationTable;
+	}
+
+	public static function getClubMemberHistoryTable(){
+		return self::getOrgSchema().".".self::$clubMemberHistoryTable;
+	}
+	public static function getClubLeaderTable(){
+		return self::getOrgSchema().".".self::$clubLeaderTable;
+	}
+	public static function getFedLeaderTable(){
+		return self::getOrgSchema().".".self::$fedLeaderTable;
 	}
 
 	//Main User tábla oszlop nevei
@@ -45,6 +72,7 @@ class DBData
 	static $mainUserName ="mu_name";
 	static $mainUserPass ="mu_pass";
 	static $mainUserActive="mu_active";
+	static $mainUserBDate = "mu_bdate";
 	/*tatic $mainUserActive ="mu_active";
 	static $mainUserCreateTime ="mu_ctime";
 	static $mainUserLastChangeTime ="mu_lctime";*/
@@ -69,12 +97,32 @@ class DBData
 	static $permissionMember="p_member";
 
 	//Organization tábla oszlop nevei
-	static $orgID="";
-	static $orgMainUserID="";
-	static $orgShortName="";
-	static $orgRegNum="";
-	static $orgPostalAddID="";
-	static $orgFaxNumID="";
-	static $orgWebsite="";
-	static $orgTaxNumID="";
+	static $orgID="org_id";
+	static $orgMainUserID="org_mu_id";
+	static $orgShortName="org_shor_name";
+	static $orgRegNum="org_reg_num";
+	static $orgPostalAddID="org_postal_add_id";
+	static $orgFaxNumID="org_fax_id";
+	static $orgWebsite="org_website";
+	static $orgTitle="org_title";
+	static $orgTaxNum="org_taxnum";
+
+	//Club member history tábla oszlop nevei
+	static $chID="ch_id";
+	static $chClubID="ch_club_id";
+	static $chMemberID="ch_member_id";
+	static $chCurrent="ch_current";
+	static $chCTime="ch_ctime";
+	static $chLCTime="ch_lctime";
+
+	//Postal Address data tábla poszlop nevei
+	static $postalAddID="pad_id";
+
+	//Fed leader table oszlop nevei
+	static $fedLeaderID ="fl_id";
+	static $fedLeaderMUID ="fl_mu_id";
+
+	//Org leader table oszlop nevei
+	static $clubLeaderID ="cl_id";
+	static $clubLeaderMUID ="cl_mu_id";
 }

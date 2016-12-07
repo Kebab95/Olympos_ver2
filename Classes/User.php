@@ -11,6 +11,7 @@ class User extends UserPermissions{
 		$this->setTelefon($var[DBData::$telefonDataNum]);
 		$this->setPassword($var[DBData::$mainUserPass]);
 		$this->setType($var[DBData::$mainUserType]);
+		$this->setBdate($var[DBData::$mainUserBDate]);
 	}
 
 }

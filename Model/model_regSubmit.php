@@ -1,4 +1,6 @@
 <?php
+include "../includeClasses.php";
+$DBTasks = new DBTasks();
 if( $_POST ){
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -20,7 +22,7 @@ if($DBTasks->checkEmail($email)){
     include '../View/view_reg.php';
 }
 else{
-    if($DBTasks->regUser($name,$email,$phno,$pass)){
+    if($DBTasks->regUser($name,"1",$email,$phno,$pass)){
         echo "<script>
             setTimeout(function () {
                 window.location.href = \"?nav=home\"; //will redirect to your blog page (an ex: blog.html)

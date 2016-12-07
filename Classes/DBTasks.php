@@ -80,6 +80,18 @@ class DBTasks extends Database
 			return true;
 		}
 	}
+
+	public function isUserClubMember($userID)
+	{
+		$result = $this->selectGetResult(DBData::getClubMemberHistoryTable(),"*",DBData::$chMemberID."=".$userID." AND
+									".DBData::$chCurrent."=true");
+		if(pg_num_rows($result)>0){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	public function loadUser($id){
 		$row = $this->select(DBData::getMainUserTable(),
 				"*",
@@ -95,7 +107,106 @@ class DBTasks extends Database
 		$user =$this->refreshUserPermission($user);
 		return $user;
 	}
-	public function regUser($name,$email,$tel,$pass){
+	private function getMainUserSeqCurrVal(){
+		return self::select(DBData::getMainUserSeq(),"last_value",null);
+	}
+	public function insertOrganization($leaderID, $name, $type, $shortName, $email, $tel, $fax, $regNum, $taxNum, $pCode, $pTown, $pStreet, $website, $title)
+	{
+		$leader ="";
+		$columm="";
+		switch($type){
+			case 2: $leader=$this->returnInsertQuery(DBData::getFedLeaderTable(),"*","default,".$leaderID.",(select ".DBData::$mainUserID." from userInsert)","returning ".DBData::$fedLeaderMUID);
+				$columm=DBData::$permissionFedLeader;break;
+			case 3: $leader=$this->returnInsertQuery(DBData::getClubLeaderTable(),"*","default,".$leaderID.",(select ".DBData::$mainUserID." from userInsert)","returning ".DBData::$clubLeaderMUID);
+				$columm=DBData::$permissionClubLeader;break;
+		}
+		$query ="with email as (
+						".$this->returnInsertQuery(DBData::getEmailDataTable(),
+						"*",
+						"default,'".$email."'",
+						"returning ".DBData::$emailDataID)."
+					),
+					telefon as (
+						".$this->returnInsertQuery(DBData::getTelefonDataTable(),
+						"*",
+						"default,'".$tel."'",
+						"returning ".DBData::$telefonDataID)."
+					),
+					".($fax!=''?"
+					fax as (
+						".$this->returnInsertQuery(DBData::getTelefonDataTable(),
+						"*",
+						"default,'".$tel."'",
+						"returning ".DBData::$telefonDataID)."
+					),
+					":"")."
+					userInsert as (
+						 ".$this->returnInsertQuery(DBData::getMainUserTable(),
+						"*",
+						"default,".$type.",
+						(select ".DBData::$emailDataID." from email),
+						(select ".DBData::$telefonDataID." from telefon),
+                        '".$name."',null,
+                        true,NOW(),NOW()",
+						"returning ".DBData::$mainUserID)."
+					),
+					perm as (
+						".$this->returnInsertQuery(DBData::getPermissionTable(),
+						DBData::$permissionMainUserID.",".DBData::$permissionVisitor,
+						"(select ".DBData::$mainUserID." from userInsert),
+						TRUE")."
+					),
+					postalAdd as (
+						".$this->returnInsertQuery(DBData::getPostalAddDataTable(),
+						"*",
+						"default,".$pCode.",
+						'".$pTown."','".$pStreet."'",
+						"returning ".DBData::$postalAddID)."
+					),
+					orgData as (
+						".$this->returnInsertQuery(DBData::getOrganizationTable(),
+						"*",
+						"default, (select ".DBData::$mainUserID." from userInsert),
+						'".$shortName."',
+						'".$regNum."',
+						(select ".DBData::$postalAddID." from postalAdd),
+						".($fax!=''?"(select ".DBData::$telefonDataID." from fax)":"null").",
+						".($website!=''?$website:"null").",
+						".($title!=''?$title:"null").",
+						'".$taxNum."'",
+						"returning ".DBData::$orgID)."
+					),
+					leader as (
+						".$leader."
+					)
+					".$this->returnUpdateQuery(DBData::getPermissionTable(),
+								$columm."=true",
+								DBData::$permissionMainUserID."=(select * from leader)");
+		/*
+		//self::regUser($name,$type,$email,$tel,"null");
+		$id = $this->getMainUserSeqCurrVal();
+		$query ="with postal as (
+			".$this->returnInsertQuery(DBData::getPostalAddDataTable(),"*",
+						"default,".$pCode.",'".$pTown."','".$pStreet."'","returning ".DBData::$postalAddID)."
+		),".($fax!=null?" telefon as (
+			".$this->returnInsertQuery(DBData::getTelefonDataTable(),
+						"*",
+						"default,'".$fax."'",
+						"returning ".DBData::$telefonDataID)."
+		)
+		":"")." org as (
+			".$this->returnInsertQuery(DBData::getOrganizationTable(),"*",
+						"default,(select last_value from data.main_user_seq),'".$shortName."','".$regNum."',(select ".DBData::$postalAddID." from postal)
+						,".($fax!=null?"(select ".DBData::$telefonDataID." from telefon)":"null").",'".$website."','".$title."'
+						,'".$taxNum."'","returning ".DBData::$orgID)."
+		)".$leader;
+		*/
+		$this->Connect();
+		$temp = $this->sql($query);
+		$this->ConnClose();
+		return $temp;
+	}
+	public function regUser($name,$type,$email,$tel,$pass){
 		$this->Connect();
 		$query = "with email as (
             ".$this->returnInsertQuery(DBData::getEmailDataTable(),
@@ -111,14 +222,11 @@ class DBTasks extends Database
         ),
         userInsert as (
                ".$this->returnInsertQuery(DBData::getMainUserTable(),"*",
-						"default,1,(select ".DBData::$emailDataID." from email),(select ".DBData::$telefonDataID." from telefon),
+						"default,".$type.",(select ".DBData::$emailDataID." from email),(select ".DBData::$telefonDataID." from telefon),
                 '".$name."','".md5($pass)."',true,NOW(),NOW()","returning ".DBData::$mainUserID)."
-        ),
-        permission as (".$this->returnInsertQuery(DBData::getPermissionTable(),DBData::$permissionMainUserID
-						,"(select ".DBData::$mainUserID." from userInsert)")."
         )
-        ".$this->update(DBData::getPermissionTable(),DBData::$permissionVisitor."=TRUE",
-						DBData::$permissionMainUserID."=(select".DBData::$mainUserID." from userInsert)");
+        ".$this->returnInsertQuery(DBData::getPermissionTable(),DBData::$permissionMainUserID.",".DBData::$permissionVisitor
+						,"(select ".DBData::$mainUserID." from userInsert),TRUE");
 		$temp = $this->sql($query);
 		$this->ConnClose();
 

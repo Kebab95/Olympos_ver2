@@ -19,6 +19,9 @@
   .inBody {
     width: auto; }
 
+  .formWidth {
+    width: 90%; }
+
   .my-custom-nav .navbar-collapse .navbar-nav > li {
     padding-left: 15px !important; }
 

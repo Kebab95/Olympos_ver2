@@ -1,7 +1,23 @@
 <?php
 class Main
 {
-	private $id,$name,$email,$password,$telefon,$type;
+	private $id,$name,$email,$password,$telefon,$type,$bdate;
+
+	/**
+	 * @return mixed
+	 */
+	public function getBdate()
+	{
+		return $this->bdate;
+	}
+
+	/**
+	 * @param mixed $bdate
+	 */
+	public function setBdate($bdate)
+	{
+		$this->bdate = $bdate;
+	}
 
 	/**
 	 * @return mixed

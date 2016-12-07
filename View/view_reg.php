@@ -2,8 +2,9 @@
 	<div class="container text-center regWelcome success">
 		<h1>Regisztráció</h1>
 	</div>
+
 	<div class="row">
-		<form id="regForm" class="regInputs center-block text-center" method="post" >
+		<form id="regForm" class="regInputs center-block text-center " method="post" >
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-xs-4 col-md-4">
