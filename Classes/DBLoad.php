@@ -8,12 +8,21 @@ class DBLoad
 	 */
 	private static $DBTasks;
 
-	public static function init(){
+	private static function getDBTasks(){
+		if(self::$DBTasks == null){
+			self::init();
+			return self::$DBTasks;
+		}
+		else {
+			return self::$DBTasks;
+		}
+	}
+	private static function init(){
 		self::$DBTasks= new DBTasks();
 	}
 
 	public static function loadUser($id){
-		$row = self::$DBTasks->select(DBData::getMainUserTable(),
+		$row = self::getDBTasks()->select(DBData::getMainUserTable(),
 			"*",
 			DBData::$mainUserID." = ".$id." AND ".DBData::$mainUserActive."=true" ,
 			"INNER JOIN ".DBData::getEmailDataTable()." ON
@@ -49,7 +58,7 @@ class DBLoad
 					//echo $orgTable;
 					break;
 			}
-			$result = self::$DBTasks->selectGetResult($orgTable." as orgD",DBData::$mainUserID,
+			$result = self::getDBTasks()->selectGetResult($orgTable." as orgD",DBData::$mainUserID,
 				$orgMUID."=".$leaderMUID." and ".DBData::$mainUserActive."=true",
 				"inner join ".DBData::getMainUserTable()." as muD on
 					orgD.".$orgID."=muD.".DBData::$mainUserID);
@@ -96,7 +105,7 @@ class DBLoad
 		}
 	}
 	public static function loadAllFed(){
-		$result = self::$DBTasks->selectGetResult(DBData::getMainUserTable(),DBData::$mainUserID,DBData::$mainUserType."=2 AND ".DBData::$mainUserActive."=true");
+		$result = self::getDBTasks()->selectGetResult(DBData::getMainUserTable(),DBData::$mainUserID,DBData::$mainUserType."=2 AND ".DBData::$mainUserActive."=true");
 		$allClub = array();
 		while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
 			//echo $row[DBData::$mainUserID];
@@ -106,7 +115,7 @@ class DBLoad
 	}
 
 	public static function loadAllClub(){
-		$result = self::$DBTasks->selectGetResult(DBData::getMainUserTable(),DBData::$mainUserID,DBData::$mainUserType."=3 AND ".DBData::$mainUserActive."=true");
+		$result = self::getDBTasks()->selectGetResult(DBData::getMainUserTable(),DBData::$mainUserID,DBData::$mainUserType."=3 AND ".DBData::$mainUserActive."=true");
 		$allClub = array();
 		while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
 			//echo $row[DBData::$mainUserID];
@@ -116,7 +125,7 @@ class DBLoad
 	}
 
 	public static function loadOrg($muID){
-		$test = self::$DBTasks->select(DBData::getMainUserTable(),DBData::$mainUserType,DBData::$mainUserID."=".$muID);
+		$test = self::getDBTasks()->select(DBData::getMainUserTable(),DBData::$mainUserType,DBData::$mainUserID."=".$muID);
 		if($test[DBData::$mainUserType] ==2 || $test[DBData::$mainUserType] ==3 || $test===TRUE){
 			$typeNum =$test[DBData::$mainUserType];
 
@@ -166,7 +175,7 @@ class DBLoad
 
 	}
 	public static function loadUserOrgMember($userID){
-		$result = self::$DBTasks->selectGetResult(DBData::getClubMemberHistoryTable(),DBData::$chClubID,
+		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable(),DBData::$chClubID,
 			DBData::$chMemberID."=".$userID." AND ".DBData::$chCurrent."=true");
 		if($result != null){
 			$temp = array();
@@ -184,7 +193,7 @@ class DBLoad
 		}
 	}
 	public static function loadLoginUser($email, $pass){
-		$row = self::$DBTasks->select(DBData::getMainUserTable(),
+		$row = self::getDBTasks()->select(DBData::getMainUserTable(),
 			"*",
 			DBData::$emailDataAdd." LIKE '".$email."' AND ".DBData::$mainUserActive."=true AND
             ".DBData::$mainUserPass." LIKE '".md5($pass)."'" ,
@@ -196,12 +205,12 @@ class DBLoad
                             ".DBData::getTelefonDataTable().".".DBData::$telefonDataID);
 		$user = new User($row);
 
-		$user =self::$DBTasks->refreshUserPermission($user);
+		$user =self::getDBTasks()->refreshUserPermission($user);
 		return $user;
 
 	}
 	public static function loadClubMember($clubID){
-		$result = self::$DBTasks->selectGetResult(DBData::getClubMemberHistoryTable()." as mh",DBData::$mainUserID,
+		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable()." as mh",DBData::$mainUserID,
 			DBData::$chClubID."=".$clubID." AND ".DBData::$chCurrent."=true",
 			"join ".DBData::getMainUserTable()." as mu on
 				mh.".DBData::$chMemberID." = mu.".DBData::$mainUserID);
