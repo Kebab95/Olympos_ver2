@@ -17,7 +17,7 @@ if(Tasks::isLoggedUser()){
 			"title" =>"Egyesületek"
 	);
 	$navBarItems["Comp"] = array(
-		"href" =>"?nav=races",
+		"href" =>"?race=list",
 		"title" =>"Versenyek"
 
 	);

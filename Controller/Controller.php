@@ -142,6 +142,35 @@ else if(isset($_GET["nav"])){
 			include "View/view_default.php";
 	}
 }
+elseif(isset($_GET["race"])){
+	switch($_GET["race"]){
+		case "create":
+			if(Tasks::isLoggedUser()){
+				include "Model/model_defaultUserVerification.php";
+				//include "Model/Races/model_racesPage.php";
+				$inBody = "View/Races/view_raceCreate.php";
+				include "View/view_default.php";
+			}
+			else {
+				header_remove();
+				header("Location: ?nav=405");
+			}
+			break;
+		case "list":
+			if(Tasks::isLoggedUser()){
+				include "Model/model_defaultUserVerification.php";
+				include "Model/Races/model_racesPage.php";
+				$inBody = "View/Races/view_racesPage.php";
+				include "View/view_default.php";
+			}
+			else {
+				header_remove();
+				header("Location: ?nav=405");
+			}
+			break;
+	}
+
+}
 else if(isset($_GET["profile"])){
 	include 'Model/model_defaultUserVerification.php';
 	include 'Model/model_profile.php';
