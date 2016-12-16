@@ -1,6 +1,15 @@
 <?php
 if($fedLeader){
-
+	?>
+	<div class="regInputs center-block text-center">
+		<div class="col-md-6 col-xs-6">
+			<strong>Egyesület Név</strong>
+		</div>
+		<div class="col-md-6 col-xs-6">
+			<input type="text" class="form-control" value="<?php echo $fedName?>">
+		</div>
+	</div>
+	<?php
 }
 else {
 ?>

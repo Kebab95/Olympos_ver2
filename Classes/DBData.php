@@ -1,6 +1,16 @@
 <?php
 class DBData
 {
+	//Function neve
+
+	public static function getEmailFunction($var){
+		return self::getDataSchema().".\"emailExistFoo\"('".$var."')";
+	}
+	public static function getTelefonFunction($var){
+		return self::getDataSchema().".\"telefonExistFoo\"('".$var."')";
+	}
+
+
 	private static $dataSchema="data";
 	private static $orgSchema ="org";
 
@@ -117,12 +127,17 @@ class DBData
 
 	//Postal Address data tábla poszlop nevei
 	static $postalAddID="pad_id";
+	static $postalAddPCode ="pad_pcode";
+	static $postalAddTown="pad_town";
+	static $postalAddStreet="pad_street";
 
 	//Fed leader table oszlop nevei
 	static $fedLeaderID ="fl_id";
+	static $fedLeaderFEDID ="fl_fed_id";
 	static $fedLeaderMUID ="fl_mu_id";
 
 	//Org leader table oszlop nevei
 	static $clubLeaderID ="cl_id";
+	static $clubLeaderCLUBID="cl_club_id";
 	static $clubLeaderMUID ="cl_mu_id";
 }

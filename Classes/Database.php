@@ -81,7 +81,7 @@ class Database
 		}
 
 	}
-	protected function selectGetResult($tableName, $columns, $where,$innerjoin=null, $etc = ""){
+	public function selectGetResult($tableName, $columns, $where,$innerjoin=null, $etc = ""){
 		$this->Connect();
 		$back = $this->sql("SELECT ".$columns." FROM " . $tableName .($innerjoin !=null?" ".$innerjoin:"").($where !=null?" WHERE " . $where . " ":"")  . $etc . ";");
 		$this->ConnClose();
@@ -98,12 +98,18 @@ class Database
 		return "INSERT INTO ".$tableName.(strcmp($columns,'*')==0?"":" ( ".$columns." ) ")." VALUES ( ".$values." ) ".$etc;
 	}
 	public function insert($tableName, $columns, $values, $etc = ""){
-		return $this->sql(self::returnInsertQuery($tableName,$columns,$values,$etc));
+		$this->Connect();
+		$back = $this->sql(self::returnInsertQuery($tableName,$columns,$values,$etc).";");
+		$this->ConnClose();
+		return $back;
 	}
 	public function returnUpdateQuery($tableName, $values, $where, $etc = ""){
 		return "UPDATE ".$tableName." SET ".$values." WHERE ".$where." ".$etc.";";
 	}
 	public function update($tableName, $values, $where, $etc = ""){
-		return $this->sql("UPDATE ".$tableName." SET ".$values." WHERE ".$where." ".$etc.";");
+		$this->Connect();
+		$back = $this->sql("UPDATE ".$tableName." SET ".$values." WHERE ".$where." ".$etc.";");
+		$this->ConnClose();
+		return $back;
 	}
 }

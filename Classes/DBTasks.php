@@ -7,8 +7,8 @@ class DBTasks extends Database
 	}
 	public function checkEmailPass($email,$pass){
 		$result = $this->selectGetResult(DBData::getMainUserTable(),
-			DBData::$emailDataAdd,DBData::$emailDataAdd." LIKE '".$email."' AND ".DBData::$mainUserActive."=true AND
-            ".DBData::$mainUserPass." LIKE '".md5($pass)."'" ,
+			DBData::$emailDataAdd,DBData::$emailDataAdd." = '".$email."' AND
+            ".DBData::$mainUserPass." = '".md5($pass)."'" ,
 			"INNER JOIN ".DBData::getEmailDataTable()." ON
                                     ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
                                     ".DBData::getEmailDataTable().".".DBData::$emailDataID);
@@ -20,11 +20,8 @@ class DBTasks extends Database
 		}
 	}
 	public function checkEmail($email){
-		$result = $this->selectGetResult(DBData::getMainUserTable(),
-			DBData::$emailDataAdd,DBData::$emailDataAdd." LIKE '".$email."' AND ".DBData::$mainUserActive."=true",
-			"INNER JOIN ".DBData::getEmailDataTable()." ON
-                                    ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
-                                    ".DBData::getEmailDataTable().".".DBData::$emailDataID);
+		$result = $this->selectGetResult(DBData::getEmailDataTable(),
+			DBData::$emailDataAdd,DBData::$emailDataAdd." = '".$email."'");
 		if(pg_num_rows($result)>0){
 			return true;
 		}
@@ -32,23 +29,29 @@ class DBTasks extends Database
 			return false;
 		}
 	}
-	public function loadLoginUser($email, $pass){
-		$row = $this->select(DBData::getMainUserTable(),
-			"*",
-			DBData::$emailDataAdd." LIKE '".$email."' AND ".DBData::$mainUserActive."=true AND
-            ".DBData::$mainUserPass." LIKE '".md5($pass)."'" ,
-			"INNER JOIN ".DBData::getEmailDataTable()." ON
-                            ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
-                            ".DBData::getEmailDataTable().".".DBData::$emailDataID."
-            INNER JOIN ".DBData::getTelefonDataTable()." ON
-                            ".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."=
-                            ".DBData::getTelefonDataTable().".".DBData::$telefonDataID);
-		$user = new User($row);
+	public function joinClub($clubID,$memberID){
+		$query = $this->insert(DBData::getClubMemberHistoryTable(),"*","default,".$clubID.",".$memberID.",true,NOW(),NOW()");
 
-		$user =$this->refreshUserPermission($user);
-		return $user;
+		if($query){
+			$temp = $this->update(DBData::getPermissionTable(),DBData::$permissionMember."=true",DBData::$permissionMainUserID."=$memberID");
+			return $temp;
 
+		}
+		else {
+			return $query;
+		}
+
+		/*
+		$row = $this->insert(DBData::getClubMemberHistoryTable(),"*","default,".$clubID.",".$memberID.",true,NOW(),NOW()","RETURNING ".DBData::$chID);
+		if(is_null($row)){
+			return false;
+		}
+		else {
+			return true;
+		}
+		*/
 	}
+
 	public function refreshUserPermission(User $user){
 		$perQuery = $this->select(DBData::getPermissionTable(),"*",
 			DBData::$permissionMainUserID."=".$user->getId());
@@ -92,6 +95,17 @@ class DBTasks extends Database
 			return false;
 		}
 	}
+
+
+	/**
+	 * @param $leaderMUID
+	 * @param $type
+	 */
+
+
+
+
+	/*
 	public function loadUser($id){
 		$row = $this->select(DBData::getMainUserTable(),
 				"*",
@@ -102,14 +116,18 @@ class DBTasks extends Database
             INNER JOIN ".DBData::getTelefonDataTable()." ON
                             ".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."=
                             ".DBData::getTelefonDataTable().".".DBData::$telefonDataID);
-		$user = new User($row);
+		if($row){
+			$user = new User($row);
 
-		$user =$this->refreshUserPermission($user);
-		return $user;
+			$user =$this->refreshUserPermission($user);
+			return $user;
+		}
+		else {
+			return null;
+		}
+
 	}
-	private function getMainUserSeqCurrVal(){
-		return self::select(DBData::getMainUserSeq(),"last_value",null);
-	}
+	*/
 	public function insertOrganization($leaderID, $name, $type, $shortName, $email, $tel, $fax, $regNum, $taxNum, $pCode, $pTown, $pStreet, $website, $title)
 	{
 		$leader ="";
@@ -121,23 +139,14 @@ class DBTasks extends Database
 				$columm=DBData::$permissionClubLeader;break;
 		}
 		$query ="with email as (
-						".$this->returnInsertQuery(DBData::getEmailDataTable(),
-						"*",
-						"default,'".$email."'",
-						"returning ".DBData::$emailDataID)."
+						select * from ".DBData::getEmailFunction($email)." as ".DBData::$emailDataID."
 					),
 					telefon as (
-						".$this->returnInsertQuery(DBData::getTelefonDataTable(),
-						"*",
-						"default,'".$tel."'",
-						"returning ".DBData::$telefonDataID)."
+						select * from ".DBData::getTelefonFunction($tel)." as ".DBData::$telefonDataID."
 					),
 					".($fax!=''?"
 					fax as (
-						".$this->returnInsertQuery(DBData::getTelefonDataTable(),
-						"*",
-						"default,'".$tel."'",
-						"returning ".DBData::$telefonDataID)."
+						select * from ".DBData::getTelefonFunction($fax)." as ".DBData::$telefonDataID."
 					),
 					":"")."
 					userInsert as (
@@ -149,12 +158,6 @@ class DBTasks extends Database
                         '".$name."',null,
                         true,NOW(),NOW()",
 						"returning ".DBData::$mainUserID)."
-					),
-					perm as (
-						".$this->returnInsertQuery(DBData::getPermissionTable(),
-						DBData::$permissionMainUserID.",".DBData::$permissionVisitor,
-						"(select ".DBData::$mainUserID." from userInsert),
-						TRUE")."
 					),
 					postalAdd as (
 						".$this->returnInsertQuery(DBData::getPostalAddDataTable(),
@@ -209,16 +212,10 @@ class DBTasks extends Database
 	public function regUser($name,$type,$email,$tel,$pass){
 		$this->Connect();
 		$query = "with email as (
-            ".$this->returnInsertQuery(DBData::getEmailDataTable(),
-						"*",
-						"default,'".$email."'",
-						"returning ".DBData::$emailDataID)."
+			select * from ".DBData::getEmailFunction($email)." as ".DBData::$emailDataID."
         ),
         telefon as (
-            ".$this->returnInsertQuery(DBData::getTelefonDataTable(),
-						"*",
-						"default,'".$tel."'",
-						"returning ".DBData::$telefonDataID)."
+            select * from ".DBData::getTelefonFunction($tel)." as ".DBData::$telefonDataID."
         ),
         userInsert as (
                ".$this->returnInsertQuery(DBData::getMainUserTable(),"*",

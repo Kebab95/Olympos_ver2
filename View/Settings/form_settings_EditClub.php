@@ -1,6 +1,15 @@
 <?php
 if($clubleader){
-
+	?>
+		<div class="regInputs center-block text-center">
+			<div class="col-md-6 col-xs-6">
+				<strong>Egyesület Név</strong>
+			</div>
+			<div class="col-md-6 col-xs-6">
+				<input type="text" class="form-control" value="<?php echo $clubName?>">
+			</div>
+		</div>
+	<?php
 }
 else{
 	if($clubMember){
@@ -14,7 +23,7 @@ else{
 
 			<input type="submit" class="btn btn-default" name="createClub" value="Új létrehozása">
 			<br><br>Csatlakozás meglévőhöz<br>
-			<input type="submit" class="btn btn-info" value="Keresés">
+			<a href="?nav=club"><input type="button" class="btn btn-info" value="Keresés"></a>
 
 		</div>
 		<?php

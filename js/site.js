@@ -1,7 +1,11 @@
 $('#passValAlert1').hide();
-
 $(document).ready(function() {
-
+    if(document.getElementsByClassName("cursor")[0].getAttribute("aria-expanded") =="false") {
+        //timer = setInterval(RunUpdate, 3000); // Run once every 0.3 seconds
+    }
+    else {
+        //clearInterval(timer);
+    }
     function setHeight() {
         windowHeight = $(window).innerHeight();
         $('.body').css('min-height', windowHeight-10);
@@ -13,7 +17,7 @@ $(document).ready(function() {
     });
     $(".search").keyup(function () {
         var searchTerm = $(".search").val();
-        var listItem = $('.results tbody').children('tr');
+        var listItem = $('.results tbody').children('tr').children('td:not(.qwe)');
         var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
 
         $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
@@ -30,12 +34,37 @@ $(document).ready(function() {
         });
 
         var jobCount = $('.results tbody tr[visible="true"]').length;
-        $('.counter').text(jobCount + ' item');
+        $('.counter').text(jobCount + ' találat');
 
         if(jobCount == '0') {$('.no-result').show();}
         else {$('.no-result').hide();}
     });
 });
+function RunUpdate() {
+    if(document.getElementsByClassName("cursor")[0].getAttribute("aria-expanded") =="false") {
+        console.log("Lefutott");
+
+    }
+
+
+}
+function orgJoinSubmit(){
+    $('#orgJoin').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: 'model/OrgPage/model_joinOrg.php',
+            type: 'POST',
+            data: $('#orgJoin').serialize(),
+            dataType: 'html'
+        }).done(function(data){
+            window.location.href = "?nav=home";
+            alert("Csatlakozási szándékát elküldtük");
+            $('.testDropD').load('js/refreshData.php');
+        }).fail(function(){
+            alert('Ajax Submit Failed ...');
+        });
+    });
+}
 function asd(){
     $('#regForm').submit(function(e){
 
@@ -50,7 +79,7 @@ function asd(){
             })
         ;
         $.ajax({
-                url: 'model/model_regSubmit.php',
+                url: 'Model/model_regSubmit.php',
                 type: 'POST',
                 data: $('#regForm').serialize(), // it will serialize the form data
                 dataType: 'html'

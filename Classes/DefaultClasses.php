@@ -38,7 +38,7 @@ class Main
 	/**
 	 * @param mixed $id
 	 */
-	protected function setId($id)
+	protected function setId(int $id)
 	{
 		$this->id = $id;
 	}

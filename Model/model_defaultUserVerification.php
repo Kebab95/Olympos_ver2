@@ -3,20 +3,24 @@ $siteTitle = "Olympos";
 $navBarTitle = "Olympos";
 $footerText = "Olymposról";
 
-$navBarItems = array(
-		"Organization" => array(
-				"href" =>"?nav=fed",
-				"title" =>"Szövetségek"
-		),
-		"Club" => array(
-				"href" =>"?nav=club",
-				"title" =>"Egyesületek"
-		)
-);
+$navBarItems = array();
 /** @var $obj User */
 if(Tasks::isLoggedUser()){
 	$obj = $_SESSION["User"];
-	$_SESSION["User"] = $DBTasks->loadUser($obj->getId());
+	$_SESSION["User"] = DBLoad::loadUser($obj->getId());
+	$navBarItems["Organization"] =array(
+			"href" =>"?nav=fed",
+			"title" =>"Szövetségek"
+	);
+	$navBarItems["Club"] =array(
+			"href" =>"?nav=club",
+			"title" =>"Egyesületek"
+	);
+	$navBarItems["Comp"] = array(
+		"href" =>"?nav=races",
+		"title" =>"Versenyek"
+
+	);
 	$userName = $obj->getName();
 
 
@@ -31,8 +35,15 @@ if(Tasks::isLoggedUser()){
 			"title"=>"Beállítás"
 		)
 	);
+	if($obj->isClubLeader() || $obj->isMember()){
+		$userDropbox["Clubdata"] = array(
+				"href" =>"?nav=myclub",
+				"title" =>"Szövetségi Tagság"
+		);
+	}
 	if($obj->isAdmin()){
-	    array_push($userDropbox["Users"],array("href"=>"#","title" =>"Users"));
+		$userDropbox["Users"]=array("href"=>"#","title" =>"Users");
+	    //array_push($userDropbox["Users"],array("href"=>"#","title" =>"Users"));
 	}
 	if($obj->isVisitor()){
 		$userDropbox["Inbox"] = array("href"=>"#","title"=>"Inbox");
@@ -44,3 +55,7 @@ else{
 	$userName = 'Belépés';
 	$userDropbox ="View/Login/form_login.php";
 }
+$navBarItems["About"] = array(
+		"href" =>"?nav=about",
+		"title" =>"Rólunk"
+);

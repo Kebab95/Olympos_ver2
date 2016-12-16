@@ -63,3 +63,8 @@ body{
     overflow:auto;
     padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
+
+#textVerticalAlign{
+    vertical-align: middle;
+    float: none;
+}

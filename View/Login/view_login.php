@@ -8,7 +8,7 @@ else {
     $pass="";
 }
 if($DBTasks->checkEmailPass($email,$pass)){
-    $_SESSION["User"]=$DBTasks->loadLoginUser($email,$pass);
+    $_SESSION["User"]=DBLoad::loadLoginUser($email,$pass);
     header_remove();
     header("Location: ?nav=home");
 }
@@ -18,7 +18,7 @@ else {
             <strong>Hiba!</strong> Sikertelen belépés!<br/>
             <div class="help-block">Nem létező email cím vagy rossz jelszó</div>
         </div>
-        <form method="post" action="?nav=login" class="navbar-form regInputs">
+        <form method="post" action="?nav=login" class="navbar-form center-block">
             <div class="row regInputs center-block">
                 <div class="col-md-4">
                     Email cím

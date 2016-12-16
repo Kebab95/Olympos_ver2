@@ -37,10 +37,11 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="?nav=home"><?php echo $navBarTitle?></a>
 			</div>
-			<div class="navbar-right navbar-text cursor" data-toggle="dropdown" data-target="#navBar-dropdown">
+			<div class="navbar-right navbar-text cursor dropdown-toggle" data-toggle="dropdown" data-target="#navBar-dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 				<?php
 				echo $userName;
 				?>
+				<span class="caret"></span>
 			</div>
 
 			<div class="collapse navbar-collapse">
@@ -52,9 +53,12 @@
 					?>
 				</ul>
 			</div>
+			<div class="testDropD">
 			<ul class="nav navbar-nav  navbar-right">
 				<li class="dropdown" id="navBar-dropdown">
+
 					<ul class="dropdown-menu">
+
 						<?php
 						if(is_array($userDropbox)) {
 							foreach ($userDropbox as $key => $item) {
@@ -70,8 +74,10 @@
 						}
 						?>
 					</ul>
+
 				</li>
 			</ul>
+			</div>
 		</div>
 
 	</nav>
