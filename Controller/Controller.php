@@ -114,6 +114,17 @@ else if(isset($_GET["nav"])){
 				include "View/view_default.php";
 			}
 			else{
+
+			}
+			break;
+		case 'races':
+			if(Tasks::isLoggedUser()){
+				include "Model/model_defaultUserVerification.php";
+				include "Model/Races/model_racesPage.php";
+				$inBody = "View/Races/view_racesPage.php";
+				include "View/view_default.php";
+			}
+			else {
 				header_remove();
 				header("Location: ?nav=405");
 			}

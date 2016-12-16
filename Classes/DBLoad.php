@@ -17,7 +17,7 @@ class DBLoad
 			return self::$DBTasks;
 		}
 	}
-	private static function init(){
+	public static function init(){
 		self::$DBTasks= new DBTasks();
 	}
 
