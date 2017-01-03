@@ -22,6 +22,10 @@
   .formWidth {
     width: 90%; }
 
+  .panel {
+    margin-bottom: auto;
+    width: auto; }
+
   .my-custom-nav .navbar-collapse .navbar-nav > li {
     padding-left: 15px !important; }
 

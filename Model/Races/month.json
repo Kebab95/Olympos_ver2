@@ -1,0 +1,14 @@
+[
+  {"CODE":"01","NAMEVAR":"Január"},
+  {"CODE":"02","NAMEVAR":"Február"},
+  {"CODE":"03","NAMEVAR":"Március"},
+  {"CODE":"04","NAMEVAR":"Áprlis"},
+  {"CODE":"05","NAMEVAR":"Május"},
+  {"CODE":"06","NAMEVAR":"Június"},
+  {"CODE":"07","NAMEVAR":"Július"},
+  {"CODE":"08","NAMEVAR":"Augusztus"},
+  {"CODE":"09","NAMEVAR":"Szeptember"},
+  {"CODE":"10","NAMEVAR":"Október"},
+  {"CODE":"11","NAMEVAR":"November"},
+  {"CODE":"12","NAMEVAR":"December"}
+]

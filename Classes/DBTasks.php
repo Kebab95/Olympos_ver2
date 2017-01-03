@@ -209,6 +209,67 @@ class DBTasks extends Database
 		$this->ConnClose();
 		return $temp;
 	}
+	public function createRace(array $rdJSON,array $compDJOSN){
+		/*
+		$query ="with postalAdd as (
+						".$this->returnInsertQuery(DBData::getPostalAddDataTable(),
+						"*",
+						"default,".$rdJSON["racePCode"].",
+						'".$rdJSON["racePTown"]."','".$rdJSON["racePStreet"]."'",
+						"returning ".DBData::$postalAddID)."
+					)".$this->returnInsertQuery(DBData::getRaceTable(),
+						DBData::$raceName.",".
+						DBData::$raceDesc.",".
+						DBData::$raceOrgID.",".
+						DBData::$raceLocaleID.",".
+						DBData::$raceDate.",".
+						DBData::$raceEntryFee,
+
+						"'".$rdJSON["raceName"]."',".
+						"'".$rdJSON["raceDesc"]."',".
+						$rdJSON["orgID"].",".
+						"(SELECT ".DBData::$postalAddID." FROM postalAdd),".
+						"'".$rdJSON["raceDate"]."',".
+						$rdJSON["raceFee"],
+						"returning ".DBData::$raceID);*/
+		$query = $this->returnInsertQuery(DBData::getPostalAddDataTable(),
+				"*",
+				"default,".$rdJSON[DBData::$postalAddPCode].",
+						'".$rdJSON[DBData::$postalAddTown]."','".$rdJSON[DBData::$postalAddStreet]."'",
+				"returning ".DBData::$postalAddID);
+		$this->Connect();
+		$temp = $this->sql($query);
+		if(!is_null($temp)){
+			while($row = pg_fetch_row($temp, NULL, PGSQL_ASSOC)){
+				$id = $row[DBData::$postalAddID];
+			}
+			$rdJSON[DBData::$raceLocaleID] =$id;
+			$createRaceQuery = "SELECT ".DBData::getCreateRaceFunction($rdJSON);
+
+			/*
+			 * create table competitions.%I (
+	comp_id integer default nextval("competitions.%I"),
+	comp_title char(200),
+	comp_desc char (3000),
+	comp_sex boolean
+	)','comp_'|| v_id,'comp_'||  v_id ||'_seq'
+			 */
+
+			$temp = $this->sql($createRaceQuery);
+			if(!is_null($temp)){
+
+			}
+			else {
+				throw new Exception('MySQL hiba');
+			}
+
+		}
+		else {
+			throw new Exception('MySQL hiba');
+		}
+		$this->ConnClose();
+		return $temp;
+	}
 	public function regUser($name,$type,$email,$tel,$pass){
 		$this->Connect();
 		$query = "with email as (

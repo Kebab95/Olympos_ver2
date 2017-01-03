@@ -43,7 +43,7 @@ class DBLoad
 
 	}
 
-	public static function loadOrgLeader($leaderMUID, $type){
+	public static function  loadOrgLeader($leaderMUID, $type){
 		if($type==2 || $type==3){
 			switch($type){
 				case 2:
@@ -172,6 +172,9 @@ class DBLoad
 		else {
 			return null;
 		}
+
+	}
+	public static function loadLeaderOrg(){
 
 	}
 	public static function loadUserOrgMember($userID){

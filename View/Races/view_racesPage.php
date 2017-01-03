@@ -1,4 +1,1 @@
-<form action="" method="get">
-	<input type="submit" value="Verseny készítése">
-	<input type="hidden" name="race" value="create">
-</form>
+<a href="?race=create"><button class="btn btn-default">Verseny készítése</button> </a>

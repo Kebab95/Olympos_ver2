@@ -9,10 +9,22 @@ class DBData
 	public static function getTelefonFunction($var){
 		return self::getDataSchema().".\"telefonExistFoo\"('".$var."')";
 	}
+	public static function getCreateRaceFunction(array $var){
+		return self::getRaceSchema().".\"createRace2\"(
+					'".$var[self::$raceName]."',
+					'".$var[self::$raceDesc]."',
+					".$var[self::$raceOrgID].",
+					'".$var[self::$raceDate]."',
+					".$var[self::$raceEntryFee].",
+					".$var[self::$raceLocaleID]."
+		)";
+	}
 
 
 	private static $dataSchema="data";
 	private static $orgSchema ="org";
+	private static $raceSchema="race";
+	private static $compSchema="competitions";
 
 	private static $mainUserTable ="main_user";
 	private static $mainUserSeq = "main_user_seq";
@@ -26,6 +38,8 @@ class DBData
 	private static $clubMemberHistoryTable ="club_mship_history";
 	private static $clubLeaderTable ="club_leader";
 	private static $fedLeaderTable="federation_leader";
+
+	private static $raceTable="race";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -33,6 +47,12 @@ class DBData
 	}
 	public static  function getOrgSchema(){
 		return self::$orgSchema;
+	}
+	public static function getRaceSchema(){
+		return self::$raceSchema;
+	}
+	public static function getCompSchema(){
+		return self::$compSchema;
 	}
 
 	//Tábla nevek
@@ -71,6 +91,15 @@ class DBData
 	}
 	public static function getFedLeaderTable(){
 		return self::getOrgSchema().".".self::$fedLeaderTable;
+	}
+	public static function getRaceTable(){
+		return self::getRaceSchema().".".self::$raceTable;
+	}
+	public static function getCompSeq($num){
+		return self::getCompSchema().".comp_".$num."_seq";
+	}
+	public static function getCompTable($num){
+		return self::getCompSchema().".comp_".$num;
 	}
 
 	//Main User tábla oszlop nevei
@@ -140,4 +169,14 @@ class DBData
 	static $clubLeaderID ="cl_id";
 	static $clubLeaderCLUBID="cl_club_id";
 	static $clubLeaderMUID ="cl_mu_id";
+
+	//Race table oszlop nevei
+	static $raceID="r_id";
+	static $raceOrgID="r_org_id";
+	static $raceLocaleID="r_locale_id";
+	static $raceDate="r_date";
+	static $raceEntryFee="r_entry_fee";
+	static $raceName="r_name";
+	static $raceDesc="r_desc";
+
 }

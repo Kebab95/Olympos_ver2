@@ -1,5 +1,14 @@
+jQuery.loadScript = function (url, callback) {
+    jQuery.ajax({
+        url: url,
+        dataType: 'script',
+        success: callback,
+        async: true
+    });
+}
 $('#passValAlert1').hide();
 $(document).ready(function() {
+
     if(document.getElementsByClassName("cursor")[0].getAttribute("aria-expanded") =="false") {
         //timer = setInterval(RunUpdate, 3000); // Run once every 0.3 seconds
     }
@@ -94,6 +103,7 @@ function asd(){
             });
     });
 }
+
 function passVal(){
     var pass1 = document.getElementById("regPass");
     var pass2 = document.getElementById("regPass2");

@@ -5,8 +5,13 @@
 	<title><?php echo $siteTitle?></title>
 
 	<!-- Latest compiled and minified CSS -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.14.30/js/bootstrap-datetimepicker.min.js"></script>
+
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -18,7 +23,9 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/site.js"></script>
 
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css"/>
 	<!--<link rel="stylesheet" type="text/css" href="https://bootswatch.com/yeti/bootstrap.min.css"/>!-->
 	<link rel="stylesheet" type="text/css" href="css/freelancer.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/site.css"/>

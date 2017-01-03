@@ -21,6 +21,7 @@ if(Tasks::isLoggedUser()){
 		"title" =>"Versenyek"
 
 	);
+	//echo json_encode($navBarItems);
 	$userName = $obj->getName();
 
 

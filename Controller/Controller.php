@@ -36,6 +36,7 @@ if($_POST && !isset($_POST["orgCreateSubmit"])){
 		$inBody = "View/Organization/view_modalJoinOrg.php";
 		include 'View/view_default.php';
 	}
+
 }
 else if(isset($_GET["nav"])){
 	resetSESSIONs();
@@ -147,6 +148,7 @@ elseif(isset($_GET["race"])){
 		case "create":
 			if(Tasks::isLoggedUser()){
 				include "Model/model_defaultUserVerification.php";
+				include "Model/Races/model_raceCreate.php";
 				//include "Model/Races/model_racesPage.php";
 				$inBody = "View/Races/view_raceCreate.php";
 				include "View/view_default.php";

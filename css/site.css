@@ -26,6 +26,9 @@ body{
 .no-result{
     display:none;
 }
+.asd {
+    width: 60%;
+}
 
 .results tr[visible='true']{
 
