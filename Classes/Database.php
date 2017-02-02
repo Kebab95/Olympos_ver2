@@ -112,4 +112,7 @@ class Database
 		$this->ConnClose();
 		return $back;
 	}
+	public function returnFunctionSelect($function){
+		return "SELECT ".$function;
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+$form = "View/Races/view_raceCreateForm.php";
 $year = date("Y")+10;
 
 /** @var User $user */
@@ -18,11 +19,11 @@ foreach ($UserOrg["Club"] as $item) {
 
 
 
-$raceName= DBData::$raceName;
-$raceOrgID= DBData::$raceOrgID;
-$raceDesc = DBData::$raceDesc;
+$raceName= DBData::$contestName;
+$raceOrgID= DBData::$contestOrgID;
+$raceDesc = DBData::$contestDesc;
 $racePCode = DBData::$postalAddPCode;
 $raceTown = DBData::$postalAddTown;
 $raceStreet = DBData::$postalAddStreet;
-$raceDate = DBData::$raceDate;
-$raceFee = DBData::$raceEntryFee;
+$raceDate = DBData::$contestDate;
+$raceFee = DBData::$contestEntryFee;

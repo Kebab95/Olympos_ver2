@@ -17,7 +17,7 @@ $(document).ready(function() {
     }
     function setHeight() {
         windowHeight = $(window).innerHeight();
-        $('.body').css('min-height', windowHeight-10);
+        $('.body').css('min-height', windowHeight);
     };
     setHeight();
 

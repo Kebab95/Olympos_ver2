@@ -36,6 +36,25 @@ if($_POST && !isset($_POST["orgCreateSubmit"])){
 		$inBody = "View/Organization/view_modalJoinOrg.php";
 		include 'View/view_default.php';
 	}
+	else if(isset($_POST["createRace1"])){
+		include "Model/model_defaultUserVerification.php";
+		include "Model/Races/model_raceCreateForm2.php";
+		//include "Model/Races/model_racesPage.php";
+		$inBody = "View/Races/view_raceCreatePanel.php";
+		include "View/view_default.php";
+	}
+	else if(isset($_POST["createRace2"])){
+		include "Model/model_defaultUserVerification.php";
+		include "Model/Races/model_createComp.php";
+		if(isset($error) && $error){
+			echo "Nem sikerült";
+		}
+		else {
+			header_remove();
+			header("Location: ?race=list");
+		}
+
+	}
 
 }
 else if(isset($_GET["nav"])){
@@ -148,9 +167,9 @@ elseif(isset($_GET["race"])){
 		case "create":
 			if(Tasks::isLoggedUser()){
 				include "Model/model_defaultUserVerification.php";
-				include "Model/Races/model_raceCreate.php";
+				include "Model/Races/model_raceCreateForm.php";
 				//include "Model/Races/model_racesPage.php";
-				$inBody = "View/Races/view_raceCreate.php";
+				$inBody = "View/Races/view_raceCreatePanel.php";
 				include "View/view_default.php";
 			}
 			else {

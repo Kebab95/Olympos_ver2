@@ -16,11 +16,14 @@ if(Tasks::isLoggedUser()){
 			"href" =>"?nav=club",
 			"title" =>"Egyesületek"
 	);
-	$navBarItems["Comp"] = array(
-		"href" =>"?race=list",
-		"title" =>"Versenyek"
+	if($obj->isClubLeader() || $obj->isFederationLeader()){
+		$navBarItems["Comp"] = array(
+				"href" =>"?race=list",
+				"title" =>"Versenyek"
 
-	);
+		);
+	}
+
 	//echo json_encode($navBarItems);
 	$userName = $obj->getName();
 

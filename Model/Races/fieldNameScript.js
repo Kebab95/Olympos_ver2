@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $("#createRace2").click( function(e){
+;$(document).ready(function() {/*
+    $("#raceForm2").on( "submit",function(e){
         e.preventDefault();
         // send ajax
         $.ajax({
@@ -16,75 +16,114 @@ $(document).ready(function() {
                 console.log(xhr, resp, text);
             }
         })
-    });
+    });*/
     var max_fields      = 10; //maximum input boxes allowed
+    var inputs = new Array("");
+    for (i=0;i<max_fields;i++){
+        inputs[i] = null;
+    }
+    inputs[0] = field(0);
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
     var add_button      = $(".add_field_button"); //Add button ID
 
     var x = 1; //initlal text box count
-    $(wrapper).append(field(x));
+    $(wrapper).append(inputs[0]);
     $(add_button).click(function(e){ //on add input button click
         e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-            x++; //text box increment
-            $(wrapper).append(field(x)); //add input box
+        if (countArrayNulls(inputs) >0){
+           // console.log(countArrayNulls(inputs));
+            var i = 0;
+            while (inputs.length >i && inputs[i] !=null){
+                i++;
+            }
+            inputs[i] = field(i);
+            $(wrapper).append(inputs[i]);
+            $("#compNumber").val(parseInt($("#compNumber").val())+1);
+
         }
+        else {
+            alert("Nem adhat hozzá több kategóriát!");
+        }
+
     });
 
     $(wrapper).on("click",".remove_field_button", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
+        e.preventDefault();
+        var GrpParent = $(this).parent().closest('div').attr('class').split(' ');
+        console.log(GrpParent[0]);
+        var res = parseInt(String(GrpParent[0]).replace("fieldGroup", ""));
+        console.log(res);
+        $("div."+GrpParent[0]).remove();
+        inputs[res-1] = null;
+        $("#compNumber").val(parseInt($("#compNumber").val())-1);
+        //$(this).parent('div').remove(); x--;
     })
 });
+function countArrayNulls(array){
+    var a =0;
+    array.forEach(function(entry){
+        if (entry==null){
+            a++;
+        }
+    });
+    return a;
+}
 function fieldName(num){
     var a =$('#field'+num+'in').val();
+    console.log(a);
     if(a.length>0){
-        $('#field'+num+'desc').text(a+' Leírása');
+        $('#field'+num+'type').text(a+' Típusa');
         $('#field'+num+'sex').text(a+' Nem beállítása');
         $('#field'+num+'age').text(a+' Minimum Korhatár');
     }
     else {
-        $('#field'+num+'desc').text(num+'. Verseny szám Leírása');
-        $('#field'+num+'sex').text(num+'. Verseny szám Nem beállítása');
-        $('#field'+num+'age').text(num+'. Verseny szám Minimum Korhatára');
+        $('#field'+num+'type').text('Verseny szám Típusa');
+        $('#field'+num+'sex').text('Verseny szám Nem beállítása');
+        $('#field'+num+'age').text('Verseny szám Minimum Korhatára');
     }
 
 }
 function field(num){
+    num++;
     if (num!=1){
         var btn = '<button class="btn btn-danger center-block remove_field_button">Verseny szám törlése</button>';
     }else {
         var btn="";
     }
+    var options ="";
+    myvar.forEach(function(entry){
+        options+='<option value="'+entry[0]+'">'+entry[1]+'</option>';
+    });
     return '' +
         '<div class="fieldGroup'+num+'"><hr>'+
-        '<div class="form-group row"> <label class="control-label col-md-4" id="field'+num+'lbl">'+num+'. Verseny szám neve</label>'+
-        '<div class="col-md-8">'+
-        ' <input type="text" name="egy'+num+'" class="form-control" onkeyup="fieldName('+num+')" id="field'+num+'in">'+
-        '</div>'+
-        '</div>' +
-        '<div class="form-group row">'+
-        '<label class="control-label col-md-4" id="field'+num+'desc">'+num+'. Verseny szám Leírása</label>'+
-        '<div class="col-md-8">'+
-        '<textarea class="form-control" name="ketto'+num+'" rows="4" cols="50"></textarea>'+
-        '</div>'+
-        '</div>' +
-        '<div class="form-group row">'+
-        '<label class="control-label col-md-4" id="field'+num+'sex">'+num+'. Verseny szám Nem küzdelmek</label>'+
-        '<div class="col-md-8">'+
-        '<div class="radio">'+
-        '<label><input type="radio" name="optradio">2 nem Egymás ellen</label>'+
-        '</div>'+
-        '<div class="radio">'+
-        '<label><input type="radio" name="optradio">2 nem Külön</label>'+
-        '</div>'+
-        '</div>'+
-        '</div>'+
-        '<div class="form-group row">'+
-        '<label class="control-label col-md-4" id="field'+num+'age">'+num+'. Verseny szám Minimum Korhatára</label>'+
-        '<div class="col-md-8">'+
-        '<input type="number" name="negy'+num+'" class="form-control">'+
-        '</div>'+
-        '</div>' +
-        btn+
+            '<div class="form-group row"> <label class="control-label col-md-4" id="field'+num+'lbl">Verseny szám neve</label>'+
+                '<div class="col-md-8">'+
+                ' <input type="text" name="compName'+num+'" class="form-control" required onkeyup="fieldName('+num+')" id="field'+num+'in">'+
+                '</div>'+
+            '</div>' +
+            '<div class="form-group row">'+
+                '<label class="control-label col-md-4" id="field'+num+'type">Verseny szám Típusa</label>'+
+                '<div class="col-md-8 row">' +
+        '               <div class="col-md-8">'+
+                            '<select name="compType'+num+'" class="form-control">' +
+                                '<option selected></option>' +
+                                options +
+                            '</select>' +
+        '               </div>' +
+                        '<button class="btn btn-success col-md-4" name="newCompType">Típus hozzáadása</button>' +
+                '</div>'+
+            '</div>' +
+            '<div class="form-group row">'+
+                '<label class="control-label col-md-4" id="field'+num+'sex">Verseny szám Nem beállítása</label>'+
+                '<div class="col-md-8">'+
+                    '<div class="radio">'+
+                        '<label><input type="radio" name="compSex'+num+'" value="0">2 nem Egymás ellen</label>'+
+                    '</div>'+
+                    '<div class="radio">'+
+                        '<label><input type="radio" name="compSex'+num+'" value="1">2 nem Külön</label>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+            btn+
         '</div>';
 }

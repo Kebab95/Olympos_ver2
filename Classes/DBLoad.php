@@ -174,9 +174,78 @@ class DBLoad
 		}
 
 	}
-	public static function loadLeaderOrg(){
-
+	public static function loadOrgCompTypes($compID){
+		$result = self::getDBTasks()->selectGetResult("contest.comp_types","id,name","mu_id=".$compID);
+		if($result!=null){
+			$temp  = array();
+			$i =0;
+			while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
+				$temp[$i] = array($row["id"],$row["name"]);
+				$i++;
+			}
+			return $temp;
+		}
+		else {
+			return $result;
+		}
 	}
+
+	/**
+	 * @param $leaderID
+	 * @return bool
+	 */
+	public static function loadLeaderContests($leaderID){
+		$leader = self::loadUser($leaderID);
+		if($leader!=null){
+			$ordArray = array();
+			if($leader->isClubLeader()){
+				$clubs = self::loadOrgLeader($leader->getId(),3);
+
+				/** @var Organization $item */
+				foreach ($clubs as $item) {
+					array_push($ordArray,$item->getId());
+				}
+			}
+			if($leader->isFederationLeader()){
+				$fed = self::loadOrgLeader($leader->getId(),2);
+
+				/** @var Organization $item */
+				foreach ($fed as $item) {
+					array_push($ordArray,$item->getId());
+				}
+			}
+			if(count($ordArray)>0){
+			    $whereOrgString ="(";
+				$i=0;
+				while((count($ordArray)-1)>$i){
+					$whereOrgString.="org_id=".$ordArray[$i]." OR ";
+					$i++;
+				}
+				$whereOrgString.="org_id=".$ordArray[$i].")";
+
+				$result =self::$DBTasks->selectGetResult("contest.contest","*","delete=false AND ".$whereOrgString);
+				if($result!=null){
+					$temp  = array();
+					$i =0;
+					while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
+						$temp[$i] = array(
+								$row["id"],
+								$row["name"],
+								$row["description"]);
+						$i++;
+					}
+					return $temp;
+				}
+				else {
+					return $result;
+				}
+			}
+			}
+			else{
+				return null;
+			}
+		}
+
 	public static function loadUserOrgMember($userID){
 		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable(),DBData::$chClubID,
 			DBData::$chMemberID."=".$userID." AND ".DBData::$chCurrent."=true");

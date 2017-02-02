@@ -9,21 +9,23 @@ class DBData
 	public static function getTelefonFunction($var){
 		return self::getDataSchema().".\"telefonExistFoo\"('".$var."')";
 	}
-	public static function getCreateRaceFunction(array $var){
-		return self::getRaceSchema().".\"createRace2\"(
-					'".$var[self::$raceName]."',
-					'".$var[self::$raceDesc]."',
-					".$var[self::$raceOrgID].",
-					'".$var[self::$raceDate]."',
-					".$var[self::$raceEntryFee].",
-					".$var[self::$raceLocaleID]."
+	public static function getCreateContestFunction(array $var){
+		return self::getContestSchema().".\"createContest\"(
+					'".$var[self::$contestName]."',
+					'".$var[self::$contestDate]."',
+					".$var[self::$contestEntryFee].",
+					'".$var[self::$contestDesc]."',
+					'".$var[self::$postalAddPCode]."',
+					'".$var[self::$postalAddTown]."',
+					'".$var[self::$postalAddStreet]."',
+					".$var[self::$contestOrgID]."
 		)";
 	}
 
 
 	private static $dataSchema="data";
 	private static $orgSchema ="org";
-	private static $raceSchema="race";
+	private static $contestSchema="contest";
 	private static $compSchema="competitions";
 
 	private static $mainUserTable ="main_user";
@@ -48,8 +50,8 @@ class DBData
 	public static  function getOrgSchema(){
 		return self::$orgSchema;
 	}
-	public static function getRaceSchema(){
-		return self::$raceSchema;
+	public static function getContestSchema(){
+		return self::$contestSchema;
 	}
 	public static function getCompSchema(){
 		return self::$compSchema;
@@ -93,7 +95,7 @@ class DBData
 		return self::getOrgSchema().".".self::$fedLeaderTable;
 	}
 	public static function getRaceTable(){
-		return self::getRaceSchema().".".self::$raceTable;
+		return self::getContestSchema().".".self::$raceTable;
 	}
 	public static function getCompSeq($num){
 		return self::getCompSchema().".comp_".$num."_seq";
@@ -172,11 +174,11 @@ class DBData
 
 	//Race table oszlop nevei
 	static $raceID="r_id";
-	static $raceOrgID="r_org_id";
-	static $raceLocaleID="r_locale_id";
-	static $raceDate="r_date";
-	static $raceEntryFee="r_entry_fee";
-	static $raceName="r_name";
-	static $raceDesc="r_desc";
+	static $contestOrgID="r_org_id";
+	static $contestLocaleID="r_locale_id";
+	static $contestDate="r_date";
+	static $contestEntryFee="r_entry_fee";
+	static $contestName="r_name";
+	static $contestDesc="r_desc";
 
 }

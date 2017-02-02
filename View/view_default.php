@@ -5,7 +5,8 @@
 	<title><?php echo $siteTitle?></title>
 
 	<!-- Latest compiled and minified CSS -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>!-->
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
 
 

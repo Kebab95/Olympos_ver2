@@ -95,12 +95,33 @@ class DBTasks extends Database
 			return false;
 		}
 	}
+	public function insertComp($compData){
+		if(is_array($compData)){
+			if(is_array($compData[0])){
+				$etcValues="";
+				for($i=1; $i<count($compData); $i++){
+				    $etcValues.=",('".$compData[$i][0]."',".$compData[$i][1].",".$compData[$i][2].",".$compData[$i][3].")";
+				}
+				if($this->insert("contest.competetions","title,type_id,sex,mu_id",
+						"'".$compData[0][0]."',".$compData[0][1].",".$compData[0][2].",".$compData[0][3],
+						$etcValues)){
+					return true;
+				}
+				else {
+					return false;
+				}
+
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
 
 
-	/**
-	 * @param $leaderMUID
-	 * @param $type
-	 */
 
 
 
@@ -209,7 +230,20 @@ class DBTasks extends Database
 		$this->ConnClose();
 		return $temp;
 	}
-	public function createRace(array $rdJSON,array $compDJOSN){
+	public function createContest(array $cdJSON){
+		$query = $this->returnFunctionSelect(DBData::getCreateContestFunction($cdJSON) ." as id");
+		$this->Connect();
+		$temp = $this->sql($query);
+		if($temp){
+			$row = pg_fetch_row($temp, NULL, PGSQL_ASSOC);
+			$this->ConnClose();
+			return $row["id"];
+		}
+		else {
+			$this->ConnClose();
+			return false;
+		}
+
 		/*
 		$query ="with postalAdd as (
 						".$this->returnInsertQuery(DBData::getPostalAddDataTable(),
@@ -232,43 +266,6 @@ class DBTasks extends Database
 						"'".$rdJSON["raceDate"]."',".
 						$rdJSON["raceFee"],
 						"returning ".DBData::$raceID);*/
-		$query = $this->returnInsertQuery(DBData::getPostalAddDataTable(),
-				"*",
-				"default,".$rdJSON[DBData::$postalAddPCode].",
-						'".$rdJSON[DBData::$postalAddTown]."','".$rdJSON[DBData::$postalAddStreet]."'",
-				"returning ".DBData::$postalAddID);
-		$this->Connect();
-		$temp = $this->sql($query);
-		if(!is_null($temp)){
-			while($row = pg_fetch_row($temp, NULL, PGSQL_ASSOC)){
-				$id = $row[DBData::$postalAddID];
-			}
-			$rdJSON[DBData::$raceLocaleID] =$id;
-			$createRaceQuery = "SELECT ".DBData::getCreateRaceFunction($rdJSON);
-
-			/*
-			 * create table competitions.%I (
-	comp_id integer default nextval("competitions.%I"),
-	comp_title char(200),
-	comp_desc char (3000),
-	comp_sex boolean
-	)','comp_'|| v_id,'comp_'||  v_id ||'_seq'
-			 */
-
-			$temp = $this->sql($createRaceQuery);
-			if(!is_null($temp)){
-
-			}
-			else {
-				throw new Exception('MySQL hiba');
-			}
-
-		}
-		else {
-			throw new Exception('MySQL hiba');
-		}
-		$this->ConnClose();
-		return $temp;
 	}
 	public function regUser($name,$type,$email,$tel,$pass){
 		$this->Connect();
