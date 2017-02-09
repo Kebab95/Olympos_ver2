@@ -65,6 +65,10 @@ class PostalAdd
 		$this->street = $street;
 	}
 
+	public function __toString()
+	{
+		return $this->pcode." ".$this->town.", ".$this->street;
+	}
 
 
 }

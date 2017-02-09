@@ -100,12 +100,34 @@ class DBTasks extends Database
 			if(is_array($compData[0])){
 				$etcValues="";
 				for($i=1; $i<count($compData); $i++){
-				    $etcValues.=",('".$compData[$i][0]."',".$compData[$i][1].",".$compData[$i][2].",".$compData[$i][3].")";
+				    $etcValues.=",('".$compData[$i][DBData::$competetionsTitle]."',
+	                                ".$compData[$i][DBData::$competetionsTypeID].",
+	                                ".$compData[$i][DBData::$competetionsSex].",
+	                                ".$compData[$i][DBData::$competetionsMuID].")";
 				}
-				if($this->insert("contest.competetions","title,type_id,sex,mu_id",
-						"'".$compData[0][0]."',".$compData[0][1].",".$compData[0][2].",".$compData[0][3],
-						$etcValues)){
-					return true;
+				$id = $this->insert(DBData::getCompetetionsTable(),
+						DBData::$competetionsTitle.","
+						.DBData::$competetionsTypeID.","
+						.DBData::$competetionsSex.","
+						.DBData::$competetionsMuID,
+						"'".$compData[0][DBData::$competetionsTitle]."',
+							".$compData[0][DBData::$competetionsTypeID].",
+							".$compData[0][DBData::$competetionsSex].",
+							".$compData[0][DBData::$competetionsMuID],
+						$etcValues." returning id");
+				if(pg_num_rows($id)>0){
+					$array = array();
+					echo $id."<br>";
+					while($row = pg_fetch_row($id, NULL, PGSQL_ASSOC)){
+						echo $row["id"];
+						array_push($array,$row["id"]);
+					}
+					if(count($array)>0){
+						return $array;
+					}
+					else{
+						return false;
+					}
 				}
 				else {
 					return false;
@@ -119,6 +141,60 @@ class DBTasks extends Database
 		else {
 			return false;
 		}
+	}
+	public function insertCompAndConnectToCCC(array $compData,int $contestID){
+		$compIDs = $this->insertComp($compData);
+		if(is_bool($compIDs) && !$compIDs){
+		    return $compIDs;
+		}
+		else {
+			$data = array();
+
+			for($i=0; $i<count($compIDs); $i++){
+				echo $compIDs[$i]."<br>";
+				$data[$i][DBData::$connCCC_ContestID] = $contestID;
+				$data[$i][DBData::$connCCC_CompID] =$compIDs[$i];
+			}
+			if($this->createConnectToCCC($data)){
+				return true;
+			}
+			else {
+				return false;
+			}
+
+		}
+	}
+	/*
+	*   CCC = Contest, Competetions, Category
+    *   Verseny, Versenyszám, Kategoria
+	*/
+	public function createConnectToCCC(array $data){
+
+		if(count($data)>1){
+			$moreInsert ="";
+			for($i=1; $i<count($data); $i++){
+				$moreInsert.=",(".$data[$i][DBData::$connCCC_ContestID].",".
+						$data[$i][DBData::$connCCC_CompID].
+						(isset($data[$i][DBData::$connCCC_CatID])?
+								",".$data[$i][DBData::$connCCC_CatID]:",null").")";
+			}
+		}
+		if($this->insert(DBData::getConnectionCCCTable(),
+						DBData::$connCCC_ContestID.",".
+						DBData::$connCCC_CompID.",".
+						DBData::$connCCC_CatID,
+
+						$data[0][DBData::$connCCC_ContestID].",".
+						$data[0][DBData::$connCCC_CompID].
+						(isset($data[0][DBData::$connCCC_CatID])?
+								",".$data[0][DBData::$connCCC_CatID]:",null")
+						,(isset($moreInsert)?$moreInsert:null))){
+		    return true;
+		}
+		else {
+			return false;
+		}
+
 	}
 
 

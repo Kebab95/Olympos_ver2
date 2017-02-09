@@ -61,7 +61,7 @@ function orgJoinSubmit(){
     $('#orgJoin').submit(function(e){
         e.preventDefault();
         $.ajax({
-            url: 'model/OrgPage/model_joinOrg.php',
+            url: 'Model/OrgPage/model_joinOrg.php',
             type: 'POST',
             data: $('#orgJoin').serialize(),
             dataType: 'html'

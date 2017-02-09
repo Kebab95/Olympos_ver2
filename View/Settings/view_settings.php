@@ -36,7 +36,7 @@
 			<div id="collapse3" class="panel-collapse collapse">
 				<div class="panel-body">
 					<?php
-						include "View/Settings/form_settings_editFederation.php";
+						include "View/Settings/form_settings_EditFederation.php";
 					?>
 				</div>
 			</div>

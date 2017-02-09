@@ -1,6 +1,6 @@
 <?php
 
-class User extends UserPermissions{
+class User extends UserPermissions implements DBClass{
 
 
 	public function __construct(array $var)
@@ -14,4 +14,8 @@ class User extends UserPermissions{
 		$this->setBdate($var[DBData::$mainUserBDate]);
 	}
 
+	public static function createWithDB(array $data)
+	{
+		// TODO: Implement createWithDB() method.
+	}
 }

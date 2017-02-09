@@ -11,6 +11,7 @@ else {
 	$orgList = array();
 	/** @var Organization $item */
 	foreach ($all as $key => $item) {
+		$orgList[$key]["orgId"] = $item->getId();
 		$orgList[$key]["Name"] = $item->getName();
 		$orgList[$key]["Telefon"] = $item->getTelefon();
 
@@ -35,7 +36,7 @@ else {
 	}
 
 }
-if(Tasks::isLoggedUser()){
+if(UserTasks::isLoggedUser()){
 
 
 }

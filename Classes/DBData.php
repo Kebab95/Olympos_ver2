@@ -41,7 +41,10 @@ class DBData
 	private static $clubLeaderTable ="club_leader";
 	private static $fedLeaderTable="federation_leader";
 
-	private static $raceTable="race";
+	private static $contestTable="contest";
+	private static $contestCompTypes ="comp_types";
+	private static $competetions ="competetions";
+	private static $connectionCCC = "contest_comp";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -94,16 +97,18 @@ class DBData
 	public static function getFedLeaderTable(){
 		return self::getOrgSchema().".".self::$fedLeaderTable;
 	}
-	public static function getRaceTable(){
-		return self::getContestSchema().".".self::$raceTable;
+	public static function getContestTable(){
+		return self::getContestSchema().".".self::$contestTable;
 	}
-	public static function getCompSeq($num){
-		return self::getCompSchema().".comp_".$num."_seq";
+	public static function getContestCompTypesTable(){
+		return self::getContestSchema().".".self::$contestCompTypes;
 	}
-	public static function getCompTable($num){
-		return self::getCompSchema().".comp_".$num;
+	public static function getCompetetionsTable(){
+		return self::getContestSchema().".".self::$competetions;
 	}
-
+	public static function getConnectionCCCTable(){
+		return self::getContestSchema().".".self::$connectionCCC;
+	}
 	//Main User tábla oszlop nevei
 
 	static $mainUserID ="mu_id";
@@ -172,13 +177,36 @@ class DBData
 	static $clubLeaderCLUBID="cl_club_id";
 	static $clubLeaderMUID ="cl_mu_id";
 
-	//Race table oszlop nevei
-	static $raceID="r_id";
-	static $contestOrgID="r_org_id";
-	static $contestLocaleID="r_locale_id";
-	static $contestDate="r_date";
-	static $contestEntryFee="r_entry_fee";
-	static $contestName="r_name";
-	static $contestDesc="r_desc";
+	//Contest table oszlop nevei
+	static $contestID="id";
+	static $contestOrgID="org_id";
+	static $contestLocaleID="locale";
+	static $contestDate="date2";
+	static $contestEntryFee="entry_fee";
+	static $contestName="name";
+	static $contestDesc="description";
+	static $contestDelete="delete";
+	static $contestIsEntry="is_entry";
 
+	//Contest Comp Types oszlopok
+	static $contestCompTypesID ="id";
+	static $contestCompTypesName ="name";
+	static $contestCompTypesMuID ="mu_id";
+
+	//Competetions oszlop nevek
+	static $competetionsID ="id";
+	static $competetionsTitle ="title";
+	static $competetionsTypeID="type_id";
+	static $competetionsSex ="sex";
+	static $competetionsMuID="mu_id";
+
+	// Connectnion CCC oszlop nevei
+	static $connCCC_ContestID ="contest_id";
+	static $connCCC_CompID ="comp_id";
+	static $connCCC_CatID="cat_id";
+
+	//comp types oszlop nevei
+	static $compTypesID ="id";
+	static $compTypesName="name";
+	static $compTypesMUid="mu_id";
 }

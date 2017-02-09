@@ -1,8 +1,9 @@
 <?php
 $_POST[DBData::$contestDate] = date('Y-m-d H:i:s',strtotime($_POST[DBData::$contestDate]));
-//$id =$DBTasks->createContest($_POST);
-$id = null;
-if(false){
+echo $_POST[DBData::$contestDate];
+$contestID =$DBTasks->createContest($_POST);
+//$id = null;
+if($contestID==null){
 	$error = true;
 	$_POST[DBData::$contestDate] = strftime('%Y-%m-%dT%H:%M:%S',strtotime($_POST[DBData::$contestDate]));
 	$values = $_POST;
@@ -19,7 +20,7 @@ if(false){
 	$form = "View/Races/view_raceCreateForm.php";
 }
 else {
-	echo $id;
+	echo $contestID;
 	$valami =json_encode(DBLoad::loadOrgCompTypes($_SESSION["User"]->getId()));
 	//$test = $_SESSION["User"]->getId();
 	$form = "View/Races/view_raceCreateForm2.php";

@@ -33,7 +33,7 @@ else {
 		$a++;
 	}
 }
-if(Tasks::isLoggedUser()){
+if(UserTasks::isLoggedUser()){
 
 
 

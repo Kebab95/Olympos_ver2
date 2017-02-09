@@ -175,12 +175,15 @@ class DBLoad
 
 	}
 	public static function loadOrgCompTypes($compID){
-		$result = self::getDBTasks()->selectGetResult("contest.comp_types","id,name","mu_id=".$compID);
+		$result = self::getDBTasks()->selectGetResult(DBData::getContestCompTypesTable()
+													,DBData::$contestCompTypesID.",".
+													DBData::$contestCompTypesName,
+													DBData::$contestCompTypesMuID."=".$compID);
 		if($result!=null){
 			$temp  = array();
 			$i =0;
 			while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
-				$temp[$i] = array($row["id"],$row["name"]);
+				$temp[$i] = array($row[DBData::$contestCompTypesID],$row[DBData::$contestCompTypesName]);
 				$i++;
 			}
 			return $temp;
@@ -195,57 +198,52 @@ class DBLoad
 	 * @return bool
 	 */
 	public static function loadLeaderContests($leaderID){
-		$leader = self::loadUser($leaderID);
-		if($leader!=null){
-			$ordArray = array();
-			if($leader->isClubLeader()){
-				$clubs = self::loadOrgLeader($leader->getId(),3);
-
-				/** @var Organization $item */
-				foreach ($clubs as $item) {
-					array_push($ordArray,$item->getId());
-				}
-			}
-			if($leader->isFederationLeader()){
-				$fed = self::loadOrgLeader($leader->getId(),2);
-
-				/** @var Organization $item */
-				foreach ($fed as $item) {
-					array_push($ordArray,$item->getId());
-				}
-			}
-			if(count($ordArray)>0){
-			    $whereOrgString ="(";
-				$i=0;
-				while((count($ordArray)-1)>$i){
-					$whereOrgString.="org_id=".$ordArray[$i]." OR ";
+		$result =self::$DBTasks->selectGetResult(DBData::getContestTable(),"*",
+				"(".DBData::$contestOrgID." in (
+								select ".DBData::$fedLeaderFEDID." from ".DBData::getFedLeaderTable()."
+								where ".DBData::$fedLeaderMUID."=".$leaderID."
+							)
+							OR
+							".DBData::$contestOrgID." in (
+								select ".DBData::$clubLeaderCLUBID." from ".DBData::getClubLeaderTable()."
+								where ".DBData::$clubLeaderMUID."=".$leaderID."
+							)
+						)
+						AND ".DBData::$contestDelete."=false
+						AND ".DBData::$contestDate." IS NOT NULL
+						ORDER BY ".DBData::$contestDate." DESC",
+				"JOIN ".DBData::getPostalAddDataTable()." ON ".
+				DBData::getPostalAddDataTable().".".DBData::$postalAddID."=".DBData::getContestTable().".".DBData::$contestLocaleID);
+		if(pg_num_rows($result)>0){
+			if($result!=null){
+				$temp  = array();
+				$i =0;
+				while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
+					$temp[$i] = Contest::createWithDB($row);
 					$i++;
 				}
-				$whereOrgString.="org_id=".$ordArray[$i].")";
-
-				$result =self::$DBTasks->selectGetResult("contest.contest","*","delete=false AND ".$whereOrgString);
-				if($result!=null){
-					$temp  = array();
-					$i =0;
-					while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
-						$temp[$i] = array(
-								$row["id"],
-								$row["name"],
-								$row["description"]);
-						$i++;
-					}
-					return $temp;
-				}
-				else {
-					return $result;
-				}
+				return $temp;
 			}
-			}
-			else{
-				return null;
+			else {
+				return $result;
 			}
 		}
-
+		else {
+			return null;
+		}
+	}
+	public static function loadContest($contestID){
+		$result = self::$DBTasks->selectGetResult(DBData::getContestTable(),"*",DBData::$contestID."=".$contestID,
+				"JOIN ".DBData::getPostalAddDataTable()." ON ".
+				DBData::getPostalAddDataTable().".".DBData::$postalAddID." = ".DBData::getContestTable().".".DBData::$contestLocaleID);
+		if(pg_num_rows($result)>0){
+			$row = pg_fetch_row($result,NULL,PGSQL_ASSOC);
+			return Contest::createWithDB($row);
+		}
+		else {
+			return null;
+		}
+	}
 	public static function loadUserOrgMember($userID){
 		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable(),DBData::$chClubID,
 			DBData::$chMemberID."=".$userID." AND ".DBData::$chCurrent."=true");
@@ -300,6 +298,71 @@ class DBLoad
 		else {
 			return null;
 		}
+	}
+	public static function loadPostalAddress($padID){
+		$row = self::getDBTasks()->select(DBData::getPostalAddDataTable(),"*",DBData::$postalAddID."=".$padID);
+		if($row !=null){
+			return new PostalAdd($row[DBData::$postalAddPCode],$row[DBData::$postalAddStreet],$row[DBData::$postalAddTown]);
+		}
+		else {
+			return null;
+		}
+
+	}
+	public static function loadCCCids($contestID=null,$competetionID=null,$categoryID=null){
+		if($contestID!=null || $competetionID!=null || $categoryID!= null){
+			$where = "";
+			if($contestID!=null){
+			    $where .=DBData::$connCCC_ContestID."=".$contestID;
+			}
+			if($competetionID!=null){
+			    if(strlen($where)>0){
+			        $where.=" AND ".DBData::$connCCC_CompID."=".$competetionID;
+			    }
+				else {
+					$where.=DBData::$connCCC_CompID."=".$competetionID;
+				}
+			}
+			if($categoryID != null){
+			    if(strlen($where)>0){
+				    $where.=" AND ".DBData::$connCCC_CatID."=".$categoryID;
+			    }
+				else {
+					$where.=DBData::$connCCC_CatID."=".$categoryID;
+				}
+			}
+			$where.=" AND delete=false";
+			$result = self::$DBTasks->selectGetResult(DBData::getConnectionCCCTable(),
+														"*",
+														$where);
+			$array = array();
+			$i = 0;
+			while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
+				$array[$i][DBData::$connCCC_ContestID]=$row[DBData::$connCCC_ContestID];
+				$array[$i][DBData::$connCCC_CompID]=$row[DBData::$connCCC_CompID];
+				$array[$i][DBData::$connCCC_CatID]=$row[DBData::$connCCC_CatID];
+				$i++;
+			}
+			if(count($array)>0){
+				return $array;
+			}
+			else {
+				return null;
+			}
+
+		}
+		else {
+			return null;
+		}
+	}
+	public static function loadCompetetion($compID){
+		$row  = self::$DBTasks->select(DBData::getCompetetionsTable(),"*",DBData::getCompetetionsTable().".".DBData::$competetionsID."=".$compID,
+										"JOIN ".DBData::getContestCompTypesTable()." ON ".
+			DBData::getCompetetionsTable().".".DBData::$competetionsTypeID."=".DBData::getContestCompTypesTable().".".DBData::$compTypesID);
+		if($row !=null)
+			return Competetion::createWithDB($row);
+		else
+			return null;
 	}
 
 }

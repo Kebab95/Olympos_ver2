@@ -3,7 +3,7 @@
 include "../includeClasses.php";
 session_start();
 /** @var $obj User */
-if(Tasks::isLoggedUser()){
+if(UserTasks::isLoggedUser()){
 	$obj = $_SESSION["User"];
 	$_SESSION["User"] = DBLoad::loadUser($obj->getId());
 	$userDropbox = array(

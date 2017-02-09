@@ -1,12 +1,20 @@
 body{
-    background-color: #204577;
+    /*background-color: #204577; */
+    background-color: #c7ddef;
     height: 100%;
+}
+label {
+    font-weight: normal;
 }
 .body{
     background-color: white;
     width: 70%;
     padding-bottom: 20px;
     margin: auto;
+}
+.btn-responsive {
+    white-space: normal !important;
+    word-wrap: break-word;
 }
 .navMyWidth{
     width: 80%;

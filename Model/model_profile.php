@@ -10,7 +10,7 @@ if(is_numeric($_GET["profile"])){
 		$profTel = $profUser->getTelefon();
 		$profBDate = $profUser->getBdate();
 
-		if(Tasks::isLoggedUser()){
+		if(UserTasks::isLoggedUser()){
 			/** @var User $obj */
 			$obj = $_SESSION["User"];
 			$profEmail = $profUser->getEmail();
