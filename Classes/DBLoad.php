@@ -32,7 +32,7 @@ class DBLoad
                             ".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."=
                             ".DBData::getTelefonDataTable().".".DBData::$telefonDataID);
 		if($row){
-			$user = new User($row);
+			$user = User::createWithDB($row);
 
 			$user =self::$DBTasks->refreshUserPermission($user);
 			return $user;
@@ -58,18 +58,35 @@ class DBLoad
 					//echo $orgTable;
 					break;
 			}
+			/*
 			$result = self::getDBTasks()->selectGetResult($orgTable." as orgD",DBData::$mainUserID,
 				$orgMUID."=".$leaderMUID." and ".DBData::$mainUserActive."=true",
 				"inner join ".DBData::getMainUserTable()." as muD on
-					orgD.".$orgID."=muD.".DBData::$mainUserID);
-
+					orgD.".$orgID."=muD.".DBData::$mainUserID. "
+				INNER JOIN ".DBData::getOrganizationTable()." ON
+					".DBData::getOrganizationTable().".".DBData::$orgMainUserID."=muD.".DBData::$mainUserID);
+			*/
+			$result = self::$DBTasks->selectGetResult($orgTable." as orgD","*,telefon.".DBData::$telefonDataID." as tel_num,fax.".DBData::$telefonDataID." as fax_num",
+					$orgMUID."=".$leaderMUID. " AND ".DBData::$mainUserActive."=true",
+					"JOIN ".DBData::getMainUserTable()." ON ".
+					"orgD.".$orgID."=".DBData::getMainUserTable().".".DBData::$mainUserID."
+					JOIN ".DBData::getOrganizationTable()." ON
+					".DBData::getOrganizationTable().".".DBData::$orgMainUserID."=".DBData::getMainUserTable().".".DBData::$mainUserID."
+					JOIN ".DBData::getPostalAddDataTable()." ON
+					".DBData::getPostalAddDataTable().".".DBData::$postalAddID."=".DBData::getOrganizationTable().".".DBData::$orgPostalAddID."
+					JOIN ".DBData::getEmailDataTable()." ON
+					".DBData::getEmailDataTable().".".DBData::$emailDataID."=".DBData::getMainUserTable().".".DBData::$mainUserEmailID."
+					JOIN ".DBData::getTelefonDataTable()." as telefon ON
+					telefon.".DBData::$telefonDataID."=".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."
+					LEFT JOIN ".DBData::getTelefonDataTable()." as fax ON
+					fax.".DBData::$telefonDataID."=".DBData::getOrganizationTable().".".DBData::$orgFaxNumID);
 			if(is_null($result)){
 				return null;
 			}
 			else {
 				$temp = array();
 				while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
-					array_push($temp,self::loadOrg($row[DBData::$mainUserID]));
+					array_push($temp,Organization::createWithDB($row));
 				}
 				return $temp;
 			}
@@ -161,7 +178,7 @@ class DBLoad
 					join ".$table." as leader on
 					mu.".DBData::$mainUserID."=leader.".$column."");
 			if(is_array($row)){
-				$org = new Organization($row);
+				$org = Organization::createWithDB($row);
 				return $org;
 			}
 			else {
@@ -273,22 +290,26 @@ class DBLoad
             INNER JOIN ".DBData::getTelefonDataTable()." ON
                             ".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."=
                             ".DBData::getTelefonDataTable().".".DBData::$telefonDataID);
-		$user = new User($row);
+		$user = User::createWithDB($row);
 
 		$user =self::getDBTasks()->refreshUserPermission($user);
 		return $user;
 
 	}
 	public static function loadClubMember($clubID){
-		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable()." as mh",DBData::$mainUserID,
+		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable()." as mh","*",
 			DBData::$chClubID."=".$clubID." AND ".DBData::$chCurrent."=true",
 			"join ".DBData::getMainUserTable()." as mu on
-				mh.".DBData::$chMemberID." = mu.".DBData::$mainUserID);
+				mh.".DBData::$chMemberID." = mu.".DBData::$mainUserID."
+			JOIN ".DBData::getTelefonDataTable()." ON
+			".DBData::getTelefonDataTable().".".DBData::$telefonDataID."=mu.".DBData::$mainUserTelefonID."
+			JOIN ".DBData::getEmailDataTable()." ON
+			".DBData::getEmailDataTable().".".DBData::$emailDataID."=mu.".DBData::$mainUserEmailID);
 		if($result != null){
 			$temp = array();
 
 			while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
-				$user = self::loadUser($row[DBData::$mainUserID]);
+				$user = User::createWithDB($row);
 				array_push($temp,$user);
 			}
 

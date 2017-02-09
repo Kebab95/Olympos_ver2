@@ -2,7 +2,8 @@
 /** @var User $obj */
 $obj = $_SESSION["User"];
 $orgValue = array();
-if($obj->isClubLeader()){
+$isLeader = $obj->isClubLeader();
+if($isLeader){
 	$org = DBLoad::loadOrgLeader($obj->getId(),3);
 	/** @var Organization $item */
 	foreach ($org as $item) {

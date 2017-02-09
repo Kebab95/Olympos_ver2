@@ -3,19 +3,25 @@
 class User extends UserPermissions implements DBClass{
 
 
-	public function __construct(array $var)
+	public function __construct($id,$name,$email,$telefon,$password,$type,$bdate)
 	{
-		$this->setId($var[DBData::$mainUserID]);
-		$this->setName($var[DBData::$mainUserName]);
-		$this->setEmail($var[DBData::$emailDataAdd]);
-		$this->setTelefon($var[DBData::$telefonDataNum]);
-		$this->setPassword($var[DBData::$mainUserPass]);
-		$this->setType($var[DBData::$mainUserType]);
-		$this->setBdate($var[DBData::$mainUserBDate]);
+		$this->setId($id);
+		$this->setName($name);
+		$this->setEmail($email);
+		$this->setTelefon($telefon);
+		$this->setPassword($password);
+		$this->setType($type);
+		$this->setBdate($bdate);
 	}
 
 	public static function createWithDB(array $data)
 	{
-		// TODO: Implement createWithDB() method.
+		return new self($data[DBData::$mainUserID],
+				$data[DBData::$mainUserName],
+				$data[DBData::$emailDataAdd],
+				$data[DBData::$telefonDataNum],
+				$data[DBData::$mainUserPass],
+				$data[DBData::$mainUserType],
+				$data[DBData::$mainUserBDate]);
 	}
 }

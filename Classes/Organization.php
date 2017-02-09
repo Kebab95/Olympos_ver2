@@ -1,10 +1,47 @@
 <?php
-class Organization extends Main{
+class Organization extends Main implements DBClass{
 	private $shortName,$regNum,$postalAdd,$faxNum,$webSite,$taxNum;
 	private $leaderID;
 
+	public function __construct($id,$name,$email,$telefon,$password,$type,$shortName,$regNum,PostalAdd $postalAdd,$faxNum,$website,$taxNum,$leaderID)
+	{
+		$this->setId($id);
+		$this->setName($name);
+		$this->setEmail($email);
+		$this->setTelefon($telefon);
+		$this->setPassword($password);
+		$this->setType($type);
 
+		$this->shortName = $shortName;
+		$this->regNum = $regNum;
+		$this->postalAdd = $faxNum;
+		$this->webSite = $website;
+		$this->taxNum = $taxNum;
+		$this->leaderID = $leaderID;
+	}
+	public static function createWithDB(array $data)
+	{
 
+		switch($data[DBData::$mainUserType]){
+			case 2: $leaderID=$data[DBData::$fedLeaderMUID]; break;
+			case 3: $leaderID=$data[DBData::$clubLeaderMUID]; break;
+			default: $leaderID=null;
+		}
+		return new self($data[DBData::$mainUserID],
+				$data[DBData::$mainUserName],
+				$data[DBData::$emailDataAdd],
+				$data["tel_num"],
+				$data[DBData::$mainUserPass],
+				$data[DBData::$mainUserType],
+				$data[DBData::$orgShortName],
+				$data[DBData::$orgRegNum],
+				PostalAdd::createWithDB($data),
+				$data["fax_num"],
+				$data[DBData::$orgWebsite],
+				$data[DBData::$orgTaxNum],
+				$leaderID);
+	}
+	/*
 	public function __construct(array $var)
 	{
 		$this->setId($var[DBData::$mainUserID]);
@@ -30,6 +67,7 @@ class Organization extends Main{
 			default: $this->leaderID=null;
 		}
 	}
+	*/
 
 
 	/**
@@ -142,6 +180,7 @@ class Organization extends Main{
 	{
 		$this->taxNum = $taxNum;
 	}
+
 
 
 }

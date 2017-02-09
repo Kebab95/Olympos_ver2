@@ -21,7 +21,7 @@ foreach ($orgValue as $item) {
 				<th>Tag Neve</th>
 				<th>Telefon</th>
 				<th></th>
-				<th></th>
+				<?php echo ($isLeader?"<th></th>":"")?>
 
 			</tr>
 			</thead>
@@ -33,7 +33,7 @@ foreach ($orgValue as $item) {
 					echo "<td>" . $member["memberName"] . "</td>";
 					echo "<td>" . $member["memberTelefon"] . "</td>";
 					echo "<td><a href='?profile=".$member["memberId"]."'>Tovább a profilhoz</a></td>";
-					echo "<td><button class='btn btn-danger'>Tag törlése</button> </td>";
+					echo ($isLeader?"<td><button class='btn btn-danger'>Tag törlése</button> </td>":"");
 					echo "</tr>";
 				}
 			}
