@@ -9,12 +9,12 @@ if(isset($_POST["orgIDHidden"])){
 
 	}
 	else {
-		echo "<script>alert('2')</script>";
+		echo 2;
 	}
 
 }
 else {
-	echo "<script>alert('1')</script>";
+	echo 1;
 }
 
 

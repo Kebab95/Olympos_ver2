@@ -301,9 +301,9 @@ class DBLoad
 			DBData::$chClubID."=".$clubID." AND ".DBData::$chCurrent."=true",
 			"join ".DBData::getMainUserTable()." as mu on
 				mh.".DBData::$chMemberID." = mu.".DBData::$mainUserID."
-			JOIN ".DBData::getTelefonDataTable()." ON
+			LEFT JOIN ".DBData::getTelefonDataTable()." ON
 			".DBData::getTelefonDataTable().".".DBData::$telefonDataID."=mu.".DBData::$mainUserTelefonID."
-			JOIN ".DBData::getEmailDataTable()." ON
+			LEFT JOIN ".DBData::getEmailDataTable()." ON
 			".DBData::getEmailDataTable().".".DBData::$emailDataID."=mu.".DBData::$mainUserEmailID);
 		if($result != null){
 			$temp = array();

@@ -8,7 +8,7 @@ if($isLeader){
 	/** @var Organization $item */
 	foreach ($org as $item) {
 		$temp["orgName"] = $item->getName();
-
+		$temp["orgId"] = $item->getId();
 		$temp["orgLeaderID"] = $obj->getId();
 		$temp["orgLeader"] = $obj->getName();
 

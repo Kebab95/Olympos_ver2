@@ -63,7 +63,7 @@ class Database
 
 	// General SQL function if you want custome querys.
 	public function sql($operation, $newDb = false){
-		echo $operation."<br>";
+		//echo $operation."<br>";
 		/*
 		if ($newDb){
 			$this->Connect("");

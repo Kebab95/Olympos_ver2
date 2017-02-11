@@ -59,7 +59,7 @@ if(UserTasks::isLoggedUser()){
 }
 else{
 	$userName = 'Belépés';
-	$userDropbox ="View/Login/form_login.php";
+	$userDropbox ="View/Login/form_Login.php";
 }
 $navBarItems["About"] = array(
 		"href" =>"?nav=about",
