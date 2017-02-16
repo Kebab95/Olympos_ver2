@@ -200,6 +200,7 @@ else if(isset($_GET["contestview"])){
 			include 'Model/model_defaultUserVerification.php';
 			//include 'Model/model_profile.php';
 			include "Model/contestView/model_contestView.php";
+			$inBody ="View/contestView/view_contestView.php";
 			include 'View/view_default.php';
 		}
 		else {

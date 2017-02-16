@@ -330,6 +330,80 @@ class DBLoad
 		}
 
 	}
+	public static function loadCCCData($contestID=null,$competetionID=null,$categoryID=null){
+		if($contestID!=null || $competetionID!=null || $categoryID!= null){
+			$where = "";
+			if($contestID!=null){
+				$where .=DBData::$connCCC_ContestID."=".$contestID;
+			}
+			if($competetionID!=null){
+				if(strlen($where)>0){
+					$where.=" AND ".DBData::$connCCC_CompID."=".$competetionID;
+				}
+				else {
+					$where.=DBData::$connCCC_CompID."=".$competetionID;
+				}
+			}
+			if($categoryID != null){
+				if(strlen($where)>0){
+					$where.=" AND ".DBData::$connCCC_CatID."=".$categoryID;
+				}
+				else {
+					$where.=DBData::$connCCC_CatID."=".$categoryID;
+				}
+			}
+			$where.=" AND ccc_delete=false";
+			$join ="Inner Join ".DBData::getContestTable()."
+					    On ".DBData::getConnectionCCCTable().".".DBData::$connCCC_ContestID." = ".DBData::getContestTable().".".DBData::$contestID."
+				    Inner Join ".DBData::getCompetetionsTable()."
+					    On  ".DBData::getConnectionCCCTable().".".DBData::$connCCC_CompID." = ".DBData::getCompetetionsTable().".".DBData::$competetionsID."
+				    Left Join ".DBData::getCompCategoryTable()."
+					    On  ".DBData::getConnectionCCCTable().".".DBData::$connCCC_CatID." = ".DBData::getCompCategoryTable().".".DBData::$compCatID."
+				    Left Join ".DBData::getAgeGroupTable()."
+					    On ".DBData::getCompCategoryTable().".".DBData::$compCatAgeGrpID." = ".DBData::getAgeGroupTable().".".DBData::$ageGrpID."
+				    Left Join ".DBData::getPersonalGroupTable()."
+					    On ".DBData::getCompCategoryTable().".".DBData::$compCatPersonalGrpID." = ".DBData::getPersonalGroupTable().".".DBData::$personalGrpID."
+				    Inner Join ".DBData::getPostalAddDataTable()."
+					    On ".DBData::getContestTable().".".DBData::$contestLocaleID." =".DBData::getPostalAddDataTable().".".DBData::$postalAddID."
+				    Inner Join ".DBData::getContestCompTypesTable()."
+				        On ".DBData::getCompetetionsTable().".".DBData::$competetionsTypeID."=".DBData::getContestCompTypesTable().".".DBData::$compTypesID;
+			$result = self::$DBTasks->selectGetResult(DBData::getConnectionCCCTable(),
+								"*",
+								$where
+								,$join);
+			if(pg_num_rows($result)>0){
+				$array = array();
+				$i = 0;
+				while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
+					$array[$i][DBData::$connCCC_ContestID]=Contest::createWithDB($row);
+					$array[$i][DBData::$connCCC_CompID]=Competetion::createWithDB($row);
+					$array[$i][DBData::$connCCC_CatID]=CompCategory::createWithDB($row);
+					$i++;
+				}
+				if(count($array)>0){
+					return $array;
+				}
+				else {
+					return null;
+				}
+			}
+			else {
+				return null;
+			}
+			/*
+			if(count($array)>0){
+				return $array;
+			}
+			else {
+				return null;
+			}
+			*/
+
+		}
+		else {
+			return null;
+		}
+	}
 	public static function loadCCCids($contestID=null,$competetionID=null,$categoryID=null){
 		if($contestID!=null || $competetionID!=null || $categoryID!= null){
 			$where = "";

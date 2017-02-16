@@ -78,6 +78,30 @@
 						</div>
 						<?php
 					}
+				else {
+					?>
+					<div class="panel-group" id="valami">
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse" data-parent="#valami" href="#qwe">
+								Nevezés
+							</div>
+							<div id="qwe" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<?php
+									if($data[DBData::$contestIsEntry]){
+										echo '<button class="btn btn-default btn-block">Nevezem a szövetségi tagokat erre a versenyre</button>';
+									}
+									else {
+										echo '<label>Sajnáljuk jelenleg nem lehet jelentkezni a versenyre</label>';
+									}
+									?>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php
+				}
 				?>
 
 			</div>
@@ -88,9 +112,17 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-xs-2">Versenyszámok</div>
-							<div class="col-xs-8"></div>
-							<div class="col-xs-2"><button class="btn btn-default">Új hozzáadása</button> </div>
+							<div class="col-md-2 col-xs-4">Versenyszámok</div>
+							<div class="col-md-8 col-xs-2"></div>
+							<div class="col-md-2 col-xs-6">
+								<?php
+									if($creator){
+										echo '<button class="btn btn-default">Új hozzáadása</button> ';
+
+									}
+								?>
+							</div>
+
 						</div>
 					</div>
 
@@ -102,25 +134,113 @@
 								/** @var Competetion $item */
 								$i =0;
 								foreach ($data[DBData::getCompetetionsTable()] as $item) {
-									echo '<div class="panel-group" id="comp'.$i.'">
-											<div class="panel panel-info">
-												<div class="panel-heading" data-toggle="collapse" data-parent="#comp'.$i.'" href="#compCollapse'.$i.'">
-													'.$item->getTitle().'
-												</div>
-												<div id="compCollapse'.$i.'" class="panel-collapse collapse in">
-													<div class="panel-body">
-														Kategóriák
+									$compid = $item->getId();
+									?>
+									<div class="panel-group" id="comp<?php echo $i?>">
+										<div class="panel panel-info">
+											<div class="panel-heading" data-toggle="collapse" data-parent="#comp<?php echo $i?>" href="#compCollapse<?php echo $i?>">
+												<div class="row">
+													<div class="col-md-2 col-xs-6"><?php echo $item->getTitle()?></div>
+													<div class="col-md-6 col-xs-6">Verseny szám típusa: <?php echo $item->getType();
+																			?></div>
+													<div class="col-md-4 col-xs-12">
+														<?php
+															if($creator){
+																?>
+																	<button class='btn btn-default btn-block' data-toggle='modal' data-target='#myModal<?php echo $item->getId()?>'>Kategóriák hozzáadása</button>
+
+																<?php
+															}
+														?>
 													</div>
 												</div>
+
 											</div>
-										</div>';
+											<?php
+											if($creator){
+												include "View/contestView/Modal/modal_newCategorys.php";
+											}
+											?>
+											<div id="compCollapse<?php echo $i?>" class="panel-collapse collapse in">
+												<div class="panel-body">
+
+												</div>
+												<?php
+
+												if(isset($compCat[$compid])){
+													?>
+													<div class="table-responsive">
+														<table class="table table-stried table-hover table-bordered">
+															<thead>
+															<tr>
+																<th>Életkor</th>
+																<th>Nem Csoportok</th>
+																<th>Csoport</th>
+
+															</tr>
+															</thead>
+															<tbody>
+															<?php
+															/** @var CompCategory $value */
+															foreach ($compCat[$compid] as $value) {
+																echo "<tr>";
+																echo "<td>".$value->getAgeMin()."-".$value->getAgeMax()."</td>";
+																if($value->isSexWoman() || $value->isSexMan() || $value->isSexMixed() ||$value->isGroupFight()){
+																	echo "<td>".($value->isSexWoman()?"Női ":"").
+																			($value->isSexMan()?"Férfi ":"").
+																			($value->isSexMixed()?"Vegyes ":"").
+																			($value->isGroupFight()?"Csoport mérkőzés":"")."</td>";
+																}
+																else {
+																	echo "<td>Hiba! Nincs nem csoporthoz hozzáadva!</td>";
+																}
+
+																echo "<td>".$value->getPersonalGrpTitle()."</td>";
+																echo "</tr>";
+															}
+
+
+
+															?>
+
+															</tbody>
+														</table>
+													</div>
+													<?php
+												}
+												else {
+													?>
+														<div class="row">
+															<div class="col-xs-4"></div>
+															<div class="col-xs-4 text-center">Nincsen kategória hozzáadva</div>
+															<div class="col-xs-4"></div>
+														</div>
+													<?php
+												}
+												?>
+
+
+
+											</div>
+										</div>
+									</div>
+									<?php
+									echo '';
 									$i++;
 								}
 							}
 							else {
-								echo "<div class='alert alert-warning text-center'>
+								if($creator){
+									echo "<div class='alert alert-warning text-center'>
 										<p>Nincs Versenyszám hozzá adva a Versenyhez! Elindításhoz szükségesminimum egy! Hozzon létre egy újat!</p>
 										</div>";
+								}
+								else {
+									echo "<div class='alert alert-warning text-center'>
+										<p>Nincs Versenyszám hozzá adva a Versenyhez!</p>
+										</div>";
+								}
+
 							}
 
 							?>
@@ -174,7 +294,6 @@
 
 			return;
 		});
-
 		function entryEnableFun(id, callback){
 			$.post(
 					"Model/contestView/model_ajax_EnrtyEnable.php",
@@ -193,6 +312,12 @@
 					}
 			);
 		}
-	})
+
+	});
+	function newPersonalGrp(id){
+		var form = "newPersonalGrp"+id;
+
+
+	}
 
 </script>

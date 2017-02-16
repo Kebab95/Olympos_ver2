@@ -1,11 +1,11 @@
 <?php
 
 if(is_numeric($_GET["profile"])){
-
-	if($DBTasks->isActiveUser($_GET["profile"])){
+	$profUser = DBLoad::loadUser($_GET["profile"]);
+	if($profUser!=null){
 
 		/** @var User $profUser */
-		$profUser = DBLoad::loadUser($_GET["profile"]);
+		//$profUser = DBLoad::loadUser($_GET["profile"]);
 		$profName = $profUser->getName();
 		$profTel = $profUser->getTelefon();
 		$profBDate = $profUser->getBdate();

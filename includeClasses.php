@@ -11,3 +11,5 @@ include "Classes/PostalAdd.php";
 include "Classes/DBLoad.php";
 include "Classes/Contest.php";
 include "Classes/Competetion.php";
+include "Classes/CompCategory.php";
+include "Classes/CompTypes.php";

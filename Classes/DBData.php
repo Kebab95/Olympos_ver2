@@ -21,6 +21,39 @@ class DBData
 					".$var[self::$contestOrgID]."
 		)";
 	}
+	public static function getInsertCategory(array $var){
+		return self::getContestSchema()."insertcategory(
+					".$var[self::$compCatID].",
+					".$var[self::$compCatSex].",
+					".$var[self::$ageGrpMin].",
+					".$var[self::$ageGrpMax].",
+					'".$var[self::$personalGrpTitle]."',
+					".$var[self::$compCatFed_cost1].",
+					".$var[self::$compCatFed_cost2].",
+					".$var[self::$compCatnonFed_cost1].",
+					".$var[self::$compCatnonFed_cost2].",
+					".$var[self::$compCatForeign_cost1].",
+					".$var[self::$compCatForeign_cost2].",
+
+		)";
+	}
+
+	public static function getCompTypesFlagArray(){
+		return self::getCompTypesFlag(-1);
+	}
+	public static function getCompTypesFlag($index){
+		$array = array(
+				"comp_types_fighting_event",
+				"comp_types_technical_event",
+				"comp_types_group_event"
+		);
+		if($index>=0 && count($array) >$index){
+			return $array[$index];
+		}
+		else {
+			return $array;
+		}
+	}
 
 
 	private static $dataSchema="data";
@@ -45,6 +78,9 @@ class DBData
 	private static $contestCompTypes ="comp_types";
 	private static $competetions ="competetions";
 	private static $connectionCCC = "contest_comp";
+	private static $compCategory ="comp_category";
+	private static $ageGrp="age_group";
+	private static $personalgrp="personal_group";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -108,6 +144,15 @@ class DBData
 	}
 	public static function getConnectionCCCTable(){
 		return self::getContestSchema().".".self::$connectionCCC;
+	}
+	public static function getCompCategoryTable(){
+		return self::getContestSchema().".".self::$compCategory;
+	}
+	public static function getAgeGroupTable(){
+		return self::getContestSchema().".".self::$ageGrp;
+	}
+	public static function getPersonalGroupTable(){
+		return self::getContestSchema().".".self::$personalgrp;
 	}
 	//Main User tábla oszlop nevei
 
@@ -178,35 +223,69 @@ class DBData
 	static $clubLeaderMUID ="cl_mu_id";
 
 	//Contest table oszlop nevei
-	static $contestID="id";
-	static $contestOrgID="org_id";
+	static $contestID="contest_id";
+	static $contestOrgID="contest_org_id";
 	static $contestLocaleID="locale";
 	static $contestDate="date2";
 	static $contestEntryFee="entry_fee";
-	static $contestName="name";
-	static $contestDesc="description";
+	static $contestName="contest_name";
+	static $contestDesc="contest_description";
 	static $contestDelete="delete";
 	static $contestIsEntry="is_entry";
 
 	//Contest Comp Types oszlopok
-	static $contestCompTypesID ="id";
-	static $contestCompTypesName ="name";
-	static $contestCompTypesMuID ="mu_id";
+	static $contestCompTypesID ="comp_types_id";
+	static $contestCompTypesName ="comp_types_name";
+	static $contestCompTypesMuID ="comp_types_mu_id";
 
 	//Competetions oszlop nevek
-	static $competetionsID ="id";
-	static $competetionsTitle ="title";
+	static $competetionsID ="comp_id";
+	static $competetionsTitle ="comp_title";
 	static $competetionsTypeID="type_id";
 	static $competetionsSex ="sex";
 	static $competetionsMuID="mu_id";
 
 	// Connectnion CCC oszlop nevei
-	static $connCCC_ContestID ="contest_id";
-	static $connCCC_CompID ="comp_id";
-	static $connCCC_CatID="cat_id";
+	static $connCCC_Id="ccc_id";
+	static $connCCC_ContestID ="ccc_contest_id";
+	static $connCCC_CompID ="ccc_comp_id";
+	static $connCCC_CatID="ccc_cat_id";
+	static $connCCC_Delete="ccc_delete";
 
 	//comp types oszlop nevei
-	static $compTypesID ="id";
-	static $compTypesName="name";
-	static $compTypesMUid="mu_id";
+	static $compTypesID ="comp_types_id";
+	static $compTypesName="comp_types_name";
+	static $compTypesMUid="comp_types_mu_id";
+
+	//Comp category oszlop nevei
+	static $compCatID="compcat_id";
+	static $compCatOrgID="compcat_org_id";
+	static $compCatAgeGrpID="age_grp_id";
+	static $compCatPersonalGrpID="personal_grp_id";
+	static $compCatFed_cost1="fed_cost1";
+	static $compCatFed_cost2="fed_cost2";
+	static $compCatnonFed_cost1="nonfed_cost1";
+	static $compCatnonFed_cost2="nonfed_cost2";
+	static $compCatForeign_cost1="foreign_cost1";
+	static $compCatForeign_cost2="foreign_cost2";
+	static $compCatSex="sex";
+	static $compCatSexWoman="sexWoman";
+	static $compCatSexMan="sexMan";
+	static $compCatSexMixed="sexMixed";
+	static $compCatGroupFight="groupFight";
+
+	//Age grp oszlop nevei
+	static $ageGrpID="age_grp_id";
+	static $ageGrpOrgID="age_grp_org_id";
+	static $ageGrpMin="min";
+	static $ageGrpMax="max";
+	static $ageGrpTypeID="age_grp_comp_type_id";
+	static $ageGrpDelete="age_grp_delete";
+
+	//Personal grp oszlop nevei
+	static $personalGrpID="personal_id";
+	static $personalGrpOrgID="personal_org_id";
+	static $personalGrpTitle="personal_title";
+	static $personalGrpTypeID="personal_comp_types_id";
+	static $personalGrpDelete="personal_delete";
 }
