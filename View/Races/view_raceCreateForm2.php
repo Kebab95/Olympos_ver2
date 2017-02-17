@@ -43,7 +43,7 @@
 	<div class="form-group row text-center">
 		<input type="submit" class="btn btn-success" value="Verseny számok elkészítése" name="createRace2" id="createRace2">
 	</div>
-
+	<input type="hidden" name="orgID" value="<?php echo $orgID;?>">
 	<input type="hidden" name="contestID" value="<?php echo $contestID?>">
 	<input type="hidden" id="compNumber" name="compNumber" value="1">
 </form>

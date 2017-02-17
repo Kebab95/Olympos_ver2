@@ -102,25 +102,22 @@ class DBTasks extends Database
 				for($i=1; $i<count($compData); $i++){
 				    $etcValues.=",('".$compData[$i][DBData::$competetionsTitle]."',
 	                                ".$compData[$i][DBData::$competetionsTypeID].",
-	                                ".$compData[$i][DBData::$competetionsSex].",
 	                                ".$compData[$i][DBData::$competetionsMuID].")";
 				}
 				$id = $this->insert(DBData::getCompetetionsTable(),
 						DBData::$competetionsTitle.","
 						.DBData::$competetionsTypeID.","
-						.DBData::$competetionsSex.","
 						.DBData::$competetionsMuID,
 						"'".$compData[0][DBData::$competetionsTitle]."',
 							".$compData[0][DBData::$competetionsTypeID].",
-							".$compData[0][DBData::$competetionsSex].",
 							".$compData[0][DBData::$competetionsMuID],
-						$etcValues." returning id");
+						$etcValues." returning ".DBData::$competetionsID);
 				if(pg_num_rows($id)>0){
 					$array = array();
 					echo $id."<br>";
 					while($row = pg_fetch_row($id, NULL, PGSQL_ASSOC)){
-						echo $row["id"];
-						array_push($array,$row["id"]);
+						//echo $row["id"];
+						array_push($array,$row[DBData::$competetionsID]);
 					}
 					if(count($array)>0){
 						return $array;

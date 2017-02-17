@@ -44,8 +44,7 @@ class DBData
 	public static function getCompTypesFlag($index){
 		$array = array(
 				"comp_types_fighting_event",
-				"comp_types_technical_event",
-				"comp_types_group_event"
+				"comp_types_technical_event"
 		);
 		if($index>=0 && count($array) >$index){
 			return $array[$index];

@@ -64,6 +64,7 @@ else if(isset($_GET["nav"])){
 	switch($_GET["nav"]){
 		case 'home':
 			include 'Model/model_defaultUserVerification.php';
+			include "Model/model_home.php";
 			$inBody = "View/view_home.php";
 			include 'View/view_default.php';
 			break;
@@ -198,9 +199,16 @@ else if(isset($_GET["contestview"])){
 	if(UserTasks::isLoggedUser()){
 		if(is_numeric($_GET["contestview"])){
 			include 'Model/model_defaultUserVerification.php';
+			if(isset($_GET["entry"]) && $_GET["entry"]=="in"){
+				$inBody ="View/contestView/entry/view_entryPage.php";
+			}
+			else {
+				include "Model/contestView/model_contestView.php";
+				$inBody ="View/contestView/view_contestView.php";
+			}
+
 			//include 'Model/model_profile.php';
-			include "Model/contestView/model_contestView.php";
-			$inBody ="View/contestView/view_contestView.php";
+
 			include 'View/view_default.php';
 		}
 		else {

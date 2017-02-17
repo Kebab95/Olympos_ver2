@@ -78,35 +78,35 @@
 						</div>
 						<?php
 					}
-				else {
-					?>
-					<div class="panel-group" id="valami">
-						<div class="panel panel-default">
-							<div class="panel-heading" data-toggle="collapse" data-parent="#valami" href="#qwe">
-								Nevezés
-							</div>
-							<div id="qwe" class="panel-collapse collapse in">
-								<div class="panel-body">
+				?>
+
+			</div>
+
+			<div class="col-md-3">
+				<div class="panel-group" id="valami2">
+					<div class="panel panel-default">
+						<div class="panel-heading" data-toggle="collapse" data-parent="#valami2" href="#nevezes">
+							Nevezés
+						</div>
+						<div id="nevezes" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<div id="entryButton">
 									<?php
 									if($data[DBData::$contestIsEntry]){
-										echo '<button class="btn btn-default btn-block">Nevezem a szövetségi tagokat erre a versenyre</button>';
+										echo '<a href="?contestview='.$data[DBData::$contestID].'&entry=in" <button class="btn btn-default btn-block btn-responsive">Nevezem a szövetségi tagokat erre a versenyre</button></a>';
 									}
 									else {
 										echo '<label>Sajnáljuk jelenleg nem lehet jelentkezni a versenyre</label>';
 									}
 									?>
-
 								</div>
+
+
 							</div>
 						</div>
 					</div>
-					<?php
-				}
-				?>
-
+				</div>
 			</div>
-
-			<div class="col-md-3"></div>
 
 			<div class="col-md-12">
 				<div class="panel panel-default">
@@ -117,7 +117,8 @@
 							<div class="col-md-2 col-xs-6">
 								<?php
 									if($creator){
-										echo '<button class="btn btn-default">Új hozzáadása</button> ';
+										echo '<button class="btn btn-default" data-toggle=\'modal\' data-target=\'#newComp\'>Új hozzáadása</button> ';
+										include "View/contestView/Modal/modal_newCompetetion.php";
 
 									}
 								?>
@@ -186,10 +187,29 @@
 																echo "<tr>";
 																echo "<td>".$value->getAgeMin()."-".$value->getAgeMax()."</td>";
 																if($value->isSexWoman() || $value->isSexMan() || $value->isSexMixed() ||$value->isGroupFight()){
-																	echo "<td>".($value->isSexWoman()?"Női ":"").
-																			($value->isSexMan()?"Férfi ":"").
-																			($value->isSexMixed()?"Vegyes ":"").
-																			($value->isGroupFight()?"Csoport mérkőzés":"")."</td>";
+																	$group ="";
+																	if($value->isSexWoman()){
+																	    $group.="Női";
+																	}
+																	if($value->isSexMan()){
+																	    if(strlen($group)>0){
+																	        $group.=", ";
+																	    }
+																		$group.="Férfi";
+																	}
+																	if($value->isSexMixed()){
+																		if(strlen($group)>0){
+																			$group.=", ";
+																		}
+																		$group.="Vegyes";
+																	}
+																	if($value->isGroupFight()){
+																		if(strlen($group)>0){
+																			$group.=", ";
+																		}
+																		$group.="Csoportos mérkőzes";
+																	}
+																	echo "<td>".$group."</td>";
 																}
 																else {
 																	echo "<td>Hiba! Nincs nem csoporthoz hozzáadva!</td>";
@@ -266,7 +286,7 @@
 						$("#entryTitle").removeClass("alert-success").addClass("alert-danger").text("Nem lehet még nevezni");
 						$('.entryEnable').removeClass("entryEnable").addClass("entryClose");
 						$('#entryEnable').text('Nevezési lehetőség engedélyezése');
-
+						$("#entryButton").html('<label>Sajnáljuk jelenleg nem lehet jelentkezni a versenyre</label>');
 					}
 					else {
 						console.log("Szívás");
@@ -282,6 +302,7 @@
 						$("#entryTitle").removeClass("alert-danger").addClass("alert-success").text("Lehet még nevezni");
 						$('.entryClose').removeClass("entryClose").addClass("entryEnable");
 						$('#entryEnable').text('Nevezési lehetőség bezárása');
+						$("#entryButton").html('<a href="?contestview=<?php echo $data[DBData::$contestID]?>&entry=in" <button class="btn btn-default btn-block btn-responsive">Nevezem a szövetségi tagokat erre a versenyre</button></a>');
 
 
 					}

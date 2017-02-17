@@ -20,9 +20,9 @@ if($contestID==null){
 	$form = "View/Races/view_raceCreateForm.php";
 }
 else {
-	echo $contestID;
-	$valami =json_encode(DBLoad::loadOrgCompTypes($_SESSION["User"]->getId()));
+	$valami =json_encode(DBLoad::loadOrgCompTypes($_POST[DBData::$contestOrgID]));
 	//$test = $_SESSION["User"]->getId();
+	$orgID=$_POST[DBData::$contestOrgID];
 	$form = "View/Races/view_raceCreateForm2.php";
 }
 

@@ -49,30 +49,44 @@ if($array!=null){
 		}
 
 	}
-	$compPerson = array();
-	$ageGrp = array();
-	/** @var Competetion $item */
-	foreach ($compArray as $item) {
-		$compPersonResult = $DBTasks->selectGetResult(DBData::getPersonalGroupTable(),
-				"*",DBData::$personalGrpTypeID."=".$item->getType()->getId());
-		if(pg_num_rows($compPersonResult)>0){
+	if($creator){
+		$compPerson = array();
+		$ageGrp = array();
+		/** @var Competetion $item */
+		foreach ($compArray as $item) {
+			$compPersonResult = $DBTasks->selectGetResult(DBData::getPersonalGroupTable(),
+					"*",DBData::$personalGrpTypeID."=".$item->getType()->getId());
+			if(pg_num_rows($compPersonResult)>0){
 
-			while($row = pg_fetch_row($compPersonResult, NULL, PGSQL_ASSOC)){
-				$compPerson[$item->getId()][$row[DBData::$personalGrpID]] = $row;
+				while($row = pg_fetch_row($compPersonResult, NULL, PGSQL_ASSOC)){
+					$compPerson[$item->getId()][$row[DBData::$personalGrpID]] = $row;
+				}
+				//var_dump($compTypes);
 			}
-			//var_dump($compTypes);
+			$ageGrpResult = $DBTasks->selectGetResult(DBData::getAgeGroupTable(),
+					"*",DBData::$ageGrpTypeID."=".$item->getType()->getId().
+					" AND ". DBData::$ageGrpDelete."=false");
+			if(pg_num_rows($ageGrpResult)>0){
+
+				while($row = pg_fetch_row($ageGrpResult, NULL, PGSQL_ASSOC)){
+					$ageGrp[$item->getId()][$row[DBData::$ageGrpID]] = $row;
+				}
+				//var_dump($compTypes);
+			}
 		}
-		$ageGrpResult = $DBTasks->selectGetResult(DBData::getAgeGroupTable(),
-				"*",DBData::$ageGrpTypeID."=".$comp->getType()->getId().
-				" AND ". DBData::$ageGrpDelete."=false");
-		if(pg_num_rows($ageGrpResult)>0){
-
-			while($row = pg_fetch_row($ageGrpResult, NULL, PGSQL_ASSOC)){
-				$ageGrp[$item->getId()][$row[DBData::$ageGrpID]] = $row;
+		$resultTypes = $DBTasks->selectGetResult(DBData::getContestCompTypesTable(),
+									"*",
+									DBData::$compTypesMUid."=".$contest->getOrgID());
+		if(pg_num_rows($resultTypes)>0){
+			$compTypesArray =array();
+			while($row = pg_fetch_row($resultTypes, NULL, PGSQL_ASSOC)){
+				array_push($compTypesArray,CompTypes::createWithDB($row));
 			}
-			//var_dump($compTypes);
+
+
 		}
 	}
+
 }
 //var_dump($compTypes);
 

@@ -86,7 +86,11 @@
 													console.log(data);
 
 													var select ="#ageGrpSelect"+number;
-
+													$(select)
+															.find('option')
+															.remove()
+															.end()
+													;
 													//console.log(data[number]);
 													$.each(data[number], function(i, value) {
 														$(select).append($('<option>').text(value.<?php echo DBData::$ageGrpMin ?>+"-"+value.<?php echo DBData::$ageGrpMax ?>).attr('value', value.<?php echo DBData::$ageGrpID?>));
@@ -97,7 +101,8 @@
 
 
 
-												}).fail(function(){
+												}).fail(function(ts){
+													console.log(ts.responseText)
 													alert("Hiba az ajax-al");
 												});
 											}
@@ -175,8 +180,11 @@
 												}).done(function(data){
 													console.log(data);
 													var select ="#personalGrpSelect"+number;
-
-													console.log(data[number][1].personal_id);
+													$(select)
+															.find('option')
+															.remove()
+															.end()
+													;
 													$.each(data[number], function(i, value) {
 														$(select).append($('<option>').text(value.<?php echo DBData::$personalGrpTitle ?>).attr('value', value.<?php echo DBData::$personalGrpID?>));
 													});
