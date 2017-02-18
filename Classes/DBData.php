@@ -80,6 +80,9 @@ class DBData
 	private static $compCategory ="comp_category";
 	private static $ageGrp="age_group";
 	private static $personalgrp="personal_group";
+
+	private static $memberdata="member_data";
+	private static $beltGradesData="belt_grades_data";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -117,6 +120,12 @@ class DBData
 	}
 	public static function getPermissionTable(){
 		return self::getDataSchema().".".self::$permissionTable;
+	}
+	public static function getMemberDataTable(){
+		return self::getDataSchema().".".self::$memberdata;
+	}
+	public static function getBeltGradesDataTable(){
+		return self::getDataSchema().".".self::$beltGradesData;
 	}
 	
 	public static function getOrganizationTable(){
@@ -287,4 +296,15 @@ class DBData
 	static $personalGrpTitle="personal_title";
 	static $personalGrpTypeID="personal_comp_types_id";
 	static $personalGrpDelete="personal_delete";
+
+	//Member data oszlop
+	static $memberDataID="md_id";
+	static $memberDataMuID="md_muid";
+	static $memberDataWeight="md_weight";
+	static $memberDataGradesBeltID="md_beltgradesid";
+
+	//Belt grades oszlop nevek
+	static $beltGradesID="bgd_id";
+	static $beltGradesName="bgd_name";
+	static $beltGradesWeight="bgd_weight";
 }

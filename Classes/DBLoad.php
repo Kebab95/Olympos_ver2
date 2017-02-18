@@ -304,12 +304,22 @@ class DBLoad
 			LEFT JOIN ".DBData::getTelefonDataTable()." ON
 			".DBData::getTelefonDataTable().".".DBData::$telefonDataID."=mu.".DBData::$mainUserTelefonID."
 			LEFT JOIN ".DBData::getEmailDataTable()." ON
-			".DBData::getEmailDataTable().".".DBData::$emailDataID."=mu.".DBData::$mainUserEmailID);
+			".DBData::getEmailDataTable().".".DBData::$emailDataID."=mu.".DBData::$mainUserEmailID."
+			Left Join ".DBData::getMemberDataTable()."
+                    On ".DBData::getMemberDataTable().".".DBData::$memberDataID." = mu.".DBData::$mainUserID."
+            Left Join ".DBData::getBeltGradesDataTable()."
+    On ".DBData::getMemberDataTable().".".DBData::$memberDataGradesBeltID." = ".DBData::getBeltGradesDataTable().".".DBData::$beltGradesID);
 		if($result != null){
 			$temp = array();
 
 			while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
-				$user = User::createWithDB($row);
+				if(isset($row[DBData::$memberDataWeight])){
+					$user = SportUser::createWithDB($row);
+				}
+				else {
+					$user = User::createWithDB($row);
+				}
+
 				array_push($temp,$user);
 			}
 

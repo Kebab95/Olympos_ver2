@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/SportUser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/entry/model_entryPage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/Controller.php" afterPath="$PROJECT_DIR$/Controller/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/entry/view_entryPage.php" afterPath="$PROJECT_DIR$/View/contestView/entry/view_entryPage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includeClasses.php" afterPath="$PROJECT_DIR$/includeClasses.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBData.php" afterPath="$PROJECT_DIR$/Classes/DBData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBLoad.php" afterPath="$PROJECT_DIR$/Classes/DBLoad.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Database.php" afterPath="$PROJECT_DIR$/Classes/Database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/SportUser.php" afterPath="$PROJECT_DIR$/Classes/SportUser.php" />
     </list>
     <ignored path="Olympos_ver2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +40,7 @@
     <favorites_list name="Olympos_ver2" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.52696836">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="model_entryPage.php" pinned="false" current-in-tab="false">
@@ -55,11 +53,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Classes/User.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4224852">
-                  <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+                <state vertical-scroll-proportion="-6.5384617">
+                  <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DBData.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.2662722">
+                  <caret line="84" column="52" selection-start-line="84" selection-start-column="52" selection-end-line="84" selection-end-column="52" />
                   <folding />
                 </state>
               </provider>
@@ -89,11 +97,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="SportUser.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="SportUser.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Classes/SportUser.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.54319525">
-                  <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+                <state vertical-scroll-proportion="-26.615385">
+                  <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -111,11 +119,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DBLoad.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="DBLoad.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-21.461538">
-                  <caret line="305" column="55" selection-start-line="305" selection-start-column="55" selection-end-line="305" selection-end-column="55" />
+                <state vertical-scroll-proportion="0.70059174">
+                  <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
                   <folding>
                     <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
                     <element signature="n#loadUser#0;n#DBLoad#0;n#!!top" expanded="false" />
@@ -127,10 +135,18 @@
                     <element signature="n#loadLeaderContests#0;n#DBLoad#0;n#!!top" expanded="false" />
                     <element signature="n#loadContest#0;n#DBLoad#0;n#!!top" expanded="false" />
                     <element signature="n#loadLoginUser#0;n#DBLoad#0;n#!!top" expanded="false" />
-                    <element signature="n#loadPostalAddress#0;n#DBLoad#0;n#!!top" expanded="false" />
-                    <element signature="n#loadCCCData#0;n#DBLoad#0;n#!!top" expanded="false" />
-                    <element signature="n#loadCCCids#0;n#DBLoad#0;n#!!top" expanded="false" />
-                    <element signature="n#loadCompetetion#0;n#DBLoad#0;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Database.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Classes/Database.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.65384614">
+                  <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+                  <folding>
+                    <marker date="1487454708625" expanded="true" signature="2702:2802" placeholder="INSERT INTO ${$tableName}..." />
                   </folding>
                 </state>
               </provider>
@@ -199,11 +215,9 @@
         <option value="$PROJECT_DIR$/Classes/Contest.php" />
         <option value="$PROJECT_DIR$/Model/model_home.php" />
         <option value="$PROJECT_DIR$/View/view_home.php" />
-        <option value="$PROJECT_DIR$/Classes/DBData.php" />
         <option value="$PROJECT_DIR$/Model/Races/model_raceCreateForm2.php" />
         <option value="$PROJECT_DIR$/View/Races/view_raceCreateForm2.php" />
         <option value="$PROJECT_DIR$/Classes/DBTasks.php" />
-        <option value="$PROJECT_DIR$/Classes/Database.php" />
         <option value="$PROJECT_DIR$/View/contestView/Modal/modal_newCategorys.php" />
         <option value="$PROJECT_DIR$/Model/Races/model_createComp.php" />
         <option value="$PROJECT_DIR$/Model/contestView/model_ajax_newComp.php" />
@@ -214,12 +228,14 @@
         <option value="$PROJECT_DIR$/Classes/UserTasks.php" />
         <option value="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
         <option value="$PROJECT_DIR$/View/contestView/entry/view_entryPage.php" />
-        <option value="$PROJECT_DIR$/Classes/DBLoad.php" />
         <option value="$PROJECT_DIR$/Model/contestView/entry/model_entryPage.php" />
         <option value="$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php" />
         <option value="$PROJECT_DIR$/Classes/User.php" />
         <option value="$PROJECT_DIR$/includeClasses.php" />
         <option value="$PROJECT_DIR$/Classes/SportUser.php" />
+        <option value="$PROJECT_DIR$/Classes/Database.php" />
+        <option value="$PROJECT_DIR$/Classes/DBLoad.php" />
+        <option value="$PROJECT_DIR$/Classes/DBData.php" />
       </list>
     </option>
   </component>
@@ -776,7 +792,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487326292719</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Optimalizálás&#10;Nevezés elkezdve, sport User class elkezdve">
+      <created>1487442098144</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1487442098144</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -789,12 +811,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1401919" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -802,7 +825,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -834,7 +856,8 @@
     <MESSAGE value="Add to club new member&#10;Szellem tagok létrehozása. Valamint Szövegtséghez való csatlakozás javítása." />
     <MESSAGE value="Insert new Category&#10;Új kategória hozzá adása adott versenyszámhoz&#10;Adatbázis újra gonddolva, teljeítmény gyorsítása céljából!" />
     <MESSAGE value="Insert new Competetion&#10;Versenyhez új versenyszám hozzáadása&#10;Nevezés form-a elkezdve" />
-    <option name="LAST_COMMIT_MESSAGE" value="Insert new Competetion&#10;Versenyhez új versenyszám hozzáadása&#10;Nevezés form-a elkezdve" />
+    <MESSAGE value="Optimalizálás&#10;Nevezés elkezdve, sport User class elkezdve" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimalizálás&#10;Nevezés elkezdve, sport User class elkezdve" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1050,24 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.807693">
-          <caret line="240" column="11" selection-start-line="240" selection-start-column="11" selection-end-line="240" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.192307">
-          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-          <folding>
-            <marker date="1487320527351" expanded="true" signature="2704:2804" placeholder="INSERT INTO ${$tableName}..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/Races/model_raceCreateForm2.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44260356">
@@ -1229,29 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.461538">
-          <caret line="305" column="55" selection-start-line="305" selection-start-column="55" selection-end-line="305" selection-end-column="55" />
-          <folding>
-            <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadUser#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadOrgLeader#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadAllFed#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadAllClub#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadOrg#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadOrgCompTypes#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadLeaderContests#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadContest#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadLoginUser#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadPostalAddress#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadCCCData#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadCCCids#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <element signature="n#loadCompetetion#0;n#DBLoad#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.0">
@@ -1278,19 +1260,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/SportUser.php">
+    <entry file="file://$PROJECT_DIR$/Classes/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54319525">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/User.php">
+    <entry file="file://$PROJECT_DIR$/Classes/SportUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4224852">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        <state vertical-scroll-proportion="-26.615385">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+          <folding>
+            <marker date="1487454708625" expanded="true" signature="2702:2802" placeholder="INSERT INTO ${$tableName}..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.2662722">
+          <caret line="84" column="52" selection-start-line="84" selection-start-column="52" selection-end-line="84" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70059174">
+          <caret line="313" column="0" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
+          <folding>
+            <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadUser#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadOrgLeader#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadAllFed#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadAllClub#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadOrg#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadOrgCompTypes#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadLeaderContests#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadContest#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadLoginUser#0;n#DBLoad#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

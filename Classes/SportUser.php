@@ -24,9 +24,26 @@ class SportUser extends User implements DBClass
 				$data[DBData::$mainUserPass],
 				$data[DBData::$mainUserType],
 				$data[DBData::$mainUserBDate],
-				"",
-				"");
+				$data[DBData::$memberDataWeight],
+				$data[DBData::$beltGradesName]);
 	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getWeight()
+	{
+		return $this->weight;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getBeltGrades()
+	{
+		return $this->beltGrades;
+	}
+
 
 
 }
