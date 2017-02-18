@@ -199,6 +199,7 @@ else if(isset($_GET["contestview"])){
 	if(UserTasks::isLoggedUser()){
 		if(is_numeric($_GET["contestview"])){
 			include 'Model/model_defaultUserVerification.php';
+			include "Model/contestView/entry/model_entryPage.php";
 			if(isset($_GET["entry"]) && $_GET["entry"]=="in"){
 				$inBody ="View/contestView/entry/view_entryPage.php";
 			}

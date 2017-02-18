@@ -13,3 +13,4 @@ include "Classes/Contest.php";
 include "Classes/Competetion.php";
 include "Classes/CompCategory.php";
 include "Classes/CompTypes.php";
+include "Classes/SportUser.php";

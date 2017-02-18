@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_newComp.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/model_home.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/Modal/modal_newCompetetion.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/entry/view_entryPage.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/SportUser.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/entry/model_entryPage.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBData.php" afterPath="$PROJECT_DIR$/Classes/DBData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBTasks.php" afterPath="$PROJECT_DIR$/Classes/DBTasks.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/Controller.php" afterPath="$PROJECT_DIR$/Controller/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/Races/model_createComp.php" afterPath="$PROJECT_DIR$/Model/Races/model_createComp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/Races/model_raceCreateForm2.php" afterPath="$PROJECT_DIR$/Model/Races/model_raceCreateForm2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/model_contestView.php" afterPath="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Races/view_raceCreateForm2.php" afterPath="$PROJECT_DIR$/View/Races/view_raceCreateForm2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/Modal/modal_newCategorys.php" afterPath="$PROJECT_DIR$/View/contestView/Modal/modal_newCategorys.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/view_contestView.php" afterPath="$PROJECT_DIR$/View/contestView/view_contestView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/view_home.php" afterPath="$PROJECT_DIR$/View/view_home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/entry/view_entryPage.php" afterPath="$PROJECT_DIR$/View/contestView/entry/view_entryPage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includeClasses.php" afterPath="$PROJECT_DIR$/includeClasses.php" />
     </list>
     <ignored path="Olympos_ver2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,64 +42,113 @@
     <favorites_list name="Olympos_ver2" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="view_contestView.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/contestView/view_contestView.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.307693">
-              <caret line="95" column="106" selection-start-line="95" selection-start-column="106" selection-end-line="95" selection-end-column="106" />
-              <folding>
-                <marker date="1487326210198" expanded="true" signature="276:360" placeholder="..." />
-                <marker date="1487326210198" expanded="true" signature="1709:1811" placeholder="..." />
-                <marker date="1487326210198" expanded="true" signature="1853:2008" placeholder="..." />
-                <marker date="1487326210198" expanded="true" signature="2079:2188" placeholder="..." />
-                <marker date="1487326210198" expanded="true" signature="2230:2390" placeholder="..." />
-                <marker date="1487326210198" expanded="true" signature="8291:8426" placeholder="..." />
-                <marker date="1487326210198" expanded="true" signature="8514:8591" placeholder="..." />
-                <marker date="1487326210198" expanded="true" signature="8771:8777" placeholder="{...}" />
-                <marker date="1487326210198" expanded="true" signature="8771:8796" placeholder="{...}" />
-                <marker date="1487326210198" expanded="true" signature="9031:9268" placeholder="{...}" />
-                <marker date="1487326210198" expanded="true" signature="9410:9417" placeholder="{...}" />
-                <marker date="1487326210198" expanded="true" signature="9560:9787" placeholder="{...}" />
-                <marker date="1487326210198" expanded="true" signature="10050:10057" placeholder="{...}" />
-                <marker date="1487326210198" expanded="true" signature="10157:10202" placeholder="{...}" />
-                <marker date="1487326210198" expanded="true" signature="10346:10390" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controller/Controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307">
-              <caret line="201" column="59" selection-start-line="201" selection-start-column="59" selection-end-line="201" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_entryPage.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.020118343">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model_contestView.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model/contestView/model_contestView.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="model_entryPage.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Model/contestView/entry/model_entryPage.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-3.9230769">
+                  <caret line="6" column="16" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Classes/User.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.4224852">
+                  <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="includeClasses.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/includeClasses.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-9.807693">
+                  <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserTasks.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Classes/UserTasks.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-9.153846">
+                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="SportUser.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Classes/SportUser.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.54319525">
+                  <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="view_entryPageClubLeader.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-17.0">
+                  <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+                  <folding>
+                    <marker date="1487420210919" expanded="true" signature="645:707" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DBLoad.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-21.461538">
+                  <caret line="305" column="55" selection-start-line="305" selection-start-column="55" selection-end-line="305" selection-end-column="55" />
+                  <folding>
+                    <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadUser#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadOrgLeader#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadAllFed#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadAllClub#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadOrg#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadOrgCompTypes#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadLeaderContests#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadContest#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadLoginUser#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadPostalAddress#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadCCCData#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadCCCids#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <element signature="n#loadCompetetion#0;n#DBLoad#0;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="view_entryPage.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPage.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-4.576923">
+                  <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,14 +169,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/Desktop/view_default.php" />
-        <option value="$PROJECT_DIR$/View/Organization/view_createOrg.php" />
-        <option value="$PROJECT_DIR$/View/Settings/view_settings.php" />
-        <option value="$PROJECT_DIR$/Model/Races/model_racesPage.php" />
-        <option value="$PROJECT_DIR$/css/site.css" />
         <option value="$PROJECT_DIR$/Classes/PostalAdd.php" />
         <option value="$PROJECT_DIR$/Classes/Organization.php" />
-        <option value="$PROJECT_DIR$/Classes/User.php" />
         <option value="$PROJECT_DIR$/Model/model_defaultUserVerification.php" />
         <option value="$PROJECT_DIR$/Controller/admin_Controller.php" />
         <option value="$PROJECT_DIR$/Admin/Model/model_home.php" />
@@ -152,8 +187,6 @@
         <option value="$PROJECT_DIR$/Model/myClub/js_newMember.js" />
         <option value="$PROJECT_DIR$/View/myClub/view_myClubPage.php" />
         <option value="$PROJECT_DIR$/Model/model_profile.php" />
-        <option value="$PROJECT_DIR$/Classes/DBLoad.php" />
-        <option value="$PROJECT_DIR$/includeClasses.php" />
         <option value="$PROJECT_DIR$/Classes/Competetion.php" />
         <option value="$PROJECT_DIR$/Classes/CompTypes.php" />
         <option value="$PROJECT_DIR$/Model/contestView/model_ajax_newPersonalGrp.php" />
@@ -170,15 +203,23 @@
         <option value="$PROJECT_DIR$/Model/Races/model_raceCreateForm2.php" />
         <option value="$PROJECT_DIR$/View/Races/view_raceCreateForm2.php" />
         <option value="$PROJECT_DIR$/Classes/DBTasks.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
         <option value="$PROJECT_DIR$/Classes/Database.php" />
         <option value="$PROJECT_DIR$/View/contestView/Modal/modal_newCategorys.php" />
         <option value="$PROJECT_DIR$/Model/Races/model_createComp.php" />
         <option value="$PROJECT_DIR$/Model/contestView/model_ajax_newComp.php" />
         <option value="$PROJECT_DIR$/View/contestView/Modal/modal_newCompetetion.php" />
         <option value="$PROJECT_DIR$/View/contestView/entry/entryPage.php" />
-        <option value="$PROJECT_DIR$/Controller/Controller.php" />
         <option value="$PROJECT_DIR$/View/contestView/view_contestView.php" />
+        <option value="$PROJECT_DIR$/Controller/Controller.php" />
+        <option value="$PROJECT_DIR$/Classes/UserTasks.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
+        <option value="$PROJECT_DIR$/View/contestView/entry/view_entryPage.php" />
+        <option value="$PROJECT_DIR$/Classes/DBLoad.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/entry/model_entryPage.php" />
+        <option value="$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php" />
+        <option value="$PROJECT_DIR$/Classes/User.php" />
+        <option value="$PROJECT_DIR$/includeClasses.php" />
+        <option value="$PROJECT_DIR$/Classes/SportUser.php" />
       </list>
     </option>
   </component>
@@ -570,6 +611,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contestView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entry" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -707,7 +770,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487240768303</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Insert new Competetion&#10;Versenyhez új versenyszám hozzáadása&#10;Nevezés form-a elkezdve">
+      <created>1487326292719</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1487326292719</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -724,9 +793,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13859275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1401919" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -764,7 +833,8 @@
     <MESSAGE value="Optimalizálás #1&#10;Adatbázis lekérdezések mennyisége csökkentése. Így gyorsabb lett pár aloldal.&#10;User és PostalAdd Classokba definiálva lett a DBClass interfész és legtöbb helyen át is lett írva. Még lehetnek hibák" />
     <MESSAGE value="Add to club new member&#10;Szellem tagok létrehozása. Valamint Szövegtséghez való csatlakozás javítása." />
     <MESSAGE value="Insert new Category&#10;Új kategória hozzá adása adott versenyszámhoz&#10;Adatbázis újra gonddolva, teljeítmény gyorsítása céljából!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Insert new Category&#10;Új kategória hozzá adása adott versenyszámhoz&#10;Adatbázis újra gonddolva, teljeítmény gyorsítása céljából!" />
+    <MESSAGE value="Insert new Competetion&#10;Versenyhez új versenyszám hozzáadása&#10;Nevezés form-a elkezdve" />
+    <option name="LAST_COMMIT_MESSAGE" value="Insert new Competetion&#10;Versenyhez új versenyszám hozzáadása&#10;Nevezés form-a elkezdve" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -780,34 +850,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/Organization.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/UserTasks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/model_defaultUserVerification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20118344">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/Login/view_login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14556213">
@@ -866,13 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10059172">
-          <caret line="5" column="80" selection-start-line="5" selection-start-column="80" selection-end-line="5" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/myClub/js_newMember.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13662457">
@@ -905,13 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20118344">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includeClasses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2816568">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1019,7 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.020118343">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1057,19 +1084,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.384615">
-          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="207" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/Races/view_raceCreateForm2.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.92544377">
           <caret line="46" column="59" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,7 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7786982">
           <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1085,7 +1102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8390533">
           <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,7 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7822485">
           <caret line="287" column="0" selection-start-line="287" selection-start-column="0" selection-end-line="288" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1125,7 +1140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30177516">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1149,7 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32189348">
           <caret line="16" column="73" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1157,29 +1170,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5464983">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307">
-          <caret line="201" column="59" selection-start-line="201" selection-start-column="59" selection-end-line="201" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.09467456">
+          <caret line="201" column="64" selection-start-line="201" selection-start-column="64" selection-end-line="201" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/model_contestView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.20118344">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/contestView/view_contestView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.307693">
+        <state vertical-scroll-proportion="0.020118343">
           <caret line="95" column="106" selection-start-line="95" selection-start-column="106" selection-end-line="95" selection-end-column="106" />
           <folding>
             <marker date="1487326210198" expanded="true" signature="276:360" placeholder="..." />
@@ -1203,8 +1215,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.020118343">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/UserTasks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.461538">
+          <caret line="305" column="55" selection-start-line="305" selection-start-column="55" selection-end-line="305" selection-end-column="55" />
+          <folding>
+            <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadUser#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadOrgLeader#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadAllFed#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadAllClub#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadOrg#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadOrgCompTypes#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadLeaderContests#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadContest#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadLoginUser#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadPostalAddress#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadCCCData#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadCCCids#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <element signature="n#loadCompetetion#0;n#DBLoad#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0">
+          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+          <folding>
+            <marker date="1487420210919" expanded="true" signature="645:707" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includeClasses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/entry/model_entryPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/SportUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54319525">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4224852">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding />
         </state>
       </provider>
