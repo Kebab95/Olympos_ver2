@@ -93,7 +93,7 @@
 
 			e.preventDefault(); // Prevent Default Submission
 			$.ajax({
-						url: 'model/model_regOrg.php',
+						url: 'Model/model_regOrg.php',
 						type: 'POST',
 						data: $('#regOrgform').serialize(), // it will serialize the form data
 						dataType: 'html'

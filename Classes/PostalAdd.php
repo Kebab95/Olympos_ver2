@@ -1,6 +1,6 @@
 <?php
 
-class PostalAdd
+class PostalAdd implements DBClass
 {
 	private $pcode,$town,$street;
 
@@ -65,6 +65,17 @@ class PostalAdd
 		$this->street = $street;
 	}
 
+	public function __toString()
+	{
+		return $this->pcode." ".$this->town.", ".$this->street;
+	}
 
 
+	public static function createWithDB(array $data)
+	{
+		$intance = new self($data[DBData::$postalAddPCode],
+				$data[DBData::$postalAddStreet],
+				$data[DBData::$postalAddTown]);
+		return $intance;
+	}
 }

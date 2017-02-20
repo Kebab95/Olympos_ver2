@@ -36,12 +36,42 @@ if($_POST && !isset($_POST["orgCreateSubmit"])){
 		$inBody = "View/Organization/view_modalJoinOrg.php";
 		include 'View/view_default.php';
 	}
+	else if(isset($_POST["createRace1"])){
+		include "Model/model_defaultUserVerification.php";
+		include "Model/Races/model_raceCreateForm2.php";
+		//include "Model/Races/model_racesPage.php";
+		$inBody = "View/Races/view_raceCreatePanel.php";
+		include "View/view_default.php";
+	}
+	else if(isset($_POST["createRace2"])){
+		include "Model/model_defaultUserVerification.php";
+		include "Model/Races/model_createComp.php";
+		if(isset($error) && $error){
+			echo "Nem sikerült";
+		}
+		else {
+			header_remove();
+			header("Location: ?contest=list");
+		}
+
+	}
+	else if(isset($_POST["memberEntrySubmit"])){
+		include "Model/model_defaultUserVerification.php";
+		include "Model/contestView/entry/model_entrySubmit.php";
+		$inBody ="View/contestView/entry/view_entrySubmit.php";
+		include "View/view_default.php";
+
+	}
+
 }
+/** @var User $_SESSION['User'] */
+
 else if(isset($_GET["nav"])){
 	resetSESSIONs();
 	switch($_GET["nav"]){
 		case 'home':
 			include 'Model/model_defaultUserVerification.php';
+			include "Model/model_home.php";
 			$inBody = "View/view_home.php";
 			include 'View/view_default.php';
 			break;
@@ -57,7 +87,7 @@ else if(isset($_GET["nav"])){
 			break;
 		case 'fed':
 
-			if(Tasks::isLoggedUser()){
+			if(UserTasks::isLoggedUser()){
 				include 'Model/model_defaultUserVerification.php';
 				include 'Model/OrgPage/model_fedPage.php';
 				$inBody = "View/Organization/view_orgPage.php";
@@ -74,7 +104,7 @@ else if(isset($_GET["nav"])){
 			break;
 		case 'club':
 
-			if(Tasks::isLoggedUser()){
+			if(UserTasks::isLoggedUser()){
 				include 'Model/model_defaultUserVerification.php';
 				include 'Model/OrgPage/model_clubPage.php';
 				$inBody = "View/Organization/view_orgPage.php";
@@ -89,7 +119,7 @@ else if(isset($_GET["nav"])){
 			break;
 		case 'settings':
 
-			if(Tasks::isLoggedUser()){
+			if(UserTasks::isLoggedUser()){
 				include "Model/model_defaultUserVerification.php";
 				include "Model/model_settings.php";
 
@@ -106,7 +136,7 @@ else if(isset($_GET["nav"])){
 
 			break;
 		case "myclub":
-			if(Tasks::isLoggedUser()){
+			if(UserTasks::isLoggedUser()){
 				include "Model/model_defaultUserVerification.php";
 				include "Model/myClub/model_myCubPage.php";
 
@@ -114,6 +144,17 @@ else if(isset($_GET["nav"])){
 				include "View/view_default.php";
 			}
 			else{
+
+			}
+			break;
+		case 'races':
+			if(UserTasks::isLoggedUser()){
+				include "Model/model_defaultUserVerification.php";
+				include "Model/Races/model_racesPage.php";
+				$inBody = "View/Races/view_racesPage.php";
+				include "View/view_default.php";
+			}
+			else {
 				header_remove();
 				header("Location: ?nav=405");
 			}
@@ -131,6 +172,66 @@ else if(isset($_GET["nav"])){
 			include "View/view_default.php";
 	}
 }
+elseif(isset($_GET["contest"])){
+	switch($_GET["contest"]){
+		case "create":
+			if(UserTasks::isLoggedUser() && (UserTasks::isClubLeader() || UserTasks::isFederationLeader())){
+				include "Model/model_defaultUserVerification.php";
+				include "Model/Races/model_raceCreateForm.php";
+				//include "Model/Races/model_racesPage.php";
+				$inBody = "View/Races/view_raceCreatePanel.php";
+				include "View/view_default.php";
+			}
+			else {
+				header_remove();
+				header("Location: ?nav=405");
+			}
+			break;
+		case "list":
+			if(UserTasks::isLoggedUser() && (UserTasks::isClubLeader() || UserTasks::isFederationLeader())){
+				include "Model/model_defaultUserVerification.php";
+				include "Model/Races/model_racesPage.php";
+				$inBody = "View/Races/view_racesPage.php";
+				include "View/view_default.php";
+			}
+			else {
+				header_remove();
+				header("Location: ?nav=405");
+			}
+			break;
+	}
+
+}
+else if(isset($_GET["contestview"])){
+	if(UserTasks::isLoggedUser()){
+		if(is_numeric($_GET["contestview"])){
+			include 'Model/model_defaultUserVerification.php';
+
+			if(isset($_GET["entry"]) && $_GET["entry"]=="in"){
+				include "Model/contestView/entry/model_entryPage.php";
+				$inBody ="View/contestView/entry/view_entryPage.php";
+			}
+
+			else {
+				include "Model/contestView/model_contestView.php";
+				$inBody ="View/contestView/view_contestView.php";
+			}
+
+			//include 'Model/model_profile.php';
+
+			include 'View/view_default.php';
+		}
+		else {
+			header_remove();
+			header("Location: ?nav=404");
+		}
+	}
+	else {
+		header_remove();
+		header("Location: ?nav=405");
+	}
+
+}
 else if(isset($_GET["profile"])){
 	include 'Model/model_defaultUserVerification.php';
 	include 'Model/model_profile.php';
@@ -138,6 +239,7 @@ else if(isset($_GET["profile"])){
 }
 else{
 	include 'Model/model_defaultUserVerification.php';
+	include "Model/model_home.php";
 	$inBody = "View/view_home.php";
 	include 'View/view_default.php';
 }

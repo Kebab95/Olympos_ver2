@@ -22,6 +22,7 @@
 		<?php
 		if(is_array($all)){
 			/** @var Organization $item */
+			$modalNum=0;
 			foreach ($orgList as $key => $item) {
 				echo "<tr>";
 				echo "<td id='textVerticalAlign'>".$item["Name"]."</td>";
@@ -29,9 +30,9 @@
 				echo "<td id='textVerticalAlign'><a href='?profile=".$item["UserId"]."'>".$item["UserName"]."</td>";
 				echo "<td class='text-center'><a><input type='button' class='btn btn-default' value='Adatok'></a></td>";
 				echo "<td class='text-center'>
-								<input type='button' name='orgJoinSubmit' class='btn btn-success' value='Csatlakozás' data-toggle='modal' data-target='#myModal'>
-								<input type='hidden' name='orgIDHidden' value='".$item["orgId"]."'>";
+								<input type='button' name='orgJoinSubmit' class='btn btn-success' value='Csatlakozás' data-toggle='modal' data-target='#myModal".$modalNum."'>";
 				include 'View/Organization/view_modalJoinOrg.php';
+				$modalNum++;
 				echo "</td>";
 				echo "</tr>";
 			}

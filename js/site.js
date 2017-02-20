@@ -1,5 +1,14 @@
+jQuery.loadScript = function (url, callback) {
+    jQuery.ajax({
+        url: url,
+        dataType: 'script',
+        success: callback,
+        async: true
+    });
+}
 $('#passValAlert1').hide();
 $(document).ready(function() {
+
     if(document.getElementsByClassName("cursor")[0].getAttribute("aria-expanded") =="false") {
         //timer = setInterval(RunUpdate, 3000); // Run once every 0.3 seconds
     }
@@ -8,7 +17,7 @@ $(document).ready(function() {
     }
     function setHeight() {
         windowHeight = $(window).innerHeight();
-        $('.body').css('min-height', windowHeight-10);
+        $('.body').css('min-height', windowHeight);
     };
     setHeight();
 
@@ -48,15 +57,18 @@ function RunUpdate() {
 
 
 }
-function orgJoinSubmit(){
-    $('#orgJoin').submit(function(e){
+function orgJoinSubmit(number){
+    var form = "#orgJoin"+number;
+    console.log(form);
+    $(form).submit(function(e){
         e.preventDefault();
         $.ajax({
-            url: 'model/OrgPage/model_joinOrg.php',
+            url: 'Model/OrgPage/model_joinOrg.php',
             type: 'POST',
-            data: $('#orgJoin').serialize(),
+            data: $(form).serialize(),
             dataType: 'html'
         }).done(function(data){
+            console.log(data);
             window.location.href = "?nav=home";
             alert("Csatlakozási szándékát elküldtük");
             $('.testDropD').load('js/refreshData.php');
@@ -78,22 +90,10 @@ function asd(){
                 $(this).hide();
             })
         ;
-        $.ajax({
-                url: 'Model/model_regSubmit.php',
-                type: 'POST',
-                data: $('#regForm').serialize(), // it will serialize the form data
-                dataType: 'html'
-            })
-            .done(function(data){
-                $('#regAll').fadeOut('slow', function(){
-                    $('#regAll').fadeIn('slow').html(data);
-                });
-            })
-            .fail(function(){
-                alert('Ajax Submit Failed ...');
-            });
+
     });
 }
+
 function passVal(){
     var pass1 = document.getElementById("regPass");
     var pass2 = document.getElementById("regPass2");

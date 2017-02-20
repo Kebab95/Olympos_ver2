@@ -9,10 +9,56 @@ class DBData
 	public static function getTelefonFunction($var){
 		return self::getDataSchema().".\"telefonExistFoo\"('".$var."')";
 	}
+	public static function getCreateContestFunction(array $var){
+		return self::getContestSchema().".\"createContest\"(
+					'".$var[self::$contestName]."',
+					'".$var[self::$contestDate]."',
+					".$var[self::$contestEntryFee].",
+					'".$var[self::$contestDesc]."',
+					'".$var[self::$postalAddPCode]."',
+					'".$var[self::$postalAddTown]."',
+					'".$var[self::$postalAddStreet]."',
+					".$var[self::$contestOrgID]."
+		)";
+	}
+	public static function getInsertCategory(array $var){
+		return self::getContestSchema()."insertcategory(
+					".$var[self::$compCatID].",
+					".$var[self::$compCatSex].",
+					".$var[self::$ageGrpMin].",
+					".$var[self::$ageGrpMax].",
+					'".$var[self::$personalGrpTitle]."',
+					".$var[self::$compCatFed_cost1].",
+					".$var[self::$compCatFed_cost2].",
+					".$var[self::$compCatnonFed_cost1].",
+					".$var[self::$compCatnonFed_cost2].",
+					".$var[self::$compCatForeign_cost1].",
+					".$var[self::$compCatForeign_cost2].",
+
+		)";
+	}
+
+	public static function getCompTypesFlagArray(){
+		return self::getCompTypesFlag(-1);
+	}
+	public static function getCompTypesFlag($index){
+		$array = array(
+				"comp_types_fighting_event",
+				"comp_types_technical_event"
+		);
+		if($index>=0 && count($array) >$index){
+			return $array[$index];
+		}
+		else {
+			return $array;
+		}
+	}
 
 
 	private static $dataSchema="data";
 	private static $orgSchema ="org";
+	private static $contestSchema="contest";
+	private static $compSchema="competitions";
 
 	private static $mainUserTable ="main_user";
 	private static $mainUserSeq = "main_user_seq";
@@ -26,6 +72,18 @@ class DBData
 	private static $clubMemberHistoryTable ="club_mship_history";
 	private static $clubLeaderTable ="club_leader";
 	private static $fedLeaderTable="federation_leader";
+
+	private static $contestTable="contest";
+	private static $contestCompTypes ="comp_types";
+	private static $competetions ="competetions";
+	private static $connectionCCC = "contest_comp";
+	private static $compCategory ="comp_category";
+	private static $ageGrp="age_group";
+	private static $personalgrp="personal_group";
+
+	private static $memberdata="member_data";
+	private static $beltGradesData="belt_grades_data";
+	private static $entry = "entry";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -33,6 +91,12 @@ class DBData
 	}
 	public static  function getOrgSchema(){
 		return self::$orgSchema;
+	}
+	public static function getContestSchema(){
+		return self::$contestSchema;
+	}
+	public static function getCompSchema(){
+		return self::$compSchema;
 	}
 
 	//Tábla nevek
@@ -58,6 +122,12 @@ class DBData
 	public static function getPermissionTable(){
 		return self::getDataSchema().".".self::$permissionTable;
 	}
+	public static function getMemberDataTable(){
+		return self::getDataSchema().".".self::$memberdata;
+	}
+	public static function getBeltGradesDataTable(){
+		return self::getDataSchema().".".self::$beltGradesData;
+	}
 	
 	public static function getOrganizationTable(){
 		return self::getOrgSchema().".".self::$organizationTable;
@@ -72,7 +142,30 @@ class DBData
 	public static function getFedLeaderTable(){
 		return self::getOrgSchema().".".self::$fedLeaderTable;
 	}
-
+	public static function getContestTable(){
+		return self::getContestSchema().".".self::$contestTable;
+	}
+	public static function getContestCompTypesTable(){
+		return self::getContestSchema().".".self::$contestCompTypes;
+	}
+	public static function getCompetetionsTable(){
+		return self::getContestSchema().".".self::$competetions;
+	}
+	public static function getConnectionCCCTable(){
+		return self::getContestSchema().".".self::$connectionCCC;
+	}
+	public static function getCompCategoryTable(){
+		return self::getContestSchema().".".self::$compCategory;
+	}
+	public static function getAgeGroupTable(){
+		return self::getContestSchema().".".self::$ageGrp;
+	}
+	public static function getPersonalGroupTable(){
+		return self::getContestSchema().".".self::$personalgrp;
+	}
+	public static function getEntryTable(){
+		return self::getContestSchema().".".self::$entry;
+	}
 	//Main User tábla oszlop nevei
 
 	static $mainUserID ="mu_id";
@@ -83,9 +176,8 @@ class DBData
 	static $mainUserPass ="mu_pass";
 	static $mainUserActive="mu_active";
 	static $mainUserBDate = "mu_bdate";
-	/*tatic $mainUserActive ="mu_active";
 	static $mainUserCreateTime ="mu_ctime";
-	static $mainUserLastChangeTime ="mu_lctime";*/
+	static $mainUserLastChangeTime ="mu_lctime";
 
 	//Email Data tabla oszlop nevei
 	static $emailDataID ="ed_id";
@@ -140,4 +232,95 @@ class DBData
 	static $clubLeaderID ="cl_id";
 	static $clubLeaderCLUBID="cl_club_id";
 	static $clubLeaderMUID ="cl_mu_id";
+
+	//Contest table oszlop nevei
+	static $contestID="contest_id";
+	static $contestOrgID="contest_org_id";
+	static $contestLocaleID="locale";
+	static $contestDate="date2";
+	static $contestEntryFee="entry_fee";
+	static $contestName="contest_name";
+	static $contestDesc="contest_description";
+	static $contestDelete="delete";
+	static $contestIsEntry="is_entry";
+	static $contestClosed="contest_closed";
+
+	//Contest Comp Types oszlopok
+	static $contestCompTypesID ="comp_types_id";
+	static $contestCompTypesName ="comp_types_name";
+	static $contestCompTypesMuID ="comp_types_mu_id";
+
+	//Competetions oszlop nevek
+	static $competetionsID ="comp_id";
+	static $competetionsTitle ="comp_title";
+	static $competetionsTypeID="type_id";
+	static $competetionsSex ="sex";
+	static $competetionsMuID="mu_id";
+
+	// Connectnion CCC oszlop nevei
+	static $connCCC_Id="ccc_id";
+	static $connCCC_ContestID ="ccc_contest_id";
+	static $connCCC_CompID ="ccc_comp_id";
+	static $connCCC_CatID="ccc_cat_id";
+	static $connCCC_Delete="ccc_delete";
+
+	//comp types oszlop nevei
+	static $compTypesID ="comp_types_id";
+	static $compTypesName="comp_types_name";
+	static $compTypesMUid="comp_types_mu_id";
+
+	//Comp category oszlop nevei
+	static $compCatID="compcat_id";
+	static $compCatOrgID="compcat_org_id";
+	static $compCatAgeGrpID="age_grp_id";
+	static $compCatPersonalGrpID="personal_grp_id";
+	static $compCatFed_cost1="fed_cost1";
+	static $compCatFed_cost2="fed_cost2";
+	static $compCatnonFed_cost1="nonfed_cost1";
+	static $compCatnonFed_cost2="nonfed_cost2";
+	static $compCatForeign_cost1="foreign_cost1";
+	static $compCatForeign_cost2="foreign_cost2";
+	static $compCatSex="sex";
+	static $compCatSexWoman="sexWoman";
+	static $compCatSexMan="sexMan";
+	static $compCatSexMixed="sexMixed";
+	static $compCatGroupFight="groupFight";
+
+	//Age grp oszlop nevei
+	static $ageGrpID="age_grp_id";
+	static $ageGrpOrgID="age_grp_org_id";
+	static $ageGrpMin="min";
+	static $ageGrpMax="max";
+	static $ageGrpTypeID="age_grp_comp_type_id";
+	static $ageGrpDelete="age_grp_delete";
+
+	//Personal grp oszlop nevei
+	static $personalGrpID="personal_id";
+	static $personalGrpOrgID="personal_org_id";
+	static $personalGrpTitle="personal_title";
+	static $personalGrpTypeID="personal_comp_types_id";
+	static $personalGrpDelete="personal_delete";
+
+	//Member data oszlop
+	static $memberDataID="md_id";
+	static $memberDataMuID="md_muid";
+	static $memberDataWeight="md_weight";
+	static $memberDataGradesBeltID="md_beltgradesid";
+
+	//Belt grades oszlop nevek
+	static $beltGradesID="bgd_id";
+	static $beltGradesName="bgd_name";
+	static $beltGradesWeight="bgd_weight";
+
+	//Entry oszlop nevek
+	static $entryID ="en_id";
+	static $entryMuID ="en_muid";
+	static $entryorgID="en_orgid";
+	static $entryCompID="en_compid";
+	static $entryContestID="en_contest";
+	static $entryActive="en_active";
+	static $entryPaid="en_paid";
+	static $entryDeliberation="en_deliberation";
+	static $entryReleased="en_released";
+
 }

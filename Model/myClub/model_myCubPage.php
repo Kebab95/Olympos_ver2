@@ -2,12 +2,13 @@
 /** @var User $obj */
 $obj = $_SESSION["User"];
 $orgValue = array();
-if($obj->isClubLeader()){
+$isLeader = $obj->isClubLeader();
+if($isLeader){
 	$org = DBLoad::loadOrgLeader($obj->getId(),3);
 	/** @var Organization $item */
 	foreach ($org as $item) {
 		$temp["orgName"] = $item->getName();
-
+		$temp["orgId"] = $item->getId();
 		$temp["orgLeaderID"] = $obj->getId();
 		$temp["orgLeader"] = $obj->getName();
 
@@ -26,8 +27,8 @@ else if($obj->isMember()){
 	foreach ($org as $item) {
 		$temp["orgName"] = $item->getName();
 
-		$temp["orgLeaderID"] = $obj->getId();
-		$temp["orgLeader"] = $obj->getName();
+		$temp["orgLeaderID"] = $item->getLeaderID();
+		$temp["orgLeader"] = DBLoad::loadUser($temp["orgLeaderID"])->getName();
 
 		$temp["members"] = loadClubMemberToArray(
 				DBLoad::loadClubMember($item->getId())
