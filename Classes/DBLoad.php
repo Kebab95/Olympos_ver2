@@ -141,8 +141,8 @@ class DBLoad
 		return $allClub;
 	}
 
-	public static function loadOrg($muID){
-		$test = self::getDBTasks()->select(DBData::getMainUserTable(),DBData::$mainUserType,DBData::$mainUserID."=".$muID);
+	public static function loadOrg($orgID){
+		$test = self::getDBTasks()->select(DBData::getMainUserTable(),DBData::$mainUserType,DBData::$mainUserID."=".$orgID);
 		if($test[DBData::$mainUserType] ==2 || $test[DBData::$mainUserType] ==3 || $test===TRUE){
 			$typeNum =$test[DBData::$mainUserType];
 
@@ -158,7 +158,7 @@ class DBLoad
 			$row = self::$DBTasks->select(DBData::getMainUserTable()." as mu",
 				"*,fax.".DBData::$telefonDataID." as fax_num,
 					telefon.".DBData::$telefonDataNum." as tel_num",
-				DBData::$mainUserID."= $muID AND ".DBData::$mainUserActive."=true",
+				DBData::$mainUserID."= $orgID AND ".DBData::$mainUserActive."=true",
 
 				"inner join ".DBData::getEmailDataTable()." as email on
 					mu.".DBData::$mainUserEmailID."=email.".DBData::$emailDataID."
@@ -298,7 +298,8 @@ class DBLoad
 	}
 	public static function loadClubMember($clubID){
 		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable()." as mh","*",
-			DBData::$chClubID."=".$clubID." AND ".DBData::$chCurrent."=true",
+			DBData::$chClubID."=".$clubID." AND ".DBData::$chCurrent."=true
+    Order By mu.".DBData::$mainUserCreateTime." ASC",
 			"join ".DBData::getMainUserTable()." as mu on
 				mh.".DBData::$chMemberID." = mu.".DBData::$mainUserID."
 			LEFT JOIN ".DBData::getTelefonDataTable()." ON
@@ -306,14 +307,14 @@ class DBLoad
 			LEFT JOIN ".DBData::getEmailDataTable()." ON
 			".DBData::getEmailDataTable().".".DBData::$emailDataID."=mu.".DBData::$mainUserEmailID."
 			Left Join ".DBData::getMemberDataTable()."
-                    On ".DBData::getMemberDataTable().".".DBData::$memberDataID." = mu.".DBData::$mainUserID."
+                    On ".DBData::getMemberDataTable().".".DBData::$memberDataMuID." = mu.".DBData::$mainUserID."
             Left Join ".DBData::getBeltGradesDataTable()."
     On ".DBData::getMemberDataTable().".".DBData::$memberDataGradesBeltID." = ".DBData::getBeltGradesDataTable().".".DBData::$beltGradesID);
 		if($result != null){
 			$temp = array();
 
 			while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
-				if(isset($row[DBData::$memberDataWeight])){
+				if(isset($row[DBData::$memberDataID])){
 					$user = SportUser::createWithDB($row);
 				}
 				else {

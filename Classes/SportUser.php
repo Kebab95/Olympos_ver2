@@ -27,6 +27,9 @@ class SportUser extends User implements DBClass
 				$data[DBData::$memberDataWeight],
 				$data[DBData::$beltGradesName]);
 	}
+	public static function isSportUser($SportUser){
+		return $SportUser instanceof SportUser;
+	}
 
 	/**
 	 * @return mixed

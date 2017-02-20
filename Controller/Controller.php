@@ -55,6 +55,13 @@ if($_POST && !isset($_POST["orgCreateSubmit"])){
 		}
 
 	}
+	else if(isset($_POST["memberEntrySubmit"])){
+		include "Model/model_defaultUserVerification.php";
+		include "Model/contestView/entry/model_entrySubmit.php";
+		$inBody ="View/contestView/entry/view_entrySubmit.php";
+		include "View/view_default.php";
+
+	}
 
 }
 /** @var User $_SESSION['User'] */
@@ -199,10 +206,12 @@ else if(isset($_GET["contestview"])){
 	if(UserTasks::isLoggedUser()){
 		if(is_numeric($_GET["contestview"])){
 			include 'Model/model_defaultUserVerification.php';
-			include "Model/contestView/entry/model_entryPage.php";
+
 			if(isset($_GET["entry"]) && $_GET["entry"]=="in"){
+				include "Model/contestView/entry/model_entryPage.php";
 				$inBody ="View/contestView/entry/view_entryPage.php";
 			}
+
 			else {
 				include "Model/contestView/model_contestView.php";
 				$inBody ="View/contestView/view_contestView.php";
@@ -230,6 +239,7 @@ else if(isset($_GET["profile"])){
 }
 else{
 	include 'Model/model_defaultUserVerification.php';
+	include "Model/model_home.php";
 	$inBody = "View/view_home.php";
 	include 'View/view_default.php';
 }

@@ -1,6 +1,6 @@
 <div class="modal fade" id="newComp" role="dialog">
 	<div class="modal-dialog">
-		<div class="modal-content">
+
 			<div class="modal-header">
 
 			</div>

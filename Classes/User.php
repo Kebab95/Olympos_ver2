@@ -24,4 +24,7 @@ class User extends UserPermissions implements DBClass{
 				$data[DBData::$mainUserType],
 				$data[DBData::$mainUserBDate]);
 	}
+	public static function isUser($User){
+		return $User instanceof User;
+	}
 }

@@ -83,6 +83,7 @@ class DBData
 
 	private static $memberdata="member_data";
 	private static $beltGradesData="belt_grades_data";
+	private static $entry = "entry";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -162,6 +163,9 @@ class DBData
 	public static function getPersonalGroupTable(){
 		return self::getContestSchema().".".self::$personalgrp;
 	}
+	public static function getEntryTable(){
+		return self::getContestSchema().".".self::$entry;
+	}
 	//Main User tábla oszlop nevei
 
 	static $mainUserID ="mu_id";
@@ -172,9 +176,8 @@ class DBData
 	static $mainUserPass ="mu_pass";
 	static $mainUserActive="mu_active";
 	static $mainUserBDate = "mu_bdate";
-	/*tatic $mainUserActive ="mu_active";
 	static $mainUserCreateTime ="mu_ctime";
-	static $mainUserLastChangeTime ="mu_lctime";*/
+	static $mainUserLastChangeTime ="mu_lctime";
 
 	//Email Data tabla oszlop nevei
 	static $emailDataID ="ed_id";
@@ -240,6 +243,7 @@ class DBData
 	static $contestDesc="contest_description";
 	static $contestDelete="delete";
 	static $contestIsEntry="is_entry";
+	static $contestClosed="contest_closed";
 
 	//Contest Comp Types oszlopok
 	static $contestCompTypesID ="comp_types_id";
@@ -307,4 +311,16 @@ class DBData
 	static $beltGradesID="bgd_id";
 	static $beltGradesName="bgd_name";
 	static $beltGradesWeight="bgd_weight";
+
+	//Entry oszlop nevek
+	static $entryID ="en_id";
+	static $entryMuID ="en_muid";
+	static $entryorgID="en_orgid";
+	static $entryCompID="en_compid";
+	static $entryContestID="en_contest";
+	static $entryActive="en_active";
+	static $entryPaid="en_paid";
+	static $entryDeliberation="en_deliberation";
+	static $entryReleased="en_released";
+
 }
