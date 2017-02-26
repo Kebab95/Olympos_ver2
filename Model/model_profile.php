@@ -8,7 +8,7 @@ if(is_numeric($_GET["profile"])){
 		//$profUser = DBLoad::loadUser($_GET["profile"]);
 		$profName = $profUser->getName();
 		$profTel = $profUser->getTelefon();
-		$profBDate = $profUser->getBdate();
+
 
 		if(UserTasks::isLoggedUser()){
 			/** @var User $obj */
@@ -32,7 +32,6 @@ if(is_numeric($_GET["profile"])){
 			$profEdit ="";
 			$profEmail = $justRegUsers;
 			$profTel = $justRegUsers;
-			$profBDate = $justRegUsers;
 		}
 
 

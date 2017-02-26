@@ -12,14 +12,10 @@ if(isset($_POST["id"]) && (strlen($_POST["weight"])>0) && isset($_POST["beltgrad
 		$_POST["id"].",".$_POST["weight"].",".$_POST["beltgradesID"],"returning *");
 	if(pg_num_rows($result)>0){
 		$row = pg_fetch_row($result, NULL, PGSQL_ASSOC);
-		echo "<td>";
-		$user = DBLoad::loadUser($row[DBData::$memberDataMuID]);
-		echo $user->getName();
-		echo "</td>";
-		echo "<td>".$row[DBData::$memberDataWeight]."</td>";
-		$result = $DBTasks->selectGetResult(DBData::getBeltGradesDataTable(),"*",DBData::$beltGradesID."=".$row[DBData::$memberDataGradesBeltID]);
-		$row2 = pg_fetch_row($result, NULL, PGSQL_ASSOC);
-		echo "<td>".$row2[DBData::$beltGradesName]."</td>";
+		$user = masLoadUser($row[DBData::$memberDataMuID]);
+		echo "<td><a onclick='showModalProfile(0,".$user->getId().")'>".$user->getName()."</a></td>";
+		echo "<td>".$user->getWeight()."</td>";
+		echo "<td>".$user->getWeight()."</td>";
 		echo "<td><label>Ki választ</label>
 					<input type='checkbox' id='check".$user->getId()."'></td>";
 		//echo json_encode($row);
@@ -30,4 +26,35 @@ if(isset($_POST["id"]) && (strlen($_POST["weight"])>0) && isset($_POST["beltgrad
 }
 else {
 	echo "false";
+}
+function masLoadUser($id){
+	$DBTasks = new DBTasks();
+	$row = $DBTasks->select(DBData::getMainUserTable(),
+			"*",
+			DBData::$mainUserID." = ".$id ,
+			"Left JOIN ".DBData::getEmailDataTable()." ON
+                            ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
+                            ".DBData::getEmailDataTable().".".DBData::$emailDataID."
+            Left JOIN ".DBData::getTelefonDataTable()." ON
+                            ".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."=
+                            ".DBData::getTelefonDataTable().".".DBData::$telefonDataID."
+            Left Join
+				  data.member_data
+				    On data.member_data.md_muid = data.main_user.mu_id Left Join
+				  data.belt_grades_data
+				    On data.member_data.md_beltgradesid = data.belt_grades_data.bgd_id");
+	if($row){
+		if(isset($row[DBData::$memberDataID])){
+			$user = SportUser::createWithDB($row);
+		}
+		else {
+			$user = User::createWithDB($row);
+		}
+
+		$user =$DBTasks->refreshUserPermission($user);
+		return $user;
+	}
+	else {
+		return null;
+	}
 }

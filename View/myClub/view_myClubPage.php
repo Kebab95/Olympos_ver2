@@ -8,7 +8,8 @@ foreach ($orgValue as $item) {
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
 					<label>Egyesület képviselő neve:</label>
-					<a href="?profile=<?php echo $item["orgLeaderID"]?>"><?php echo $item["orgLeader"]?></a>
+					<label ></label>
+					<a onclick="showModalProfile(<?php echo UserTasks::getUser()->getId()?>,<?php echo $item["orgLeaderID"]?>)"><?php echo $item["orgLeader"]?></a>
 				</div>
 				<div class="col-md-4">
 					<?php
@@ -42,6 +43,11 @@ foreach ($orgValue as $item) {
 													<div class="row form-group">
 														<div class="col-xs-6"><strong role="#memberName">Teljes Név</strong></div>
 														<div class="col-xs-6"><input type="text" class="form-control" id="memberName" name="memberName" required></div>
+													</div>
+													<hr>
+													<div class="row form-group">
+														<div class="col-xs-6">Születés nap</div>
+														<div class="col-xs-6"><input type="date" class="form-control" name="memberBDate"></div>
 													</div>
 													<hr>
 													<div class="row form-group">
@@ -86,12 +92,15 @@ foreach ($orgValue as $item) {
 
 
 		</div>
-		<table class="table table-striped table-hover table-bordered">
+		<table class="table table-striped table-hover table-bordered table-responsive">
 			<thead>
 			<tr>
 				<th>Tag Neve</th>
-				<th>Telefon</th>
+				<th>Utoljára mért Súlya</th>
+				<th>Öv fokozat</th>
+				<th>Életkor</th>
 				<th></th>
+				<?php echo ($isLeader?"<th></th>":"")?>
 				<?php echo ($isLeader?"<th></th>":"")?>
 
 			</tr>
@@ -100,14 +109,52 @@ foreach ($orgValue as $item) {
 			<?php
 			if(is_array($item["members"])) {
 				foreach ($item["members"] as $member) {
+					/** @var SportUser $User */
+					$User = $member["memberUser"];
+					echo "<tr ".($member["memberCurrent"]?"class='info'":"")." id='clubMemberRow".$User->getId()."'>";
+					echo "<td>".$User->getName()."</td>";
+					if(SportUser::isSportUser($User)){
+						echo "<td>".$User->getWeight()."</td>";
+						echo "<td>".$User->getBeltGrades()."</td>";
+
+					}
+					else {
+						echo "<td colspan='2'>Nincsenek sport adatai ennek a felhasználónak</td>";
+					}
+					echo "<td>".$User->getAge()."</td>";
+					if($isLeader){
+						echo "<td><button onclick='sportDataUpdate(".$User->getId().")' class='btn btn-info2 btn-block'>Sport Adatok Frissítése</button></td>";
+					}
+
+
+					if($User->getEmail()!=null){
+						echo "<td><button class='btn btn-info btn-block' onclick='showModalProfile(".UserTasks::getUser()->getId().",".$User->getId().")'>Profil</button> </td>";
+					}
+					else {
+						if($isLeader){
+							echo "<td><input type='button' class='btn btn-info btn-block' value='Létrehozás'></td>";
+						}
+						else {
+							echo "<td>Nem regisztrált Felhasználó</td>";
+						}
+
+					}
+
+
+					if($isLeader){
+						echo "<td><button class='btn btn-danger btn-block'>Tag törlése</button> </td>";
+					}
+					echo "</tr>";
+					/*
 					echo "<tr ".($member["memberCurrent"]?"class='info'":"").">";
-					echo "<td>" . $member["memberName"] . "</td>";
-					echo "<td>" . ($member["memberTelefon"]!=null?$member["memberTelefon"]:"<div class='center-block text-center'>
+					echo "<td>" . $User->getName() . "</td>";
+					echo "<td>" . ($User->getTelefon()!=null?$User->getTelefon():"<div class='center-block text-center'>
 								<label>Ennek a profilnak nincsenek egyéb adataia</label>
 								</div>") . "</td>";
-					echo "<td>".($member["memberTelefon"]!=null?"<a href='?profile=".$member["memberId"]."'>Tovább a profilhoz</a>":"<input type='button' class='btn btn-info' value='Létrehozás'>")."</td>";
+					echo "<td>".($User->getTelefon()!=null?"<a href='?profile=".$User->getId()."'>Tovább a profilhoz</a>":"<input type='button' class='btn btn-info' value='Létrehozás'>")."</td>";
 					echo ($isLeader?"<td><button class='btn btn-danger'>Tag törlése</button> </td>":"");
 					echo "</tr>";
+					*/
 				}
 			}
 			else {
@@ -119,8 +166,65 @@ foreach ($orgValue as $item) {
 			</tbody>
 		</table>
 	</div>
+	<hr>
+	<div id="sportDataUpdateDiv"></div>
 
 	<?php
 }
 ?>
+<script>
+	function sportDataUpdate(memberID){
+		$.ajax({
+			url: 'Model/myClub/model_ajax_sportMemberUpdateModal.php',
+			type: 'POST',
+			data: {memberID: memberID},
+			dataType: 'html'
+		}).done(function(data){
+			console.log(data);
+			$("#sportDataUpdateDiv").html(data);
+			$("#sportUserUpdateModal").modal("show").on('hidden.bs.modal', function () {
+				setTimeout(function(){
+					$("#sportDataUpdateDiv").html("");
+				},500);
+			});
+			$("#sportUserSubmit").on("click",function(){
+				$.ajax({
+					url: 'Model/myClub/model_ajax_sportMemberUpdate.php',
+					type: 'POST',
+					data: {memberID: memberID,
+							weight:$("#sportUserWeight").val(),
+							beltGradesID: $("#sportUserBeltID").val(),
+							upOrin: $("#insertOrUpdateSportMember").val(),
+							updaterID: <?php echo UserTasks::getUser()->getId()?>,
+							isClubLeader: <?php echo UserTasks::isClubLeader()?>},
+					dataType: 'html'
+				}).done(function(html){
+					console.log(html);
+					if(html!="false"){
+						$("#sportUserUpdateModal").modal("toggle");
+						setTimeout(function(){
+							$("#clubMemberRow"+memberID).html(html);
+						},500);
+					}
+					else {
+						alert("Nem töltött ki minden mezőt!");
+					}
 
+				}).fail(function(){
+					alert('Ajax Submit Failed ...');
+				});
+			});
+			$("#sportUserUpdateModalClose").on("click",function(){
+				$("#sportUserUpdateModal").modal("toggle");
+
+				setTimeout(function(){
+					$("#sportDataUpdateDiv").html("");
+				},500);
+
+			});
+
+		}).fail(function(){
+			alert('Ajax Submit Failed ...');
+		});
+	}
+</script>

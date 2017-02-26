@@ -2,7 +2,7 @@
 
 class Competetion implements DBClass
 {
-	private $id,$title,$type,$type_id,$mu_id,$sex;
+	private $id,$title,$type,$type_id,$mu_id;
 
 	/**
 	 * Competetion constructor.
@@ -13,13 +13,12 @@ class Competetion implements DBClass
 	 * @param $mu_id
 	 * @param $sex
 	 */
-	public function __construct($id, $title, CompTypes $type, $mu_id, $sex)
+	public function __construct($id, $title, CompTypes $type, $mu_id)
 	{
 		$this->id = $id;
 		$this->title = $title;
 		$this->type = $type;
 		$this->mu_id = $mu_id;
-		$this->sex = $sex;
 	}
 
 	public static function createWithDB(array $data)
@@ -27,8 +26,7 @@ class Competetion implements DBClass
 		return new Competetion($data[DBData::$competetionsID],
 								$data[DBData::$competetionsTitle],
 								CompTypes::createWithDB($data),
-								$data[DBData::$competetionsMuID],
-								$data[DBData::$competetionsSex]);
+								$data[DBData::$competetionsMuID]);
 	}
 	/**
 	 * @return mixed
@@ -70,13 +68,6 @@ class Competetion implements DBClass
 		return $this->mu_id;
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function getSex()
-	{
-		return $this->sex;
-	}
 
 
 }

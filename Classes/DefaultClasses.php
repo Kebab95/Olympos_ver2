@@ -6,9 +6,12 @@ class Main
 	/**
 	 * @return mixed
 	 */
-	public function getBdate()
+	public function getAge()
 	{
-		return $this->bdate;
+
+		$from = new DateTime($this->bdate);
+		$to   = new DateTime('today');
+		return $from->diff($to)->y;;
 	}
 
 	/**
@@ -38,7 +41,7 @@ class Main
 	/**
 	 * @param mixed $id
 	 */
-	protected function setId(int $id)
+	protected function setId($id)
 	{
 		$this->id = $id;
 	}

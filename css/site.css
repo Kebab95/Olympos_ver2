@@ -6,11 +6,40 @@ body{
 label {
     font-weight: normal;
 }
+div.vertical-header
+{
+    margin-left: -85px;
+    position: absolute;
+    width: 215px;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+    -moz-transform: rotate(-90deg); /* Firefox */
+    -o-transform: rotate(-90deg); /* Opera */
+    -ms-transform: rotate(-90deg); /* IE 9 */
+}
+
+td.vertical-header
+{
+    height: 150px;
+    line-height: 14px;
+    padding-bottom: 20px;
+    text-align: left;
+}
 .body{
-    background-color: white;
+    background-color: #727F8C;
     width: 70%;
     padding-bottom: 20px;
     margin: auto;
+}
+.panel-info>.panel-heading{
+    background-color: #34618C;
+}
+.btn-info2 {
+
+    background-color: #34618C;
+}
+.panel-info{
+    background: #4F79A1;
 }
 .btn-responsive {
     white-space: normal !important;

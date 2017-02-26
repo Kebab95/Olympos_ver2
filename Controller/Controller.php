@@ -207,11 +207,14 @@ else if(isset($_GET["contestview"])){
 		if(is_numeric($_GET["contestview"])){
 			include 'Model/model_defaultUserVerification.php';
 
-			if(isset($_GET["entry"]) && $_GET["entry"]=="in"){
+			if(isset($_GET["more"]) && $_GET["more"]=="entry"){
 				include "Model/contestView/entry/model_entryPage.php";
 				$inBody ="View/contestView/entry/view_entryPage.php";
 			}
-
+			else if(isset($_GET["more"]) && $_GET["more"]=="datacheck"){
+				include "Model/contestView/checks/model_DataChecks.php";
+				$inBody = "View/contestView/checks/view_DataChecks.php";
+			}
 			else {
 				include "Model/contestView/model_contestView.php";
 				$inBody ="View/contestView/view_contestView.php";

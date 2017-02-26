@@ -25,14 +25,24 @@ class DBLoad
 		$row = self::getDBTasks()->select(DBData::getMainUserTable(),
 			"*",
 			DBData::$mainUserID." = ".$id." AND ".DBData::$mainUserActive."=true" ,
-			"INNER JOIN ".DBData::getEmailDataTable()." ON
+			"Left JOIN ".DBData::getEmailDataTable()." ON
                             ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
                             ".DBData::getEmailDataTable().".".DBData::$emailDataID."
-            INNER JOIN ".DBData::getTelefonDataTable()." ON
+            Left JOIN ".DBData::getTelefonDataTable()." ON
                             ".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."=
-                            ".DBData::getTelefonDataTable().".".DBData::$telefonDataID);
+                            ".DBData::getTelefonDataTable().".".DBData::$telefonDataID."
+            Left Join
+				  data.member_data
+				    On data.member_data.md_muid = data.main_user.mu_id Left Join
+				  data.belt_grades_data
+				    On data.member_data.md_beltgradesid = data.belt_grades_data.bgd_id");
 		if($row){
-			$user = User::createWithDB($row);
+			if(isset($row[DBData::$memberDataID])){
+				$user = SportUser::createWithDB($row);
+			}
+			else {
+				$user = User::createWithDB($row);
+			}
 
 			$user =self::$DBTasks->refreshUserPermission($user);
 			return $user;

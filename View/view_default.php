@@ -27,8 +27,8 @@
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css"/>
-	<!--<link rel="stylesheet" type="text/css" href="https://bootswatch.com/yeti/bootstrap.min.css"/>!-->
-	<link rel="stylesheet" type="text/css" href="css/freelancer.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/superhero.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="css/freelancer.min.css"/>!-->
 	<link rel="stylesheet" type="text/css" href="css/site.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
@@ -70,7 +70,13 @@
 						<?php
 						if(is_array($userDropbox)) {
 							foreach ($userDropbox as $key => $item) {
-								echo '<li><a href='.$item['href'].'><i class="fa"></i> '.$item['title'].'</a></li>';
+								if($item['title']=="Profil"){
+									echo '<li><a onclick="showModalProfile('.UserTasks::getUser()->getId().','.UserTasks::getUser()->getId().')"><i class="fa"></i> '.$item['title'].'</a></li>';
+								}
+								else {
+									echo '<li><a href='.$item['href'].'><i class="fa"></i> '.$item['title'].'</a></li>';
+								}
+
 							}
 							?>
 							<li class="divider"></li>
@@ -97,7 +103,7 @@
 
 
 </div>
-
+<div id="ProfileModalHire"></div>
 
 <div id="footer">
 	<div class="container">

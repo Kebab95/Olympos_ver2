@@ -4,7 +4,9 @@ class Contest implements DBClass
 	private $orgID;
 	private $id,$name,$locale,$entryFee,$description,$date;
 	private $localeID;
-	private $isEntry;
+	private $entry;
+	private $closed;
+	private $dataChecks;
 
 
 	/**
@@ -16,7 +18,16 @@ class Contest implements DBClass
 	 * @param $description
 	 * @param $date
 	 */
-	public function __construct($orgID,$id, $name, PostalAdd $localeID, $entryFee, $description, $date,$isEntry)
+	public function __construct($orgID,
+	                            $id,
+	                            $name,
+	                            PostalAdd $localeID,
+	                            $entryFee,
+	                            $description,
+	                            $date,
+	                            bool $isEntry,
+	                            bool $closed,
+	                            bool $DataCheck)
 	{
 		$this->orgID= $orgID;
 		$this->id = $id;
@@ -25,7 +36,9 @@ class Contest implements DBClass
 		$this->entryFee = $entryFee;
 		$this->description = $description;
 		$this->date = $date;
-		$this->isEntry = $isEntry;
+		$this->entry = $isEntry;
+		$this->closed = $closed;
+		$this->dataChecks = $DataCheck;
 	}
 
 	public static function createWithDB(array $data)
@@ -38,7 +51,9 @@ class Contest implements DBClass
 			$data[DBData::$contestEntryFee],
 			$data[DBData::$contestDesc],
 			$data[DBData::$contestDate],
-				($data[DBData::$contestIsEntry]=="t"));
+				($data[DBData::$contestIsEntry]=="t"),
+				($data[DBData::$contestClosed]=="t"),
+				($data[DBData::$contestDataChecks]=="t"));
 		return $intance;
 	}
 
@@ -107,12 +122,32 @@ class Contest implements DBClass
 	}
 
 	/**
-	 * @return mixed
+	 * @return bool
 	 */
 	public function getIsEntry()
 	{
-		return $this->isEntry;
+		return $this->entry;
 	}
+
+	/**
+	 * @return bool
+	 */
+	public function isClosed()
+	{
+		return $this->closed;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isDataChecks()
+	{
+		return $this->dataChecks;
+	}
+
+
+
+
 
 
 }

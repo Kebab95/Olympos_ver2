@@ -21,6 +21,9 @@ class DBData
 					".$var[self::$contestOrgID]."
 		)";
 	}
+	public static function getMemberDataInsertUpdateFunction(array $var){
+
+	}
 	public static function getInsertCategory(array $var){
 		return self::getContestSchema()."insertcategory(
 					".$var[self::$compCatID].",
@@ -244,6 +247,7 @@ class DBData
 	static $contestDelete="delete";
 	static $contestIsEntry="is_entry";
 	static $contestClosed="contest_closed";
+	static $contestDataChecks="contest_datachecks";
 
 	//Contest Comp Types oszlopok
 	static $contestCompTypesID ="comp_types_id";
@@ -306,6 +310,7 @@ class DBData
 	static $memberDataMuID="md_muid";
 	static $memberDataWeight="md_weight";
 	static $memberDataGradesBeltID="md_beltgradesid";
+	static $memberDataLastChangeTime="md_lctime";
 
 	//Belt grades oszlop nevek
 	static $beltGradesID="bgd_id";

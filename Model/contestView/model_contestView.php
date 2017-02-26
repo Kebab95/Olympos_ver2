@@ -16,6 +16,7 @@ $data[DBData::$contestDate] = $contest->getDate();
 $data[DBData::$contestEntryFee] = $contest->getEntryFee();
 $data[DBData::$contestDesc] = $contest->getDescription();
 $data[DBData::$contestIsEntry] = $contest->getIsEntry();
+$data[DBData::$contestDataChecks] = $contest->isDataChecks();
 
 $data[DBData::$contestID] = $contest->getId();
 

@@ -27,7 +27,7 @@
 				echo "<tr>";
 				echo "<td id='textVerticalAlign'>".$item["Name"]."</td>";
 				echo "<td id='textVerticalAlign'>".$item["Telefon"]."</td>";
-				echo "<td id='textVerticalAlign'><a href='?profile=".$item["UserId"]."'>".$item["UserName"]."</td>";
+				echo "<td id='textVerticalAlign'><a onclick='showModalProfile(".UserTasks::getUser()->getId().",".$item["UserId"].")'>".$item["UserName"]."</td>";
 				echo "<td class='text-center'><a><input type='button' class='btn btn-default' value='Adatok'></a></td>";
 				echo "<td class='text-center'>
 								<input type='button' name='orgJoinSubmit' class='btn btn-success' value='Csatlakozás' data-toggle='modal' data-target='#myModal".$modalNum."'>";

@@ -28,7 +28,7 @@
 					foreach ($ClubMembers as $clubMember) {
 						$typeMember = SportUser::isSportUser($clubMember);
 						echo "<tr id='memberRow".$clubMember->getId()."'>";
-						echo "<td>".$clubMember->getName()."</td>";
+						echo "<td><a onclick='showModalProfile(".UserTasks::getUser()->getId().",".$clubMember->getId().")'>".$clubMember->getName()."</a></td>";
 						if($typeMember){
 							/** @var SportUser $sportClubMember */
 							$sportClubMember = $clubMember;
@@ -57,7 +57,7 @@
 						<input class="btn btn-success btn-block" value="Nevezés" name="memberEntrySubmit" type="submit">
 					</div>
 					<div class="col-md-12">
-						<a href="?contestview=<?php echo $contestID?>"><button class="btn btn-danger btn-block">Mégse</button></a>
+						<a href="?contestview=<?php echo $contestID?>"><button type="button" class="btn btn-danger btn-block">Mégse</button></a>
 					</div>
 				</div>
 
@@ -120,7 +120,7 @@ function modal($id, array $grades){
 	$back.="</select>";
 	$back.="</div>";
 	$back.="<div class='col-md-12'>";
-	$back.="<button onclick='tesztvalami(".$id.")' id='memberUpdate\".$id.\"' class='btn btn-success'>Frissítés</button>";
+	$back.="<button type='button' onclick='tesztvalami(".$id.")' id='memberUpdate".$id."' class='btn btn-success'>Frissítés</button>";
 	$back.="</div>";
 	$back.="</div>";
 	$back .="</div>";

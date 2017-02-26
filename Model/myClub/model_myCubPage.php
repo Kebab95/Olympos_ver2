@@ -41,10 +41,8 @@ function loadClubMemberToArray($clubMembers){
 	$memberTemp = array();
 	/** @var User $member */
 	foreach ($clubMembers as $member) {
-		$asd["memberCurrent"] = ($_SESSION["User"]->getId()==$member->getId());
-		$asd["memberName"] = $member->getName();
-		$asd["memberTelefon"] = $member->getTelefon();
-		$asd["memberId"] = $member->getId();
+		$asd["memberCurrent"] = (UserTasks::getUser()->getId()==$member->getId());
+		$asd["memberUser"] = $member;
 
 		array_push($memberTemp,$asd);
 	}

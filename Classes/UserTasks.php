@@ -14,6 +14,7 @@ class UserTasks
 	}
 
 	public static function getUser(){
+		self::init();
 		return self::$User;
 	}
 	public static function isMember(){

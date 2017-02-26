@@ -5,8 +5,36 @@ jQuery.loadScript = function (url, callback) {
         success: callback,
         async: true
     });
+};
+function showModalProfile(myUserID,id){
+    $.ajax({
+        url: 'Model/model_modal_ajax_Profile.php',
+        type: 'POST',
+        data: {myUserID: myUserID,id:id},
+        dataType: 'html'
+    }).done(function(data){
+        console.log(data);
+        $("#ProfileModalHire").html(data);
+        $("#profileModal").modal("show").on('hidden.bs.modal', function () {
+            setTimeout(function(){
+                $("#ProfileModalHire").html("");
+            },500);
+        });
+        $("#modalProfileClose").on("click",function(){
+            $("#profileModal").modal("toggle");
+
+            setTimeout(function(){
+                $("#ProfileModalHire").html("");
+            },500);
+
+        });
+
+    }).fail(function(){
+        alert('Ajax Submit Failed ...');
+    });
 }
 $('#passValAlert1').hide();
+
 $(document).ready(function() {
 
     if(document.getElementsByClassName("cursor")[0].getAttribute("aria-expanded") =="false") {
