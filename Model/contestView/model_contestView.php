@@ -8,7 +8,6 @@ $result = $DBTasks->select(DBData::getMainUserTable(),DBData::$mainUserID,
 			DBData::getMainUserTable().".".DBData::$mainUserID."=".DBData::getClubLeaderTable().".".DBData::$clubLeaderMUID);
 
 $creator = (is_numeric($result[DBData::$mainUserID]) && $result[DBData::$mainUserID] == $_SESSION["User"]->getId());
-
 $data[DBData::$contestName] = $contest->getName();
 $data[DBData::$contestOrgID] = DBLoad::loadOrg($contest->getOrgID())->getName();
 $data[DBData::$contestLocaleID]= $contest->getLocale();
@@ -51,43 +50,57 @@ if($array!=null){
 
 	}
 	if($creator){
-		$compPerson = array();
-		$ageGrp = array();
-		/** @var Competetion $item */
-		foreach ($compArray as $item) {
-			$compPersonResult = $DBTasks->selectGetResult(DBData::getPersonalGroupTable(),
-					"*",DBData::$personalGrpTypeID."=".$item->getType()->getId());
-			if(pg_num_rows($compPersonResult)>0){
+		if(count($compArray)>0){
+			$compPerson = array();
+			$ageGrp = array();
+			/** @var Competetion $item */
+			foreach ($compArray as $item) {
+				$compPersonResult = $DBTasks->selectGetResult(DBData::getPersonalGroupTable(),
+						"*",DBData::$personalGrpCompID."=".$item->getId());
+				if(pg_num_rows($compPersonResult)>0){
 
-				while($row = pg_fetch_row($compPersonResult, NULL, PGSQL_ASSOC)){
-					$compPerson[$item->getId()][$row[DBData::$personalGrpID]] = $row;
+					while($row = pg_fetch_row($compPersonResult, NULL, PGSQL_ASSOC)){
+						$compPerson[$item->getId()][$row[DBData::$personalGrpID]] = $row;
+					}
+					//var_dump($compTypes);
 				}
-				//var_dump($compTypes);
-			}
-			$ageGrpResult = $DBTasks->selectGetResult(DBData::getAgeGroupTable(),
-					"*",DBData::$ageGrpTypeID."=".$item->getType()->getId().
-					" AND ". DBData::$ageGrpDelete."=false");
-			if(pg_num_rows($ageGrpResult)>0){
+				$ageGrpResult = $DBTasks->selectGetResult(DBData::getAgeGroupTable(),
+						"*",DBData::$ageGrpCompID."=".$item->getId().
+						" AND ". DBData::$ageGrpDelete."=false");
+				if(pg_num_rows($ageGrpResult)>0){
 
-				while($row = pg_fetch_row($ageGrpResult, NULL, PGSQL_ASSOC)){
-					$ageGrp[$item->getId()][$row[DBData::$ageGrpID]] = $row;
+					while($row = pg_fetch_row($ageGrpResult, NULL, PGSQL_ASSOC)){
+						$ageGrp[$item->getId()][$row[DBData::$ageGrpID]] = $row;
+					}
+					//var_dump($compTypes);
 				}
-				//var_dump($compTypes);
 			}
 		}
-		$resultTypes = $DBTasks->selectGetResult(DBData::getContestCompTypesTable(),
-									"*",
-									DBData::$compTypesMUid."=".$contest->getOrgID());
-		if(pg_num_rows($resultTypes)>0){
-			$compTypesArray =array();
-			while($row = pg_fetch_row($resultTypes, NULL, PGSQL_ASSOC)){
-				array_push($compTypesArray,CompTypes::createWithDB($row));
-			}
 
 
-		}
 	}
 
+}
+$resultTypes = $DBTasks->selectGetResult(DBData::getContestCompTypesTable(),
+		"*",
+		DBData::$compTypesMUid."=".$contest->getOrgID());
+if(pg_num_rows($resultTypes)>0){
+	$compTypesArray =array();
+	while($row = pg_fetch_row($resultTypes, NULL, PGSQL_ASSOC)){
+		array_push($compTypesArray,CompTypes::createWithDB($row));
+	}
+
+
+}
+$DBTasks->Connect();
+$beltGrades = $DBTasks->sql("Select
+  *
+From
+  data.knowledge_level");
+$DBTasks->ConnClose();
+$beltKnowLedge =array();
+while($row = pg_fetch_row($beltGrades, NULL, PGSQL_ASSOC)){
+	array_push($beltKnowLedge,$row);
 }
 //var_dump($compTypes);
 

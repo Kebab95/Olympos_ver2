@@ -52,6 +52,34 @@ class DBLoad
 		}
 
 	}
+	public static function loadUserWithoutActive($id){
+		$row = self::$DBTasks->select(DBData::getMainUserTable(),"*",DBData::$mainUserID." = ".$id,
+				"Left JOIN ".DBData::getEmailDataTable()." ON
+                            ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
+                            ".DBData::getEmailDataTable().".".DBData::$emailDataID."
+            Left JOIN ".DBData::getTelefonDataTable()." ON
+                            ".DBData::getMainUserTable().".".DBData::$mainUserTelefonID."=
+                            ".DBData::getTelefonDataTable().".".DBData::$telefonDataID."
+            Left Join
+				  data.member_data
+				    On data.member_data.md_muid = data.main_user.mu_id Left Join
+				  data.belt_grades_data
+				    On data.member_data.md_beltgradesid = data.belt_grades_data.bgd_id");
+		if($row){
+			if(isset($row[DBData::$memberDataID])){
+				$user = SportUser::createWithDB($row);
+			}
+			else {
+				$user = User::createWithDB($row);
+			}
+
+			$user =self::$DBTasks->refreshUserPermission($user);
+			return $user;
+		}
+		else {
+			return null;
+		}
+	}
 
 	public static function  loadOrgLeader($leaderMUID, $type){
 		if($type==2 || $type==3){
@@ -477,6 +505,17 @@ class DBLoad
 			DBData::getCompetetionsTable().".".DBData::$competetionsTypeID."=".DBData::getContestCompTypesTable().".".DBData::$compTypesID);
 		if($row !=null)
 			return Competetion::createWithDB($row);
+		else
+			return null;
+	}
+	public static function loadCategory($catID){
+		$row = self::$DBTasks->select(DBData::getCompCategoryTable(),"*",DBData::$compCatID."=".$catID,
+				"Inner Join ".DBData::getAgeGroupTable()."
+    On ".DBData::getCompCategoryTable().".".DBData::$compCatAgeGrpID." = ".DBData::getAgeGroupTable().".".DBData::$ageGrpID."
+			  Inner Join ".DBData::getPersonalGroupTable()."
+			    On ".DBData::getCompCategoryTable().".".DBData::$compCatPersonalGrpID." =  ".DBData::getPersonalGroupTable().".".DBData::$personalGrpID);
+		if($row !=null)
+			return CompCategory::createWithDB($row);
 		else
 			return null;
 	}

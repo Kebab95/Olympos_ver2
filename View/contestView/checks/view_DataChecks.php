@@ -42,12 +42,18 @@
 			/** @var SportUser $tempUser */
 			$tempUser = $item["User"];
 			echo "<td>".$tempUser->getName()."</td>";
-			echo "<td>'".$tempUser->getWeight()."'</td>";
-			echo "<td>a</td>";
-			echo "<td>a</td>";
-			echo "<td>a</td>";
-			echo "<td>a</td>";
-			echo "<td>a</td>";
+			echo "<td>".$tempUser->getWeight()."</td>";
+			echo "<td>".$tempUser->getBeltGrades()."</td>";
+			echo "<td>".$tempUser->getAge()."</td>";
+			$tempCompArray = array();
+			foreach ($CompArray as $comp) {
+				array_push($tempCompArray,$comp->getId());
+				echo "<td><input type='checkbox' disabled id='check".$comp->getId().$tempUser->getId()."' ".($item[$comp->getId()]?"checked":"")."></td>";
+				//echo "<td class='vertical-header'><div class='vertical-header'><strong>".$comp->getTitle()."</strong></div></td>";
+			}
+			echo "<td>";
+			echo "<button type='button' class='btn btn-info2 btn-block'>Feloldás</button>";
+			echo "</td>";
 			echo "</tr>";
 		}
 		else {
@@ -128,9 +134,12 @@
 					contestID: <?php echo $_GET["contestview"]?>},
 			dataType: 'html'
 		}).done(function(data){
-			//console.log(data);
+			console.log(data);
 			$('#memberRow'+memberId).html(data);
 			$('#memberRow'+memberId).css('background-color','#3e8f3e');
+			/*
+
+			*/
 		}).fail(function(){
 			alert("Hiba!");
 		});

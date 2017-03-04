@@ -2,17 +2,19 @@
 class SportUser extends User implements DBClass
 {
 	private $weight,$beltGrades;
+	private $knowLedgeId;
 
 	/**
 	 * SportUser constructor.
 	 * @param $weight
 	 * @param $beltGrades
 	 */
-	public function SportUser($id,$name,$email,$telefon,$password,$type,$bdate,$weight,$beltGrades)
+	public function SportUser($id,$name,$email,$telefon,$password,$type,$bdate,$sex,$weight,$beltGrades,$knowLedgeId)
 	{
-		$this->__construct($id,$name,$email,$telefon,$password,$type,$bdate);
+		$this->__construct($id,$name,$email,$telefon,$password,$type,$bdate,$sex);
 		$this->weight = $weight;
 		$this->beltGrades = $beltGrades;
+		$this->knowLedgeId = $knowLedgeId;
 	}
 
 	public static function createWithDB(array $data)
@@ -24,11 +26,21 @@ class SportUser extends User implements DBClass
 				$data[DBData::$mainUserPass],
 				$data[DBData::$mainUserType],
 				$data[DBData::$mainUserBDate],
+				$data[DBData::$mainUserSex]=="t",
 				$data[DBData::$memberDataWeight],
-				$data[DBData::$beltGradesName]);
+				$data[DBData::$beltGradesName],
+				$data[DBData::$beltGradesLevelId]);
 	}
 	public static function isSportUser($SportUser){
 		return $SportUser instanceof SportUser;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getKnowLedgeId()
+	{
+		return $this->knowLedgeId;
 	}
 
 	/**

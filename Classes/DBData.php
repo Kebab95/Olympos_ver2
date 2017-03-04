@@ -87,6 +87,7 @@ class DBData
 	private static $memberdata="member_data";
 	private static $beltGradesData="belt_grades_data";
 	private static $entry = "entry";
+	private static $knowLedge = "knowledge_level";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -169,6 +170,9 @@ class DBData
 	public static function getEntryTable(){
 		return self::getContestSchema().".".self::$entry;
 	}
+	public static function getKnowLedgeTable(){
+		return self::getDataSchema().".".self::$knowLedge;
+	}
 	//Main User tábla oszlop nevei
 
 	static $mainUserID ="mu_id";
@@ -181,6 +185,7 @@ class DBData
 	static $mainUserBDate = "mu_bdate";
 	static $mainUserCreateTime ="mu_ctime";
 	static $mainUserLastChangeTime ="mu_lctime";
+	static $mainUserSex = "mu_sex";
 
 	//Email Data tabla oszlop nevei
 	static $emailDataID ="ed_id";
@@ -292,7 +297,7 @@ class DBData
 
 	//Age grp oszlop nevei
 	static $ageGrpID="age_grp_id";
-	static $ageGrpOrgID="age_grp_org_id";
+	static $ageGrpCompID="age_grp_comp_id";
 	static $ageGrpMin="min";
 	static $ageGrpMax="max";
 	static $ageGrpTypeID="age_grp_comp_type_id";
@@ -300,10 +305,13 @@ class DBData
 
 	//Personal grp oszlop nevei
 	static $personalGrpID="personal_id";
-	static $personalGrpOrgID="personal_org_id";
+	static $personalGrpCompID="personal_comp_id";
 	static $personalGrpTitle="personal_title";
 	static $personalGrpTypeID="personal_comp_types_id";
 	static $personalGrpDelete="personal_delete";
+	static $personalGrpWeightMin = "personal_weightmin";
+	static $personalGrpWeightMax = "personal_weightmax";
+	static $personalGrpknowLEdgeID="personal_knowledge_id";
 
 	//Member data oszlop
 	static $memberDataID="md_id";
@@ -316,6 +324,7 @@ class DBData
 	static $beltGradesID="bgd_id";
 	static $beltGradesName="bgd_name";
 	static $beltGradesWeight="bgd_weight";
+	static $beltGradesLevelId="bgd_klevel_id";
 
 	//Entry oszlop nevek
 	static $entryID ="en_id";
@@ -327,5 +336,9 @@ class DBData
 	static $entryPaid="en_paid";
 	static $entryDeliberation="en_deliberation";
 	static $entryReleased="en_released";
+
+	//KnowLedge table oszlop nevek
+	static $knowLedgeId="klevel_id";
+	static $knowLedgeName="klevel_name";
 
 }

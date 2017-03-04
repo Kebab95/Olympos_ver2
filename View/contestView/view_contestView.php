@@ -5,13 +5,21 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-3">
+				<div class="row">
 				<?php
 					if($creator){
-					    echo "<div class='text-center'>
+					    echo "<div class='col-md-12 text-center'>
 							<button class='btn btn-default btn-block'>Szerkesztés</button>
 							</div>";
 					}
+					if($creator && $data[DBData::$contestDataChecks]){
+						echo "<div class='col-md-12'>&nbsp;</div>";
+					    echo "<div class='col-md-12'>";
+						echo "<a href='?contestview=".$data[DBData::$contestID]."&more=schedule'><button class='btn btn-info2 btn-block'>Versenyszámok beosztása</button></a>";
+						echo "</div>";
+					}
 				?>
+				</div>
 			</div>
 
 			<div class="col-md-6">

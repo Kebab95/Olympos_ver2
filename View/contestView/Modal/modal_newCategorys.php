@@ -1,3 +1,4 @@
+<?php /** @var Competetion $item */ ?>
 <div class="modal fade" id="myModal<?php echo $item->getId()?>" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -30,8 +31,8 @@
 									<select multiple class="form-control" size="10" id="ageGrpSelect<?php echo $item->getId()?>" name="ageGrpSelect<?php echo $item->getId()?>">
 
 										<?php
-										if(count($ageGrp)>0){
-											foreach ($ageGrp[$compid] as $age) {
+										if(count($ageGrp[$item->getId()])>0){
+											foreach ($ageGrp[$item->getId()] as $age) {
 												echo "<option value='".$age[DBData::$ageGrpID]."'>".$age[DBData::$ageGrpMin]."-".$age[DBData::$ageGrpMax]."</option>";
 											}
 										}
@@ -72,6 +73,13 @@
 												var orgid ="#CompOrgId"+number;
 												var typeid ="#CompTypeId"+number;
 												var compid ="#CompId"+number;
+												/*
+												$("#ageGrpSelect"+number+" option").each(function()
+												{
+													console.log($(this).text());
+												});
+												*/
+
 												$.ajax({
 													url: 'Model/contestView/model_ajax_newAgeGrp.php',
 													type: 'POST',
@@ -102,7 +110,7 @@
 
 
 												}).fail(function(ts){
-													console.log(ts.responseText)
+													console.log(ts.responseText);
 													alert("Hiba az ajax-al");
 												});
 											}
@@ -115,43 +123,93 @@
 							<div class="row form-group">
 								<div class="col-xs-2 col-md-2">Csoport</div>
 								<div class="col-xs-6 col-md-6">
-									<select multiple class="form-control" size="10" id="personalGrpSelect<?php echo $item->getId()?>" name="personalGrpSelect<?php echo $item->getId()?>">
-
-										<?php
-										if(count($compPerson)>0){
-											foreach ($compPerson[$compid] as $compPers) {
-												echo "<option value='".$compPers[DBData::$personalGrpID]."'>".$compPers[DBData::$personalGrpTitle]."</option>";
-											}
-										}
-										else {
-											echo '<option>"Nincsen csoport hozzáadva"</option>';
-										}
-
+									<?php
+									if($item->getType()->getEvents(DBData::getCompTypesFlag(0))){
 										?>
-									</select>
+										<select multiple class="form-control" size="10" id="personalGrpSelect<?php echo $item->getId()?>" name="personalGrpSelect<?php echo $item->getId()?>">
+
+											<?php
+											if(count($compPerson[$compid])>0){
+												foreach ($compPerson[$compid] as $compPers) {
+													echo "<option value='".$compPers[DBData::$personalGrpID]."'>".$compPers[DBData::$personalGrpTitle]."</option>";
+												}
+											}
+											else {
+												echo '<option>"Nincsen csoport hozzáadva"</option>';
+											}
+
+											?>
+										</select>
+										<?php
+									}
+									else{
+										$chechBoxID = array();
+										foreach ($beltKnowLedge as $knowledge) {
+											echo "<input type='checkbox' id='checkBox".$knowledge[DBData::$knowLedgeId].$item->getId()."' value='".$knowledge[DBData::$knowLedgeId]."'> ";
+											echo "<label for='checkBox".$knowledge[DBData::$knowLedgeId].$item->getId()."'>".$knowledge[DBData::$knowLedgeName]."</label><br>";
+											array_push($chechBoxID,"checkBox".$knowledge[DBData::$knowLedgeId].$item->getId());
+										}
+									}
+									?>
+
 
 								</div>
 								<div class="col-xs-4 col-md-4">
-									<input class="btn btn-info btn-block" onclick="buttonChange(this,'Új csoport')" type="button" value="Új csoport" data-toggle="collapse" data-target="#personalCollapse<?php echo $item->getId()?>">
+									<?php
+									if($item->getType()->getEvents(DBData::getCompTypesFlag(0))){
+									    ?>
+										<input class="btn btn-info btn-block" onclick="buttonChange(this,'Új csoport');" type="button" value="Új csoport" data-toggle="collapse" data-target="#personalCollapse<?php echo $item->getId()?>">
+										<?php
+									}
+									else{
+										?>
+											<input type="hidden" id="checkBoxID" value='<?php echo json_encode($chechBoxID)?>'>
+										<?php
+									}
+									?>
+
 
 								</div>
 
 							</div>
 							<div class="row">
-								<div class="col-xs-2"></div>
-								<div class="col-xs-8">
+								<div class="col-xs-1"></div>
+								<div class="col-xs-10">
 									<div id="personalCollapse<?php echo $item->getId()?>" class="collapse">
 										<hr>
 										<div class="row">
-											<div class="col-xs-6"><label>Csoport név</label></div>
-											<div class="col-xs-6"><input type="text" class="form-control" name="newPersonalGrpTitle<?php echo $item->getId()?>" id="newPersonalGrpTitle<?php echo $item->getId()?>"></div>
+
+											<?php
+											$PersonalType = 0;
+											if($item->getType()->getEvents(DBData::getCompTypesFlag(0))){
+												$PersonalType= 0;
+											    ?>
+												<div class="col-xs-4"><label>Súly csoport (minimum,maximum) [Kg]</label><br><label>(Küzdelmi szám)</label></div>
+													<div class="col-xs-8">
+														<div class="row">
+															<div class="col-xs-6"><input type="number" class="form-control" id="personalNumMin<?php echo $item->getId()?>"></div>
+															<div class="col-xs-6"><input type="number" class="form-control" id="personalNumMax<?php echo $item->getId()?>"></div>
+														</div>
+													</div>
+												<?php
+											}
+											else {
+												$PersonalType=1;
+												?>
+												<div class="col-xs-4"><label>Tudás szint</label></div>
+												<div class="col-xs-8"><input type="text" class="form-control" name="newPersonalGrpTitle<?php echo $item->getId()?>" id="newPersonalGrpTitle<?php echo $item->getId()?>"></div>
+												<?php
+											}
+											?>
+
 										</div>
 										<div class="row">
 											<div class="col-xs-12">
+												<input type="hidden" value="<?php echo $PersonalType?>" id="personalType<?php echo $item->getId()?>">
 												<input type="button" class="btn btn-default btn-block" onclick="newPersonal(<?php echo $item->getId()?>)" value="Létrehozás" id="newPersonalGrpButton<?php echo $item->getId()?>">
 											</div>
 										</div>
-										<script>
+										<script type="text/javascript">
 
 											function buttonChange(button,defaultTitle){
 												if ($(button).hasClass('btn-info')){
@@ -168,17 +226,32 @@
 
 											}
 											function newPersonal(number){
-												var title ="#newPersonalGrpTitle"+number;
 												var orgid ="#CompOrgId"+number;
 												var typeid ="#CompTypeId"+number;
 												var compid ="#CompId"+number;
+												var personalType = "#personalType"+number;
+												var personalNum = new Array("");
+												if($(personalType).val()==0){
+													personalNum[0] = $("#personalNumMin"+number).val();
+													personalNum[1] = $("#personalNumMax"+number).val();
+												}
+												else {
+													personalNum[0]=$("#personalNum"+number).val();
+													personalNum[1]=$("#personalNum"+number+" option:selected").text();
+
+												}
 												$.ajax({
 													url: 'Model/contestView/model_ajax_newPersonalGrp.php',
 													type: 'POST',
-													data: {title:$(title).val(),org_id:$(orgid).val(),type_id:$(typeid).val(),comp_id:$(compid).val()},
+													data: {personalType: $(personalType).val(),
+														personalNum:personalNum,
+														org_id:$(orgid).val(),
+														type_id:$(typeid).val(),
+														comp_id:$(compid).val()},
 													dataType: "JSON"
 												}).done(function(data){
 													console.log(data);
+
 													var select ="#personalGrpSelect"+number;
 													$(select)
 															.find('option')
@@ -192,7 +265,8 @@
 													alert("Új csoport hozzáadva!");
 
 
-												}).fail(function(){
+												}).fail(function(e){
+													console.log(e);
 													alert("Hiba az ajax-al");
 												});
 											}
@@ -200,7 +274,7 @@
 										<hr>
 									</div>
 								</div>
-								<div class="col-xs-2"></div>
+								<div class="col-xs-1"></div>
 							</div>
 							<hr>
 							<div class="row form-group">
@@ -261,11 +335,32 @@
 			$("form#newCatForm"+<?php echo $item->getId()?> +"").on("submit",function(e){
 				//e.stopImmediatePropagation();
 				e.preventDefault();
+				var personalType = "#personalType<?php echo $item->getId()?>";
+				var personalArray = new Array();
+				if($(personalType).val()==0){
+					personalArray =$("#personalGrpSelect<?php echo $item->getId()?>").val();
+				}
+				else {
+					var temp = JSON.parse($("#checkBoxID").val());
+					temp.forEach(function(data){
+						var check = $("#"+data).val();
+						if($("#"+data).is(':checked')){
+							personalArray.push(check);
+						}
+						//console.log(check);
+
+						//personalArray.add();
+					});
+					//personalArray =$("#checkBox<?php echo $item->getId()?>").val();
+
+				}
+				console.log(personalArray);
 				$.ajax({
 					url: 'Model/contestView/model_ajax_newCatInsert.php',
 					type: 'POST',
 					data: {ageSelect: $("#ageGrpSelect<?php echo $item->getId()?>").val(),
-							groupSelect:$("#personalGrpSelect<?php echo $item->getId()?>").val(),
+							groupSelect:personalArray,
+							personalType:$(personalType).val(),
 							sex0: $("#sex0<?php echo $item->getId()?>").is(':checked'),
 							sex1: $("#sex1<?php echo $item->getId()?>").is(':checked'),
 							sex2: $("#sex2<?php echo $item->getId()?>").is(':checked'),
@@ -278,7 +373,8 @@
 							foreigncost2: $("#foreigncost2<?php echo $item->getId()?>").val(),
 							org_id: $("#CompOrgId<?php echo $item->getId()?>").val(),
 							comp_id:<?php echo $item->getId();?>,
-							contest_id: <?php echo $_GET["contestview"]?>},
+							contest_id: <?php echo $_GET["contestview"]?>,
+							comp_type: <?php echo $item->getType()->getId()?>},
 					dataType: "TEXT"
 				}).done(function(data){
 					if(data=="false"){
@@ -292,7 +388,7 @@
 				}).fail(function(){
 					alert("Hiba az ajax-al");
 				});
-				return false;
+				//return false;
 			});
 			</script>
 			<div class="modal-footer">

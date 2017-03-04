@@ -2,6 +2,8 @@
 include "../../includeClasses.php";
 $DBTasks = new DBTasks();
 DBLoad::init();
+//var_dump($_POST);
+
 if(     isset($_POST["ageSelect"])
 		&& isset($_POST["groupSelect"])
 		&& (($_POST["sex0"]=="true")
@@ -17,6 +19,29 @@ if(     isset($_POST["ageSelect"])
 		&& isset($_POST["org_id"])
 		&& isset($_POST["comp_id"])
 		&& isset($_POST["contest_id"])){
+	if($_POST["personalType"]=="1"){
+		$values = "(".$_POST["groupSelect"][0];
+		if(count($_POST["groupSelect"])>1){
+			for($i=1; $i<count($_POST["groupSelect"]); $i++){
+				$values.=",".$_POST["groupSelect"][$i];
+		}
+		}
+		unset($_POST["groupSelect"]);
+		$_POST["groupSelect"] = array();
+
+		$values.=")";
+		$asd = $DBTasks->selectGetResult(DBData::getKnowLedgeTable(),"*",DBData::$knowLedgeId." in ".$values);
+		while($row = pg_fetch_row($asd, NULL, PGSQL_ASSOC)){
+			$temp = $DBTasks->insert(DBData::getPersonalGroupTable(),
+					DBData::$personalGrpTitle.",".DBData::$personalGrpCompID.",".DBData::$personalGrpTypeID.",".DBData::$personalGrpknowLEdgeID,
+					"'".$row[DBData::$knowLedgeName]."',".$_POST["comp_id"].",".$_POST["comp_type"].",".$row[DBData::$knowLedgeId],"returning ".DBData::$personalGrpID);
+			$row2 = pg_fetch_row($temp, NULL, PGSQL_ASSOC);
+			array_push($_POST["groupSelect"],$row2[DBData::$personalGrpID]);
+		}
+
+	}
+	//var_dump($_POST["groupSelect"]);
+
 	$values ="";
 	for($i=0; $i<count($_POST["ageSelect"]); $i++){
 	    for($j=0; $j<count($_POST["groupSelect"]); $j++){
@@ -60,6 +85,7 @@ if(     isset($_POST["ageSelect"])
 
 		    }
 		    */
+
 		    if(strlen($values)>0){
 				$values.=",";
 		    }
@@ -115,6 +141,7 @@ if(     isset($_POST["ageSelect"])
 	}
 
 	$DBTasks->ConnClose();
+
 }
 else {
 	echo "false";

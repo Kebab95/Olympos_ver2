@@ -11,6 +11,7 @@ class Organization extends Main implements DBClass{
 		$this->setTelefon($telefon);
 		$this->setPassword($password);
 		$this->setType($type);
+		$this->setSex("false");
 
 		$this->shortName = $shortName;
 		$this->regNum = $regNum;

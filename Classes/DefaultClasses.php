@@ -1,7 +1,27 @@
 <?php
 class Main
 {
-	private $id,$name,$email,$password,$telefon,$type,$bdate;
+	private $id,$name,$email,$password,$telefon,$type,$bdate,$sex;
+
+	/**
+	 * @return mixed
+	 */
+	public function getSex()
+	{
+		return ($this->sex?"Férfi":"Nő");
+	}
+	public function getSexFlag(){
+		return$this->sex;
+	}
+
+	/**
+	 * @param mixed $sex
+	 */
+	public function setSex($sex)
+	{
+		$this->sex = $sex;
+	}
+
 
 	/**
 	 * @return mixed

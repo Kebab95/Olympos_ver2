@@ -142,6 +142,7 @@ class DBTasks extends Database
 	public function insertCompAndConnectToCCC(array $compData,int $contestID){
 		$compIDs = $this->insertComp($compData);
 		if(is_bool($compIDs) && !$compIDs){
+			echo "itt a gond2";
 		    return $compIDs;
 		}
 		else {
@@ -156,6 +157,7 @@ class DBTasks extends Database
 				return true;
 			}
 			else {
+				echo "itt a gond";
 				return false;
 			}
 

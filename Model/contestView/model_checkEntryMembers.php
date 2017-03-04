@@ -65,13 +65,17 @@ if(count($MemberArray)>0 && count($OrgArray)>0){
 										null,null,null,null,
 						$memberItem[DBData::$mainUserBDate],
 						$memberItem[DBData::$memberDataWeight],
-						$memberItem[DBData::$beltGradesName]);
-				echo "<div class='row'>";
-			    echo "<div class='col-md-3'>Név: ".$user->getName()."</div>";
-			    echo "<div class='col-md-3'>Súly: ".$user->getWeight()." kg</div>";
-			    echo "<div class='col-md-3'>Öv fokozat: ".$user->getBeltGrades()."</div>";
-			    echo "<div class='col-md-3'>Életkor: ".$user->getAge()."</div>";
-				echo "</div><hr>";
+						$memberItem[DBData::$beltGradesName],
+						null);
+				?>
+					<div class="row">
+						<div class='col-md-3'>Név: <?php echo $user->getName()?></div>
+						<div class='col-md-3'>Súly: <?php echo $user->getWeight()?></div>
+						<div class='col-md-3'>Öv fokozat: <?php echo $user->getBeltGrades()?></div>
+						<div class='col-md-3'>Életkor: <?php echo $user->getSex()?></div>
+					</div>
+				<hr>
+				<?php
 			}
 		}
 		echo "

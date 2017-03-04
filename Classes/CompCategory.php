@@ -7,6 +7,8 @@ class CompCategory implements DBClass
 	private $foreign_cos1,$foreign_cost2;
 	private $sex;
 	private $sexWoman,$sexMan,$sexMixed,$groupFight;
+	private $personalWeightMin,$personalWeightMax;
+	private $personalKnowLedgeId;
 
 
 	/**
@@ -23,7 +25,25 @@ class CompCategory implements DBClass
 	 * @param $foreign_cos1
 	 * @param $foreign_cost2
 	 */
-	public function __construct($id, $org_id, $ageMin, $ageMax, $personalGrpTitle, $fed_cost1, $fed_cost2, $non_fed_cost1, $non_fed_cost2, $foreign_cos1, $foreign_cost2,$sex,bool $sexWoman,bool $sexMan, bool $sexMixed,bool $groupFight)
+	public function __construct($id,
+	                            $org_id,
+	                            $ageMin,
+	                            $ageMax,
+	                            $personalGrpTitle,
+	                            $fed_cost1,
+	                            $fed_cost2,
+	                            $non_fed_cost1,
+	                            $non_fed_cost2,
+	                            $foreign_cos1,
+	                            $foreign_cost2,
+	                            $sex,
+	                            bool $sexWoman,
+	                            bool $sexMan,
+	                            bool $sexMixed,
+	                            bool $groupFight,
+	                            $personalWeightMin,
+	                            $personalWeightMax,
+	                            $personalKnowLedgeId)
 	{
 		$this->id = $id;
 		$this->org_id = $org_id;
@@ -41,6 +61,9 @@ class CompCategory implements DBClass
 		$this->sexMan = $sexMan;
 		$this->sexMixed = $sexMixed;
 		$this->groupFight = $groupFight;
+		$this->personalWeightMin = $personalWeightMin;
+		$this->personalWeightMax = $personalWeightMax;
+		$this->personalKnowLedgeId = $personalKnowLedgeId;
 	}
 
 	public static function createWithDB(array $data)
@@ -62,7 +85,10 @@ class CompCategory implements DBClass
 					($data[DBData::$compCatSexWoman]=="t"),
 					($data[DBData::$compCatSexMan]=="t"),
 					($data[DBData::$compCatSexMixed]=="t"),
-					($data[DBData::$compCatGroupFight]=="t"));
+					($data[DBData::$compCatGroupFight]=="t"),
+					$data[DBData::$personalGrpWeightMin],
+					$data[DBData::$personalGrpWeightMax],
+					$data[DBData::$personalGrpknowLEdgeID]);
 		}
 		else {
 			return null;
@@ -71,6 +97,47 @@ class CompCategory implements DBClass
 
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getPersonalWeightMin()
+	{
+		return $this->personalWeightMin;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getPersonalWeightMax()
+	{
+		return $this->personalWeightMax;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getPersonalKnowLedgeId()
+	{
+		return $this->personalKnowLedgeId;
+	}
+
+	/**
+	 * @return String
+	 */
+	public function getActualSex(){
+		if($this->isSexWoman()){
+			return "Nő";
+		}
+		else if($this->isSexMan()){
+			return "Férfi";
+		}
+		else if($this->isSexMixed()){
+			return "Vegyes";
+		}
+		else{
+			return "Nincs nem beállítva";
+		}
+	}
 	/**
 	 * @return boolean
 	 */

@@ -8,7 +8,7 @@ From
   data.main_user
     On contest.entry.en_orgid = data.main_user.mu_id
 Where
-  contest.entry.en_contest = 36
+  contest.entry.en_contest = '.$_GET["contestview"].'
 Group By
   contest.entry.en_contest, contest.entry.en_orgid, data.main_user.mu_name');
 $orgArray = array();
@@ -29,7 +29,8 @@ $result = $DBTasks->sql("Select
   data.telefon_data.td_num,
   data.member_data.md_weight,
   data.main_user.mu_type,
-  data.belt_grades_data.bgd_name
+  data.belt_grades_data.bgd_name,
+  data.belt_grades_data.bgd_klevel_id
 From
   contest.entry Inner Join
   data.main_user
@@ -43,7 +44,7 @@ From
   data.belt_grades_data
     On data.member_data.md_beltgradesid = data.belt_grades_data.bgd_id
 Where
-  contest.entry.en_contest = 36 And
+  contest.entry.en_contest = ".$_GET["contestview"]." And
   contest.entry.en_orgid = ".$orgArray[0][DBData::$entryorgID]."
 Group By
   contest.entry.en_compid, contest.entry.en_orgid, data.main_user.mu_id,
@@ -52,7 +53,8 @@ Group By
   data.main_user.mu_name, data.main_user.mu_pass, data.main_user.mu_bdate,
   data.main_user.mu_active, data.email_data.ed_add, data.telefon_data.td_num,
   data.member_data.md_weight, data.main_user.mu_type,
-  data.belt_grades_data.bgd_name");
+  data.belt_grades_data.bgd_name,
+  data.belt_grades_data.bgd_klevel_id");
 
 $Compresult = $DBTasks->sql("Select
   contest.competetions.comp_id,
@@ -72,7 +74,7 @@ From
   contest.comp_types
     On contest.competetions.type_id = contest.comp_types.comp_types_id
 Where
-  contest.contest_comp.ccc_contest_id = 36
+  contest.contest_comp.ccc_contest_id = ".$_GET["contestview"]."
 Group By
   contest.competetions.comp_id, contest.competetions.comp_title,
   contest.comp_types.comp_types_id, contest.comp_types.comp_types_name,

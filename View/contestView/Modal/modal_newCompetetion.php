@@ -1,6 +1,6 @@
 <div class="modal fade" id="newComp" role="dialog">
 	<div class="modal-dialog">
-
+	<div class="modal-content">
 			<div class="modal-header">
 
 			</div>
@@ -39,7 +39,7 @@
 						</div>
 					</div>
 					<div class="row form-group">
-						<div class="col-md-12"><input type="button" value="Létrehoz" id="subNewComp" class="btn btn-default btn-block"></div>
+						<div class="col-md-12"><input type="button" value="Létrehoz" id="subNewComp" class="btn btn-success btn-block"></div>
 					</div>
 				</form>
 				<script>
@@ -69,5 +69,6 @@
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>

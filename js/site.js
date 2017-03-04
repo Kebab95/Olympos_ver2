@@ -77,6 +77,7 @@ $(document).ready(function() {
         else {$('.no-result').hide();}
     });
 });
+
 function RunUpdate() {
     if(document.getElementsByClassName("cursor")[0].getAttribute("aria-expanded") =="false") {
         console.log("Lefutott");
