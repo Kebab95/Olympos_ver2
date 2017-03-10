@@ -97,6 +97,12 @@ class CompCategory implements DBClass
 
 	}
 
+	function __toString()
+	{
+		return "Nem: ".$this->getActualSex().", Kor: ".$this->getAgeMin()." - ".$this->getAgeMax().", Csoport: ".$this->getPersonalGrpTitle();
+	}
+
+
 	/**
 	 * @return mixed
 	 */
@@ -126,10 +132,10 @@ class CompCategory implements DBClass
 	 */
 	public function getActualSex(){
 		if($this->isSexWoman()){
-			return "Nő";
+			return "Férfi";
 		}
 		else if($this->isSexMan()){
-			return "Férfi";
+			return "Nő";
 		}
 		else if($this->isSexMixed()){
 			return "Vegyes";

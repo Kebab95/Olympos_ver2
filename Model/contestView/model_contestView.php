@@ -83,7 +83,7 @@ if($array!=null){
 }
 $resultTypes = $DBTasks->selectGetResult(DBData::getContestCompTypesTable(),
 		"*",
-		DBData::$compTypesMUid."=".$contest->getOrgID());
+		DBData::$compTypesMUid."=".$contest->getOrgID()." AND ".DBData::$compTypesDelete." = false");
 if(pg_num_rows($resultTypes)>0){
 	$compTypesArray =array();
 	while($row = pg_fetch_row($resultTypes, NULL, PGSQL_ASSOC)){
@@ -104,3 +104,10 @@ while($row = pg_fetch_row($beltGrades, NULL, PGSQL_ASSOC)){
 }
 //var_dump($compTypes);
 
+if($creator && $data[DBData::$contestDataChecks]){
+    $administratorResult = $DBTasks->selectGetResult(DBData::getAdministratorTable(),DBData::$adminName.",".DBData::$adminID.",".DBData::$adminGenCode,DBData::$adminConrestID."=".$_GET["contestview"]);
+	$administratorArray = array();
+	while($row = pg_fetch_row($administratorResult, NULL, PGSQL_ASSOC)){
+		array_push($administratorArray,$row);
+	}
+}

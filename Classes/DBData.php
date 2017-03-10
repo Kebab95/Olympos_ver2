@@ -62,6 +62,7 @@ class DBData
 	private static $orgSchema ="org";
 	private static $contestSchema="contest";
 	private static $compSchema="competitions";
+	private static $contestDataSchema="contest_data";
 
 	private static $mainUserTable ="main_user";
 	private static $mainUserSeq = "main_user_seq";
@@ -88,6 +89,8 @@ class DBData
 	private static $beltGradesData="belt_grades_data";
 	private static $entry = "entry";
 	private static $knowLedge = "knowledge_level";
+
+	private static $administrator ="administrator";
 	//Schema nevek
 
 	public static  function getDataSchema(){
@@ -101,6 +104,9 @@ class DBData
 	}
 	public static function getCompSchema(){
 		return self::$compSchema;
+	}
+	public static function getContestDataSchema(){
+		return self::$contestDataSchema;
 	}
 
 	//Tábla nevek
@@ -172,6 +178,10 @@ class DBData
 	}
 	public static function getKnowLedgeTable(){
 		return self::getDataSchema().".".self::$knowLedge;
+	}
+
+	public static function getAdministratorTable(){
+		return self::getContestDataSchema().".".self::$administrator;
 	}
 	//Main User tábla oszlop nevei
 
@@ -272,11 +282,14 @@ class DBData
 	static $connCCC_CompID ="ccc_comp_id";
 	static $connCCC_CatID="ccc_cat_id";
 	static $connCCC_Delete="ccc_delete";
+	static $connCCC_TakePlace="ccc_takeplace";
+	static $connCCC_Division="ccc_division";
 
 	//comp types oszlop nevei
 	static $compTypesID ="comp_types_id";
 	static $compTypesName="comp_types_name";
 	static $compTypesMUid="comp_types_mu_id";
+	static $compTypesDelete="comp_types_delete";
 
 	//Comp category oszlop nevei
 	static $compCatID="compcat_id";
@@ -341,4 +354,10 @@ class DBData
 	static $knowLedgeId="klevel_id";
 	static $knowLedgeName="klevel_name";
 
+
+	//Administrator oszlop nevek
+	static $adminID ="ad_id";
+	static $adminName="ad_name";
+	static $adminGenCode="ad_gencode";
+	static $adminConrestID="ad_contestid";
 }

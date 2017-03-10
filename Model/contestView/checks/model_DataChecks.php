@@ -22,6 +22,7 @@ $result = $DBTasks->sql("Select
   contest.entry.en_deliberation,
   data.main_user.mu_id,
   data.main_user.mu_name,
+  data.main_user.mu_sex,
   data.main_user.mu_pass,
   data.main_user.mu_bdate,
   data.main_user.mu_active,
@@ -54,7 +55,8 @@ Group By
   data.main_user.mu_active, data.email_data.ed_add, data.telefon_data.td_num,
   data.member_data.md_weight, data.main_user.mu_type,
   data.belt_grades_data.bgd_name,
-  data.belt_grades_data.bgd_klevel_id");
+  data.belt_grades_data.bgd_klevel_id,
+  data.main_user.mu_sex");
 
 $Compresult = $DBTasks->sql("Select
   contest.competetions.comp_id,

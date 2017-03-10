@@ -104,24 +104,16 @@ function field(num){
             '<div class="form-group row">'+
                 '<label class="control-label col-md-4" id="field'+num+'type">Verseny szám Típusa</label>'+
                 '<div class="col-md-8 row">' +
-        '               <div class="col-md-8">'+
-                            '<select name="compType'+num+'" class="form-control">' +
+        '               <div class="col-md-6">'+
+                            '<select name="compType'+num+'" class="form-control" id="compTypeSelectList'+num+'">' +
                                 '<option selected></option>' +
                                 options +
                             '</select>' +
         '               </div>' +
-                        '<button class="btn btn-success col-md-4" name="newCompType">Típus hozzáadása</button>' +
-                '</div>'+
-            '</div>' +
-            '<div class="form-group row">'+
-                '<label class="control-label col-md-4" id="field'+num+'sex">Verseny szám Nem beállítása</label>'+
-                '<div class="col-md-8">'+
-                    '<div class="radio">'+
-                        '<label><input type="radio" name="compSex'+num+'" value="0">2 nem Egymás ellen</label>'+
-                    '</div>'+
-                    '<div class="radio">'+
-                        '<label><input type="radio" name="compSex'+num+'" value="1">2 nem Külön</label>'+
-                    '</div>'+
+            '               <div class="col-md-6">'+
+        '<button type="button" class="btn btn-success" onclick="newCompType('+num+')">Típus hozzáadása</button>' +
+        '               </div>' +
+
                 '</div>'+
             '</div>'+
             btn+

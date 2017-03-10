@@ -15,7 +15,9 @@ $result = $DBTasks->sql("Select
   data.telefon_data.td_num,
   data.member_data.md_weight,
   data.main_user.mu_type,
-  data.belt_grades_data.bgd_name
+  data.belt_grades_data.bgd_name,
+  data.belt_grades_data.bgd_klevel_id,
+  data.main_user.mu_sex
 From
   contest.entry Inner Join
   data.main_user
@@ -36,7 +38,9 @@ Group By
   data.main_user.mu_name, data.main_user.mu_pass, data.main_user.mu_bdate,
   data.main_user.mu_active, data.email_data.ed_add, data.telefon_data.td_num,
   data.member_data.md_weight, data.main_user.mu_type,
-  data.belt_grades_data.bgd_name,contest.entry.en_deliberation");
+  data.belt_grades_data.bgd_name,contest.entry.en_deliberation,
+  data.belt_grades_data.bgd_klevel_id,
+  data.main_user.mu_sex");
 $DBTasks->ConnClose();
 $User = array();
 while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){

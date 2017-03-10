@@ -1,7 +1,7 @@
 <?php
 include "../includeClasses.php";
 DBLoad::init();
-$User = DBLoad::loadUser($_POST["id"]);
+$User = DBLoad::loadUserWithoutActive($_POST["id"]);
 $ShowerUserID= $_POST["myUserID"];
 $ugyanazUser= ($User->getId()==$ShowerUserID);
 if($User!=null){

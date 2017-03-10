@@ -61,7 +61,7 @@
 			$tempUser = $item["User"];
 			echo "<tr id='memberRow".$tempUser->getId()."'>";
 
-			echo "<td>".$tempUser->getName()."</td>";
+			echo "<td><a onclick='showModalProfile(".UserTasks::getUser()->getId().",".$tempUser->getId().")'> ".$tempUser->getName()."</a></td>";
 			echo "<td>";
 			echo "<input type='number' class='form-control' id='memberWeight".$tempUser->getId()."' value='".$tempUser->getWeight()."'>";
 			echo "<input type='hidden' id='defaultWeight".$tempUser->getId()."' value='".$tempUser->getWeight()."'>";

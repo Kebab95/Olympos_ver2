@@ -42,7 +42,18 @@ class SportUser extends User implements DBClass
 	{
 		return $this->knowLedgeId;
 	}
+	public function getKnowLedgeId_toString(){
+		switch($this->knowLedgeId){
+			case 1: return "Kezdő";
+			case 2: return "Haladó";
+			case 3: return "Mester";
+			default: return "Hiba";
+		}
+	}
 
+	public function getWeight_toString(){
+		return $this->getWeight()." Kg";
+	}
 	/**
 	 * @return mixed
 	 */

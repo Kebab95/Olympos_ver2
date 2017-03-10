@@ -11,6 +11,27 @@
 					    echo "<div class='col-md-12 text-center'>
 							<button class='btn btn-default btn-block'>Szerkesztés</button>
 							</div>";
+						echo "<div class='col-md-12'>
+						<button class='btn btn-info btn-block' id='dataChecksButton'>Élesítés bekapcsolása</button>
+</div>";
+						?>
+							<script>
+								$("#dataChecksButton").click(function(){
+									$.ajax({
+										url:"Model/contestView/model_ajax_dataChecksFlag.php",
+										type: "POST",
+										data: {contestID:<?php echo $data[DBData::$contestID] ?>,
+											flag:<?php echo (!$data[DBData::$contestDataChecks]?"true":"false")?>},
+										dataType:"text"
+									}).done(function(data){
+										//console.log(data);
+										location.reload();
+									}).fail(function(){
+										alert("asd");
+									});
+								});
+							</script>
+						<?php
 					}
 					if($creator && $data[DBData::$contestDataChecks]){
 						echo "<div class='col-md-12'>&nbsp;</div>";
@@ -120,35 +141,133 @@
 			</div>
 
 			<div class="col-md-3">
-				<div class="panel-group" id="valami2">
-					<div class="panel panel-default">
-						<div class="panel-heading" data-toggle="collapse" data-parent="#valami2" href="#nevezes">
-							Nevezés
-						</div>
-						<div id="nevezes" class="panel-collapse collapse in">
-							<div class="panel-body">
-								<div id="entryButton">
-									<?php
-									if($data[DBData::$contestDataChecks]){
-											echo "<label>Végleg lezáródott a nevezés! A verseny jelenleg zajlik.</label>";
-									}
-									else {
-										if($data[DBData::$contestIsEntry]){
-											echo '<a href="?contestview='.$data[DBData::$contestID].'&more=entry" <button class="btn btn-default btn-block btn-responsive">Nevezem a szövetségi tagokat erre a versenyre</button></a>';
-										}
-										else {
-											echo '<label>Sajnáljuk jelenleg nem lehet jelentkezni a versenyre</label>';
-										}
-									}
-
-									?>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel-group" id="valami2">
+							<div class="panel panel-default">
+								<div class="panel-heading" data-toggle="collapse" data-parent="#valami2" href="#nevezes">
+									Nevezés
 								</div>
+								<div id="nevezes" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<div id="entryButton">
+											<?php
+											if($data[DBData::$contestDataChecks]){
+												echo "<label>Végleg lezáródott a nevezés! A verseny jelenleg zajlik.</label>";
+											}
+											else {
+												if($data[DBData::$contestIsEntry]){
+													echo '<a href="?contestview='.$data[DBData::$contestID].'&more=entry" <button class="btn btn-default btn-block btn-responsive">Nevezem a szövetségi tagokat erre a versenyre</button></a>';
+												}
+												else {
+													echo '<label>Sajnáljuk jelenleg nem lehet jelentkezni a versenyre</label>';
+												}
+											}
+
+											?>
+										</div>
 
 
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<?php
+					if($creator && $data[DBData::$contestDataChecks]){
+						?>
+							<div class="col-md-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										Jegyzők kezelése
+									</div>
+									<div class="panel-body">
+										<div id="administratorsList">
+											<?php
+											if(count($administratorArray)>0){
+												foreach ($administratorArray as $admin) {
+													echo "<p>".$admin[DBData::$adminName]." - ".$admin[DBData::$adminGenCode]."</p>";
+												}
+												echo "<hr>";
+											}
+											?>
+										</div>
+
+
+										<button type="button" id="newAdministratorButton" class="btn btn-success btn-block" data-toggle='modal' data-target='#AdministratorModal'>Új hozzáadása</button>
+
+										<div class="modal fade " id="AdministratorModal" role="dialog">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">Új Adminisztrátor hozzáadása</div>
+													<div class="modal-body">
+														<div class="row text-center">
+															A jegyző vezető ezen a linken tud majd belépni:<br>
+															<label><?php echo ((isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]")."&more=adminLogin";?></label>
+															<p>Kérjük figyeljen a belépési kódra! Kódnak tudatában bárki be tud lépni a verseny szerkesztésébe! Ennek fényébe kérjük ügyeljen a biztonságra!</p>
+														</div>
+														<div class="row form-group">
+															<div class="col-md-6">Név:</div>
+															<div class="col-md-6"><input type="text" class="form-control" id="adminAddName"></div>
+														</div>
+														<div class="row form-group">
+															<div class="col-md-6">Belépési kód:</div>
+															<div class="col-md-6"><p id="adminAddgenCode"></p></div>
+														</div>
+														<div class="row form-group">
+															<div class="col-md-12"><button type="button" id="adminAddSubmit" class="btn btn-block btn-default">Hozzáadás</button></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<script>
+											$("#newAdministratorButton").click(function(e){
+												$("#adminAddgenCode").text(makeid());
+											});
+											$("#adminAddSubmit").click(function(e){
+												var name = $("#adminAddName").val();
+												var genCode = $("#adminAddgenCode").text();
+												if (name.length>0 && genCode.length>0){
+													$.ajax({
+														url:'Model/contestView/model_ajax_newAdministrator.php',
+														type: 'POST',
+														data: {name:name,
+															genCode:genCode,
+															contestID: <?php echo $_GET["contestview"]?>},
+														dataType:'html'
+													}).done(function(data){
+														//console.log(data);
+														$("#administratorsList").html(data);
+														$("#AdministratorModal").modal('toggle');
+													}).fail(function(){
+														alert("Hiba!");
+													});
+												}
+												else {
+													alert("Üresen hagyott mezőt találtam!")
+												}
+
+											});
+											function makeid()
+											{
+												var text = "";
+												var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+												for( var i=0; i < 5; i++ )
+													text += possible.charAt(Math.floor(Math.random() * possible.length));
+												return text;
+											}
+										</script>
+									</div>
+								</div>
+							</div>
+
+						<?php
+					}
+					?>
 				</div>
+
 			</div>
 
 			<div class="col-md-12">

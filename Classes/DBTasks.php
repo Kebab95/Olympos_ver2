@@ -342,7 +342,7 @@ class DBTasks extends Database
 						$rdJSON["raceFee"],
 						"returning ".DBData::$raceID);*/
 	}
-	public function regUser($name,$type,$email,$tel,$pass){
+	public function regUser($name,$type,$email,$tel,$pass,$bday,$sex){
 		$this->Connect();
 		$query = "with email as (
 			select * from ".DBData::getEmailFunction($email)." as ".DBData::$emailDataID."
@@ -353,7 +353,7 @@ class DBTasks extends Database
         userInsert as (
                ".$this->returnInsertQuery(DBData::getMainUserTable(),"*",
 						"default,".$type.",(select ".DBData::$emailDataID." from email),(select ".DBData::$telefonDataID." from telefon),
-                '".$name."','".md5($pass)."',true,NOW(),NOW()","returning ".DBData::$mainUserID)."
+                '".$name."','".md5($pass)."',true,NOW(),NOW(),'".$bday."',".($sex==0?"true":"false"),"returning ".DBData::$mainUserID)."
         )
         ".$this->returnInsertQuery(DBData::getPermissionTable(),DBData::$permissionMainUserID.",".DBData::$permissionVisitor
 						,"(select ".DBData::$mainUserID." from userInsert),TRUE");

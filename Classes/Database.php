@@ -81,6 +81,12 @@ class Database
 		}
 
 	}
+	public function sqlWithConn($sql){
+		$this->Connect();
+		$back = $this->sql($sql);
+		$this->ConnClose();
+		return $back;
+	}
 	public function selectGetResult($tableName, $columns, $where,$innerjoin=null, $etc = ""){
 		$this->Connect();
 		$back = $this->sql("SELECT ".$columns." FROM " . $tableName .($innerjoin !=null?" ".$innerjoin:"").($where !=null?" WHERE " . $where . " ":"")  . $etc . ";");

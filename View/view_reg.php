@@ -4,9 +4,10 @@
 	</div>
 
 	<div class="row">
-		<form id="regForm" class="regInputs center-block text-center " method="post" >
+		<div class="col-md-2"></div>
+		<form id="regForm" class="col-md-8 center-block text-center " method="post" >
 			<div class="col-md-12">
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-xs-4 col-md-4">
 						<label for="regName" class="control-label">Teljes név</label>
 					</div>
@@ -18,7 +19,7 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-xs-4 col-md-4">
 						<label for="regEmail" class="control-label">Email cím</label>
 					</div>
@@ -30,7 +31,7 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-xs-4 col-md-4">
 						<label for="regTel" class="control-label">Telefon</label>
 					</div>
@@ -41,8 +42,32 @@
 
 				</div>
 			</div>
+			<div class="col-md-12">
+				<div class="row form-group">
+					<div class="col-md-4">
+						<label class="control-label">Születés nap:</label>
+					</div>
+					<div class="col-md-8">
+						<input type="date" name="bday" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row form-group">
+					<div class="col-md-4">
+						<label class="control-label">Neme:</label>
+					</div>
+					<div class="col-md-8">
+						<select required class="form-control" name="nem">
+							<option value=""></option>
+							<option value="0">Férfi</option>
+							<option value="1">Nő</option>
+						</select>
+					</div>
+				</div>
+			</div>
 			<div class="col-md-6">
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-xs-4 col-md-5">
 						<label for="regPass" class="control-label">Jelszó</label>
 					</div>
@@ -54,8 +79,9 @@
 
 				</div>
 			</div>
+
 			<div class="col-md-6">
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-xs-4 col-md-5">
 						<label for="regPass2" class="control-label">Jelszó ismét</label>
 					</div>
@@ -68,9 +94,27 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-				<input type="submit" onclick="asd()" class="btn btn-success" name="regsub" id="regsub" value="Regisztráció">
+				<input type="submit" class="btn btn-success" name="regsub" id="regsub" value="Regisztráció">
 			</div>
 		</form>
+		<div class="col-md-2"></div>
 	</div>
 </div>
+<script>
+	$('#regForm').submit(function(e){
+
+		e.preventDefault(); // Prevent Default Submission
+		$.ajax({
+			url:"Model/model_regSubmit.php",
+			type: "POST",
+			data: $(this).serialize(),
+			dataType:"html"
+		}).done(function (data){
+			$("#regAll").html(data);
+		}).fail(function(){
+			alert("Hiba!");
+		});
+
+	});
+</script>
 

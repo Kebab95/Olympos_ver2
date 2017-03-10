@@ -219,6 +219,10 @@ else if(isset($_GET["contestview"])){
 				include "Model/contestView/schedule/model_CompSchedule.php";
 				$inBody = "View/contestView/schedule/view_CompSchedule.php";
 			}
+			else if(isset($_GET["more"]) && $_GET["more"]=="adminLogin"){
+				include "Model/contestView/adminLog/model_adminLog.php";
+				$inBody = "View/contestView/adminLog/view_adminLog.php";
+			}
 			else {
 				include "Model/contestView/model_contestView.php";
 				$inBody ="View/contestView/view_contestView.php";

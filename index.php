@@ -5,7 +5,7 @@ include_once 'includeClasses.php';
 $DBTasks = new DBTasks();
 
 DBLoad::init();
-
+//session_name("anyad");
 session_start();
 //echo "<pre>";
 include_once 'Controller/Controller.php';

@@ -2,7 +2,7 @@
 include "../../includeClasses.php";
 $DBTasks = new DBTasks();
 if($_POST){
-	if(isset($_POST["memberEmail"]) && (strlen($_POST["memberEmail"])>0) && isset($_POST["memberName"])
+	if(isset($_POST["memberEmail"]) && (strlen($_POST["memberEmail"])>0) && isset($_POST["memberName"] )&& isset($_POST["nem"])
 			&& isset($_POST["memberBDate"]) && (strlen($_POST["memberBDate"])>0)){
 		$emailExist = false;
 		$result = $DBTasks->selectGetResult(DBData::getEmailDataTable(),
@@ -12,11 +12,11 @@ if($_POST){
 			echo 1;
 		}
 		else {
-			echo insertNewMember($_POST["memberOrgId"],$_POST["memberName"],$_POST["memberBDate"],$_POST["memberEmail"]);
+			echo insertNewMember($_POST["memberOrgId"],$_POST["memberName"],$_POST["memberBDate"],$_POST["nem"],$_POST["memberEmail"]);
 		}
 	}
 	else if(isset($_POST["memberName"])){
-		echo insertNewMember($_POST["memberOrgId"],$_POST["memberName"],$_POST["memberBDate"]);
+		echo insertNewMember($_POST["memberOrgId"],$_POST["memberName"],$_POST["memberBDate"],$_POST["nem"]);
 	}
 	else {
 		echo false;
@@ -25,7 +25,7 @@ if($_POST){
 else {
 	echo false;
 }
-function insertNewMember($orgId,$name,$bdate,$email = null){
+function insertNewMember($orgId,$name,$bdate,$sex,$email = null){
 	$DBTasks  = new DBTasks();
 	echo $sql = "with ".($email!=null?"email as (
 		select ".DBData::getEmailFunction($email)." as ed_d
@@ -40,7 +40,7 @@ function insertNewMember($orgId,$name,$bdate,$email = null){
 			('".$name."'".
 			($email!=null?",(select ed_id from email)":"").",
 			1,
-			false,
+			".($sex==1?"false":"true").",
 			'".$bdate."') returning ".DBData::$mainUserID."
 	), perm as (
 	insert into ".DBData::getPermissionTable()." (

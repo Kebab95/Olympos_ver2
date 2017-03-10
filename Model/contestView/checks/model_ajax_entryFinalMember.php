@@ -47,8 +47,25 @@ if((isset($_POST["compIDs"]) &&
 		    if($defaultCheck != $userCheck){
 				if($catID!=null){
 					$DBTasks->Connect();
-					$DBTasks->sql('INSERT INTO contest.assignment (a_muid,a_ccc_id,a_orgid) VALUES
-									('.$User->getId().','.$catID.','.$_POST["compIDs"][$i].')');
+					$tempSeqResult =$DBTasks->sql('Select
+						  contest.assignment.a_seq
+						From
+						  contest.assignment Inner Join
+						  contest.contest_comp
+						    On contest.assignment.a_ccc_id = contest.contest_comp.ccc_id
+						Where
+						  contest.contest_comp.ccc_id = '.$catID.'
+						Order By
+						  contest.assignment.a_seq Desc
+						  LIMIT 1');
+					$DBTasks->ConnClose();
+					$tempSeq = pg_fetch_row($tempSeqResult, NULL, PGSQL_ASSOC);
+					if(!isset($tempSeq["a_seq"])){
+						$tempSeq["a_seq"]=0;
+					}
+					$DBTasks->Connect();
+					$insert=$DBTasks->sql('INSERT INTO contest.assignment (a_muid,a_ccc_id,a_orgid,a_seq) VALUES
+									('.$User->getId().','.$catID.','.$_POST["orgId"].','.(intval($tempSeq["a_seq"])+1).')');
 					$DBTasks->ConnClose();
 					if(!$insert){
 					    echo "false";
@@ -79,8 +96,25 @@ if((isset($_POST["compIDs"]) &&
 			else {
 				if($catID!=null){
 					$DBTasks->Connect();
-					$insert = $DBTasks->sql('INSERT INTO contest.assignment (a_muid,a_ccc_id) VALUES
-									('.$User->getId().','.$catID.')');
+					$tempSeqResult =$DBTasks->sql('Select
+						  contest.assignment.a_seq
+						From
+						  contest.assignment Inner Join
+						  contest.contest_comp
+						    On contest.assignment.a_ccc_id = contest.contest_comp.ccc_id
+						Where
+						  contest.contest_comp.ccc_id = '.$catID.'
+						Order By
+						  contest.assignment.a_seq Desc
+						  LIMIT 1');
+					$DBTasks->ConnClose();
+					$tempSeq = pg_fetch_row($tempSeqResult, NULL, PGSQL_ASSOC);
+					if(!isset($tempSeq["a_seq"])){
+						$tempSeq["a_seq"]=0;
+					}
+					$DBTasks->Connect();
+					$insert=$DBTasks->sql('INSERT INTO contest.assignment (a_muid,a_ccc_id,a_orgid,a_seq) VALUES
+									('.$User->getId().','.$catID.','.$_POST["orgId"].','.(intval($tempSeq["a_seq"])+1).')');
 					$DBTasks->ConnClose();
 					if(!$insert){
 						echo "false";
@@ -217,14 +251,8 @@ function getCatId($type,$compID,bool $sex,$age,$weight,$knowledge){
 		while($row = pg_fetch_row($cccTableID, NULL, PGSQL_ASSOC)){
 			array_push($temp,$row[DBData::$connCCC_Id]);
 		}
-		if(count($temp)==1){
-			$DBTasks->ConnClose();
-			return $temp[0];
-		}
-		else {
-			$DBTasks->ConnClose();
-			return null;
-		}
+		$DBTasks->ConnClose();
+		return $temp[0];
 	}
 	else if($type[DBData::getCompTypesFlag(1)] =="t"){
 		$cccTableID = $DBTasks->sql('Select
@@ -252,14 +280,8 @@ function getCatId($type,$compID,bool $sex,$age,$weight,$knowledge){
 		while($row = pg_fetch_row($cccTableID, NULL, PGSQL_ASSOC)){
 			array_push($temp,$row[DBData::$connCCC_Id]);
 		}
-		if(count($temp)==1){
-			$DBTasks->ConnClose();
-			return $temp[0];
-		}
-		else {
-			$DBTasks->ConnClose();
-			return null;
-		}
+		$DBTasks->ConnClose();
+		return $temp[0];
 	}else {
 		$DBTasks->ConnClose();
 		return null;

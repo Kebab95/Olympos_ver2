@@ -6,6 +6,8 @@ if( $_POST ){
     $email = $_POST['email'];
     $phno = $_POST['tel'];
     $pass = $_POST['pass'];
+    $sex = $_POST['nem'];
+    $bday = $_POST['bday'];
     //($_SESSION['DBTasks']->regUser($name,$email,$phno,$pass)
 
 //echo $_SESSION["DBTasks"]->returnInsertQuery(DBData::getEmailDataTable(),"asd","default,'".$email."'", "returning ".DBData::$emailDataID);
@@ -22,7 +24,7 @@ if($DBTasks->checkEmail($email)){
     include '../View/view_reg.php';
 }
 else{
-    if($DBTasks->regUser($name,"1",$email,$phno,$pass)){
+    if($DBTasks->regUser($name,"1",$email,$phno,$pass,$bday,$sex)){
         echo "<script>
             setTimeout(function () {
                 window.location.href = \"?nav=home\"; //will redirect to your blog page (an ex: blog.html)

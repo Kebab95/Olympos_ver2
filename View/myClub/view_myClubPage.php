@@ -51,6 +51,15 @@ foreach ($orgValue as $item) {
 													</div>
 													<hr>
 													<div class="row form-group">
+														<div class="col-md-6">Neme: </div>
+														<div class="col-md-6"><select required class="form-control" name="nem">
+																<option value=""></option>
+																<option value="0">Férfi</option>
+																<option value="1">Nő</option>
+															</select></div>
+													</div>
+													<hr>
+													<div class="row form-group">
 														<div class="col-xs-6">Email</div>
 														<div class="col-xs-6"><input type="email" class="form-control" name="memberEmail"></div>
 													</div>

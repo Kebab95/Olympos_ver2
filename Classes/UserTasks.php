@@ -46,4 +46,17 @@ class UserTasks
 		$obj = $_SESSION["User"];
 		$_SESSION["User"] = DBLoad::loadUser($obj->getId());
 	}
+	public static function getDivision_toString($divisionNum){
+		switch($divisionNum){
+			case 1: return "A";
+			case 2: return "B";
+			case 3: return "C";
+			case 4: return "D";
+			case 5: return "F";
+			default: return "Hiba";
+		}
+	}
+	public static function getDivisionArray(){
+		return array(1=>"A",2=>"B",3=>"C",4=>"D",5=>"F");
+	}
 }

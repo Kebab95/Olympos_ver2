@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4 text-center">
-		<select class="form-control" id="scheduleSelect">
+		<select class="form-control" id="scheduleSelect" onchange="changeSelectList(this)">
 			<option value=""></option>
 			<?php
 			/** @var Competetion $comp */
@@ -11,22 +11,20 @@
 			?>
 		</select>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-md-4">
+
+	</div>
 </div>
-<div class="row">
-	<div class="col-md-3"></div>
-	<div class="col-md-3"><button class="btn btn-default btn-block" id="scheduleList">Lista</button></div>
-	<div class="col-md-3"><button class="btn btn-info2 btn-block">Nyomtatás</button> </div>
-	<div class="col-md-3"></div>
-</div>
+
 <script>
-	$("#scheduleList").click(function(){
-		var selectVal = $("#scheduleSelect").val();
+	function changeSelectList(select){
+		var selectVal = $(select).val();
 		if(selectVal!=""){
 			$.ajax({
 				url:'Model/contestView/schedule/model_ajax_compTable.php',
 				type: 'POST',
-				data: {compID:selectVal},
+				data: {contestID:<?php echo $_GET["contestview"]?>,compID:selectVal,
+					userID:<?php echo UserTasks::getUser()->getId() ?>},
 				dataType:'html'
 			}).done(function(data){
 				//console.log(data);
@@ -38,6 +36,6 @@
 		else{
 			alert("Nem választott ki versenyszámot");
 		}
-	});
+	}
 </script>
 <div id="compTable"></div>

@@ -5,10 +5,11 @@ $result = $DBTasks->selectGetResult(DBData::getEntryTable(),"
 data.main_user.mu_name,
   data.member_data.md_weight,
   data.belt_grades_data.bgd_name,
+  data.belt_grades_data.bgd_klevel_id,
   contest.entry.en_orgid,".DBData::$mainUserBDate,
 	DBData::$entryContestID."=".$_POST["contestID"]."
 	Group By
-  contest.entry.en_muid, data.main_user.mu_name, data.member_data.md_weight,
+  contest.entry.en_muid, data.main_user.mu_name, data.member_data.md_weight,data.belt_grades_data.bgd_klevel_id,
   data.belt_grades_data.bgd_name, contest.entry.en_orgid, contest.entry.en_ctime,".DBData::$mainUserBDate."
   Order By
   contest.entry.en_ctime",
@@ -47,7 +48,7 @@ if(pg_num_rows($result)>0){
 
 
 echo "<div class='modal fade ' id='checkEntryModal'>
-	<div class='modal-dialog'>
+	<div class='modal-dialog modal-lg'>
 	<div class='modal-content'>
 		<div class='modal-header'>";
 		echo "Nevezések";
@@ -62,16 +63,16 @@ if(count($MemberArray)>0 && count($OrgArray)>0){
 			if($memberItem[DBData::$entryorgID] == $orgItem[DBData::$mainUserID]){
 				$user = new SportUser(null,
 										$memberItem[DBData::$mainUserName],
-										null,null,null,null,
+										null,null,null,null,null,
 						$memberItem[DBData::$mainUserBDate],
 						$memberItem[DBData::$memberDataWeight],
 						$memberItem[DBData::$beltGradesName],
-						null);
+						$memberItem[DBData::$beltGradesLevelId]);
 				?>
 					<div class="row">
 						<div class='col-md-3'>Név: <?php echo $user->getName()?></div>
-						<div class='col-md-3'>Súly: <?php echo $user->getWeight()?></div>
-						<div class='col-md-3'>Öv fokozat: <?php echo $user->getBeltGrades()?></div>
+						<div class='col-md-3'>Súly: <?php echo $user->getWeight_toString()?></div>
+						<div class='col-md-3'>Öv fokozat: <?php echo $user->getKnowLedgeId_toString()?></div>
 						<div class='col-md-3'>Életkor: <?php echo $user->getSex()?></div>
 					</div>
 				<hr>
