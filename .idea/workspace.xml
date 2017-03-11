@@ -1,58 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="Jegyzo Aupdata #1&#10;Jegyző elkészítve, kis javitásra szorul">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/Stugle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/TournamentTree.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_adminLog.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCloseCat.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loadCompCats.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStrugle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStugle2.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_addNewType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_dataChecksFlag.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTakePlace.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_massSubmit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_seqUpDown.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_splitSubmit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/adminLog/view_adminLog.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/adminLog/view_adminView.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/schedule/view_massModal.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/contestView/schedule/view_splittModal.php" />
+    <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/CompCategory.php" afterPath="$PROJECT_DIR$/Classes/CompCategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBData.php" afterPath="$PROJECT_DIR$/Classes/DBData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBTasks.php" afterPath="$PROJECT_DIR$/Classes/DBTasks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/Database.php" afterPath="$PROJECT_DIR$/Classes/Database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/SportUser.php" afterPath="$PROJECT_DIR$/Classes/SportUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/UserTasks.php" afterPath="$PROJECT_DIR$/Classes/UserTasks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/Controller.php" afterPath="$PROJECT_DIR$/Controller/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/checks/model_DataChecks.php" afterPath="$PROJECT_DIR$/Model/contestView/checks/model_DataChecks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/checks/model_ajax_changeTableData.php" afterPath="$PROJECT_DIR$/Model/contestView/checks/model_ajax_changeTableData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/checks/model_ajax_entryFinalMember.php" afterPath="$PROJECT_DIR$/Model/contestView/checks/model_ajax_entryFinalMember.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/model_checkEntryMembers.php" afterPath="$PROJECT_DIR$/Model/contestView/model_checkEntryMembers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/model_contestView.php" afterPath="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" afterPath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" afterPath="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_regSubmit.php" afterPath="$PROJECT_DIR$/Model/model_regSubmit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/myClub/model_ajax_newMember.php" afterPath="$PROJECT_DIR$/Model/myClub/model_ajax_newMember.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Races/view_raceCreateForm2.php" afterPath="$PROJECT_DIR$/View/Races/view_raceCreateForm2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/Modal/modal_newCompetetion.php" afterPath="$PROJECT_DIR$/View/contestView/Modal/modal_newCompetetion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/checks/view_DataChecks.php" afterPath="$PROJECT_DIR$/View/contestView/checks/view_DataChecks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" afterPath="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/view_contestView.php" afterPath="$PROJECT_DIR$/View/contestView/view_contestView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/myClub/view_myClubPage.php" afterPath="$PROJECT_DIR$/View/myClub/view_myClubPage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/view_default.php" afterPath="$PROJECT_DIR$/View/view_default.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/view_reg.php" afterPath="$PROJECT_DIR$/View/view_reg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includeClasses.php" afterPath="$PROJECT_DIR$/includeClasses.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Model/Races/fieldNameScript.js" afterPath="$PROJECT_DIR$/Model/Races/fieldNameScript3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
     </list>
     <ignored path="Olympos_ver2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,54 +45,66 @@
           <file leaf-file-name="model_ajax_adminCatView.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="195" selection-end-column="33" />
+                <state vertical-scroll-proportion="-12.192307">
+                  <caret line="174" column="65" selection-start-line="174" selection-start-column="65" selection-end-line="174" selection-end-column="65" />
                   <folding>
-                    <marker date="1489182226509" expanded="true" signature="133:297" placeholder="Select * Fro..admin_edit_cat..." />
-                    <marker date="1489182226509" expanded="true" signature="133:298" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-                    <marker date="1489182226509" expanded="true" signature="496:580" placeholder="UPDATE conte..." />
-                    <marker date="1489182226509" expanded="true" signature="496:692" placeholder="UPDATE conte..." />
-                    <marker date="1489182226509" expanded="true" signature="786:940" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-                    <marker date="1489182226509" expanded="true" signature="1020:1046" placeholder="Select * Fro..contest_comp..." />
-                    <marker date="1489182226509" expanded="true" signature="1020:1727" placeholder="Select * Fro..contest_comp..." />
-                    <marker date="1489182226509" expanded="true" signature="1020:1737" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="1020:1849" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="1020:1867" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="1020:1885" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="1020:1886" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="2142:2190" placeholder="SELECT * FRO..contest_comp..." />
-                    <marker date="1489182226509" expanded="true" signature="2366:2375" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="2366:2828" placeholder="Select conte..contest_comp..." />
-                    <marker date="1489182226509" expanded="true" signature="2366:2829" placeholder="Select conte..contest_comp..." />
-                    <marker date="1489182226509" expanded="true" signature="2366:2860" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="2366:2861" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182226509" expanded="true" signature="3002:3151" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489182226509" expanded="true" signature="3002:3194" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489182226509" expanded="true" signature="3002:3211" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489182226509" expanded="true" signature="3002:3260" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489182226509" expanded="true" signature="3002:3261" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489182226509" expanded="true" signature="5527:5540" placeholder="..." />
-                    <marker date="1489182226509" expanded="true" signature="5650:5689" placeholder="..." />
+                    <marker date="1489190437008" expanded="true" signature="133:297" placeholder="Select * Fro..admin_edit_cat..." />
+                    <marker date="1489190437008" expanded="true" signature="133:298" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
+                    <marker date="1489190437008" expanded="true" signature="496:580" placeholder="UPDATE conte..." />
+                    <marker date="1489190437008" expanded="true" signature="496:692" placeholder="UPDATE conte..." />
+                    <marker date="1489190437008" expanded="true" signature="786:940" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
+                    <marker date="1489190437008" expanded="true" signature="1020:1046" placeholder="Select * Fro..contest_comp..." />
+                    <marker date="1489190437008" expanded="true" signature="1020:1727" placeholder="Select * Fro..contest_comp..." />
+                    <marker date="1489190437008" expanded="true" signature="1020:1737" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="1020:1849" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="1020:1867" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="1020:1885" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="1020:1886" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="2142:2190" placeholder="SELECT * FRO..contest_comp..." />
+                    <marker date="1489190437008" expanded="true" signature="2366:2375" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="2366:2828" placeholder="Select conte..contest_comp..." />
+                    <marker date="1489190437008" expanded="true" signature="2366:2829" placeholder="Select conte..contest_comp..." />
+                    <marker date="1489190437008" expanded="true" signature="2366:2860" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="2366:2861" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489190437008" expanded="true" signature="3002:3151" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489190437008" expanded="true" signature="3002:3194" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489190437008" expanded="true" signature="3002:3211" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489190437008" expanded="true" signature="3002:3260" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489190437008" expanded="true" signature="3002:3261" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489190437008" expanded="true" signature="5659:5672" placeholder="..." />
+                    <marker date="1489190437008" expanded="true" signature="5782:5821" placeholder="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="model_ajax_newStartStrugle.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="view_orgPage.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/View/Organization/view_orgPage.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.2014218">
+                  <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="49" />
+                  <folding>
+                    <marker date="1487712595715" expanded="true" signature="1102:1253" placeholder="..." />
+                    <marker date="1487712595715" expanded="true" signature="1395:1455" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="model_ajax_newStartStrugle.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.07285974">
-                  <caret line="204" column="19" selection-start-line="204" selection-start-column="19" selection-end-line="204" selection-end-column="19" />
+                <state vertical-scroll-proportion="-59.923077">
+                  <caret line="285" column="41" selection-start-line="285" selection-start-column="41" selection-end-line="285" selection-end-column="41" />
                   <folding>
-                    <marker date="1489182426338" expanded="true" signature="228:1156" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489182426338" expanded="true" signature="1342:1418" placeholder="Select * Fro..outcome_type..." />
-                    <marker date="1489182426338" expanded="true" signature="1704:1864" placeholder="SELECT s_cir..strugle_data..." />
-                    <marker date="1489182426338" expanded="true" signature="2200:2319" placeholder="Select count..strugle_data..." />
-                    <marker date="1489182426338" expanded="true" signature="2805:2825" placeholder="SELECT * FRO..." />
-                    <marker date="1489182426338" expanded="true" signature="2805:2908" placeholder="SELECT s_cir..strugle_data..." />
-                    <marker date="1489182426338" expanded="true" signature="2805:2965" placeholder="SELECT s_cir..strugle_data..." />
-                    <marker date="1489182426338" expanded="true" signature="2805:2966" placeholder="SELECT s_cir..strugle_data..." />
-                    <marker date="1489182426338" expanded="true" signature="3192:3321" placeholder="Select count..strugle_data..." />
+                    <marker date="1489189757092" expanded="true" signature="235:395" placeholder="SELECT s_cir..strugle_data..." />
+                    <marker date="1489189757092" expanded="true" signature="592:777" placeholder="Select count..strugle_data..." />
+                    <marker date="1489189757092" expanded="true" signature="928:1856" placeholder="Select * Fro..assignment..." />
+                    <marker date="1489189757092" expanded="true" signature="1910:2869" placeholder="Select data...strugle_data..." />
+                    <marker date="1489189757092" expanded="true" signature="1910:2870" placeholder="Select data...strugle_data..." />
+                    <marker date="1489189757092" expanded="true" signature="1910:2917" placeholder="Select data...strugle_data..." />
+                    <marker date="1489189757092" expanded="true" signature="3196:4211" placeholder="Select data...strugle_data..." />
+                    <marker date="1489189757092" expanded="true" signature="4439:4515" placeholder="Select * Fro..outcome_type..." />
                   </folding>
                 </state>
               </provider>
@@ -250,15 +215,29 @@
           <file leaf-file-name="model_ajax_newSubmitStrugle.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.3005464">
-                  <caret line="106" column="15" selection-start-line="106" selection-start-column="15" selection-end-line="106" selection-end-column="15" />
+                <state vertical-scroll-proportion="0.35545024">
+                  <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
                   <folding>
-                    <marker date="1489182419103" expanded="true" signature="110:470" placeholder="INSERT INTO contest_data.strugle_data..." />
-                    <marker date="1489182419103" expanded="true" signature="110:590" placeholder="INSERT INTO contest_data.strugle_data..." />
-                    <marker date="1489182419103" expanded="true" signature="635:893" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489182419103" expanded="true" signature="1126:1999" placeholder="Select count..assignment..." />
-                    <marker date="1489182419103" expanded="true" signature="2971:2984" placeholder="..." />
-                    <marker date="1489182419103" expanded="true" signature="3094:3133" placeholder="..." />
+                    <marker date="1489190336770" expanded="true" signature="110:470" placeholder="INSERT INTO contest_data.strugle_data..." />
+                    <marker date="1489190336770" expanded="true" signature="110:590" placeholder="INSERT INTO contest_data.strugle_data..." />
+                    <marker date="1489190336770" expanded="true" signature="635:642" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489190336770" expanded="true" signature="635:805" placeholder="Select count..strugle_data..." />
+                    <marker date="1489190336770" expanded="true" signature="1056:1929" placeholder="Select count..assignment..." />
+                    <marker date="1489190336770" expanded="true" signature="2618:2894" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489190336770" expanded="true" signature="3320:3333" placeholder="..." />
+                    <marker date="1489190336770" expanded="true" signature="3443:3482" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Database.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Classes/Database.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.65384614">
+                  <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+                  <folding>
+                    <marker date="1489189755876" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
                   </folding>
                 </state>
               </provider>
@@ -327,7 +306,6 @@
         <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_massSubmit.php" />
         <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTakePlace.php" />
         <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" />
-        <option value="$PROJECT_DIR$/Classes/Database.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" />
         <option value="$PROJECT_DIR$/View/contestView/adminLog/view_adminLog.php" />
         <option value="$PROJECT_DIR$/Classes/DBData.php" />
@@ -335,9 +313,10 @@
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loadCompCats.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStrugle.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" />
+        <option value="$PROJECT_DIR$/Classes/Database.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
       </list>
     </option>
   </component>
@@ -1020,7 +999,13 @@
       <option name="project" value="LOCAL" />
       <updated>1488631470452</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Jegyzo Update #1&#10;Jegyző elkészítve, kis javitásra szorul">
+      <created>1489185243156</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1489185243156</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1038,7 +1023,8 @@
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1673774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32664436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1047,7 +1033,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1083,7 +1068,8 @@
     <MESSAGE value="Nevezés &amp; Mérlegelés&#10;Nevezés kész van, működik. Mérlegelés a feloldás gomb hiányzik" />
     <MESSAGE value="Update #1&#10;Nevezés véglegesítése valamint versenyszámok beosztása" />
     <MESSAGE value="Jegyzo Aupdata #1&#10;Jegyző elkészítve, kis javitásra szorul" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jegyzo Aupdata #1&#10;Jegyző elkészítve, kis javitásra szorul" />
+    <MESSAGE value="Jegyzo Update #1&#10;Jegyző elkészítve, kis javitásra szorul" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jegyzo Update #1&#10;Jegyző elkészítve, kis javitásra szorul" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1092,13 +1078,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/site.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8241379">
-          <caret line="116" column="14" selection-start-line="116" selection-start-column="14" selection-end-line="116" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/Races/model_raceCreateForm2.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44312796">
@@ -1293,6 +1272,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6445498">
           <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+          <folding>
+            <marker date="1487872137831" expanded="true" signature="1199:1350" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1315,6 +1297,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08056872">
           <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1322,6 +1305,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02014218">
           <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1492,16 +1476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6923077">
-          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-          <folding>
-            <marker date="1489165746961" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1601,69 +1575,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php">
+    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="195" selection-end-column="33" />
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
           <folding>
-            <marker date="1489182226509" expanded="true" signature="133:297" placeholder="Select * Fro..admin_edit_cat..." />
-            <marker date="1489182226509" expanded="true" signature="133:298" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-            <marker date="1489182226509" expanded="true" signature="496:580" placeholder="UPDATE conte..." />
-            <marker date="1489182226509" expanded="true" signature="496:692" placeholder="UPDATE conte..." />
-            <marker date="1489182226509" expanded="true" signature="786:940" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-            <marker date="1489182226509" expanded="true" signature="1020:1046" placeholder="Select * Fro..contest_comp..." />
-            <marker date="1489182226509" expanded="true" signature="1020:1727" placeholder="Select * Fro..contest_comp..." />
-            <marker date="1489182226509" expanded="true" signature="1020:1737" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="1020:1849" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="1020:1867" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="1020:1885" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="1020:1886" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="2142:2190" placeholder="SELECT * FRO..contest_comp..." />
-            <marker date="1489182226509" expanded="true" signature="2366:2375" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="2366:2828" placeholder="Select conte..contest_comp..." />
-            <marker date="1489182226509" expanded="true" signature="2366:2829" placeholder="Select conte..contest_comp..." />
-            <marker date="1489182226509" expanded="true" signature="2366:2860" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="2366:2861" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182226509" expanded="true" signature="3002:3151" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489182226509" expanded="true" signature="3002:3194" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489182226509" expanded="true" signature="3002:3211" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489182226509" expanded="true" signature="3002:3260" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489182226509" expanded="true" signature="3002:3261" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489182226509" expanded="true" signature="5527:5540" placeholder="..." />
-            <marker date="1489182226509" expanded="true" signature="5650:5689" placeholder="..." />
+            <marker date="1489189755876" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3005464">
-          <caret line="106" column="15" selection-start-line="106" selection-start-column="15" selection-end-line="106" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.35545024">
+          <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
           <folding>
-            <marker date="1489182419103" expanded="true" signature="110:470" placeholder="INSERT INTO contest_data.strugle_data..." />
-            <marker date="1489182419103" expanded="true" signature="110:590" placeholder="INSERT INTO contest_data.strugle_data..." />
-            <marker date="1489182419103" expanded="true" signature="635:893" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489182419103" expanded="true" signature="1126:1999" placeholder="Select count..assignment..." />
-            <marker date="1489182419103" expanded="true" signature="2971:2984" placeholder="..." />
-            <marker date="1489182419103" expanded="true" signature="3094:3133" placeholder="..." />
+            <marker date="1489190336770" expanded="true" signature="110:470" placeholder="INSERT INTO contest_data.strugle_data..." />
+            <marker date="1489190336770" expanded="true" signature="110:590" placeholder="INSERT INTO contest_data.strugle_data..." />
+            <marker date="1489190336770" expanded="true" signature="635:642" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489190336770" expanded="true" signature="635:805" placeholder="Select count..strugle_data..." />
+            <marker date="1489190336770" expanded="true" signature="1056:1929" placeholder="Select count..assignment..." />
+            <marker date="1489190336770" expanded="true" signature="2618:2894" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489190336770" expanded="true" signature="3320:3333" placeholder="..." />
+            <marker date="1489190336770" expanded="true" signature="3443:3482" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07285974">
-          <caret line="204" column="19" selection-start-line="204" selection-start-column="19" selection-end-line="204" selection-end-column="19" />
+        <state vertical-scroll-proportion="-59.923077">
+          <caret line="285" column="41" selection-start-line="285" selection-start-column="41" selection-end-line="285" selection-end-column="41" />
           <folding>
-            <marker date="1489182426338" expanded="true" signature="228:1156" placeholder="Select * Fro..assignment..." />
-            <marker date="1489182426338" expanded="true" signature="1342:1418" placeholder="Select * Fro..outcome_type..." />
-            <marker date="1489182426338" expanded="true" signature="1704:1864" placeholder="SELECT s_cir..strugle_data..." />
-            <marker date="1489182426338" expanded="true" signature="2200:2319" placeholder="Select count..strugle_data..." />
-            <marker date="1489182426338" expanded="true" signature="2805:2825" placeholder="SELECT * FRO..." />
-            <marker date="1489182426338" expanded="true" signature="2805:2908" placeholder="SELECT s_cir..strugle_data..." />
-            <marker date="1489182426338" expanded="true" signature="2805:2965" placeholder="SELECT s_cir..strugle_data..." />
-            <marker date="1489182426338" expanded="true" signature="2805:2966" placeholder="SELECT s_cir..strugle_data..." />
-            <marker date="1489182426338" expanded="true" signature="3192:3321" placeholder="Select count..strugle_data..." />
+            <marker date="1489189757092" expanded="true" signature="235:395" placeholder="SELECT s_cir..strugle_data..." />
+            <marker date="1489189757092" expanded="true" signature="592:777" placeholder="Select count..strugle_data..." />
+            <marker date="1489189757092" expanded="true" signature="928:1856" placeholder="Select * Fro..assignment..." />
+            <marker date="1489189757092" expanded="true" signature="1910:2869" placeholder="Select data...strugle_data..." />
+            <marker date="1489189757092" expanded="true" signature="1910:2870" placeholder="Select data...strugle_data..." />
+            <marker date="1489189757092" expanded="true" signature="1910:2917" placeholder="Select data...strugle_data..." />
+            <marker date="1489189757092" expanded="true" signature="3196:4211" placeholder="Select data...strugle_data..." />
+            <marker date="1489189757092" expanded="true" signature="4439:4515" placeholder="Select * Fro..outcome_type..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.192307">
+          <caret line="174" column="65" selection-start-line="174" selection-start-column="65" selection-end-line="174" selection-end-column="65" />
+          <folding>
+            <marker date="1489190437008" expanded="true" signature="133:297" placeholder="Select * Fro..admin_edit_cat..." />
+            <marker date="1489190437008" expanded="true" signature="133:298" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
+            <marker date="1489190437008" expanded="true" signature="496:580" placeholder="UPDATE conte..." />
+            <marker date="1489190437008" expanded="true" signature="496:692" placeholder="UPDATE conte..." />
+            <marker date="1489190437008" expanded="true" signature="786:940" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
+            <marker date="1489190437008" expanded="true" signature="1020:1046" placeholder="Select * Fro..contest_comp..." />
+            <marker date="1489190437008" expanded="true" signature="1020:1727" placeholder="Select * Fro..contest_comp..." />
+            <marker date="1489190437008" expanded="true" signature="1020:1737" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="1020:1849" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="1020:1867" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="1020:1885" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="1020:1886" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="2142:2190" placeholder="SELECT * FRO..contest_comp..." />
+            <marker date="1489190437008" expanded="true" signature="2366:2375" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="2366:2828" placeholder="Select conte..contest_comp..." />
+            <marker date="1489190437008" expanded="true" signature="2366:2829" placeholder="Select conte..contest_comp..." />
+            <marker date="1489190437008" expanded="true" signature="2366:2860" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="2366:2861" placeholder="Select * Fro..assignment..." />
+            <marker date="1489190437008" expanded="true" signature="3002:3151" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489190437008" expanded="true" signature="3002:3194" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489190437008" expanded="true" signature="3002:3211" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489190437008" expanded="true" signature="3002:3260" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489190437008" expanded="true" signature="3002:3261" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489190437008" expanded="true" signature="5659:5672" placeholder="..." />
+            <marker date="1489190437008" expanded="true" signature="5782:5821" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Organization/view_orgPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2014218">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="49" />
+          <folding>
+            <marker date="1487712595715" expanded="true" signature="1102:1253" placeholder="..." />
+            <marker date="1487712595715" expanded="true" signature="1395:1455" placeholder="..." />
           </folding>
         </state>
       </provider>

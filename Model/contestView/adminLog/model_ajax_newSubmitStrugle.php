@@ -25,15 +25,13 @@ $DBTasks->sqlWithConn('INSERT INTO contest_data.strugle_data(
 					)');
 
 $strugleResult = $DBTasks->sqlWithConn('Select
-  *
-From
-  contest_data.strugle_data Inner Join
-  contest.contest_comp
-    On contest_data.strugle_data.s_ccc_id = contest.contest_comp.ccc_id
-    Where
-  contest.contest_comp.ccc_id = '.$_POST["cccID"].'
-  Order By
-  contest_data.strugle_data.s_ctime');
+			  *
+			From
+			  contest_data.strugle_data
+			Where
+			  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].' AND
+			  contest_data.strugle_data.s_circle = '.$_POST["circle"]);
+
 
 $strugleArray = array();
 if(pg_num_rows($strugleResult)>0){
@@ -67,21 +65,27 @@ if(count($strugleArray)>0){
 	$ossz =pg_fetch_row($userResult, NULL, PGSQL_ASSOC);
 	$switch = false;
 	$head = "";
-	switch($ossz["ossz"]){
-		case "2":
+	switch(intval($ossz["ossz"])){
+		case 2:
 			if(count($strugleArray)==1){
 				$switch=true;
 			}
 			break;
-		case "3":
+		case 3:
 			if(count($strugleArray)==3){
 				$switch=true;
 			}
 			break;
-		default:
-			if((count($strugleArray))-1==count($userArray)){
-				$switch=true;
+		case 4:
+			if(count($strugleArray)==1){
+			    $switch=true;
 			}
+			break;
+		case 8:
+			if(count($strugleArray)==1){
+			    $switch = true;
+			}
+			break;
 	}
 	if($switch){
 		$head.= "Nincs több a küzdelemn";
@@ -89,11 +93,22 @@ if(count($strugleArray)>0){
 	else {
 		$head.= '<button class="btn btn-success btn-block" id="strugleStart" onclick="strugleStart()">Következő Küzdelem indítása</button>';
 	}
-	while($row =pg_fetch_row($strugleResult, NULL, PGSQL_ASSOC)){
-		array_push($strugleArray,$row);
+	$strugleResult2 = $DBTasks->sqlWithConn('Select
+		  *
+		From
+		  contest_data.strugle_data Inner Join
+		  contest.contest_comp
+		    On contest_data.strugle_data.s_ccc_id = contest.contest_comp.ccc_id
+		    Where
+		  contest.contest_comp.ccc_id = '.$_POST["cccID"].'
+		  Order By
+		  contest_data.strugle_data.s_ctime');
+	$strugleAsd = array();
+	while($row =pg_fetch_row($strugleResult2, NULL, PGSQL_ASSOC)){
+		array_push($strugleAsd,$row);
 	}
 	$body = "";
-	foreach ( $strugleArray as $key =>$racer) {
+	foreach ( $strugleAsd as $key =>$racer) {
 		$race1Name = DBLoad::loadUserWithoutActive($racer["s_racer_1"]);
 		$race2Name = DBLoad::loadUserWithoutActive($racer["s_racer_2"]);
 		$body.= "<tr>";

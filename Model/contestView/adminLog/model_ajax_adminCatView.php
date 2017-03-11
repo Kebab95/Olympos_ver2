@@ -131,10 +131,16 @@ if(pg_num_rows($strugleResult)>0){
 								$switch=true;
 							}
 							break;
-						default:
-							if((count($strugleArray))-1==count($userArray)){
+						case 4:
+							if(count($strugleArray)==3){
 								$switch=true;
 							}
+							break;
+						case 8:
+							if(count($strugleArray)==7){
+								$switch = true;
+							}
+							break;
 					}
 					if($switch){
 						echo "Nincs több a küzdelemn";
@@ -166,7 +172,7 @@ if(pg_num_rows($strugleResult)>0){
 		</div>
 	</div>
 	<div class="table-responsive">
-	<table class="table">
+	<table class="table table-bordered table-stripped table-hover">
 		<thead>
 		<tr>
 			<td width='10px'>Sorrend</td>

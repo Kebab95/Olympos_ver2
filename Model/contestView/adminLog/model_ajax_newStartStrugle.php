@@ -2,7 +2,30 @@
 if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType"]) && $_POST["compType"]!="error")){
 	include "../../../includeClasses.php";
 	$DBTasks = new DBTasks();
-	$userResult =$DBTasks->sqlWithConn('Select
+	$strugleCircleRes = $DBTasks->sqlWithConn('SELECT s_circle FROM  contest_data.strugle_data
+					Where
+					  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].'
+					  ORDER BY s_circle DESC LIMIT 1');
+	if(pg_num_rows($strugleCircleRes)!=1){
+		$strugleCircle = 1;
+	}
+	else {
+		$strugleCircle =pg_fetch_row($strugleCircleRes, NULL, PGSQL_ASSOC)["s_circle"];
+	}
+
+	$strugle =$DBTasks->sqlWithConn('Select
+			  count(*) as ossz
+			From
+			  contest_data.strugle_data
+			Where
+			  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].' AND
+			  contest_data.strugle_data.s_circle = '.$strugleCircle);
+
+	$countStrugle =pg_fetch_row($strugle, NULL, PGSQL_ASSOC)["ossz"];
+
+
+	if($strugleCircle==1){
+		$userResult =$DBTasks->sqlWithConn('Select
 			  *
 			From
 			  contest.assignment Inner Join
@@ -24,10 +47,77 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 			    WHERE contest_data.admin_edit_cat.aec_adminid = '.$_POST["adminID"].' And
 			  contest_data.admin_edit_cat.aec_ccc_id = '.$_POST["cccID"].'
 			  ORDER BY a_seq');
+	}
+	else {
+		$userResult = $DBTasks->sqlWithConn('Select
+				  data.main_user.*,
+				  data.member_data.*,
+				  data.belt_grades_data.*,
+				  data.knowledge_level.*,
+				  data.telefon_data.*,
+				  data.email_data.*
+				From
+				  contest_data.strugle_data Inner Join
+				  data.main_user
+				    On data.main_user.mu_id = contest_data.strugle_data.s_winner_id Inner Join
+				  data.email_data
+				    On data.main_user.mu_email_id = data.email_data.ed_id Inner Join
+				  data.telefon_data
+				    On data.main_user.mu_telefon_id = data.telefon_data.td_id Inner Join
+				  data.member_data
+				    On data.member_data.md_muid = data.main_user.mu_id Inner Join
+				  data.belt_grades_data
+				    On data.member_data.md_beltgradesid = data.belt_grades_data.bgd_id
+				  Inner Join
+				  data.knowledge_level
+				    On data.belt_grades_data.bgd_klevel_id = data.knowledge_level.klevel_id
+				Where
+				 contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].' AND
+				  contest_data.strugle_data.s_circle = '.($strugleCircle-1).'
+			    order by s_lctime');
+	}
+
 	$userArray = array();
 	while($row =pg_fetch_row($userResult, NULL, PGSQL_ASSOC)){
 		array_push($userArray,SportUser::createWithDB($row));
 	}
+	$userCount = count($userArray);
+
+	if($countStrugle==($userCount/2)){
+		$strugleCircle++;
+		$userResult = $DBTasks->sqlWithConn('Select
+				  data.main_user.*,
+				  data.member_data.*,
+				  data.belt_grades_data.*,
+				  data.knowledge_level.*,
+				  data.telefon_data.*,
+				  data.email_data.*
+				From
+				  contest_data.strugle_data Inner Join
+					  data.main_user
+					    On data.main_user.mu_id = contest_data.strugle_data.s_winner_id Left Join
+					  data.email_data
+					    On data.main_user.mu_email_id = data.email_data.ed_id Left Join
+					  data.telefon_data
+					    On data.main_user.mu_telefon_id = data.telefon_data.td_id Left Join
+					  data.member_data
+					    On data.member_data.md_muid = data.main_user.mu_id Left Join
+					  data.belt_grades_data
+					    On data.member_data.md_beltgradesid = data.belt_grades_data.bgd_id
+					  Left Join
+					  data.knowledge_level
+					    On data.belt_grades_data.bgd_klevel_id = data.knowledge_level.klevel_id
+				Where
+				 contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].' AND
+				  contest_data.strugle_data.s_circle = '.($strugleCircle-1).'
+			    order by s_lctime');
+		$userArray = array();
+		while($row =pg_fetch_row($userResult, NULL, PGSQL_ASSOC)){
+			array_push($userArray,SportUser::createWithDB($row));
+		}
+		$userCount = count($userArray);
+	}
+
 
 	$outComeType = $DBTasks->sqlWithConn('Select
 											  *
@@ -40,20 +130,11 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 	}
 
 
-	$userCount = count($userArray);
+
 	$racer1 = null;
 	$racer2 = null;
 	if($_POST["compType"] =="fight"){
-		$strugleCircleRes = $DBTasks->sqlWithConn('SELECT s_circle FROM  contest_data.strugle_data
-					Where
-					  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].'
-					  ORDER BY s_circle DESC LIMIT 1');
-		if(pg_num_rows($strugleCircleRes)!=1){
-			$strugleCircle = 1;
-		}
-		else {
-			$strugleCircle =pg_fetch_row($strugleCircleRes, NULL, PGSQL_ASSOC)["s_circle"];
-		}
+
 		switch($userCount){
 			case 1: break;
 			case 2:
@@ -61,15 +142,8 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 				$racer2 = $userArray[1];
 				break;
 			case 3:
-				$strugle =$DBTasks->sqlWithConn('Select
-			  count(*) as ossz
-			From
-			  contest_data.strugle_data
-			Where
-			  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"]);
 
-				$countStrugle =pg_fetch_row($strugle, NULL, PGSQL_ASSOC);
-				switch($countStrugle["ossz"]){
+				switch($countStrugle){
 					case 0:
 						$racer1 = $userArray[0];
 						$racer2 = $userArray[1];
@@ -88,26 +162,24 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 				}
 				break;
 			default:
-				$strugleCircleRes = $DBTasks->sqlWithConn('SELECT s_circle FROM  contest_data.strugle_data
-					Where
-					  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].'
-					  ORDER BY s_circle DESC LIMIT 1');
-				if(pg_num_rows($strugleCircleRes)!=1){
-					$strugleCircle = 1;
+				switch($countStrugle){
+					case 0:
+						$racer1 = $userArray[0];
+						$racer2 = $userArray[1];
+						break;
+					case 1:
+						$racer1 = $userArray[2];
+						$racer2 = $userArray[3];
+						break;
+					case 2:
+						$racer1 = $userArray[4];
+						$racer2 = $userArray[5];
+						break;
+					case 3:
+						$racer1 = $userArray[6];
+						$racer2 = $userArray[7];
+						break;
 				}
-				else {
-					$strugleCircle =pg_fetch_row($strugleCircleRes, NULL, PGSQL_ASSOC)["s_circle"];
-				}
-
-
-				$strugleCountRes =$DBTasks->sqlWithConn('Select
-					  count(*) as ossz
-					From
-					  contest_data.strugle_data
-					Where
-					  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"]);
-
-				$strugleCount =pg_fetch_row($strugleCountRes, NULL, PGSQL_ASSOC)["ossz"];
 
 				break;
 
