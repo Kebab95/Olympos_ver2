@@ -85,18 +85,32 @@ Where
 $DBTasks->ConnClose();
 $compType = pg_fetch_row($compTypeResult,NULL, PGSQL_ASSOC);
 
-$DBTasks->Connect();
-$strugleResult = $DBTasks->sql('Select
-  *
-From
-  contest_data.strugle_data Inner Join
-  contest.contest_comp
-    On contest_data.strugle_data.s_ccc_id = contest.contest_comp.ccc_id
-    Where
-  contest.contest_comp.ccc_id = '.$_POST["cccID"].'
-  Order By
-  contest_data.strugle_data.s_ctime');
-$DBTasks->ConnClose();
+if($compType["fight"]=="t"){
+	$strugleResult = $DBTasks->sqlWithConn('Select
+			  *
+			From
+			  contest_data.strugle_data Inner Join
+			  contest.contest_comp
+			    On contest_data.strugle_data.s_ccc_id = contest.contest_comp.ccc_id
+			    Where
+			  contest.contest_comp.ccc_id = '.$_POST["cccID"].'
+			  Order By
+			  contest_data.strugle_data.s_ctime');
+}
+else if($compType["technical"]=="t"){
+	$strugleResult = $DBTasks->sqlWithConn('Select
+			  *
+			From
+			  contest_data.technical_strugle_data Inner Join
+			  contest.contest_comp
+			    On contest_data.technical_strugle_data.ts_ccc_id = contest.contest_comp.ccc_id
+			    Where
+			  contest.contest_comp.ccc_id = '.$_POST["cccID"].' AND
+  contest_data.technical_strugle_data.ts_use = True
+			  Order By
+			  contest_data.technical_strugle_data.ts_ctime');
+}
+
 
 $strugleArray = array();
 if(pg_num_rows($strugleResult)>0){
@@ -114,8 +128,8 @@ if(pg_num_rows($strugleResult)>0){
 	</div>
 	<div class="panel-body" id="strugleData">
 		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
 				<?php
 				//Mehet tovább a verseny
 				$switch = false;
@@ -143,8 +157,36 @@ if(pg_num_rows($strugleResult)>0){
 							break;
 					}
 					if($switch){
-						echo "Nincs több a küzdelemn";
+						$leaderBoard = DBLoad::loadFightLeaderboard($_POST["cccID"]);
+						foreach ($leaderBoard as $value) {
+							?>
+							<div class="row">
+								<div class="col-xs-6"><?php echo $value["rated"]?>. Helyezet</div>
+								<div class="col-xs-6"><?php echo $value["user_name"]?></div>
+
+							</div>
+							<?php
+						}
 					}
+					else {
+						?>
+						<button class="btn btn-success btn-block" id="strugleStart" onclick="strugleStart()">Következő Küzdelem indítása</button>
+						<?php
+					}
+				}
+				else if($compType["technical"]=="t"){
+				    if(count($strugleArray)==count($userArray)){
+					    $leaderBoard = DBLoad::loadTechnicalLeaderboard($_POST["cccID"]);
+					    foreach ($leaderBoard as $value) {
+						    ?>
+						    <div class="row">
+							    <div class="col-xs-4"><?php echo $value["rated"]?>. Helyezet</div>
+							    <div class="col-xs-6"><?php echo $value["user_name"]?></div>
+							    <div class="col-xs-2"><?php echo $value["user_point"]?> Pont</div>
+						    </div>
+						    <?php
+					    }
+				    }
 					else {
 						?>
 						<button class="btn btn-success btn-block" id="strugleStart" onclick="strugleStart()">Következő Küzdelem indítása</button>
@@ -154,7 +196,7 @@ if(pg_num_rows($strugleResult)>0){
 				?>
 
 			</div>
-			<div class="col-md-4 text-center">
+			<div class="col-md-2 text-center">
 				<?php
 				if($compType["fight"]=="t"){
 					?>
@@ -175,35 +217,66 @@ if(pg_num_rows($strugleResult)>0){
 	<table class="table table-bordered table-stripped table-hover">
 		<thead>
 		<tr>
-			<td width='10px'>Sorrend</td>
-			<td>Első versenyző</td>
-			<td>Első Pontjai</td>
+			<?php
+			if($compType["fight"]=="t"){
+			   ?>
+				<td width='10px'>Sorrend</td>
+				<td>Első versenyző</td>
+				<td>Első Pontjai</td>
 
-			<td>Második versenyző</td>
-			<td>Második Pontjai</td>
-			<td>Győztes versenyző</td>
-			<td>Forduló</td>
+				<td>Második versenyző</td>
+				<td>Második Pontjai</td>
+				<td>Győztes versenyző</td>
+				<td>Forduló</td>
+				<?php
+			}
+			else if($compType["technical"]=="t"){
+				?>
+				<td width='10px'>Sorrend</td>
+				<td>Versenyző</td>
+				<td>Pontjai</td>
+				<?php
+			}
+			?>
+
 		</tr>
 		</thead>
 		<tbody id="strugleTable">
 		<?php
 			if(count($strugleArray)>0){
 				foreach ( $strugleArray as $key =>$racer) {
-					$race1Name = DBLoad::loadUserWithoutActive($racer["s_racer_1"]);
-					$race2Name = DBLoad::loadUserWithoutActive($racer["s_racer_2"]);
-					echo "<tr>";
-					echo "<td width='10px'>".($key+1)."</td>";
-					echo "<td class='alert-danger' style='color: white;'>".$race1Name->getName()."</td>";
-					echo "<td>".$racer["s_racer_1_point"]."</td>";
-					echo "<td style=\"background-color: #002a80;color: white;\">".$race2Name->getName()."</td>";
-					echo "<td>".$racer["s_racer_2_point"]."</td>";
-					echo "<td ".($racer["s_winner_id"]==$race1Name->getId()?"class='alert-danger' style='color: white;'":"style=\"background-color: #002a80;color: white;\"").">".($racer["s_winner_id"]==$race1Name->getId()?$race1Name->getName():$race2Name->getName())."</td>";
-					echo "<td>".$racer["s_circle"].". Forduló</td>";
-					echo "</tr>";
+					if($compType["fight"]=="t"){
+						$race1Name = DBLoad::loadUserWithoutActive($racer["s_racer_1"]);
+						$race2Name = DBLoad::loadUserWithoutActive($racer["s_racer_2"]);
+						echo "<tr>";
+						echo "<td width='10px'>".($key+1)."</td>";
+						echo "<td class='alert-danger' style='color: white;'>".$race1Name->getName()."</td>";
+						echo "<td>".$racer["s_racer_1_point"]."</td>";
+						echo "<td style=\"background-color: #002a80;color: white;\">".$race2Name->getName()."</td>";
+						echo "<td>".$racer["s_racer_2_point"]."</td>";
+						echo "<td ".($racer["s_winner_id"]==$race1Name->getId()?"class='alert-danger' style='color: white;'":"style=\"background-color: #002a80;color: white;\"").">".($racer["s_winner_id"]==$race1Name->getId()?$race1Name->getName():$race2Name->getName())."</td>";
+						echo "<td>".$racer["s_circle"].". Forduló</td>";
+						echo "</tr>";
+					}
+					else if($compType["technical"]=="t"){
+						$raceName = DBLoad::loadUserWithoutActive($racer["ts_racer_id"]);
+						echo "<tr>";
+						echo "<td width='10px'>".($key+1)."</td>";
+						echo "<td>".$raceName->getName()."</td>";
+						echo "<td>".$racer["ts_racer_point"]."</td>";
+						echo "</tr>";
+					}
+
 				}
 			}
 		else {
-			echo "<tr><td colspan='7' class='text-center'>Még nincsen eredmény</td></tr>";
+			if($compType["fight"]=="t"){
+				echo "<tr><td colspan='7' class='text-center'>Még nincsen eredmény</td></tr>";
+			}
+			else if($compType["technical"]=="t"){
+				echo "<tr><td colspan='3' class='text-center'>Még nincsen eredmény</td></tr>";
+			}
+
 		}
 		?>
 		</tbody>
@@ -262,7 +335,7 @@ if(pg_num_rows($strugleResult)>0){
 				<button class="btn btn-danger btn-block" id="Close">Bezárás</button>
 			</div>
 			<div class="col-md-6">
-				<button class="btn btn-success btn-block">Véglegesítés</button>
+
 			</div>
 		</div>
 	</div>

@@ -2,8 +2,16 @@
 include "../../../includeClasses.php";
 $DBTasks = new DBTasks();
 DBLoad::init();
-$DBTasks->Connect();
-$result = $DBTasks->sql('Select
+$compTypeRes = $DBTasks->sqlWithConn('
+	SELECT
+		comp_types_fighting_event as fight,
+		 comp_types_technical_event as technical
+	 FROM contest.competetions
+	INNER JOIN contest.comp_types ON
+	contest.competetions.type_id = contest.comp_types.comp_types_id
+	WHERE contest.competetions.comp_id = '.$_POST["compID"]);
+$compType =pg_fetch_row($compTypeRes, NULL, PGSQL_ASSOC);
+$result = $DBTasks->sqlWithConn('Select
   *
 From
   contest.assignment Inner Join
@@ -23,7 +31,6 @@ Where
   contest.contest_comp.ccc_comp_id = '.$_POST["compID"].'
   Order By
   contest.assignment.a_seq');
-$DBTasks->ConnClose();
 if(pg_num_rows($result)>0){
 	$tempArray = array();
 	while($row =pg_fetch_row($result, NULL, PGSQL_ASSOC)){
@@ -62,7 +69,17 @@ if(pg_num_rows($result)>0){
 		<hr>
 	<div class="row">
 		<div class="col-md-4"></div>
-		<div class="col-md-4"><button class="btn btn-success btn-block" data-toggle='modal' data-target='#takePlaceModal'>Verseny szám lezárása</button></div>
+		<div class="col-md-4">
+			<?php
+			$index2 = 0;
+			$takePlace = $tempArray[$index2][DBData::$connCCC_TakePlace]=="f";
+
+			if($takePlace){
+				?><button class="btn btn-success btn-block" data-toggle='modal' data-target='#takePlaceModal'>Verseny szám lezárása</button><?php
+			}
+			?>
+
+		</div>
 		<div class="col-md-4"><button class="btn btn-info2 btn-block">Nyomtatás</button>
 
 		</div>
@@ -213,6 +230,7 @@ if(pg_num_rows($result)>0){
 				});
 			}
 			$("#takePlaceYes").click(function(e){
+				var type = <?php echo ($compType["technical"]=="t"?"true":"false")?>;
 				var values = [];
 				$("input[name='ervenyes[]']").each(function() {
 					values.push(parseInt($(this).val()));
@@ -221,7 +239,7 @@ if(pg_num_rows($result)>0){
 				while(values[i]!=0 && i <values.length){
 					i++;
 				}
-				if(values.length == (i++)){
+				if(values.length == (i++) || type){
 
 					 $.ajax({
 					 url:'Model/contestView/schedule/model_ajax_compTakePlace.php',

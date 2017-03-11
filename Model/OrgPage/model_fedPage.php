@@ -24,22 +24,20 @@ else {
 			$orgList[$key]["UserName"] = $user->getName();
 			$orgList[$key]["UserId"] = $user->getId();
 		}
+		$member = false;
+		$asdRes = $DBTasks->sqlWithConn('Select
+				  org.federation_leader.fl_mu_id
+				From
+				  org.federation_leader
+				Where
+				  org.federation_leader.fl_fed_id ='.$item->getId());
+		while($asd = pg_fetch_row($asdRes, NULL, PGSQL_ASSOC)){
+			if($asd["fl_mu_id"] == UserTasks::getUser()->getId()){
+				$member = true;
+			}
+		}
+		$orgList[$key]["member"] = $member;
 
 	}
-	$pagination = array();
-	$i = 10;
-	$a = 1;
-	while($i<count($orgList)){
-		$i+=10;
-		$pagination[$a] = "?nav=fed&&page=".$a;
-		$a++;
-	}
-
-}
-if(UserTasks::isLoggedUser()){
-
-
-}
-else {
 
 }

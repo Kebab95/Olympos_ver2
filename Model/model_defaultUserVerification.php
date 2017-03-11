@@ -17,13 +17,11 @@ if(UserTasks::isLoggedUser()){
 			"href" =>"?nav=club",
 			"title" =>"Egyesületek"
 	);
-	if(UserTasks::isClubLeader() || UserTasks::isFederationLeader()){
-		$navBarItems["Comp"] = array(
-				"href" =>"?contest=list",
-				"title" =>"Versenyek"
+	$navBarItems["Comp"] = array(
+			"href" =>"?contest=list",
+			"title" =>"Versenyek"
 
-		);
-	}
+	);
 
 	//echo json_encode($navBarItems);
 	$obj = UserTasks::getUser();

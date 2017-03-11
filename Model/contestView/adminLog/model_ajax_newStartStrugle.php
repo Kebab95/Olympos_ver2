@@ -13,18 +13,31 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 		$strugleCircle =pg_fetch_row($strugleCircleRes, NULL, PGSQL_ASSOC)["s_circle"];
 	}
 
-	$strugle =$DBTasks->sqlWithConn('Select
+	if($_POST["compType"]=="fight"){
+		$strugle =$DBTasks->sqlWithConn('Select
 			  count(*) as ossz
 			From
 			  contest_data.strugle_data
 			Where
 			  contest_data.strugle_data.s_ccc_id = '.$_POST["cccID"].' AND
 			  contest_data.strugle_data.s_circle = '.$strugleCircle);
+	}
+	else if($_POST["compType"]=="technical"){
+		$strugle =$DBTasks->sqlWithConn('Select
+			  count(*) as ossz
+			From
+			  contest_data.technical_strugle_data
+			Where
+			  contest_data.technical_strugle_data.ts_ccc_id = '.$_POST["cccID"].' AND
+  contest_data.technical_strugle_data.ts_use = True');
+
+	}
+
 
 	$countStrugle =pg_fetch_row($strugle, NULL, PGSQL_ASSOC)["ossz"];
 
 
-	if($strugleCircle==1){
+	if($strugleCircle==1 || $_POST["compType"]=="technical"){
 		$userResult =$DBTasks->sqlWithConn('Select
 			  *
 			From
@@ -47,6 +60,7 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 			    WHERE contest_data.admin_edit_cat.aec_adminid = '.$_POST["adminID"].' And
 			  contest_data.admin_edit_cat.aec_ccc_id = '.$_POST["cccID"].'
 			  ORDER BY a_seq');
+
 	}
 	else {
 		$userResult = $DBTasks->sqlWithConn('Select
@@ -83,7 +97,7 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 	}
 	$userCount = count($userArray);
 
-	if($countStrugle==($userCount/2)){
+	if($countStrugle==($userCount/2) && ($_POST["compType"] =="fight")){
 		$strugleCircle++;
 		$userResult = $DBTasks->sqlWithConn('Select
 				  data.main_user.*,
@@ -302,6 +316,89 @@ if(isset($_POST["cccID"]) && isset($_POST["adminID"]) && (isset($_POST["compType
 			<?php
 		}
 
+
+	}
+	else if($_POST["compType"]=="technical"){
+		/** @var SportUser $racer */
+		$racer = $userArray[$countStrugle];
+		?>
+			<form method="post" action="" id="raceForm">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 text-center"><?php echo $racer->getName()?></div>
+				<div class="col-md-4"></div>
+			</div>
+			<div class="row form-group">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<div class="row form-group">
+						<div class="col-md-6">Elért Pontjai</div>
+						<div class="col-md-6">
+							<input type="number" class="form-control" name="racerPoint">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+				<!---
+			<div class="row form-group">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<div class="col-md-6">Később vissza hívás</div>
+						<div class="col-md-6"><input type="checkbox" name="callBack"></div>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+			!--->
+				<div class="row form-group">
+					<div class="col-md-4"></div>
+					<div class="col-md-4 form-group">
+						<div class="row">
+							<div class="col-md-6">Jegyzet (Nem kötelező)</div>
+							<div class="col-md-6"><input type="text" name="log" class="form-control"></div>
+						</div>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+			<div class="row form-group">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 form-group">
+					<input type="submit" value="Lezárás" class="btn btn-success btn-block">
+					<input type="hidden" name="cccID" value="<?php echo $_POST["cccID"]?>">
+					<input type="hidden" name="adminID" value="<?php echo $_POST["adminID"]?>">
+					<input type="hidden" name="racerID" value="<?php echo $racer->getId()?>">
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+			</form>
+		<script>
+			$("#raceForm").submit(function(e){
+				e.preventDefault();
+				var data = $(this).serializeArray();
+				console.log(data);
+				if(data[0].value>0){
+					$.ajax({
+						url:'Model/contestView/adminLog/model_ajax_technicalSubmit.php',
+						type: 'POST',
+						data: $(this).serialize(),
+						dataType: 'JSON'
+					}).done(function(data){
+						//console.log(data);
+						$("#strugleData").html(data[0]);
+						$("#strugleTable").html(data[1]);
+					}).fail(function(){
+						alert("Hiba!");
+					});
+				}
+				else {
+
+				}
+
+			});
+		</script>
+		<?php
 
 	}
 }

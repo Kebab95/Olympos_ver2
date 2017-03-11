@@ -2,7 +2,7 @@
 include "../../../includeClasses.php";
 $DBTasks = new DBTasks();
 DBLoad::init();
-$result = $DBTasks->selectGetResult(DBData::getAdministratorTable(),"*",DBData::$adminGenCode."='".$_POST["code"]."' AND ".DBData::$adminConrestID."=".$_POST["contestID"]);
+$result = $DBTasks->selectGetResult(DBData::getAdministratorTable(),"*",DBData::$adminGenCode."='".$_POST["code"]."' AND ".DBData::$adminConrestID."=".$_POST["contestID"]." AND ad_delete = false");
 if(pg_num_rows($result)>0){
 	$row = pg_fetch_row($result, NULL, PGSQL_ASSOC);
 	$adminName= $row[DBData::$adminName];

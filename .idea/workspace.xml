@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="">
+    <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="Jegyzo Update #2&#10;Küzdelmi számoknál elkészítve a jegyzés">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_technicalSubmit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_listTechnicalEventLeaderboard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_removeAdministrator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/model_modal_ajax_Org.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStrugle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStugle2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBLoad.php" afterPath="$PROJECT_DIR$/Classes/DBLoad.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/OrgPage/model_clubPage.php" afterPath="$PROJECT_DIR$/Model/OrgPage/model_clubPage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/OrgPage/model_fedPage.php" afterPath="$PROJECT_DIR$/Model/OrgPage/model_fedPage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/model_contestView.php" afterPath="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" afterPath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_defaultUserVerification.php" afterPath="$PROJECT_DIR$/Model/model_defaultUserVerification.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" afterPath="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php" afterPath="$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Organization/view_orgPage.php" afterPath="$PROJECT_DIR$/View/Organization/view_orgPage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Settings/view_settings.php" afterPath="$PROJECT_DIR$/View/Settings/view_settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" afterPath="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/view_contestView.php" afterPath="$PROJECT_DIR$/View/contestView/view_contestView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/site.css" afterPath="$PROJECT_DIR$/css/site.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/site.js" afterPath="$PROJECT_DIR$/js/site.js" />
     </list>
     <ignored path="Olympos_ver2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,169 +65,27 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="model_ajax_adminCatView.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php">
+        <leaf>
+          <file leaf-file-name="model_settings.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Model/model_settings.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.192307">
-                  <caret line="174" column="65" selection-start-line="174" selection-start-column="65" selection-end-line="174" selection-end-column="65" />
-                  <folding>
-                    <marker date="1489190437008" expanded="true" signature="133:297" placeholder="Select * Fro..admin_edit_cat..." />
-                    <marker date="1489190437008" expanded="true" signature="133:298" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-                    <marker date="1489190437008" expanded="true" signature="496:580" placeholder="UPDATE conte..." />
-                    <marker date="1489190437008" expanded="true" signature="496:692" placeholder="UPDATE conte..." />
-                    <marker date="1489190437008" expanded="true" signature="786:940" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-                    <marker date="1489190437008" expanded="true" signature="1020:1046" placeholder="Select * Fro..contest_comp..." />
-                    <marker date="1489190437008" expanded="true" signature="1020:1727" placeholder="Select * Fro..contest_comp..." />
-                    <marker date="1489190437008" expanded="true" signature="1020:1737" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="1020:1849" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="1020:1867" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="1020:1885" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="1020:1886" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="2142:2190" placeholder="SELECT * FRO..contest_comp..." />
-                    <marker date="1489190437008" expanded="true" signature="2366:2375" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="2366:2828" placeholder="Select conte..contest_comp..." />
-                    <marker date="1489190437008" expanded="true" signature="2366:2829" placeholder="Select conte..contest_comp..." />
-                    <marker date="1489190437008" expanded="true" signature="2366:2860" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="2366:2861" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489190437008" expanded="true" signature="3002:3151" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489190437008" expanded="true" signature="3002:3194" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489190437008" expanded="true" signature="3002:3211" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489190437008" expanded="true" signature="3002:3260" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489190437008" expanded="true" signature="3002:3261" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489190437008" expanded="true" signature="5659:5672" placeholder="..." />
-                    <marker date="1489190437008" expanded="true" signature="5782:5821" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="view_orgPage.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/View/Organization/view_orgPage.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2014218">
-                  <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="49" />
-                  <folding>
-                    <marker date="1487712595715" expanded="true" signature="1102:1253" placeholder="..." />
-                    <marker date="1487712595715" expanded="true" signature="1395:1455" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="model_ajax_newStartStrugle.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-59.923077">
-                  <caret line="285" column="41" selection-start-line="285" selection-start-column="41" selection-end-line="285" selection-end-column="41" />
-                  <folding>
-                    <marker date="1489189757092" expanded="true" signature="235:395" placeholder="SELECT s_cir..strugle_data..." />
-                    <marker date="1489189757092" expanded="true" signature="592:777" placeholder="Select count..strugle_data..." />
-                    <marker date="1489189757092" expanded="true" signature="928:1856" placeholder="Select * Fro..assignment..." />
-                    <marker date="1489189757092" expanded="true" signature="1910:2869" placeholder="Select data...strugle_data..." />
-                    <marker date="1489189757092" expanded="true" signature="1910:2870" placeholder="Select data...strugle_data..." />
-                    <marker date="1489189757092" expanded="true" signature="1910:2917" placeholder="Select data...strugle_data..." />
-                    <marker date="1489189757092" expanded="true" signature="3196:4211" placeholder="Select data...strugle_data..." />
-                    <marker date="1489189757092" expanded="true" signature="4439:4515" placeholder="Select * Fro..outcome_type..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="model_ajax_submitStrugle.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="107" selection-end-column="1" />
-                  <folding>
-                    <marker date="1489177842163" expanded="true" signature="110:323" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:346" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:376" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:383" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:408" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:440" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:470" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:477" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:504" placeholder="INSERT INTO contest_data.strugle_data..." />
-                    <marker date="1489177842163" expanded="true" signature="110:508" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:515" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="110:571" placeholder="INSERT INTO ..." />
-                    <marker date="1489177842163" expanded="true" signature="615:873" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489177842163" expanded="true" signature="1112:1945" placeholder="Select count..assignment..." />
-                    <marker date="1489177842163" expanded="true" signature="1112:1962" placeholder="Select count..assignment..." />
-                    <marker date="1489177842163" expanded="true" signature="2822:2881" placeholder="..." />
-                    <marker date="1489177842163" expanded="true" signature="2904:2917" placeholder="..." />
-                    <marker date="1489177842163" expanded="true" signature="3027:3066" placeholder="..." />
-                    <marker date="1489177842163" expanded="true" signature="3027:3099" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="model_ajax_adminCloseCat.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCloseCat.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="10" column="124" selection-start-line="10" selection-start-column="124" selection-end-line="10" selection-end-column="124" />
-                  <folding>
-                    <marker date="1489167748368" expanded="true" signature="123:320" placeholder="UPDATE conte..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="model_ajax_loadCompCats.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loadCompCats.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-                  <folding>
-                    <marker date="1489167801313" expanded="true" signature="147:809" placeholder="Select conte..contest_comp..." />
-                    <marker date="1489167801313" expanded="true" signature="1864:1927" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="view_adminView.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminView.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+                <state vertical-scroll-proportion="0.46327013">
+                  <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="view_adminLog.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminLog.php">
+          <file leaf-file-name="model_modal_ajax_Org.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Model/model_modal_ajax_Org.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="model_ajax_loginAdmin.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+                <state vertical-scroll-proportion="-25.5">
+                  <caret line="39" column="94" selection-start-line="39" selection-start-column="91" selection-end-line="39" selection-end-column="94" />
                   <folding>
-                    <marker date="1489166838148" expanded="true" signature="471:580" placeholder="Select * Fro..admin_edit_cat..." />
-                    <marker date="1489166838148" expanded="true" signature="723:807" placeholder="..." />
+                    <marker date="1489271696875" expanded="true" signature="1459:1514" placeholder="..." />
+                    <marker date="1489271696875" expanded="true" signature="1880:1999" placeholder="..." />
+                    <marker date="1489271696875" expanded="true" signature="1937:1992" placeholder="..." />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DBData.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="282" column="37" selection-start-line="282" selection-start-column="27" selection-end-line="282" selection-end-column="37" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -211,34 +93,23 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="model_ajax_newSubmitStrugle.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php">
+        <leaf>
+          <file leaf-file-name="view_settings.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/View/Settings/view_settings.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.35545024">
-                  <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
-                  <folding>
-                    <marker date="1489190336770" expanded="true" signature="110:470" placeholder="INSERT INTO contest_data.strugle_data..." />
-                    <marker date="1489190336770" expanded="true" signature="110:590" placeholder="INSERT INTO contest_data.strugle_data..." />
-                    <marker date="1489190336770" expanded="true" signature="635:642" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489190336770" expanded="true" signature="635:805" placeholder="Select count..strugle_data..." />
-                    <marker date="1489190336770" expanded="true" signature="1056:1929" placeholder="Select count..assignment..." />
-                    <marker date="1489190336770" expanded="true" signature="2618:2894" placeholder="Select * Fro..strugle_data..." />
-                    <marker date="1489190336770" expanded="true" signature="3320:3333" placeholder="..." />
-                    <marker date="1489190336770" expanded="true" signature="3443:3482" placeholder="..." />
-                  </folding>
+                <state vertical-scroll-proportion="-5.3461537">
+                  <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Database.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Classes/Database.php">
+          <file leaf-file-name="form_settings_EditClub.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/View/Settings/form_settings_EditClub.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.65384614">
-                  <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-                  <folding>
-                    <marker date="1489189755876" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
-                  </folding>
+                <state vertical-scroll-proportion="0.26184833">
+                  <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -266,25 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Controller/Controller.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/View/contestView/adminLog/view_adminView.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/model_ajax_addNewType.php" />
-        <option value="$PROJECT_DIR$/View/contestView/Modal/modal_newCompetetion.php" />
-        <option value="$PROJECT_DIR$/Model/Races/fieldNameScript.js" />
-        <option value="$PROJECT_DIR$/Model/Races/fieldNameScript2.js" />
-        <option value="$PROJECT_DIR$/Model/Races/fieldNameScript3.js" />
-        <option value="$PROJECT_DIR$/View/Races/view_raceCreateForm2.php" />
-        <option value="$PROJECT_DIR$/View/view_reg.php" />
-        <option value="$PROJECT_DIR$/Model/model_regSubmit.php" />
-        <option value="$PROJECT_DIR$/Classes/DBTasks.php" />
-        <option value="$PROJECT_DIR$/View/myClub/view_myClubPage.php" />
-        <option value="$PROJECT_DIR$/Classes/SportUser.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/model_checkEntryMembers.php" />
-        <option value="$PROJECT_DIR$/asd.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/model_ajax_dataChecksFlag.php" />
-        <option value="$PROJECT_DIR$/View/contestView/view_contestView.php" />
         <option value="$PROJECT_DIR$/Model/contestView/checks/model_DataChecks.php" />
         <option value="$PROJECT_DIR$/Classes/DefaultClasses.php" />
         <option value="$PROJECT_DIR$/Model/myClub/model_ajax_newMember.php" />
@@ -297,7 +149,6 @@
         <option value="$PROJECT_DIR$/Classes/Stugle.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStugle2.php" />
         <option value="$PROJECT_DIR$/Classes/UserTasks.php" />
-        <option value="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" />
         <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_splitSubmit.php" />
         <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_seqUpDown.php" />
         <option value="$PROJECT_DIR$/View/contestView/schedule/view_splittModal.php" />
@@ -305,18 +156,38 @@
         <option value="$PROJECT_DIR$/View/contestView/schedule/view_massModal.php" />
         <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_massSubmit.php" />
         <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTakePlace.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" />
         <option value="$PROJECT_DIR$/View/contestView/adminLog/view_adminLog.php" />
         <option value="$PROJECT_DIR$/Classes/DBData.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCloseCat.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loadCompCats.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStrugle.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php" />
+        <option value="$PROJECT_DIR$/css/site.css" />
+        <option value="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_tecnikalSubmit.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_listFightEventLeaderboard.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" />
         <option value="$PROJECT_DIR$/Classes/Database.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_listTechnicalEventLeaderboard.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_technicalSubmit.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
+        <option value="$PROJECT_DIR$/Classes/DBLoad.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
+        <option value="$PROJECT_DIR$/View/contestView/view_contestView.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/model_ajax_removeAdministrator.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php" />
+        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" />
+        <option value="$PROJECT_DIR$/Model/model_defaultUserVerification.php" />
+        <option value="$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php" />
+        <option value="$PROJECT_DIR$/Model/OrgPage/model_clubPage.php" />
+        <option value="$PROJECT_DIR$/Model/OrgPage/model_fedPage.php" />
+        <option value="$PROJECT_DIR$/View/Organization/view_orgPage.php" />
+        <option value="$PROJECT_DIR$/js/site.js" />
+        <option value="$PROJECT_DIR$/Model/model_modal_ajax_Org.php" />
+        <option value="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" />
+        <option value="$PROJECT_DIR$/View/Settings/view_settings.php" />
       </list>
     </option>
   </component>
@@ -446,327 +317,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Races" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Profile" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Organization" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myClub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schedule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entry" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="checks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adminLog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myClub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schedule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entry" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="checks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Olympos_ver2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contestView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adminLog" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -868,13 +419,6 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\contestView" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\Races" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2\css" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2\Model" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\Olympos_ver2\Model\contestView\adminLog" />
       <recent name="D:\xampp\htdocs\Olympos_ver2\Model\OrgPage" />
@@ -882,8 +426,18 @@
       <recent name="D:\xampp\htdocs\Olympos_ver2\View" />
       <recent name="D:\xampp\htdocs\Olympos_ver2\View\Login" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\Olympos_ver2\css" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\contestView" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\Races" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2\Model" />
+    </key>
   </component>
-  <component name="RunManager" selected="PHP Built-in Web Server.Localhost">
+  <component name="RunManager" selected="JavaScript Debug.model_ajax_newStartStrugle.php">
+    <configuration default="false" name="model_ajax_newStartStrugle.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Olympos_ver2/Model/contestView/adminLog/model_ajax_newStartStrugle.php">
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -918,9 +472,15 @@
     <configuration default="false" name="Localhost" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/..">
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="PHP Built-in Web Server.Localhost" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.model_ajax_newStartStrugle.php" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.model_ajax_newStartStrugle.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -1005,7 +565,13 @@
       <option name="project" value="LOCAL" />
       <updated>1489185243156</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Jegyzo Update #2&#10;Küzdelmi számoknál elkészítve a jegyzés">
+      <created>1489190510016</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1489190510016</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1021,26 +587,26 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1673774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1673774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32664436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1069,7 +635,8 @@
     <MESSAGE value="Update #1&#10;Nevezés véglegesítése valamint versenyszámok beosztása" />
     <MESSAGE value="Jegyzo Aupdata #1&#10;Jegyző elkészítve, kis javitásra szorul" />
     <MESSAGE value="Jegyzo Update #1&#10;Jegyző elkészítve, kis javitásra szorul" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jegyzo Update #1&#10;Jegyző elkészítve, kis javitásra szorul" />
+    <MESSAGE value="Jegyzo Update #2&#10;Küzdelmi számoknál elkészítve a jegyzés" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jegyzo Update #2&#10;Küzdelmi számoknál elkészítve a jegyzés" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1078,192 +645,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/Races/model_raceCreateForm2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44312796">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3364929">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/myClub/js_newMember.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/myClub/view_myClubPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="96" selection-start-line="69" selection-start-column="96" selection-end-line="69" selection-end-column="96" />
-          <folding>
-            <marker date="1488909686981" expanded="true" signature="6454:6539" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/myClub/model_ajax_newMember.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/SportUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DefaultClasses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/checks/model_DataChecks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51184833">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-          <folding>
-            <marker date="1488989337103" expanded="true" signature="55:358" placeholder="Select conte..entry..." />
-            <marker date="1488989337103" expanded="true" signature="521:1969" placeholder="Select conte..entry..." />
-            <marker date="1488989337103" expanded="true" signature="2003:3023" placeholder="Select conte..competetions..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/model_contestView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4229858">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <marker date="1488891828924" expanded="true" signature="3462:3500" placeholder="Select * Fro..knowledge_level..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includeClasses.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TournamentTree.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Stugle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7049763">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.76923">
-          <caret line="504" column="67" selection-start-line="504" selection-start-column="67" selection-end-line="504" selection-end-column="67" />
-          <folding>
-            <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/UserTasks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.192308">
-          <caret line="59" column="57" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/checks/model_ajax_changeTableData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33530805">
-          <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
-          <folding>
-            <marker date="1488999505123" expanded="true" signature="117:1478" placeholder="Select conte..entry..." />
-            <marker date="1488999505123" expanded="true" signature="117:1542" placeholder="Select conte..entry..." />
-            <marker date="1488999505123" expanded="true" signature="2209:2234" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/checks/view_DataChecks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0545024">
-          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
-          <folding>
-            <marker date="1489002212046" expanded="true" signature="1237:1262" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/view_contestView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.343602">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-          <folding>
-            <marker date="1488919828363" expanded="true" signature="308:392" placeholder="..." />
-            <marker date="1488919828363" expanded="true" signature="430:535" placeholder="..." />
-            <marker date="1488919828363" expanded="true" signature="3218:3320" placeholder="..." />
-            <marker date="1488919828363" expanded="true" signature="3363:3518" placeholder="..." />
-            <marker date="1488919828363" expanded="true" signature="3592:3701" placeholder="..." />
-            <marker date="1488919828363" expanded="true" signature="3744:3904" placeholder="..." />
-            <marker date="1488919828363" expanded="true" signature="14430:14565" placeholder="..." />
-            <marker date="1488919828363" expanded="true" signature="14653:14730" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/model_ajax_dataChecksFlag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08056872">
-          <caret line="4" column="108" selection-start-line="4" selection-start-column="108" selection-end-line="4" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/model_ajax_addNewType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6244076">
           <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_adminLog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1344,14 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.038462">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/contestView/schedule/view_massModal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-25.26923">
@@ -1416,19 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6244076">
-          <caret line="232" column="20" selection-start-line="232" selection-start-column="20" selection-end-line="232" selection-end-column="20" />
-          <folding>
-            <marker date="1489165068752" expanded="true" signature="133:823" placeholder="Select * Fro..assignment..." />
-            <marker date="1489165068752" expanded="true" signature="1109:1495" placeholder="Select conte..assignment..." />
-            <marker date="1489165068752" expanded="true" signature="1109:1577" placeholder="Select conte..assignment..." />
-            <marker date="1489165068752" expanded="true" signature="1109:1622" placeholder="Select conte..assignment..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTakePlace.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1007109">
@@ -1464,56 +828,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStugle2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-          <folding>
-            <marker date="1489099340687" expanded="true" signature="78:140" placeholder="SELECT s_cir..strugle_data..." />
-            <marker date="1489099340687" expanded="true" signature="78:181" placeholder="SELECT s_cir..strugle_data..." />
-            <marker date="1489099340687" expanded="true" signature="78:182" placeholder="SELECT s_cir..strugle_data..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <marker date="1489166838148" expanded="true" signature="471:580" placeholder="Select * Fro..admin_edit_cat..." />
-            <marker date="1489166838148" expanded="true" signature="723:807" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminLog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="282" column="37" selection-start-line="282" selection-start-column="27" selection-end-line="282" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCloseCat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.2014218">
           <caret line="10" column="124" selection-start-line="10" selection-start-column="124" selection-end-line="10" selection-end-column="124" />
           <folding>
             <marker date="1489167748368" expanded="true" signature="123:320" placeholder="UPDATE conte..." />
@@ -1523,7 +840,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loadCompCats.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.45616114">
           <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
           <folding>
             <marker date="1489167801313" expanded="true" signature="147:809" placeholder="Select conte..contest_comp..." />
@@ -1532,135 +849,384 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStrugle.php">
+    <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="126" column="26" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.45616114">
+          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02014218">
+          <caret line="282" column="37" selection-start-line="282" selection-start-column="27" selection-end-line="282" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/site.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/ajax-loader.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3755924">
+          <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
           <folding>
-            <marker date="1489177472093" expanded="true" signature="228:1156" placeholder="Select * Fro..assignment..." />
-            <marker date="1489177472093" expanded="true" signature="1341:1384" placeholder="Select * Fro..outcome_type..." />
-            <marker date="1489177472093" expanded="true" signature="1851:1970" placeholder="Select count..strugle_data..." />
-            <marker date="1489177472093" expanded="true" signature="5596:6092" placeholder="..." />
-            <marker date="1489177472093" expanded="true" signature="5646:5752" placeholder="..." />
-            <marker date="1489177472093" expanded="true" signature="5790:6083" placeholder="..." />
+            <marker date="1489238829495" expanded="true" signature="127:379" placeholder="SELECT comp_..competetions..." />
+            <marker date="1489238829495" expanded="true" signature="127:380" placeholder="SELECT comp_..competetions..." />
+            <marker date="1489238829495" expanded="true" signature="492:1182" placeholder="Select * Fro..assignment..." />
+            <marker date="1489238829495" expanded="true" signature="1445:1831" placeholder="Select conte..assignment..." />
+            <marker date="1489238829495" expanded="true" signature="1445:1913" placeholder="Select conte..assignment..." />
+            <marker date="1489238829495" expanded="true" signature="1445:1958" placeholder="Select conte..assignment..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php">
+    <entry file="file://$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="107" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.5035545">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/contestView/checks/view_DataChecks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6445498">
+          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
           <folding>
-            <marker date="1489177842163" expanded="true" signature="110:323" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:346" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:376" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:383" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:408" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:440" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:470" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:477" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:504" placeholder="INSERT INTO contest_data.strugle_data..." />
-            <marker date="1489177842163" expanded="true" signature="110:508" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:515" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="110:571" placeholder="INSERT INTO ..." />
-            <marker date="1489177842163" expanded="true" signature="615:873" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489177842163" expanded="true" signature="1112:1945" placeholder="Select count..assignment..." />
-            <marker date="1489177842163" expanded="true" signature="1112:1962" placeholder="Select count..assignment..." />
-            <marker date="1489177842163" expanded="true" signature="2822:2881" placeholder="..." />
-            <marker date="1489177842163" expanded="true" signature="2904:2917" placeholder="..." />
-            <marker date="1489177842163" expanded="true" signature="3027:3066" placeholder="..." />
-            <marker date="1489177842163" expanded="true" signature="3027:3099" placeholder="..." />
+            <marker date="1489264187216" expanded="true" signature="1237:1262" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
+    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_listTechnicalEventLeaderboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.34241706">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="21" selection-end-column="26" />
           <folding>
-            <marker date="1489189755876" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
+            <marker date="1489252823365" expanded="true" signature="48:157" placeholder="Select * Fro..technical_strugle_data..." />
+            <marker date="1489252823365" expanded="true" signature="48:291" placeholder="Select * Fro..technical_strugle_data..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35545024">
-          <caret line="66" column="15" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
+        <state vertical-scroll-proportion="-10.884615">
+          <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
           <folding>
-            <marker date="1489190336770" expanded="true" signature="110:470" placeholder="INSERT INTO contest_data.strugle_data..." />
-            <marker date="1489190336770" expanded="true" signature="110:590" placeholder="INSERT INTO contest_data.strugle_data..." />
-            <marker date="1489190336770" expanded="true" signature="635:642" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489190336770" expanded="true" signature="635:805" placeholder="Select count..strugle_data..." />
-            <marker date="1489190336770" expanded="true" signature="1056:1929" placeholder="Select count..assignment..." />
-            <marker date="1489190336770" expanded="true" signature="2618:2894" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489190336770" expanded="true" signature="3320:3333" placeholder="..." />
-            <marker date="1489190336770" expanded="true" signature="3443:3482" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-59.923077">
-          <caret line="285" column="41" selection-start-line="285" selection-start-column="41" selection-end-line="285" selection-end-column="41" />
-          <folding>
-            <marker date="1489189757092" expanded="true" signature="235:395" placeholder="SELECT s_cir..strugle_data..." />
-            <marker date="1489189757092" expanded="true" signature="592:777" placeholder="Select count..strugle_data..." />
-            <marker date="1489189757092" expanded="true" signature="928:1856" placeholder="Select * Fro..assignment..." />
-            <marker date="1489189757092" expanded="true" signature="1910:2869" placeholder="Select data...strugle_data..." />
-            <marker date="1489189757092" expanded="true" signature="1910:2870" placeholder="Select data...strugle_data..." />
-            <marker date="1489189757092" expanded="true" signature="1910:2917" placeholder="Select data...strugle_data..." />
-            <marker date="1489189757092" expanded="true" signature="3196:4211" placeholder="Select data...strugle_data..." />
-            <marker date="1489189757092" expanded="true" signature="4439:4515" placeholder="Select * Fro..outcome_type..." />
+            <marker date="1489257092147" expanded="true" signature="110:470" placeholder="INSERT INTO contest_data.strugle_data..." />
+            <marker date="1489257092147" expanded="true" signature="110:590" placeholder="INSERT INTO contest_data.strugle_data..." />
+            <marker date="1489257092147" expanded="true" signature="635:642" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489257092147" expanded="true" signature="635:805" placeholder="Select count..strugle_data..." />
+            <marker date="1489257092147" expanded="true" signature="1056:1929" placeholder="Select count..assignment..." />
+            <marker date="1489257092147" expanded="true" signature="2916:3192" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489257092147" expanded="true" signature="3523:3547" placeholder="..." />
+            <marker date="1489257092147" expanded="true" signature="3618:3631" placeholder="..." />
+            <marker date="1489257092147" expanded="true" signature="3741:3780" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.192307">
-          <caret line="174" column="65" selection-start-line="174" selection-start-column="65" selection-end-line="174" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.43601894">
+          <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
           <folding>
-            <marker date="1489190437008" expanded="true" signature="133:297" placeholder="Select * Fro..admin_edit_cat..." />
-            <marker date="1489190437008" expanded="true" signature="133:298" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-            <marker date="1489190437008" expanded="true" signature="496:580" placeholder="UPDATE conte..." />
-            <marker date="1489190437008" expanded="true" signature="496:692" placeholder="UPDATE conte..." />
-            <marker date="1489190437008" expanded="true" signature="786:940" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
-            <marker date="1489190437008" expanded="true" signature="1020:1046" placeholder="Select * Fro..contest_comp..." />
-            <marker date="1489190437008" expanded="true" signature="1020:1727" placeholder="Select * Fro..contest_comp..." />
-            <marker date="1489190437008" expanded="true" signature="1020:1737" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="1020:1849" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="1020:1867" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="1020:1885" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="1020:1886" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="2142:2190" placeholder="SELECT * FRO..contest_comp..." />
-            <marker date="1489190437008" expanded="true" signature="2366:2375" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="2366:2828" placeholder="Select conte..contest_comp..." />
-            <marker date="1489190437008" expanded="true" signature="2366:2829" placeholder="Select conte..contest_comp..." />
-            <marker date="1489190437008" expanded="true" signature="2366:2860" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="2366:2861" placeholder="Select * Fro..assignment..." />
-            <marker date="1489190437008" expanded="true" signature="3002:3151" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489190437008" expanded="true" signature="3002:3194" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489190437008" expanded="true" signature="3002:3211" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489190437008" expanded="true" signature="3002:3260" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489190437008" expanded="true" signature="3002:3261" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489190437008" expanded="true" signature="5659:5672" placeholder="..." />
-            <marker date="1489190437008" expanded="true" signature="5782:5821" placeholder="..." />
+            <marker date="1489256400180" expanded="true" signature="133:297" placeholder="Select * Fro..admin_edit_cat..." />
+            <marker date="1489256400180" expanded="true" signature="133:298" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
+            <marker date="1489256400180" expanded="true" signature="496:580" placeholder="UPDATE conte..." />
+            <marker date="1489256400180" expanded="true" signature="496:692" placeholder="UPDATE conte..." />
+            <marker date="1489256400180" expanded="true" signature="786:940" placeholder="INSERT INTO contest_data.admin_edit_cat..." />
+            <marker date="1489256400180" expanded="true" signature="1020:1046" placeholder="Select * Fro..contest_comp..." />
+            <marker date="1489256400180" expanded="true" signature="1020:1727" placeholder="Select * Fro..contest_comp..." />
+            <marker date="1489256400180" expanded="true" signature="1020:1737" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="1020:1849" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="1020:1867" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="1020:1885" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="1020:1886" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="2142:2190" placeholder="SELECT * FRO..contest_comp..." />
+            <marker date="1489256400180" expanded="true" signature="2366:2375" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="2366:2828" placeholder="Select conte..contest_comp..." />
+            <marker date="1489256400180" expanded="true" signature="2366:2829" placeholder="Select conte..contest_comp..." />
+            <marker date="1489256400180" expanded="true" signature="2366:2860" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="2366:2861" placeholder="Select * Fro..assignment..." />
+            <marker date="1489256400180" expanded="true" signature="3019:3304" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489256400180" expanded="true" signature="3389:3762" placeholder="Select * Fro..technical_strugle_data..." />
+            <marker date="1489256400180" expanded="true" signature="7398:7411" placeholder="..." />
+            <marker date="1489256400180" expanded="true" signature="7523:7562" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.021327015">
+          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding>
+            <marker date="1489252211680" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_technicalSubmit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3755924">
+          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+          <folding>
+            <marker date="1489252969743" expanded="true" signature="142:206" placeholder="update conte..." />
+            <marker date="1489252969743" expanded="true" signature="142:241" placeholder="update conte..." />
+            <marker date="1489252969743" expanded="true" signature="142:242" placeholder="update conte..." />
+            <marker date="1489252969743" expanded="true" signature="286:564" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="601:742" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="601:764" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="601:771" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="601:796" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="601:823" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="601:832" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="601:852" placeholder="INSERT INTO contest_data.technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="898:1244" placeholder="Select * Fro..technical_strugle_data..." />
+            <marker date="1489252969743" expanded="true" signature="1445:2278" placeholder="Select count..assignment..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7985782">
+          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+          <folding>
+            <marker date="1489248981455" expanded="true" signature="235:395" placeholder="SELECT s_cir..strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="627:812" placeholder="Select count..strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="912:1052" placeholder="Select count..technical_strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="912:1069" placeholder="Select count..technical_strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="912:1127" placeholder="Select count..technical_strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="912:1128" placeholder="Select count..technical_strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="1303:2231" placeholder="Select * Fro..assignment..." />
+            <marker date="1489248981455" expanded="true" signature="2286:3245" placeholder="Select data...strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="2286:3246" placeholder="Select data...strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="2286:3293" placeholder="Select data...strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="3606:4621" placeholder="Select data...strugle_data..." />
+            <marker date="1489248981455" expanded="true" signature="4849:4925" placeholder="Select * Fro..outcome_type..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/model_contestView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.26923">
+          <caret line="107" column="221" selection-start-line="107" selection-start-column="221" selection-end-line="107" selection-end-column="221" />
+          <folding>
+            <marker date="1489259212221" expanded="true" signature="3462:3500" placeholder="Select * Fro..knowledge_level..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/contestView/view_contestView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-45.115383">
+          <caret line="237" column="71" selection-start-line="237" selection-start-column="71" selection-end-line="237" selection-end-column="71" />
+          <folding>
+            <marker date="1489259421970" expanded="true" signature="308:392" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="430:507" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="430:593" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3276:3378" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3421:3576" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3650:3759" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3802:3962" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="15263:15398" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="15486:15563" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/model_ajax_removeAdministrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_adminLog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminLog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.423077">
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <marker date="1489259618818" expanded="true" signature="496:605" placeholder="Select * Fro..admin_edit_cat..." />
+            <marker date="1489259618818" expanded="true" signature="748:832" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model_defaultUserVerification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.076923">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/OrgPage/model_clubPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.038462">
+          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <marker date="1489264133504" expanded="true" signature="761:899" placeholder="Select org.c..club_mship_history..." />
+            <marker date="1489264133504" expanded="true" signature="761:900" placeholder="Select org.c..club_mship_history..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/site.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model_modal_ajax_Profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.23077">
+          <caret line="43" column="59" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="59" />
+          <folding>
+            <marker date="1489271743813" expanded="true" signature="2003:2124" placeholder="..." />
+            <marker date="1489271743813" expanded="true" signature="2060:2117" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model_modal_ajax_Org.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.5">
+          <caret line="39" column="94" selection-start-line="39" selection-start-column="91" selection-end-line="39" selection-end-column="94" />
+          <folding>
+            <marker date="1489271696875" expanded="true" signature="1459:1514" placeholder="..." />
+            <marker date="1489271696875" expanded="true" signature="1880:1999" placeholder="..." />
+            <marker date="1489271696875" expanded="true" signature="1937:1992" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/Organization/view_orgPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2014218">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.35545024">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
           <folding>
-            <marker date="1487712595715" expanded="true" signature="1102:1253" placeholder="..." />
-            <marker date="1487712595715" expanded="true" signature="1395:1455" placeholder="..." />
+            <marker date="1489268550717" expanded="true" signature="1028:1158" placeholder="..." />
+            <marker date="1489268550717" expanded="true" signature="1113:1153" placeholder="..." />
+            <marker date="1489268550717" expanded="true" signature="1507:1658" placeholder="..." />
+            <marker date="1489268550717" expanded="true" signature="1829:1889" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/OrgPage/model_fedPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26184833">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <marker date="1489265390091" expanded="true" signature="712:842" placeholder="Select org.f..federation_leader..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3021327">
+          <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="127" selection-end-column="17" />
+          <folding>
+            <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <marker date="1489256810748" expanded="true" signature="18852:19151" placeholder="Select * Fro..technical_strugle_data..." />
+            <marker date="1489256810748" expanded="true" signature="19727:20001" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489256810748" expanded="true" signature="20217:20325" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489256810748" expanded="true" signature="20217:20442" placeholder="Select * Fro..technical_strugle_data..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Organization.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24170616">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DefaultClasses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34360188">
+          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24170616">
+          <caret line="12" column="80" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Settings/view_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3461537">
+          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Settings/form_settings_EditClub.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26184833">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46327013">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

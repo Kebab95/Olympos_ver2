@@ -88,6 +88,13 @@ if(count($strugleArray)>0){
 			break;
 	}
 	if($switch){
+		$leaderBoard = DBLoad::loadFightLeaderboard($_POST["cccID"]);
+		foreach ($leaderBoard as $value) {
+			$head.= '<div class="row">';
+				$head.= '<div class="col-xs-6">'.$value["rated"].'. Helyezet</div>';
+				$head.= '<div class="col-xs-6">'.$value["user_name"].'</div>';
+			$head.= '</div>';
+		}
 		$head.= "Nincs több a küzdelemn";
 	}
 	else {

@@ -12,7 +12,7 @@
 							<button class='btn btn-default btn-block'>Szerkesztés</button>
 							</div>";
 						echo "<div class='col-md-12'>
-						<button class='btn btn-info btn-block' id='dataChecksButton'>Élesítés bekapcsolása</button>
+						<button class='btn btn-info btn-block' id='dataChecksButton'>Élesítés ".(!$data[DBData::$contestDataChecks]?"bekapcsolása":"kikapcsolása")."</button>
 </div>";
 						?>
 							<script>
@@ -186,7 +186,13 @@
 											<?php
 											if(count($administratorArray)>0){
 												foreach ($administratorArray as $admin) {
-													echo "<p>".$admin[DBData::$adminName]." - ".$admin[DBData::$adminGenCode]."</p>";
+													?>
+														<div class="row">
+															<div class="col-md-6"><?php echo $admin[DBData::$adminName] ?></div>
+															<div class="col-md-3"><?php echo $admin[DBData::$adminGenCode] ?></div>
+															<div class="col-md-3"><span onclick="removeAdmin(<?php echo $admin[DBData::$adminID]?>)" class="glyphicon glyphicon-remove"></span> </div>
+														</div>
+													<?php
 												}
 												echo "<hr>";
 											}
@@ -222,6 +228,19 @@
 											</div>
 										</div>
 										<script>
+											function removeAdmin(id){
+												$.ajax({
+													url:'Model/contestView/model_ajax_removeAdministrator.php',
+													type: 'POST',
+													data: {adminID: id,
+														contestID: <?php echo $_GET["contestview"]?>},
+													dataType:'html'
+												}).done(function(data){
+													$("#administratorsList").html(data);
+												}).fail(function(){
+													alert("Hiba!");
+												});
+											}
 											$("#newAdministratorButton").click(function(e){
 												$("#adminAddgenCode").text(makeid());
 											});

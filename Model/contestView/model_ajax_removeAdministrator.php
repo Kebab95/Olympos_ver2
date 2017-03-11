@@ -1,7 +1,7 @@
 <?php
 include "../../includeClasses.php";
 $DBTasks = new DBTasks();
-$DBTasks->insert(DBData::getAdministratorTable(),DBData::$adminName.",".DBData::$adminGenCode.",".DBData::$adminConrestID,"'".$_POST["name"]."','".$_POST["genCode"]."',".$_POST["contestID"]);
+$DBTasks->sqlWithConn('UPDATE '.DBData::getAdministratorTable()." SET ad_delete = true,ad_lctime=NOW() WHERE ".DBData::$adminID." = ".$_POST["adminID"]);
 
 $administratorResult = $DBTasks->selectGetResult(DBData::getAdministratorTable(),DBData::$adminName.",".DBData::$adminID.",".DBData::$adminGenCode,DBData::$adminConrestID."=".$_POST["contestID"]." AND ad_delete=false");
 $administratorArray = array();

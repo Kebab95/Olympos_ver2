@@ -7,7 +7,7 @@
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Felhasználói adatok</a>
 				</h4>
 			</div>
-			<div id="collapse1" class="panel-collapse collapse <?php echo (empty($_SESSION["collapsOpenProfile"])?"":"in")?>">
+			<div id="collapse1" class="panel-collapse collapse <?php echo isset($_GET["open"])&$_GET["open"]=="profile"?"in":""?>">
 				<div class="panel-body">
 					<?php include "View/Settings/form_settings_EditProfile.php";?>
 				</div>
@@ -19,7 +19,7 @@
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Egyesületi adatok</a>
 				</h4>
 			</div>
-			<div id="collapse2" class="panel-collapse collapse">
+			<div id="collapse2" class="panel-collapse collapse <?php echo isset($_GET["open"])&$_GET["open"]=="club"?"in":""?>">
 				<div class="panel-body">
 					<?php
 						include "View/Settings/form_settings_EditClub.php";
@@ -33,7 +33,7 @@
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Szövetségi adatok</a>
 				</h4>
 			</div>
-			<div id="collapse3" class="panel-collapse collapse">
+			<div id="collapse3" class="panel-collapse collapse <?php echo isset($_GET["open"])&$_GET["open"]=="fed"?"in":""?>">
 				<div class="panel-body">
 					<?php
 						include "View/Settings/form_settings_EditFederation.php";

@@ -7,7 +7,6 @@
 			</div>
 			<div class="modal-body">
 				<label>Biztos csatlakozni kíván a<br/>kiválasztott szervezethez?</label>
-				<?php echo $item["orgId"]?>
 			</div>
 			<div class="modal-footer center-block">
 				<form action="" method="post" id="orgJoin<?php echo $modalNum?>">

@@ -22,6 +22,19 @@ else {
 			$orgList[$key]["UserName"] = $user->getName();
 			$orgList[$key]["UserId"] = $user->getId();
 		}
+		$member = (UserTasks::getUser()->getId() == $item->getLeaderID());
+		$asdRes = $DBTasks->sqlWithConn('Select
+				  org.club_mship_history.ch_member_id
+				From
+				  org.club_mship_history
+				Where
+				  org.club_mship_history.ch_club_id = '.$item->getId());
+		while($asd = pg_fetch_row($asdRes, NULL, PGSQL_ASSOC)){
+			if($asd["ch_member_id"] == UserTasks::getUser()->getId()){
+			    $member = true;
+			}
+		}
+		$orgList[$key]["member"] = $member;
 	}
 
 	$pagination = array();
@@ -32,13 +45,4 @@ else {
 		$pagination[$a] = "?nav=club&&page=".$a;
 		$a++;
 	}
-}
-if(UserTasks::isLoggedUser()){
-
-
-
-
-}
-else {
-
 }

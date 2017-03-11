@@ -105,7 +105,7 @@ while($row = pg_fetch_row($beltGrades, NULL, PGSQL_ASSOC)){
 //var_dump($compTypes);
 
 if($creator && $data[DBData::$contestDataChecks]){
-    $administratorResult = $DBTasks->selectGetResult(DBData::getAdministratorTable(),DBData::$adminName.",".DBData::$adminID.",".DBData::$adminGenCode,DBData::$adminConrestID."=".$_GET["contestview"]);
+    $administratorResult = $DBTasks->selectGetResult(DBData::getAdministratorTable(),DBData::$adminName.",".DBData::$adminID.",".DBData::$adminGenCode,DBData::$adminConrestID."=".$_GET["contestview"]." AND ad_delete=false");
 	$administratorArray = array();
 	while($row = pg_fetch_row($administratorResult, NULL, PGSQL_ASSOC)){
 		array_push($administratorArray,$row);

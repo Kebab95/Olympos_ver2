@@ -519,5 +519,101 @@ class DBLoad
 		else
 			return null;
 	}
+	public static function loadTechnicalLeaderboard($cccID){
+		$back = array();
+		$leaderboardRes = self::$DBTasks->sqlWithConn('Select
+							  *
+							From
+							  contest_data.technical_strugle_data
+							Where
+							  contest_data.technical_strugle_data.ts_ccc_id = '.$cccID.' And
+							  contest_data.technical_strugle_data.ts_use = True
+							Order By
+							  contest_data.technical_strugle_data.ts_racer_point Desc');
+		$i = 1;
+		$valami = "";
+		while($lead =pg_fetch_row($leaderboardRes, NULL, PGSQL_ASSOC)){
+			$back[($i-1)]["rated"] = $i;
+			$back[($i-1)]["user_id"] = $lead["ts_racer_id"];
+			$user = DBLoad::loadUserWithoutActive($lead["ts_racer_id"]);
+			$back[($i-1)]["user_name"] = $user->getName();
+			$back[($i-1)]["user_point"] = $lead["ts_racer_point"];
+			$i++;
+		}
+		if(count($back)>0){
+			return $back;
+		}
+		else {
+			return null;
+		}
+	}
+	public static function loadFightLeaderboard($cccID){
+		$userArray = array();
+		$allUseronLeaderBoardRes = self::$DBTasks->sqlWithConn('Select
+				  *
+				From
+				  contest_data.strugle_data
+				Where
+				  contest_data.strugle_data.s_ccc_id = '.$cccID.' And
+				  contest_data.strugle_data.s_circle = 1
+				Order By
+				  contest_data.strugle_data.s_circle Desc,
+				  contest_data.strugle_data.s_lctime Desc');
+		while($lead =pg_fetch_row($allUseronLeaderBoardRes, NULL, PGSQL_ASSOC)){
+			$userArray[$lead["s_racer_1"]] = true;
+			$userArray[$lead["s_racer_2"]] = true;
+		}
+		$leaderboardRes = self::$DBTasks->sqlWithConn('Select
+				  *
+				From
+				  contest_data.strugle_data
+				Where
+				  contest_data.strugle_data.s_ccc_id = '.$cccID.'
+				Order By
+				  contest_data.strugle_data.s_circle Desc,
+				  contest_data.strugle_data.s_lctime Desc');
+		$i = 1;
+		$leaderboardArray = array();
+		while($lead =pg_fetch_row($leaderboardRes, NULL, PGSQL_ASSOC)){
+			foreach ($userArray as $key => $value) {
+				if($key == $lead["s_winner_id"]){
+				    if($value){
+					    $leaderboardArray[($i-1)]["rated"] = $i;
+					    $leaderboardArray[($i-1)]["user_id"] = $lead["s_winner_id"];
+					    $user = DBLoad::loadUserWithoutActive($lead["s_winner_id"]);
+					    $leaderboardArray[($i-1)]["user_name"] = $user->getName();
+					    $userArray[$key] = false;
+						$i++;
+				    }
+					if($key != $lead["s_racer_1"]){
+						if($userArray[$lead["s_racer_1"]]){
+							$leaderboardArray[($i-1)]["rated"] = $i;
+							$leaderboardArray[($i-1)]["user_id"] = $lead["s_racer_1"];
+							$user = DBLoad::loadUserWithoutActive($lead["s_racer_1"]);
+							$leaderboardArray[($i-1)]["user_name"] = $user->getName();
+							$userArray[$lead["s_racer_1"]] = false;
+							$i++;
+						}
+					}
+					else {
+						if($userArray[$lead["s_racer_2"]]){
+							$leaderboardArray[($i-1)]["rated"] = $i;
+							$leaderboardArray[($i-1)]["user_id"] = $lead["s_racer_2"];
+							$user = DBLoad::loadUserWithoutActive($lead["s_racer_2"]);
+							$leaderboardArray[($i-1)]["user_name"] = $user->getName();
+							$userArray[$lead["s_racer_2"]] = false;
+							$i++;
+						}
+					}
+				}
+			}
+		}
+		if(count($leaderboardArray)>0){
+			return $leaderboardArray;
+		}
+		else {
+			return null;
+		}
+	}
 
 }
