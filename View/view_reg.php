@@ -48,7 +48,7 @@
 						<label class="control-label">Születés nap:</label>
 					</div>
 					<div class="col-md-8">
-						<input type="date" name="bday" class="form-control">
+						<input type="text" id="datetimepicker1" name="bday" class="form-control">
 					</div>
 				</div>
 			</div>
@@ -117,4 +117,10 @@
 
 	});
 </script>
-
+<script type="text/javascript">
+	$(function () {
+		$('#datetimepicker1').datepicker({
+			format: 'yyyy-mm-dd'
+		});
+	});
+</script>

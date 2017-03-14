@@ -54,7 +54,7 @@ if(isset($error) && $error){
 	<div class="form-group row">
 		<label class="control-label col-md-12" for="date">Időpont</label>
 		<div class="col-xs-12">
-			<input class="form-control" type="datetime-local" value="<?php echo (isset($values[$raceDate])?$values[$raceDate]:"")?>" required name="<?php echo $raceDate?>"  id="example-datetime-local-input">
+			<input class="form-control" type="text"  value="<?php echo (isset($values[$raceDate])?$values[$raceDate]:"")?>" required name="<?php echo $raceDate?>"  id="datetimepicker">
 		</div>
 	</div>
 	<hr>
@@ -73,3 +73,11 @@ if(isset($error) && $error){
 		<input type="submit" class="btn btn-success" value="Verseny létrehozása" name="createRace1" id="createRace1">
 	</div>
 </form>
+<script>
+	$(function () {
+		$('#datetimepicker').datetimepicker({
+			locale: 'ru'
+		});
+	});
+
+</script>

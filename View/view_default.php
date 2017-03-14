@@ -11,7 +11,6 @@
 
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.14.30/js/bootstrap-datetimepicker.min.js"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
@@ -22,19 +21,23 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+
 	<script src="js/site.js"></script>
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/superhero.css"/>
+
 	<!--<link rel="stylesheet" type="text/css" href="css/freelancer.min.css"/>!-->
 	<link rel="stylesheet" type="text/css" href="css/site.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+	<script src="datetimepicker/js/bootstrap-datetimepicker.js"></script>
 
+	<script src="datetimepicker/js/bootstrap-datetimepicker.hu.js"></script>
+	<link rel="stylesheet" type="text/css" href="datetimepicker/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" type="text/css" href="datepicker/css/bootstrap-datepicker.min.css" />
+	<script src="datepicker/js/bootstrap-datepicker.min.js"></script>
 </head>
 <body>
 <div class="body">

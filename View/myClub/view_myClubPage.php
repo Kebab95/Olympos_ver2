@@ -46,7 +46,7 @@ foreach ($orgValue as $item) {
 													<hr>
 													<div class="row form-group">
 														<div class="col-xs-6">Születés nap</div>
-														<div class="col-xs-6"><input type="date" class="form-control" name="memberBDate"></div>
+														<div class="col-xs-6"><input type="text" class="form-control" name="memberBDate" id="datetimepicker1"></div>
 													</div>
 													<hr>
 													<div class="row form-group">
@@ -84,6 +84,13 @@ foreach ($orgValue as $item) {
 							</div>
 						</div>
 						<script src="Model/myClub/js_newMember.js">	</script>
+						<script type="text/javascript">
+							$(function () {
+								$('#datetimepicker1').datepicker({
+									format: 'yyyy-mm-dd'
+								});
+							});
+						</script>
 						<?php
 					}
 					?>

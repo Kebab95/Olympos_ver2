@@ -25,6 +25,13 @@
 							<div class="col-xs-2"></div>
 						</div>
 						<form method="post" id="newCatForm<?php echo $item->getId()?>" onsubmit="">
+							<div class="row">
+								<div class="col-md-2"></div>
+								<div class="col-md-8 text-justify">
+									<label>Az életkornak 0-100 kell terjednie, átfedés nélkül! Minimum 3 életkor csoportott kell kiválaszatni!</label>
+								</div>
+								<div class="col-md-2"></div>
+							</div>
 							<div class="row form-group">
 								<div class="col-xs-2 col-md-2">Életkor</div>
 								<div class="col-xs-9 col-md-6">
@@ -37,7 +44,7 @@
 											}
 										}
 										else {
-											echo '<option>"Nincsen csoport hozzáadva"</option>';
+											echo '<option value="">"Nincsen csoport hozzáadva"</option>';
 										}
 
 										?>
@@ -73,12 +80,9 @@
 												var orgid ="#CompOrgId"+number;
 												var typeid ="#CompTypeId"+number;
 												var compid ="#CompId"+number;
-												/*
-												$("#ageGrpSelect"+number+" option").each(function()
-												{
-													console.log($(this).text());
-												});
-												*/
+
+
+
 
 												$.ajax({
 													url: 'Model/contestView/model_ajax_newAgeGrp.php',
@@ -113,6 +117,7 @@
 													console.log(ts.responseText);
 													alert("Hiba az ajax-al");
 												});
+
 											}
 										</script>
 										<hr>
@@ -120,6 +125,19 @@
 								</div>
 								<div class="col-xs-2 col-md-2"></div>
 							</div>
+							<?php
+							if($item->getType()->getEvents(DBData::getCompTypesFlag(0))){
+								?>
+									<div class="row">
+										<div class="col-md-2"></div>
+										<div class="col-md-8 text-justify">
+											<label>A súlynak 0-150 kg-ig kell terjednie, átfedés nélkül! Minimum 3 súly csoportott kell kiválaszatni!</label>
+										</div>
+										<div class="col-md-2"></div>
+									</div>
+								<?php
+							}
+							?>
 							<div class="row form-group">
 								<div class="col-xs-2 col-md-2">Csoport</div>
 								<div class="col-xs-6 col-md-6">
@@ -380,10 +398,22 @@
 					if(data=="false"){
 						alert("Nem töltött ki minden mezőt! Vagy hiba esett a létrehozásban.")
 					}
+					else if(data=="age"){
+						alert("Nem folymatos az életkor! Kérem 0-100-ig adja meg a korhatárt átfedés nélkül!");
+					}
+					else if (data=="weight"){
+						alert("Nem folymatos az súly! Kérem 0-150-ig adja meg a súlyt átfedés nélkül!");
+					}
+					else if (data =="weightNum"){
+						alert("Minimum 3 súly paraméter kell!");
+					}
+					else if (data =="ageNum"){
+						alert("Minimum 3 év paraméter kell!");
+					}
 					else {
 
 						console.log(data);
-						location.reload();
+						//location.reload();
 					}
 				}).fail(function(){
 					alert("Hiba az ajax-al");

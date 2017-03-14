@@ -63,7 +63,7 @@ else if($fedMember){
 	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group row">
-				<div class="col-xs-12"><a href="?nav=myclub"><input type="button" class="btn btn-block btn-info" value="Tovább a Egyesületi tagsághoz"></a> </div>
+				<div class="col-xs-12"><a href="?nav=myfed"><input type="button" class="btn btn-block btn-info" value="Tovább a Szövetségi tagsághoz"></a> </div>
 			</div>
 		</div>
 		<div class="col-md-6">
