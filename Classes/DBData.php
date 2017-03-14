@@ -215,6 +215,7 @@ class DBData
 	static $permissionJudge="p_judge";
 	static $permissionTrainer="p_trainer";
 	static $permissionMember="p_member";
+	static $permissionFedMember="p_fed_member";
 
 	//Organization tábla oszlop nevei
 	static $orgID="org_id";

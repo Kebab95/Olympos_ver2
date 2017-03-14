@@ -28,7 +28,8 @@ else {
 				From
 				  org.club_mship_history
 				Where
-				  org.club_mship_history.ch_club_id = '.$item->getId());
+				  org.club_mship_history.ch_club_id = '.$item->getId().' AND
+				  org.club_mship_history.ch_current = true');
 		while($asd = pg_fetch_row($asdRes, NULL, PGSQL_ASSOC)){
 			if($asd["ch_member_id"] == UserTasks::getUser()->getId()){
 			    $member = true;

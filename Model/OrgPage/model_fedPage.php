@@ -36,6 +36,32 @@ else {
 				$member = true;
 			}
 		}
+		if(UserTasks::isFederationMember()){
+			$club = DBLoad::loadOrgLeader(UserTasks::getUser()->getId(),3);
+			if(count($club)>0){
+				$val = "(";
+				/** @var Organization $item */
+				foreach ($club as $key => $item) {
+					$val.=$item->getId();
+					if(isset($club[$key+1])){
+					    $val.=",";
+					}
+				}
+				$val.=")";
+				$asdRes2 = $DBTasks->sqlWithConn('Select
+				  COUNT(*) as ossz
+				From
+				  org.fed_mship_history
+				Where
+				  org.fed_mship_history.fh_fed_id ='.$item->getId().' AND
+				  org.fed_mship_history.fh_club_id IN '.$val);
+				if(pg_num_rows($asdRes2)==1){
+					$member = true;
+				}
+			}
+
+		}
+		
 		$orgList[$key]["member"] = $member;
 
 	}

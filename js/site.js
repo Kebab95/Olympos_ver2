@@ -126,10 +126,16 @@ function orgJoinSubmit(number){
         }).done(function(data){
             console.log(data);
             window.location.href = "?nav=home";
-            alert("Csatlakozási szándékát elküldtük");
-            $('.testDropD').load('js/refreshData.php');
+            if (data == "2"){
+                alert("Nem sikrült elküldeni csatlakozási szándékát");
+            }
+            else {
+                alert("Csatlakozási szándékát elküldtük");
+            }
+
+
         }).fail(function(){
-            alert('Ajax Submit Failed ...');
+            alert('Nem sikrült elküldeni csatlakozási szándékát"');
         });
     });
 }

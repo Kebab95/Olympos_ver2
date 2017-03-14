@@ -37,11 +37,21 @@
 							echo "<td id='textVerticalAlign' class='text-center'>Tagja</td>";
 						}
 						else {
-							echo "<td class='text-center'>
+							if($_GET["nav"]=="fed"){
+								echo "<td class='text-center'>
+								<input type='button' name='orgJoinSubmit' ".(UserTasks::isClubLeader()?"":"disabled")." class='btn btn-success' value='Csatlakozás' data-toggle='modal' data-target='#myModal".$modalNum."'>";
+								include 'View/Organization/view_modalJoinOrg.php';
+								$modalNum++;
+								echo "</td>";
+							}
+							else {
+								echo "<td class='text-center'>
 								<input type='button' name='orgJoinSubmit' class='btn btn-success' value='Csatlakozás' data-toggle='modal' data-target='#myModal".$modalNum."'>";
-							include 'View/Organization/view_modalJoinOrg.php';
-							$modalNum++;
-							echo "</td>";
+								include 'View/Organization/view_modalJoinOrg.php';
+								$modalNum++;
+								echo "</td>";
+							}
+
 						}
 
 

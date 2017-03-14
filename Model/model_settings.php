@@ -1,24 +1,38 @@
 <?php
+$profUser = UserTasks::getUser();
 
-/** @var User $profUser */
-$profUser = $_SESSION["User"];
-$name = $profUser->getName();
-$email = $profUser->getEmail();
-$telefon = $profUser->getTelefon();
+$isSportUser = SportUser::isSportUser(UserTasks::getUser());
 
-
-$clubMember = $DBTasks->isUserClubMember($profUser->getId());
-$clubleader = $profUser->isClubLeader();
-$fedLeader = $profUser->isFederationLeader();
+$clubMember = $DBTasks->isUserClubMember(UserTasks::getUser()->getId());
+$clubleader = UserTasks::isClubLeader();
+$fedLeader = UserTasks::isFederationLeader();
+$fedMember = UserTasks::isFederationMember();
 if($clubleader){
-	$club = DBLoad::loadOrgLeader($_SESSION["User"]->getId(),3);
+	$club = DBLoad::loadOrgLeader(UserTasks::getUser()->getId(),3);
+}
+else if($clubMember){
+	$org = DBLoad::loadUserClubMember(UserTasks::getUser()->getId());
+	$orgValue = array();
+	/** @var Organization $item */
+	foreach ($org as $item) {
+		$temp["orgName"] = $item->getName();
+		$temp["orgWebsite"] = $item->getWebSite();
+		$temp["orgId"] = $item->getId();
+		$temp["orgLeaderID"] = $item->getLeaderID();
+		$temp["orgLeader"] = DBLoad::loadUser($temp["orgLeaderID"])->getName();
 
 
-	//Ez egy lsita!!!!
-	$clubName= $club[0]->getName();
+
+		array_push($orgValue,$temp);
+	}
 }
 
 if($fedLeader){
-	$fed = DBLoad::loadOrgLeader($_SESSION["User"]->getId(),2);
-	$fedName= $fed[0]->getName();
+	$fed = DBLoad::loadOrgLeader(UserTasks::getUser()->getId(),2);
+}
+else if($fedMember){
+	$club = DBLoad::loadOrgLeader(UserTasks::getUser()->getId(),3);
+	$fed = DBLoad::loadUserFederationMember($club);
+	//var_dump($fed);
+
 }

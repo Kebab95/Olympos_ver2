@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="Jegyzo Update #2&#10;Küzdelmi számoknál elkészítve a jegyzés">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/ajax-loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_technicalSubmit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_listTechnicalEventLeaderboard.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_removeAdministrator.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/model_modal_ajax_Org.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStrugle.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStugle2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php" afterPath="" />
+    <list default="true" id="62e01492-1347-4c76-9964-259c2840f8a8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/Inbox/model_ajax_deleteRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/Inbox/model_ajax_successRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/Inbox/model_inbox.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/Inbox/model_load_orgRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/model_ajax_updateSettings.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/myFed/model_myFed.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/Inbox/view_inbox.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/myFed/view_myFed.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBData.php" afterPath="$PROJECT_DIR$/Classes/DBData.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBLoad.php" afterPath="$PROJECT_DIR$/Classes/DBLoad.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DBTasks.php" afterPath="$PROJECT_DIR$/Classes/DBTasks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/DefaultClasses.php" afterPath="$PROJECT_DIR$/Classes/DefaultClasses.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/UserTasks.php" afterPath="$PROJECT_DIR$/Classes/UserTasks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller/Controller.php" afterPath="$PROJECT_DIR$/Controller/Controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/OrgPage/model_clubPage.php" afterPath="$PROJECT_DIR$/Model/OrgPage/model_clubPage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/OrgPage/model_fedPage.php" afterPath="$PROJECT_DIR$/Model/OrgPage/model_fedPage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" afterPath="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php" afterPath="$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/model_contestView.php" afterPath="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" afterPath="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/OrgPage/model_joinOrg.php" afterPath="$PROJECT_DIR$/Model/OrgPage/model_joinOrg.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_defaultUserVerification.php" afterPath="$PROJECT_DIR$/Model/model_defaultUserVerification.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_modal_ajax_Org.php" afterPath="$PROJECT_DIR$/Model/model_modal_ajax_Org.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" afterPath="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/model_settings.php" afterPath="$PROJECT_DIR$/Model/model_settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/myClub/model_myCubPage.php" afterPath="$PROJECT_DIR$/Model/myClub/model_myCubPage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php" afterPath="$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Organization/view_orgPage.php" afterPath="$PROJECT_DIR$/View/Organization/view_orgPage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Races/view_racesPage.php" afterPath="$PROJECT_DIR$/View/Races/view_racesPage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Settings/form_settings_EditClub.php" afterPath="$PROJECT_DIR$/View/Settings/form_settings_EditClub.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Settings/form_settings_EditProfile.php" afterPath="$PROJECT_DIR$/View/Settings/form_settings_EditProfile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Settings/form_settings_editFederation.php" afterPath="$PROJECT_DIR$/View/Settings/form_settings_editFederation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/Settings/view_settings.php" afterPath="$PROJECT_DIR$/View/Settings/view_settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" afterPath="$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/contestView/view_contestView.php" afterPath="$PROJECT_DIR$/View/contestView/view_contestView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/site.css" afterPath="$PROJECT_DIR$/css/site.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/myClub/view_myClubPage.php" afterPath="$PROJECT_DIR$/View/myClub/view_myClubPage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/site.js" afterPath="$PROJECT_DIR$/js/site.js" />
     </list>
     <ignored path="Olympos_ver2.iws" />
@@ -63,28 +67,59 @@
     <favorites_list name="Olympos_ver2" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.50385606">
       <split-first>
         <leaf>
-          <file leaf-file-name="model_settings.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Model/model_settings.php">
+          <file leaf-file-name="view_myClubPage.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/View/myClub/view_myClubPage.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.46327013">
-                  <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+                <state vertical-scroll-proportion="-45.115383">
+                  <caret line="175" column="16" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="16" />
+                  <folding>
+                    <marker date="1489329738600" expanded="true" signature="6686:6771" placeholder="..." />
+                    <marker date="1489329738600" expanded="true" signature="7112:7141" placeholder="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="model_myFed.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Model/myFed/model_myFed.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.44312796">
+                  <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="model_modal_ajax_Org.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model/model_modal_ajax_Org.php">
+          <file leaf-file-name="model_myCubPage.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Model/myClub/model_myCubPage.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-25.5">
-                  <caret line="39" column="94" selection-start-line="39" selection-start-column="91" selection-end-line="39" selection-end-column="94" />
+                <state vertical-scroll-proportion="-18.076923">
+                  <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DBLoad.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-18.653847">
+                  <caret line="398" column="27" selection-start-line="398" selection-start-column="27" selection-end-line="398" selection-end-column="27" />
                   <folding>
-                    <marker date="1489271696875" expanded="true" signature="1459:1514" placeholder="..." />
-                    <marker date="1489271696875" expanded="true" signature="1880:1999" placeholder="..." />
-                    <marker date="1489271696875" expanded="true" signature="1937:1992" placeholder="..." />
+                    <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
+                    <marker date="1489480648735" expanded="true" signature="11369:11480" placeholder="Select org.f..fed_mship_history..." />
+                    <marker date="1489480648735" expanded="true" signature="11369:11481" placeholder="Select org.f..fed_mship_history..." />
+                    <marker date="1489480648735" expanded="true" signature="11369:11583" placeholder="Select org.f..fed_mship_history..." />
+                    <marker date="1489480648735" expanded="true" signature="11369:11584" placeholder="Select org.f..fed_mship_history..." />
+                    <marker date="1489480648735" expanded="true" signature="11646:11862" placeholder="Select org.f..fed_mship_history..." />
+                    <marker date="1489480648735" expanded="true" signature="13080:13191" placeholder="Select org.f..fed_mship_history..." />
+                    <marker date="1489480648735" expanded="true" signature="20451:20750" placeholder="Select * Fro..technical_strugle_data..." />
+                    <marker date="1489480648735" expanded="true" signature="21326:21600" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489480648735" expanded="true" signature="21816:21924" placeholder="Select * Fro..strugle_data..." />
+                    <marker date="1489480648735" expanded="true" signature="21816:22041" placeholder="Select * Fro..technical_strugle_data..." />
                   </folding>
                 </state>
               </provider>
@@ -94,21 +129,34 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="view_settings.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/View/Settings/view_settings.php">
+          <file leaf-file-name="view_myFed.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/View/myFed/view_myFed.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.3461537">
-                  <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+                <state vertical-scroll-proportion="0.54383886">
+                  <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                  <folding>
+                    <marker date="1489482941049" expanded="true" signature="3880:3902" placeholder="..." />
+                    <marker date="1489482941049" expanded="true" signature="3880:3965" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Controller/Controller.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-26.038462">
+                  <caret line="167" column="42" selection-start-line="167" selection-start-column="42" selection-end-line="167" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="form_settings_EditClub.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/View/Settings/form_settings_EditClub.php">
+          <file leaf-file-name="model_myCubPage.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Model/myClub/model_myCubPage.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.26184833">
-                  <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+                <state vertical-scroll-proportion="-9.153846">
+                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -137,29 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Model/contestView/checks/model_DataChecks.php" />
-        <option value="$PROJECT_DIR$/Classes/DefaultClasses.php" />
-        <option value="$PROJECT_DIR$/Model/myClub/model_ajax_newMember.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/checks/model_ajax_entryFinalMember.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/checks/model_ajax_changeTableData.php" />
-        <option value="$PROJECT_DIR$/View/contestView/checks/view_DataChecks.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_startStrugle.php" />
-        <option value="$PROJECT_DIR$/includeClasses.php" />
-        <option value="$PROJECT_DIR$/Classes/TournamentTree.php" />
-        <option value="$PROJECT_DIR$/Classes/Stugle.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStugle2.php" />
-        <option value="$PROJECT_DIR$/Classes/UserTasks.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_splitSubmit.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_seqUpDown.php" />
-        <option value="$PROJECT_DIR$/View/contestView/schedule/view_splittModal.php" />
-        <option value="$PROJECT_DIR$/Classes/CompCategory.php" />
-        <option value="$PROJECT_DIR$/View/contestView/schedule/view_massModal.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_massSubmit.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTakePlace.php" />
-        <option value="$PROJECT_DIR$/View/contestView/adminLog/view_adminLog.php" />
-        <option value="$PROJECT_DIR$/Classes/DBData.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCloseCat.php" />
-        <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loadCompCats.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_startStrugle.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_submitStrugle.php" />
         <option value="$PROJECT_DIR$/css/site.css" />
@@ -168,26 +193,49 @@
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_tecnikalSubmit.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_listFightEventLeaderboard.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newStartStrugle.php" />
-        <option value="$PROJECT_DIR$/Classes/Database.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_listTechnicalEventLeaderboard.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_technicalSubmit.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCatView.php" />
-        <option value="$PROJECT_DIR$/Classes/DBLoad.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_newSubmitStrugle.php" />
         <option value="$PROJECT_DIR$/Model/contestView/model_contestView.php" />
         <option value="$PROJECT_DIR$/View/contestView/view_contestView.php" />
         <option value="$PROJECT_DIR$/Model/contestView/model_ajax_removeAdministrator.php" />
         <option value="$PROJECT_DIR$/Model/contestView/model_ajax_newAdministrator.php" />
         <option value="$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loginAdmin.php" />
-        <option value="$PROJECT_DIR$/Model/model_defaultUserVerification.php" />
-        <option value="$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php" />
-        <option value="$PROJECT_DIR$/Model/OrgPage/model_clubPage.php" />
-        <option value="$PROJECT_DIR$/Model/OrgPage/model_fedPage.php" />
-        <option value="$PROJECT_DIR$/View/Organization/view_orgPage.php" />
-        <option value="$PROJECT_DIR$/js/site.js" />
-        <option value="$PROJECT_DIR$/Model/model_modal_ajax_Org.php" />
+        <option value="$PROJECT_DIR$/Model/myClub/model_myCubPage.php" />
         <option value="$PROJECT_DIR$/Model/model_modal_ajax_Profile.php" />
+        <option value="$PROJECT_DIR$/Model/OrgPage/model_clubPage.php" />
+        <option value="$PROJECT_DIR$/View/Races/view_racesPage.php" />
+        <option value="$PROJECT_DIR$/View/Inbox.php" />
+        <option value="$PROJECT_DIR$/Model/model_modal_ajax_Org.php" />
+        <option value="$PROJECT_DIR$/View/myClub/view_myClubPage.php" />
+        <option value="$PROJECT_DIR$/Model/model_ajax_updateSettings.php" />
+        <option value="$PROJECT_DIR$/View/Settings/form_settings_EditClub.php" />
         <option value="$PROJECT_DIR$/View/Settings/view_settings.php" />
+        <option value="$PROJECT_DIR$/View/Organization/view_orgPage.php" />
+        <option value="$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php" />
+        <option value="$PROJECT_DIR$/js/site.js" />
+        <option value="$PROJECT_DIR$/Model/OrgPage/model_joinOrg.php" />
+        <option value="$PROJECT_DIR$/Classes/DefaultClasses.php" />
+        <option value="$PROJECT_DIR$/Classes/DBData.php" />
+        <option value="$PROJECT_DIR$/Classes/DBTasks.php" />
+        <option value="$PROJECT_DIR$/View/Inbox/view_inbox.php" />
+        <option value="$PROJECT_DIR$/Model/Inbox/model_ajax_deleteRequest.php" />
+        <option value="$PROJECT_DIR$/Model/Inbox/model_load_orgRequest.php" />
+        <option value="$PROJECT_DIR$/Model/Inbox/model_inbox.php" />
+        <option value="$PROJECT_DIR$/Classes/UserTasks.php" />
+        <option value="$PROJECT_DIR$/Model/OrgPage/model_fedPage.php" />
+        <option value="$PROJECT_DIR$/Classes/Database.php" />
+        <option value="$PROJECT_DIR$/Model/Inbox/model_ajax_successRequest.php" />
+        <option value="$PROJECT_DIR$/View/Settings/form_settings_EditProfile.php" />
+        <option value="$PROJECT_DIR$/Model/model_settings.php" />
+        <option value="$PROJECT_DIR$/View/Settings/form_settings_EditFederation.php" />
+        <option value="$PROJECT_DIR$/Model/model_defaultUserVerification.php" />
+        <option value="$PROJECT_DIR$/Model/myFed.php" />
+        <option value="$PROJECT_DIR$/Classes/DBLoad.php" />
+        <option value="$PROJECT_DIR$/Controller/Controller.php" />
+        <option value="$PROJECT_DIR$/View/myFed/view_myFed.php" />
+        <option value="$PROJECT_DIR$/Model/myFed/model_myFed.php" />
       </list>
     </option>
   </component>
@@ -257,6 +305,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Olympos_ver2">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,7 +389,187 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Races" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Organization" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myFed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myClub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contestView" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OrgPage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myFed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myClub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Olympos_ver2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inbox" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -379,30 +631,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Changed Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Olympos_ver2">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,19 +647,19 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\contestView\adminLog" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\OrgPage" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2\View\Settings" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2\View" />
-      <recent name="D:\xampp\htdocs\Olympos_ver2\View\Login" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\Olympos_ver2\css" />
       <recent name="D:\xampp\htdocs\Olympos_ver2\Model\contestView" />
       <recent name="D:\xampp\htdocs\Olympos_ver2\Model\Races" />
       <recent name="D:\xampp\htdocs\Olympos_ver2" />
       <recent name="D:\xampp\htdocs\Olympos_ver2\Model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\Olympos_ver2\View\Inbox" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\contestView\adminLog" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2\Model\OrgPage" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2\View\Settings" />
+      <recent name="D:\xampp\htdocs\Olympos_ver2\View" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.model_ajax_newStartStrugle.php">
@@ -571,7 +799,13 @@
       <option name="project" value="LOCAL" />
       <updated>1489190510016</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Jegyzo Update #3&#10;Küzdelmi és technikai számok teljes körű elkészöltségi szint">
+      <created>1489273469166</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1489273469166</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -587,26 +821,26 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1673774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1705757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32664436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32628062" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925472" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -636,7 +870,8 @@
     <MESSAGE value="Jegyzo Aupdata #1&#10;Jegyző elkészítve, kis javitásra szorul" />
     <MESSAGE value="Jegyzo Update #1&#10;Jegyző elkészítve, kis javitásra szorul" />
     <MESSAGE value="Jegyzo Update #2&#10;Küzdelmi számoknál elkészítve a jegyzés" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jegyzo Update #2&#10;Küzdelmi számoknál elkészítve a jegyzés" />
+    <MESSAGE value="Jegyzo Update #3&#10;Küzdelmi és technikai számok teljes körű elkészöltségi szint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jegyzo Update #3&#10;Küzdelmi és technikai számok teljes körű elkészöltségi szint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -645,262 +880,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/contestView/model_ajax_addNewType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6244076">
-          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPageClubLeader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6445498">
-          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-          <folding>
-            <marker date="1487872137831" expanded="true" signature="1199:1350" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entryPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/entry/model_entryPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/entry/model_entrySubmit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08056872">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/entry/view_entrySubmit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02014218">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/entry/model_ajax_entrySubmit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1487599373783" expanded="true" signature="585:746" placeholder="INSERT INTO ${DBData::getEntryTable()}..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_splitSubmit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91943127">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <marker date="1489147200725" expanded="true" signature="167:511" placeholder="Select * Fro..assignment..." />
-            <marker date="1489147200725" expanded="true" signature="615:754" placeholder="INSERT INTO contest.contest_comp..." />
-            <marker date="1489147200725" expanded="true" signature="615:778" placeholder="INSERT INTO contest.contest_comp..." />
-            <marker date="1489147200725" expanded="true" signature="615:807" placeholder="INSERT INTO contest.contest_comp..." />
-            <marker date="1489147200725" expanded="true" signature="615:835" placeholder="INSERT INTO contest.contest_comp..." />
-            <marker date="1489147200725" expanded="true" signature="615:843" placeholder="INSERT INTO contest.contest_comp..." />
-            <marker date="1489147200725" expanded="true" signature="615:870" placeholder="INSERT INTO contest.contest_comp..." />
-            <marker date="1489147200725" expanded="true" signature="615:894" placeholder="INSERT INTO contest.contest_comp..." />
-            <marker date="1489147200725" expanded="true" signature="1071:1290" placeholder="Select conte..assignment..." />
-            <marker date="1489147200725" expanded="true" signature="1071:1394" placeholder="Select conte..assignment..." />
-            <marker date="1489147200725" expanded="true" signature="1071:1413" placeholder="Select conte..assignment..." />
-            <marker date="1489147200725" expanded="true" signature="1071:1414" placeholder="Select conte..assignment..." />
-            <marker date="1489147200725" expanded="true" signature="1071:1438" placeholder="Select conte..assignment..." />
-            <marker date="1489147200725" expanded="true" signature="1524:1563" placeholder="UPDATE conte..." />
-            <marker date="1489147200725" expanded="true" signature="1524:1601" placeholder="UPDATE conte..." />
-            <marker date="1489147200725" expanded="true" signature="1524:1602" placeholder="UPDATE conte..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/schedule/view_massModal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.26923">
-          <caret line="132" column="12" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
-          <folding>
-            <marker date="1489164309528" expanded="true" signature="120:507" placeholder="SELECT * FRO..contest_comp..." />
-            <marker date="1489164309528" expanded="true" signature="652:2034" placeholder="SELECT * FRO..contest_comp..." />
-            <marker date="1489164309528" expanded="true" signature="652:3060" placeholder="Select conte..contest_comp..." />
-            <marker date="1489164309528" expanded="true" signature="652:3061" placeholder="Select conte..contest_comp..." />
-            <marker date="1489164309528" expanded="true" signature="4473:4733" placeholder="..." />
-            <marker date="1489164309528" expanded="true" signature="4495:4722" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/schedule/view_splittModal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="52" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="52" />
-          <folding>
-            <marker date="1489156075851" expanded="true" signature="120:121" placeholder="SELECT * fro..contest_comp..." />
-            <marker date="1489156075851" expanded="true" signature="120:766" placeholder="Select * Fro..assignment..." />
-            <marker date="1489156075851" expanded="true" signature="120:804" placeholder="Select * Fro..assignment..." />
-            <marker date="1489156075851" expanded="true" signature="2728:2818" placeholder="SELECT ccc_c..contest_comp..." />
-            <marker date="1489156075851" expanded="true" signature="2728:2819" placeholder="SELECT ccc_c..contest_comp..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/checks/model_ajax_entryFinalMember.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02014218">
-          <caret line="170" column="45" selection-start-line="170" selection-start-column="45" selection-end-line="170" selection-end-column="45" />
-          <folding>
-            <marker date="1488996709378" expanded="true" signature="869:1205" placeholder="Select conte..competetions..." />
-            <marker date="1488996709378" expanded="true" signature="1695:1933" placeholder="Select conte..assignment..." />
-            <marker date="1488996709378" expanded="true" signature="1695:2013" placeholder="Select conte..assignment..." />
-            <marker date="1488996709378" expanded="true" signature="2234:2364" placeholder="INSERT INTO contest.assignment..." />
-            <marker date="1488996709378" expanded="true" signature="2234:2398" placeholder="INSERT INTO contest.assignment..." />
-            <marker date="1488996709378" expanded="true" signature="3036:3354" placeholder="Select conte..assignment..." />
-            <marker date="1488996709378" expanded="true" signature="3575:3739" placeholder="INSERT INTO contest.assignment..." />
-            <marker date="1488996709378" expanded="true" signature="3736:3739" placeholder="INSERT INTO contest.assignment..." />
-            <marker date="1488996709378" expanded="true" signature="6653:7469" placeholder="Select conte..comp_category..." />
-            <marker date="1488996709378" expanded="true" signature="7744:8548" placeholder="Select conte..entry..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_massSubmit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding>
-            <marker date="1489164517762" expanded="true" signature="104:156" placeholder="SELECT a_seq..assignment..." />
-            <marker date="1489164517762" expanded="true" signature="104:227" placeholder="SELECT a_seq..assignment..." />
-            <marker date="1489164517762" expanded="true" signature="104:228" placeholder="SELECT a_seq..assignment..." />
-            <marker date="1489164517762" expanded="true" signature="303:348" placeholder="UPDATE conte..." />
-            <marker date="1489164517762" expanded="true" signature="303:406" placeholder="UPDATE conte..." />
-            <marker date="1489164517762" expanded="true" signature="303:451" placeholder="UPDATE conte..." />
-            <marker date="1489164517762" expanded="true" signature="303:452" placeholder="UPDATE conte..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTakePlace.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1007109">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/CompCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46327013">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_seqUpDown.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21445498">
-          <caret line="77" column="54" selection-start-line="77" selection-start-column="54" selection-end-line="77" selection-end-column="54" />
-          <folding>
-            <marker date="1489152764502" expanded="true" signature="178:421" placeholder="Select * Fro..assignment..." />
-            <marker date="1489152764502" expanded="true" signature="265:382" placeholder="Select conte..assignment..." />
-            <marker date="1489152764502" expanded="true" signature="784:868" placeholder="UPDATE conte..." />
-            <marker date="1489152764502" expanded="true" signature="961:1044" placeholder="UPDATE conte..." />
-            <marker date="1489152764502" expanded="true" signature="1424:1508" placeholder="UPDATE conte..." />
-            <marker date="1489152764502" expanded="true" signature="1592:1675" placeholder="UPDATE conte..." />
-            <marker date="1489152764502" expanded="true" signature="1771:2397" placeholder="Select * Fro..assignment..." />
-            <marker date="1489152764502" expanded="true" signature="1771:2398" placeholder="Select * Fro..assignment..." />
-            <marker date="1489152764502" expanded="true" signature="1771:2458" placeholder="Select * Fro..assignment..." />
-            <marker date="1489152764502" expanded="true" signature="2851:2872" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_adminCloseCat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2014218">
-          <caret line="10" column="124" selection-start-line="10" selection-start-column="124" selection-end-line="10" selection-end-column="124" />
-          <folding>
-            <marker date="1489167748368" expanded="true" signature="123:320" placeholder="UPDATE conte..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/adminLog/model_ajax_loadCompCats.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45616114">
-          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-          <folding>
-            <marker date="1489167801313" expanded="true" signature="147:809" placeholder="Select conte..contest_comp..." />
-            <marker date="1489167801313" expanded="true" signature="1864:1927" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/adminLog/view_adminView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45616114">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.02014218">
-          <caret line="282" column="37" selection-start-line="282" selection-start-column="27" selection-end-line="282" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/ajax-loader.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/contestView/schedule/model_ajax_compTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3755924">
-          <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
-          <folding>
-            <marker date="1489238829495" expanded="true" signature="127:379" placeholder="SELECT comp_..competetions..." />
-            <marker date="1489238829495" expanded="true" signature="127:380" placeholder="SELECT comp_..competetions..." />
-            <marker date="1489238829495" expanded="true" signature="492:1182" placeholder="Select * Fro..assignment..." />
-            <marker date="1489238829495" expanded="true" signature="1445:1831" placeholder="Select conte..assignment..." />
-            <marker date="1489238829495" expanded="true" signature="1445:1913" placeholder="Select conte..assignment..." />
-            <marker date="1489238829495" expanded="true" signature="1445:1958" placeholder="Select conte..assignment..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/schedule/view_CompSchedule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5035545">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/contestView/checks/view_DataChecks.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6445498">
@@ -915,10 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34241706">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <marker date="1489252823365" expanded="true" signature="48:157" placeholder="Select * Fro..technical_strugle_data..." />
-            <marker date="1489252823365" expanded="true" signature="48:291" placeholder="Select * Fro..technical_strugle_data..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -967,16 +942,6 @@
             <marker date="1489256400180" expanded="true" signature="3389:3762" placeholder="Select * Fro..technical_strugle_data..." />
             <marker date="1489256400180" expanded="true" signature="7398:7411" placeholder="..." />
             <marker date="1489256400180" expanded="true" signature="7523:7562" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.021327015">
-          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-          <folding>
-            <marker date="1489252211680" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
           </folding>
         </state>
       </provider>
@@ -1034,24 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/contestView/view_contestView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-45.115383">
-          <caret line="237" column="71" selection-start-line="237" selection-start-column="71" selection-end-line="237" selection-end-column="71" />
-          <folding>
-            <marker date="1489259421970" expanded="true" signature="308:392" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="430:507" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="430:593" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="3276:3378" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="3421:3576" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="3650:3759" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="3802:3962" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="15263:15398" placeholder="..." />
-            <marker date="1489259421970" expanded="true" signature="15486:15563" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/contestView/model_ajax_removeAdministrator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617">
@@ -1064,7 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-29.423077">
           <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,137 +1040,414 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/model_defaultUserVerification.php">
+    <entry file="file://$PROJECT_DIR$/js/refreshData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.076923">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/OrgPage/model_clubPage.php">
+    <entry file="file://$PROJECT_DIR$/Classes/PostalAdd.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.038462">
-          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-          <folding>
-            <marker date="1489264133504" expanded="true" signature="761:899" placeholder="Select org.c..club_mship_history..." />
-            <marker date="1489264133504" expanded="true" signature="761:900" placeholder="Select org.c..club_mship_history..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/site.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-          <folding />
+        <state vertical-scroll-proportion="-45.115383">
+          <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/model_modal_ajax_Profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.23077">
-          <caret line="43" column="59" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.8056872">
+          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
           <folding>
-            <marker date="1489271743813" expanded="true" signature="2003:2124" placeholder="..." />
-            <marker date="1489271743813" expanded="true" signature="2060:2117" placeholder="..." />
+            <marker date="1489281765312" expanded="true" signature="2158:2279" placeholder="..." />
+            <marker date="1489281765312" expanded="true" signature="2215:2272" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/model_modal_ajax_Org.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5">
-          <caret line="39" column="94" selection-start-line="39" selection-start-column="91" selection-end-line="39" selection-end-column="94" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
           <folding>
-            <marker date="1489271696875" expanded="true" signature="1459:1514" placeholder="..." />
-            <marker date="1489271696875" expanded="true" signature="1880:1999" placeholder="..." />
-            <marker date="1489271696875" expanded="true" signature="1937:1992" placeholder="..." />
+            <marker date="1489325312710" expanded="true" signature="1869:1877" placeholder="..." />
+            <marker date="1489325312710" expanded="true" signature="2448:2567" placeholder="..." />
+            <marker date="1489325312710" expanded="true" signature="2505:2560" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/Organization/view_orgPage.php">
+    <entry file="file://$PROJECT_DIR$/View/Races/view_racesPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35545024">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-          <folding>
-            <marker date="1489268550717" expanded="true" signature="1028:1158" placeholder="..." />
-            <marker date="1489268550717" expanded="true" signature="1113:1153" placeholder="..." />
-            <marker date="1489268550717" expanded="true" signature="1507:1658" placeholder="..." />
-            <marker date="1489268550717" expanded="true" signature="1829:1889" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/OrgPage/model_fedPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26184833">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="29" />
-          <folding>
-            <marker date="1489265390091" expanded="true" signature="712:842" placeholder="Select org.f..federation_leader..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3021327">
-          <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="127" selection-end-column="17" />
-          <folding>
-            <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
-            <marker date="1489256810748" expanded="true" signature="18852:19151" placeholder="Select * Fro..technical_strugle_data..." />
-            <marker date="1489256810748" expanded="true" signature="19727:20001" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489256810748" expanded="true" signature="20217:20325" placeholder="Select * Fro..strugle_data..." />
-            <marker date="1489256810748" expanded="true" signature="20217:20442" placeholder="Select * Fro..technical_strugle_data..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Organization.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24170616">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.3755924">
+          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/DefaultClasses.php">
+    <entry file="file://$PROJECT_DIR$/View/contestView/view_contestView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34360188">
-          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.44312796">
+          <caret line="214" column="81" selection-start-line="214" selection-start-column="81" selection-end-line="214" selection-end-column="81" />
+          <folding>
+            <marker date="1489259421970" expanded="true" signature="308:392" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="430:507" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="430:593" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3276:3378" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3421:3576" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3650:3759" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="3802:3962" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="15263:15398" placeholder="..." />
+            <marker date="1489259421970" expanded="true" signature="15486:15563" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/Organization/view_modalJoinOrg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24170616">
-          <caret line="12" column="80" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+        <state vertical-scroll-proportion="-19.615385">
+          <caret line="30" column="87" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/site.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="11" selection-start-line="127" selection-start-column="11" selection-end-line="127" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/OrgPage/model_joinOrg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16113745">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/Settings/view_settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3461537">
-          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.6848341">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model_regSubmit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.053317536">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <marker date="1488909346441" expanded="true" signature="852:1036" placeholder="..." />
+            <marker date="1488909346441" expanded="true" signature="889:1011" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model_ajax_updateSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02014218">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding>
+            <marker date="1489340114879" expanded="true" signature="119:180" placeholder="SELECT count..main_user..." />
+            <marker date="1489340114879" expanded="true" signature="119:181" placeholder="SELECT count..main_user..." />
+            <marker date="1489340114879" expanded="true" signature="119:214" placeholder="SELECT count..main_user..." />
+            <marker date="1489340114879" expanded="true" signature="119:216" placeholder="SELECT count..main_user..." />
+            <marker date="1489340114879" expanded="true" signature="119:244" placeholder="SELECT count..main_user..." />
+            <marker date="1489340114879" expanded="true" signature="119:245" placeholder="SELECT count..main_user..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/SportUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.053317536">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Organization.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3076923">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DefaultClasses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="51.23077">
+          <caret line="143" column="6" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.807693">
+          <caret line="217" column="31" selection-start-line="217" selection-start-column="11" selection-end-line="217" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Organization/view_orgPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7427536">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+          <folding>
+            <marker date="1489439616918" expanded="true" signature="1028:1158" placeholder="..." />
+            <marker date="1489439616918" expanded="true" signature="1113:1153" placeholder="..." />
+            <marker date="1489439616918" expanded="true" signature="1540:1590" placeholder="..." />
+            <marker date="1489439616918" expanded="true" signature="1540:1737" placeholder="..." />
+            <marker date="1489439616918" expanded="true" signature="1903:2054" placeholder="..." />
+            <marker date="1489439616918" expanded="true" signature="2238:2298" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Inbox/model_ajax_deleteRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51328504">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <marker date="1489443628850" expanded="true" signature="182:302" placeholder="UPDATE org.f..." />
+            <marker date="1489443628850" expanded="true" signature="354:478" placeholder="UPDATE org.c..." />
+            <marker date="1489443628850" expanded="true" signature="548:690" placeholder="UPDATE org.f..." />
+            <marker date="1489443628850" expanded="true" signature="733:792" placeholder="UPDATE data...." />
+            <marker date="1489443628850" expanded="true" signature="854:1251" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489443628850" expanded="true" signature="1288:1434" placeholder="UPDATE org.c..." />
+            <marker date="1489443628850" expanded="true" signature="1477:1532" placeholder="UPDATE data...." />
+            <marker date="1489443628850" expanded="true" signature="1594:1994" placeholder="Select org.c..club_mship_history..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Inbox/model_inbox.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16425121">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <marker date="1489444216655" expanded="true" signature="430:726" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489444216655" expanded="true" signature="430:814" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489444216655" expanded="true" signature="866:1264" placeholder="Select org.c..club_mship_history..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/OrgPage/model_fedPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.961538">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <marker date="1489476361767" expanded="true" signature="712:842" placeholder="Select org.f..federation_leader..." />
+            <marker date="1489476361767" expanded="true" signature="712:858" placeholder="Select org.f..federation_leader..." />
+            <marker date="1489476361767" expanded="true" signature="1369:1549" placeholder="Select COUNT..fed_mship_history..." />
+            <marker date="1489476361767" expanded="true" signature="1369:1550" placeholder="Select COUNT..fed_mship_history..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Inbox/model_ajax_successRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2014218">
+          <caret line="10" column="114" selection-start-line="10" selection-start-column="114" selection-end-line="10" selection-end-column="114" />
+          <folding>
+            <marker date="1489476848358" expanded="true" signature="198:340" placeholder="UPDATE org.f..." />
+            <marker date="1489476848358" expanded="true" signature="435:494" placeholder="UPDATE data...." />
+            <marker date="1489476848358" expanded="true" signature="564:950" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489476848358" expanded="true" signature="987:1133" placeholder="UPDATE org.c..." />
+            <marker date="1489476848358" expanded="true" signature="1176:1231" placeholder="UPDATE data...." />
+            <marker date="1489476848358" expanded="true" signature="1293:1693" placeholder="Select org.c..club_mship_history..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02014218">
+          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding>
+            <marker date="1489476714831" expanded="true" signature="2829:2929" placeholder="INSERT INTO ${$tableName}..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/UserTasks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4763033">
+          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/OrgPage/model_clubPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4265403">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="36" selection-end-column="9" />
+          <folding>
+            <marker date="1489313156250" expanded="true" signature="761:899" placeholder="Select org.c..club_mship_history..." />
+            <marker date="1489313156250" expanded="true" signature="761:900" placeholder="Select org.c..club_mship_history..." />
+            <marker date="1489313156250" expanded="true" signature="761:969" placeholder="Select org.c..club_mship_history..." />
+            <marker date="1489313156250" expanded="true" signature="761:970" placeholder="Select org.c..club_mship_history..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBTasks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0556872">
+          <caret line="108" column="88" selection-start-line="108" selection-start-column="88" selection-end-line="108" selection-end-column="88" />
+          <folding>
+            <marker date="1489442121883" expanded="true" signature="1061:1198" placeholder="INSERT INTO org.club_mship_history..." />
+            <marker date="1489442121883" expanded="true" signature="1061:1210" placeholder="INSERT INTO org.club_mship_history..." />
+            <marker date="1489442121883" expanded="true" signature="1061:1254" placeholder="INSERT INTO org.club_mship_history..." />
+            <marker date="1489442121883" expanded="true" signature="1790:1976" placeholder="INSERT INTO org.fed_mship_history..." />
+            <marker date="1489442121883" expanded="true" signature="13329:13406" placeholder="INSERT INTO data.email_request_data..." />
+            <marker date="1489442121883" expanded="true" signature="13329:13408" placeholder="INSERT INTO data.email_request_data..." />
+            <marker date="1489442121883" expanded="true" signature="13329:13418" placeholder="INSERT INTO data.email_request_data..." />
+            <marker date="1489442121883" expanded="true" signature="13329:13420" placeholder="INSERT INTO data.email_request_data..." />
+            <marker date="1489442121883" expanded="true" signature="13329:13422" placeholder="INSERT INTO data.email_request_data..." />
+            <marker date="1489442121883" expanded="true" signature="13329:13464" placeholder="INSERT INTO data.email_request_data..." />
+            <marker date="1489442121883" expanded="true" signature="13502:13551" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Inbox/view_inbox.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8459716">
+          <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Inbox/model_load_orgRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7049763">
+          <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
+          <folding>
+            <element signature="e#1371#1392#0#HTML" expanded="true" />
+            <element signature="e#1431#1450#0#HTML" expanded="true" />
+            <marker date="1489443731701" expanded="true" signature="213:607" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489443731701" expanded="true" signature="757:1157" placeholder="Select org.c..club_mship_history..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Settings/form_settings_EditProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="93" selection-start-line="8" selection-start-column="93" selection-end-line="8" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/Settings/form_settings_EditClub.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26184833">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state vertical-scroll-proportion="-13.192307">
+          <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/model_settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46327013">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        <state vertical-scroll-proportion="-22.23077">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Settings/form_settings_EditFederation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0">
+          <caret line="79" column="136" selection-start-line="79" selection-start-column="136" selection-end-line="79" selection-end-column="136" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model_defaultUserVerification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.038462">
+          <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/myClub/view_myClubPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-45.115383">
+          <caret line="175" column="16" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="16" />
+          <folding>
+            <marker date="1489329738600" expanded="true" signature="6686:6771" placeholder="..." />
+            <marker date="1489329738600" expanded="true" signature="7112:7141" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.038462">
+          <caret line="167" column="42" selection-start-line="167" selection-start-column="42" selection-end-line="167" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/myFed/view_myFed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54383886">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <marker date="1489482941049" expanded="true" signature="3880:3902" placeholder="..." />
+            <marker date="1489482941049" expanded="true" signature="3880:3965" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/myClub/model_myCubPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.076923">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/DBLoad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.653847">
+          <caret line="398" column="27" selection-start-line="398" selection-start-column="27" selection-end-line="398" selection-end-column="27" />
+          <folding>
+            <element signature="n#getDBTasks#0;n#DBLoad#0;n#!!top" expanded="false" />
+            <marker date="1489480648735" expanded="true" signature="11369:11480" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489480648735" expanded="true" signature="11369:11481" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489480648735" expanded="true" signature="11369:11583" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489480648735" expanded="true" signature="11369:11584" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489480648735" expanded="true" signature="11646:11862" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489480648735" expanded="true" signature="13080:13191" placeholder="Select org.f..fed_mship_history..." />
+            <marker date="1489480648735" expanded="true" signature="20451:20750" placeholder="Select * Fro..technical_strugle_data..." />
+            <marker date="1489480648735" expanded="true" signature="21326:21600" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489480648735" expanded="true" signature="21816:21924" placeholder="Select * Fro..strugle_data..." />
+            <marker date="1489480648735" expanded="true" signature="21816:22041" placeholder="Select * Fro..technical_strugle_data..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/myFed/model_myFed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44312796">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding />
         </state>
       </provider>

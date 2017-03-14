@@ -8,7 +8,6 @@ foreach ($orgValue as $item) {
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
 					<label>Egyesület képviselő neve:</label>
-					<label ></label>
 					<a onclick="showModalProfile(<?php echo UserTasks::getUser()->getId()?>,<?php echo $item["orgLeaderID"]?>)"><?php echo $item["orgLeader"]?></a>
 				</div>
 				<div class="col-md-4">
@@ -94,86 +93,91 @@ foreach ($orgValue as $item) {
 			<div class="row center-block text-center">
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
-					<input type="button" class="btn btn-default" value="További Adatok">
+					<input onclick="showModalOrg(<?php echo UserTasks::getUser()->getId().",".$item["orgId"]?>)" type="button" class="btn btn-default" value="További Adatok">
 				</div>
 				<div class="col-md-4"></div>
 			</div>
 
 
 		</div>
-		<table class="table table-striped table-hover table-bordered table-responsive">
-			<thead>
-			<tr>
-				<th>Tag Neve</th>
-				<th>Utoljára mért Súlya</th>
-				<th>Öv fokozat</th>
-				<th>Életkor</th>
-				<th></th>
-				<?php echo ($isLeader?"<th></th>":"")?>
-				<?php echo ($isLeader?"<th></th>":"")?>
+		<div class="row">
+			<div class="col-xs-12 table-responsive">
+				<table class="table table-striped table-hover table-bordered ">
+					<thead>
+					<tr>
+						<th>Tag Neve</th>
+						<th>Utoljára mért Súlya</th>
+						<th>Öv fokozat</th>
+						<th>Életkor</th>
+						<th></th>
+						<?php echo ($isLeader?"<th></th>":"")?>
+						<?php echo ($isLeader?"<th></th>":"")?>
 
-			</tr>
-			</thead>
-			<tbody>
-			<?php
-			if(is_array($item["members"])) {
-				foreach ($item["members"] as $member) {
-					/** @var SportUser $User */
-					$User = $member["memberUser"];
-					echo "<tr ".($member["memberCurrent"]?"class='info'":"")." id='clubMemberRow".$User->getId()."'>";
-					echo "<td>".$User->getName()."</td>";
-					if(SportUser::isSportUser($User)){
-						echo "<td>".$User->getWeight()."</td>";
-						echo "<td>".$User->getBeltGrades()."</td>";
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					if(is_array($item["members"])) {
+						foreach ($item["members"] as $member) {
+							/** @var SportUser $User */
+							$User = $member["memberUser"];
+							echo "<tr ".($member["memberCurrent"]?"class='info'":"")." id='clubMemberRow".$User->getId()."'>";
+							echo "<td>".$User->getName()."</td>";
+							if(SportUser::isSportUser($User)){
+								echo "<td>".$User->getWeight()."</td>";
+								echo "<td>".$User->getBeltGrades()."</td>";
 
+							}
+							else {
+								echo "<td colspan='2'>Nincsenek sport adatai ennek a felhasználónak</td>";
+							}
+							echo "<td>".$User->getAge()."</td>";
+							if($isLeader){
+								echo "<td><button onclick='sportDataUpdate(".$User->getId().")' class='btn btn-info2 btn-block'>Sport Adatok Frissítése</button></td>";
+							}
+
+
+							if($User->getEmail()!=null){
+								echo "<td><button class='btn btn-info btn-block' onclick='showModalProfile(".UserTasks::getUser()->getId().",".$User->getId().")'>Profil</button> </td>";
+							}
+							else {
+								if($isLeader){
+									echo "<td><input type='button' class='btn btn-info btn-block' value='Létrehozás'></td>";
+								}
+								else {
+									echo "<td>Nem regisztrált Felhasználó</td>";
+								}
+
+							}
+
+
+							if($isLeader){
+								echo "<td><button class='btn btn-danger btn-block'>Tag törlése</button> </td>";
+							}
+							echo "</tr>";
+							/*
+							echo "<tr ".($member["memberCurrent"]?"class='info'":"").">";
+							echo "<td>" . $User->getName() . "</td>";
+							echo "<td>" . ($User->getTelefon()!=null?$User->getTelefon():"<div class='center-block text-center'>
+										<label>Ennek a profilnak nincsenek egyéb adataia</label>
+										</div>") . "</td>";
+							echo "<td>".($User->getTelefon()!=null?"<a href='?profile=".$User->getId()."'>Tovább a profilhoz</a>":"<input type='button' class='btn btn-info' value='Létrehozás'>")."</td>";
+							echo ($isLeader?"<td><button class='btn btn-danger'>Tag törlése</button> </td>":"");
+							echo "</tr>";
+							*/
+						}
 					}
 					else {
-						echo "<td colspan='2'>Nincsenek sport adatai ennek a felhasználónak</td>";
-					}
-					echo "<td>".$User->getAge()."</td>";
-					if($isLeader){
-						echo "<td><button onclick='sportDataUpdate(".$User->getId().")' class='btn btn-info2 btn-block'>Sport Adatok Frissítése</button></td>";
-					}
-
-
-					if($User->getEmail()!=null){
-						echo "<td><button class='btn btn-info btn-block' onclick='showModalProfile(".UserTasks::getUser()->getId().",".$User->getId().")'>Profil</button> </td>";
-					}
-					else {
-						if($isLeader){
-							echo "<td><input type='button' class='btn btn-info btn-block' value='Létrehozás'></td>";
-						}
-						else {
-							echo "<td>Nem regisztrált Felhasználó</td>";
-						}
-
-					}
-
-
-					if($isLeader){
-						echo "<td><button class='btn btn-danger btn-block'>Tag törlése</button> </td>";
-					}
-					echo "</tr>";
-					/*
-					echo "<tr ".($member["memberCurrent"]?"class='info'":"").">";
-					echo "<td>" . $User->getName() . "</td>";
-					echo "<td>" . ($User->getTelefon()!=null?$User->getTelefon():"<div class='center-block text-center'>
-								<label>Ennek a profilnak nincsenek egyéb adataia</label>
-								</div>") . "</td>";
-					echo "<td>".($User->getTelefon()!=null?"<a href='?profile=".$User->getId()."'>Tovább a profilhoz</a>":"<input type='button' class='btn btn-info' value='Létrehozás'>")."</td>";
-					echo ($isLeader?"<td><button class='btn btn-danger'>Tag törlése</button> </td>":"");
-					echo "</tr>";
-					*/
-				}
-			}
-			else {
-				echo "<tr>
+						echo "<tr>
 									<td colspan='3' class='text-center'>Hiba vagy nincs tag</td>
 									</tr>";
-			}
-			?>
-			</tbody>
-		</table>
+					}
+					?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
 	</div>
 	<hr>
 	<div id="sportDataUpdateDiv"></div>

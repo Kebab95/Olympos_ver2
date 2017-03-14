@@ -7,7 +7,7 @@ class DBTasks extends Database
 	}
 	public function checkEmailPass($email,$pass){
 		$result = $this->selectGetResult(DBData::getMainUserTable(),
-			DBData::$emailDataAdd,DBData::$emailDataAdd." = '".$email."' AND
+			DBData::$emailDataAdd,DBData::$emailDataAdd." = '".strtolower($email)."' AND
             ".DBData::$mainUserPass." = '".md5($pass)."'" ,
 			"INNER JOIN ".DBData::getEmailDataTable()." ON
                                     ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
@@ -21,7 +21,7 @@ class DBTasks extends Database
 	}
 	public function checkEmail($email){
 		$result = $this->selectGetResult(DBData::getEmailDataTable(),
-			DBData::$emailDataAdd,DBData::$emailDataAdd." = '".$email."'");
+			DBData::$emailDataAdd,DBData::$emailDataAdd." = '".strtolower($email)."'");
 		if(pg_num_rows($result)>0){
 			return true;
 		}
@@ -30,16 +30,58 @@ class DBTasks extends Database
 		}
 	}
 	public function joinClub($clubID,$memberID){
-		$query = $this->insert(DBData::getClubMemberHistoryTable(),"*","default,".$clubID.",".$memberID.",true,NOW(),NOW()");
+		$query =  $this->sqlWithConn('INSERT INTO org.club_mship_history
+											(ch_club_id,
+											ch_member_id,
+											ch_current)
+											VALUES
+											('.$clubID.',
+											'.$memberID.',
+											false)');
 
+		return $query;
+		/*
 		if($query){
-			$temp = $this->update(DBData::getPermissionTable(),DBData::$permissionMember."=true",DBData::$permissionMainUserID."=$memberID");
-			return $temp;
+			//$temp = $this->update(DBData::getPermissionTable(),DBData::$permissionMember."=true",DBData::$permissionMainUserID."=$memberID");
+			return true;
 
 		}
 		else {
-			return $query;
+			return false;
 		}
+		*/
+
+		/*
+		$row = $this->insert(DBData::getClubMemberHistoryTable(),"*","default,".$clubID.",".$memberID.",true,NOW(),NOW()","RETURNING ".DBData::$chID);
+		if(is_null($row)){
+			return false;
+		}
+		else {
+			return true;
+		}
+		*/
+	}
+	public function joinFed($fedID,$clubID){
+		$query =  $this->sqlWithConn('INSERT INTO org.fed_mship_history
+											(fh_fed_id,
+											fh_club_id,
+											fh_current)
+											VALUES
+											('.$fedID.',
+											'.$clubID.',
+											false)');
+
+		return $query;
+		/*
+		if($query){
+			//$temp = $this->update(DBData::getPermissionTable(),DBData::$permissionMember."=true",DBData::$permissionMainUserID."=$memberID");
+			return true;
+
+		}
+		else {
+			return false;
+		}
+		*/
 
 		/*
 		$row = $this->insert(DBData::getClubMemberHistoryTable(),"*","default,".$clubID.",".$memberID.",true,NOW(),NOW()","RETURNING ".DBData::$chID);
@@ -64,6 +106,7 @@ class DBTasks extends Database
 		$user->setJudge((strcmp($perQuery[DBData::$permissionJudge],"t")==0));
 		$user->setTrainer((strcmp($perQuery[DBData::$permissionTrainer],"t")==0));
 		$user->setMember((strcmp($perQuery[DBData::$permissionMember],"t")==0));
+		$user->setFedMember(((strcmp($perQuery[DBData::$permissionFedMember],"t")==0)));
 		return $user;
 	}
 	public function isActiveUser($id){
@@ -353,14 +396,45 @@ class DBTasks extends Database
         userInsert as (
                ".$this->returnInsertQuery(DBData::getMainUserTable(),"*",
 						"default,".$type.",(select ".DBData::$emailDataID." from email),(select ".DBData::$telefonDataID." from telefon),
-                '".$name."','".md5($pass)."',true,NOW(),NOW(),'".$bday."',".($sex==0?"true":"false"),"returning ".DBData::$mainUserID)."
+                '".$name."','".md5($pass)."',false,NOW(),NOW(),'".$bday."',".($sex==0?"true":"false"),"returning ".DBData::$mainUserID)."
         )
         ".$this->returnInsertQuery(DBData::getPermissionTable(),DBData::$permissionMainUserID.",".DBData::$permissionVisitor
-						,"(select ".DBData::$mainUserID." from userInsert),TRUE");
+						,"(select ".DBData::$mainUserID." from userInsert),TRUE","returning ".DBData::$permissionMainUserID);
 		$temp = $this->sql($query);
 		$this->ConnClose();
+		$row = pg_fetch_row($temp, NULL, PGSQL_ASSOC);
+		if($row[DBData::$permissionMainUserID] != null){
+			return true;
+			/*
+			$code = $this->RandomString(10);
+			$asd =$this->sqlWithConn('INSERT INTO data.email_request_data (erd_gen_code,erd_mu_id)
+								VALUES (\''.$code.'\',\''.$row[DBData::$permissionMainUserID].'\')');
+			if($asd){
+				$emailText="<html><head><title>Olympos regisztráció</title></head><body>REgisztrált az Olympos weboldalra. Regsztrálását itt tudja véglegesíteni: </body></html>";
+				$this->SendEmail($email,"Regisztrációs email","");
+			}else {
+				return false;
+			}
+			*/
+		}
+		else {
+			return false;
+		}
 
-		return $temp;
-
+	}
+	public function RandomString($lenght)
+	{
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$randstring = '';
+		for ($i = 0; $i < $lenght; $i++) {
+			$randstring = $characters[rand(0, strlen($characters))];
+		}
+		return $randstring;
+	}
+	public function SendEmail($sendTo,$title,$text){
+		mail($sendTo,
+				$title,
+				$text,
+				"From: olymposinfo17@gmail.com\r\n");
 	}
 }

@@ -33,6 +33,9 @@ class Main
 		$to   = new DateTime('today');
 		return $from->diff($to)->y;;
 	}
+	public function getBdate(){
+		return $this->bdate;
+	}
 
 	/**
 	 * @param mixed $bdate
@@ -147,6 +150,24 @@ class UserPermissions extends Main{
 	private $judge = false;
 	private $trainer = false;
 	private $member = false;
+	private $fedMember = false;
+
+	/**
+	 * @return boolean
+	 */
+	public function isFedMember()
+	{
+		return $this->fedMember;
+	}
+
+	/**
+	 * @param boolean $fedMember
+	 */
+	public function setFedMember($fedMember)
+	{
+		$this->fedMember = $fedMember;
+	}
+
 
 	public function isAdmin(){
 		return $this->admin;

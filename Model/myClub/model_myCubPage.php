@@ -22,11 +22,11 @@ if($isLeader){
 
 }
 else if($obj->isMember()){
-	$org = DBLoad::loadUserOrgMember($obj->getId());
+	$org = DBLoad::loadUserClubMember($obj->getId());
 	/** @var Organization $item */
 	foreach ($org as $item) {
 		$temp["orgName"] = $item->getName();
-
+		$temp["orgId"] = $item->getId();
 		$temp["orgLeaderID"] = $item->getLeaderID();
 		$temp["orgLeader"] = DBLoad::loadUser($temp["orgLeaderID"])->getName();
 

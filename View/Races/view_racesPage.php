@@ -38,13 +38,19 @@ if($haveContest){
 	<hr>
 	<?php
 }
+if(UserTasks::getUser()->isClubLeader() || UserTasks::getUser()->isFederationLeader()){
+	?>
+	<div class="row form-group">
+		<div class="col-xs-4"></div>
+		<div class="col-xs-4">
+			<a href="?contest=create"><button class="btn btn-default btn-block">Verseny készítése</button> </a>
+		</div>
+		<div class="col-xs-4"></div>
+	</div>
+	<?php
+}
 ?>
 <div class="row">
-	<div class="col-xs-4"></div>
-	<div class="col-xs-4">
-		<a href="?contest=create"><button class="btn btn-default btn-block">Verseny készítése</button> </a>
-	</div>
-	<div class="col-xs-4"></div>
 	<div class="col-xs-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">

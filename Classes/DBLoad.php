@@ -104,7 +104,7 @@ class DBLoad
 				INNER JOIN ".DBData::getOrganizationTable()." ON
 					".DBData::getOrganizationTable().".".DBData::$orgMainUserID."=muD.".DBData::$mainUserID);
 			*/
-			$result = self::$DBTasks->selectGetResult($orgTable." as orgD","*,telefon.".DBData::$telefonDataID." as tel_num,fax.".DBData::$telefonDataID." as fax_num",
+			$result = self::$DBTasks->selectGetResult($orgTable." as orgD","*,telefon.".DBData::$telefonDataNum." as tel_num,fax.".DBData::$telefonDataNum." as fax_num",
 					$orgMUID."=".$leaderMUID. " AND ".DBData::$mainUserActive."=true",
 					"JOIN ".DBData::getMainUserTable()." ON ".
 					"orgD.".$orgID."=".DBData::getMainUserTable().".".DBData::$mainUserID."
@@ -194,7 +194,7 @@ class DBLoad
 				$column=DBData::$clubLeaderCLUBID;
 			}
 			$row = self::$DBTasks->select(DBData::getMainUserTable()." as mu",
-				"*,fax.".DBData::$telefonDataID." as fax_num,
+				"*,fax.".DBData::$telefonDataNum." as fax_num,
 					telefon.".DBData::$telefonDataNum." as tel_num",
 				DBData::$mainUserID."= $orgID AND ".DBData::$mainUserActive."=true",
 
@@ -299,7 +299,7 @@ class DBLoad
 			return null;
 		}
 	}
-	public static function loadUserOrgMember($userID){
+	public static function loadUserClubMember($userID){
 		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable(),DBData::$chClubID,
 			DBData::$chMemberID."=".$userID." AND ".DBData::$chCurrent."=true");
 		if($result != null){
@@ -317,10 +317,50 @@ class DBLoad
 			return null;
 		}
 	}
+	public static function loadUserFederationMember($clubID){
+		if(is_array($clubID)){
+			$val ="(";
+			/** @var Organization $item */
+			foreach ($clubID as $key => $item) {
+				$val.=$item->getId();
+				if(isset($clubID[$key+1])){
+				    $val.=",";
+				}
+			}
+			$val .=")";
+			$result = self::getDBTasks()->sqlWithConn('Select
+  org.fed_mship_history.fh_fed_id
+From
+  org.fed_mship_history WHERE org.fed_mship_history.fh_club_id IN '.$val. ' AND
+    org.fed_mship_history.fh_req_acapted=TRUE AND org.fed_mship_history.fh_delete =FALSE');
+		}
+		else {
+			$result = self::getDBTasks()->sqlWithConn('Select
+  org.fed_mship_history.fh_fed_id
+From
+  org.fed_mship_history WHERE org.fed_mship_history.fh_club_id = '.$clubID. ' AND
+    org.fed_mship_history.fh_req_acapted=TRUE AND org.fed_mship_history.fh_delete =FALSE');
+		}
+
+		if($result != null && $result){
+			$temp = array();
+
+			while($row = pg_fetch_row($result, NULL, PGSQL_ASSOC)){
+				$user = self::loadOrg($row["fh_fed_id"]);
+				array_push($temp,$user);
+			}
+
+
+			return $temp;
+		}
+		else {
+			return null;
+		}
+	}
 	public static function loadLoginUser($email, $pass){
 		$row = self::getDBTasks()->select(DBData::getMainUserTable(),
 			"*",
-			DBData::$emailDataAdd." LIKE '".$email."' AND ".DBData::$mainUserActive."=true AND
+			DBData::$emailDataAdd." LIKE '".strtolower($email)."' AND ".DBData::$mainUserActive."=true AND
             ".DBData::$mainUserPass." LIKE '".md5($pass)."'" ,
 			"INNER JOIN ".DBData::getEmailDataTable()." ON
                             ".DBData::getMainUserTable().".".DBData::$mainUserEmailID."=
@@ -334,9 +374,31 @@ class DBLoad
 		return $user;
 
 	}
+	public static function loadFedMember($fedID){
+		$result2 = self::getDBTasks()->sqlWithConn('Select
+  org.fed_mship_history.fh_club_id
+From
+  org.fed_mship_history
+  WHERE org.fed_mship_history.fh_fed_id='.$fedID);
+		if($result2 != null){
+			$temp = array();
+
+			while($row = pg_fetch_row($result2, NULL, PGSQL_ASSOC)){
+				$tempOrg = self::loadOrg($row["fh_club_id"]);
+
+				array_push($temp,$tempOrg);
+			}
+
+
+			return $temp;
+		}
+		else {
+			return null;
+		}
+	}
 	public static function loadClubMember($clubID){
 		$result = self::getDBTasks()->selectGetResult(DBData::getClubMemberHistoryTable()." as mh","*",
-			DBData::$chClubID."=".$clubID." AND ".DBData::$chCurrent."=true
+			DBData::$chClubID."=".$clubID." AND ".DBData::$chCurrent."=true AND ch_req_accepted = true  AND ch_delete=false
     Order By mu.".DBData::$mainUserCreateTime." ASC",
 			"join ".DBData::getMainUserTable()." as mu on
 				mh.".DBData::$chMemberID." = mu.".DBData::$mainUserID."

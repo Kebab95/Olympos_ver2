@@ -102,6 +102,18 @@ else if(isset($_GET["nav"])){
 
 
 			break;
+		case 'inbox':
+			if(UserTasks::isLoggedUser()){
+				include 'Model/model_defaultUserVerification.php';
+				include 'Model/Inbox/model_inbox.php';
+				$inBody = "View/Inbox/view_inbox.php";
+				include 'View/view_default.php';
+			}
+			else {
+				header_remove();
+				header("Location: ?nav=405");
+			}
+			break;
 		case 'club':
 
 			if(UserTasks::isLoggedUser()){
@@ -136,7 +148,7 @@ else if(isset($_GET["nav"])){
 
 			break;
 		case "myclub":
-			if(UserTasks::isLoggedUser()){
+			if(UserTasks::isLoggedUser() && (UserTasks::isMember() || UserTasks::isClubLeader())){
 				include "Model/model_defaultUserVerification.php";
 				include "Model/myClub/model_myCubPage.php";
 
@@ -144,7 +156,21 @@ else if(isset($_GET["nav"])){
 				include "View/view_default.php";
 			}
 			else{
+				header_remove();
+				header("Location: ?nav=405");
+			}
+			break;
+		case "myfed":
+			if(UserTasks::isLoggedUser() && (UserTasks::isFederationMember() || UserTasks::isFederationLeader())){
+				include "Model/model_defaultUserVerification.php";
+				include "Model/myFed/model_myFed.php";
 
+				$inBody = "View/myFed/view_myFed.php";
+				include "View/view_default.php";
+			}
+			else{
+				header_remove();
+				header("Location: ?nav=405");
 			}
 			break;
 		case 'races':
@@ -188,7 +214,7 @@ elseif(isset($_GET["contest"])){
 			}
 			break;
 		case "list":
-			if(UserTasks::isLoggedUser() && (UserTasks::isClubLeader() || UserTasks::isFederationLeader())){
+			if(UserTasks::isLoggedUser()){
 				include "Model/model_defaultUserVerification.php";
 				include "Model/Races/model_racesPage.php";
 				$inBody = "View/Races/view_racesPage.php";

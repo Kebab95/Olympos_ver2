@@ -17,19 +17,19 @@ if($User!=null){
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
 							<div class="row">
-								<div class="col-xs-6 text-center">Név</div>
+								<div class="col-xs-6 text-right">Név</div>
 								<div class="col-xs-6"><?php echo $User->getName()?></div>
 							</div>
 							<div class="row">
-								<div class="col-xs-6 text-center">Neme</div>
+								<div class="col-xs-6 text-right">Neme</div>
 								<div class="col-xs-6"><?php echo $User->getSex()?></div>
 							</div>
 							<div class="row">
-								<div class="col-xs-6 text-center">Email</div>
+								<div class="col-xs-6 text-right">Email</div>
 								<div class="col-xs-6"><?php echo $User->getEmail()?></div>
 							</div>
 							<div class="row">
-								<div class="col-xs-6 text-center">Telefon</div>
+								<div class="col-xs-6 text-right">Telefon</div>
 								<div class="col-xs-6"><?php echo $User->getTelefon()?></div>
 							</div>
 						</div>
@@ -53,7 +53,14 @@ if($User!=null){
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" id='modalProfileClose'>Close</button>
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<button type="button" class="btn btn-danger btn-block" id='modalProfileClose'>Close</button>
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+
 				</div>
 			</div>
 		</div>

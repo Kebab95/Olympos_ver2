@@ -42,16 +42,24 @@ if(UserTasks::isLoggedUser()){
 	if(UserTasks::isClubLeader() || UserTasks::isMember()){
 		$userDropbox["Clubdata"] = array(
 				"href" =>"?nav=myclub",
+				"title" =>"Egyesületi Tagság"
+		);
+
+	}
+	if(UserTasks::isFederationLeader() || UserTasks::isFederationMember()){
+		$userDropbox["Feddata"] = array(
+				"href" =>"?nav=myfed",
 				"title" =>"Szövetségi Tagság"
 		);
+
 	}
 	if(UserTasks::isAdmin()){
 		$userDropbox["Users"]=array("href"=>"#","title" =>"Users");
 	    //array_push($userDropbox["Users"],array("href"=>"#","title" =>"Users"));
 	}
-	if(UserTasks::isVisitor()){
-		$userDropbox["Inbox"] = array("href"=>"#","title"=>"Inbox");
-	    //array_push($userDropbox,array("href"=>"#","title"=>"Inbox"));
+	if(UserTasks::isClubLeader() || UserTasks::isFederationLeader()){
+		$userDropbox["Inbox"] = array("href"=>"?nav=inbox","title"=>"Csatlakozási szándékok");
+		//array_push($userDropbox,array("href"=>"#","title"=>"Inbox"));
 	}
 	$userLogout = array("title"=>"Kijelentkezés");
 }

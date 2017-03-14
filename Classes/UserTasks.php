@@ -37,6 +37,10 @@ class UserTasks
 		self::init();
 		return self::$User->isClubLeader();
 	}
+	public static function isFederationMember(){
+		self::init();
+		return self::$User->isFedMember();
+	}
 	public static function isLoggedUser(){
 		self::init();
 		return (self::$User!=null);

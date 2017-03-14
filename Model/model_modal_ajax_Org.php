@@ -14,22 +14,30 @@ if($Org!=null){
 				</div>
 				<div class="modal-body">
 					<div class="row form-group">
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
 							<div class="row">
-								<div class="col-xs-6 text-center">Név</div>
+								<div class="col-xs-6 text-right">Név</div>
 								<div class="col-xs-6"><?php echo $Org->getName()?></div>
 							</div>
 							<div class="row">
-								<div class="col-xs-6 text-center">Email</div>
+								<div class="col-xs-6 text-right">Vezető neve</div>
+								<div class="col-xs-6"><?php echo DBLoad::loadUserWithoutActive($Org->getLeaderID())->getName()?></div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 text-right">Email</div>
 								<div class="col-xs-6"><?php echo $Org->getEmail()?></div>
 							</div>
 							<div class="row">
-								<div class="col-xs-6 text-center">Telefon</div>
+								<div class="col-xs-6 text-right">Telefon</div>
 								<div class="col-xs-6"><?php echo $Org->getTelefon()?></div>
 							</div>
+							<div class="row">
+								<div class="col-xs-6 text-right">Weboldal</div>
+								<div class="col-xs-6"><?php echo $Org->getWebSite()==""?"Nincs weboldala":$Org->getWebSite()?></div>
+							</div>
 						</div>
-						<div class="col-md-3"></div>
+						<div class="col-md-2"></div>
 					</div>
 					<?php
 					if($ugyanazUser){
@@ -46,7 +54,13 @@ if($Org!=null){
 					?>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" id='modalProfileClose'>Close</button>
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<button type="button" class="btn btn-danger btn-block" id='modalProfileClose'>Close</button>
+						</div>
+						<div class="col-md-4"></div>
+					</div>
 				</div>
 			</div>
 		</div>
