@@ -67,7 +67,3 @@ else{
 	$userName = 'Belépés';
 	$userDropbox ="View/Login/form_Login.php";
 }
-$navBarItems["About"] = array(
-		"href" =>"?nav=about",
-		"title" =>"Rólunk"
-);

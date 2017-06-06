@@ -1,8 +1,7 @@
 <div class="row" id="regOrgAll">
-	<div class="col-lg-4 table-bordered" style="background-color: #f5f5f5">
+	<div class="col-lg-4">
 		<div class="text-center">
 			<label><?php echo orgOutput()?> regisztrálása után autómatikusan ön lesz a szervezet képviselője</label><br>
-			<label>Ha új képviselőket szeretne hozzáadni majd a beállítások menü alatt <?php echo orgOutput()?> adatok menüpont alatt teheti meg</label><br>
 			<span>Szervezet létrehozása után napokban hitelesítjük, hogy valós szervezetről van-e szó</span>
 		</div>
 	</div>
@@ -73,7 +72,6 @@
 				<input type="hidden" name="orgType" value="<?php echo orgTypeToNum(orgOutput())?>">
 				<input type="hidden" name="orgUserID" value="<?php echo $_SESSION["User"]->getId()?>">
 			</div>
-			<?php echo $_SESSION["User"]->getId()?>
 		</form>
 		<?php
 		function orgTypeToNum($text){

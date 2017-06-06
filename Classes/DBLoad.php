@@ -481,7 +481,11 @@ From
 			$result = self::$DBTasks->selectGetResult(DBData::getConnectionCCCTable(),
 								"*",
 								$where
-								,$join);
+								,$join,'Order By
+  contest.competetions.ctime,
+  contest.age_group.min,
+  contest.personal_group.personal_knowledge_id,
+  contest.personal_group.personal_weightmin');
 			if(pg_num_rows($result)>0){
 				$array = array();
 				$i = 0;

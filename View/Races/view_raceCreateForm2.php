@@ -1,6 +1,6 @@
 <script type="application/javascript">
 	var myvar = <?php echo $valami; ?>;
-	console.log(myvar);
+	//console.log(myvar);
 	function newCompType(num){
 		$("#numberHidden").val(num);
 		$("#typeModal").modal('show');

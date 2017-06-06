@@ -14,5 +14,3 @@ include "Classes/Competetion.php";
 include "Classes/CompCategory.php";
 include "Classes/CompTypes.php";
 include "Classes/SportUser.php";
-include "Classes/Stugle.php";
-include "Classes/TournamentTree.php";

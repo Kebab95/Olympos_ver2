@@ -1,4 +1,5 @@
 <?php
+/*
 $contest = DBLoad::loadContest($_GET["contestview"]);
 $result = $DBTasks->select(DBData::getMainUserTable(),DBData::$mainUserID,
 		DBData::$fedLeaderFEDID."=".$contest->getOrgID()." OR ".DBData::$clubLeaderCLUBID."=".$contest->getOrgID(),
@@ -6,15 +7,22 @@ $result = $DBTasks->select(DBData::getMainUserTable(),DBData::$mainUserID,
 			DBData::getMainUserTable().".".DBData::$mainUserID."=".DBData::getFedLeaderTable().".".DBData::$fedLeaderMUID.
 		" left join ".DBData::getClubLeaderTable()." ON ".
 			DBData::getMainUserTable().".".DBData::$mainUserID."=".DBData::getClubLeaderTable().".".DBData::$clubLeaderMUID);
+*/
 
-$creator = (is_numeric($result[DBData::$mainUserID]) && $result[DBData::$mainUserID] == $_SESSION["User"]->getId());
 $data[DBData::$contestName] = $contest->getName();
-$data[DBData::$contestOrgID] = DBLoad::loadOrg($contest->getOrgID())->getName();
+$data[DBData::$contestOrgID] = DBLoad::loadOrg($contest->getOrgID());
 $data[DBData::$contestLocaleID]= $contest->getLocale();
 $data[DBData::$contestDate] = $contest->getDate();
-$data[DBData::$contestEntryFee] = $contest->getEntryFee();
 $data[DBData::$contestDesc] = $contest->getDescription();
+$data[DBData::$contestEntryFee] = $contest->getEntryFee();
+$data[DBData::$contestClosed] = $contest->isClosed();
+
 $data[DBData::$contestIsEntry] = $contest->getIsEntry();
+if($contest->getIsEntry()){
+	$result = $DBTasks->selectGetResult(DBData::getEntryTable(),"*",
+			DBData::$entryContestID."=".$contest->getId());
+	$data["entryCount"] = pg_num_rows($result);
+}
 $data[DBData::$contestDataChecks] = $contest->isDataChecks();
 
 $data[DBData::$contestID] = $contest->getId();

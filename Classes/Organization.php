@@ -3,13 +3,13 @@ class Organization extends Main implements DBClass{
 	private $shortName,$regNum,$postalAdd,$faxNum,$webSite,$taxNum;
 	private $leaderID;
 
-	public function __construct($id,$name,$email,$telefon,$password,$type,$shortName,$regNum,PostalAdd $postalAdd,$faxNum,$website,$taxNum,$leaderID)
+	public function __construct($id,$name,$email,$telefon,$type,$shortName,$regNum,PostalAdd $postalAdd,$faxNum,$website,$taxNum,$leaderID)
 	{
 		$this->setId($id);
 		$this->setName($name);
 		$this->setEmail($email);
 		$this->setTelefon($telefon);
-		$this->setPassword($password);
+		$this->setPassword("");
 		$this->setType($type);
 		$this->setSex("false");
 
@@ -32,7 +32,6 @@ class Organization extends Main implements DBClass{
 				$data[DBData::$mainUserName],
 				$data[DBData::$emailDataAdd],
 				$data["tel_num"],
-				$data[DBData::$mainUserPass],
 				$data[DBData::$mainUserType],
 				$data[DBData::$orgShortName],
 				$data[DBData::$orgRegNum],

@@ -47,7 +47,7 @@ foreach ($orgValue as $item) {
 						foreach ($item["members"] as $member) {
 							echo "<tr>";
 							echo "<td>".$member->getName()."</td>";
-							echo "<td>".DBLoad::loadUserWithoutActive($member->getLeaderID())->getName()."</td>";
+							echo "<td><a onclick='showModalProfile(".UserTasks::getUser()->getId().",".$member->getLeaderID().")'> ".DBLoad::loadUserWithoutActive($member->getLeaderID())->getName()."</a></td>";
 							echo "<td><button type='button' onclick='showModalOrg(".UserTasks::getUser()->getId().",".$member->getId().")' class='btn btn-info btn-block'>Profil</button> </td>";
 							if($isLeader){
 							    echo "<td></td>";

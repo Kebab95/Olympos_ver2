@@ -231,23 +231,80 @@ elseif(isset($_GET["contest"])){
 else if(isset($_GET["contestview"])){
 	if(UserTasks::isLoggedUser()){
 		if(is_numeric($_GET["contestview"])){
+			$contest = DBLoad::loadContest($_GET["contestview"]);
+			$result = $DBTasks->select(DBData::getMainUserTable(),DBData::$mainUserID,
+					DBData::$fedLeaderFEDID."=".$contest->getOrgID()." OR ".DBData::$clubLeaderCLUBID."=".$contest->getOrgID(),
+					"left join ".DBData::getFedLeaderTable()." ON ".
+					DBData::getMainUserTable().".".DBData::$mainUserID."=".DBData::getFedLeaderTable().".".DBData::$fedLeaderMUID.
+					" left join ".DBData::getClubLeaderTable()." ON ".
+					DBData::getMainUserTable().".".DBData::$mainUserID."=".DBData::getClubLeaderTable().".".DBData::$clubLeaderMUID);
+			$creator = (is_numeric($result[DBData::$mainUserID]) && $result[DBData::$mainUserID] == $_SESSION["User"]->getId());
+
 			include 'Model/model_defaultUserVerification.php';
 
-			if(isset($_GET["more"]) && $_GET["more"]=="entry"){
-				include "Model/contestView/entry/model_entryPage.php";
-				$inBody ="View/contestView/entry/view_entryPage.php";
-			}
-			else if(isset($_GET["more"]) && $_GET["more"]=="datacheck"){
-				include "Model/contestView/checks/model_DataChecks.php";
-				$inBody = "View/contestView/checks/view_DataChecks.php";
-			}
-			else if(isset($_GET["more"]) && $_GET["more"]=="schedule"){
-				include "Model/contestView/schedule/model_CompSchedule.php";
-				$inBody = "View/contestView/schedule/view_CompSchedule.php";
-			}
-			else if(isset($_GET["more"]) && $_GET["more"]=="adminLogin"){
-				include "Model/contestView/adminLog/model_adminLog.php";
-				$inBody = "View/contestView/adminLog/view_adminLog.php";
+			if(isset($_GET["more"])){
+
+				switch($_GET["more"]){
+					case "entry":
+						if($contest->getIsEntry() && !$contest->isDataChecks()&& UserTasks::isClubLeader()){
+							include "Model/contestView/entry/model_entryPage.php";
+							$inBody ="View/contestView/entry/view_entryPage.php";
+						}
+						else {
+							include "Model/contestView/model_contestView.php";
+							$inBody ="View/contestView/view_contestView.php";
+						}
+
+						break;
+					case "datacheck":
+						if(($contest->isDataChecks() && $creator) && !$contest->isClosed()){
+							include "Model/contestView/checks/model_DataChecks.php";
+							$inBody = "View/contestView/checks/view_DataChecks.php";
+						}
+						else {
+							include "Model/contestView/model_contestView.php";
+							$inBody ="View/contestView/view_contestView.php";
+						}
+
+						break;
+					case "schedule":
+						if(($contest->isDataChecks() && $creator) && !$contest->isClosed()){
+							include "Model/contestView/schedule/model_CompSchedule.php";
+							$inBody = "View/contestView/schedule/view_CompSchedule.php";
+						}
+						else {
+							include "Model/contestView/model_contestView.php";
+							$inBody ="View/contestView/view_contestView.php";
+						}
+
+						break;
+					case "adminLogin":
+						if(($contest->isDataChecks()) && !$contest->isClosed()){
+							include "Model/contestView/adminLog/model_adminLog.php";
+							$inBody = "View/contestView/adminLog/view_adminLog.php";
+						}
+						else {
+							include "Model/contestView/model_contestView.php";
+							$inBody ="View/contestView/view_contestView.php";
+						}
+
+						break;
+					case "closed":
+						if(($contest->isDataChecks() || $contest->isClosed())){
+							include "Model/contestView/closed/model_closed.php";
+							$inBody = "View/contestView/closed/view_closed.php";
+						}
+						else {
+							include "Model/contestView/model_contestView.php";
+							$inBody ="View/contestView/view_contestView.php";
+						}
+
+						break;
+					default:
+						include "Model/contestView/model_contestView.php";
+						$inBody ="View/contestView/view_contestView.php";
+				}
+				unset($contest);
 			}
 			else {
 				include "Model/contestView/model_contestView.php";

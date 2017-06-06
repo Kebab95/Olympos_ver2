@@ -87,6 +87,9 @@ class Database
 		$this->ConnClose();
 		return $back;
 	}
+	protected function returnInsertQuery($tableName, $columns, $values, $etc = ""){
+		return "INSERT INTO ".$tableName.(strcmp($columns,'*')==0?"":" ( ".$columns." ) ")." VALUES ( ".$values." ) ".$etc;
+	}
 	public function selectGetResult($tableName, $columns, $where,$innerjoin=null, $etc = ""){
 		$this->Connect();
 		$back = $this->sql("SELECT ".$columns." FROM " . $tableName .($innerjoin !=null?" ".$innerjoin:"").($where !=null?" WHERE " . $where . " ":"")  . $etc . ";");
@@ -100,17 +103,12 @@ class Database
 		$row = pg_fetch_row($back, NULL, PGSQL_ASSOC);
 		return $row;
 	}
-	protected function returnInsertQuery($tableName, $columns, $values, $etc = ""){
-		return "INSERT INTO ".$tableName.(strcmp($columns,'*')==0?"":" ( ".$columns." ) ")." VALUES ( ".$values." ) ".$etc;
-	}
+	
 	public function insert($tableName, $columns, $values, $etc = ""){
 		$this->Connect();
 		$back = $this->sql(self::returnInsertQuery($tableName,$columns,$values,$etc).";");
 		$this->ConnClose();
 		return $back;
-	}
-	public function returnUpdateQuery($tableName, $values, $where, $etc = ""){
-		return "UPDATE ".$tableName." SET ".$values." WHERE ".$where." ".$etc.";";
 	}
 	public function update($tableName, $values, $where, $etc = ""){
 		$this->Connect();
@@ -118,6 +116,10 @@ class Database
 		$this->ConnClose();
 		return $back;
 	}
+	public function returnUpdateQuery($tableName, $values, $where, $etc = ""){
+		return "UPDATE ".$tableName." SET ".$values." WHERE ".$where." ".$etc.";";
+	}
+	
 	public function returnFunctionSelect($function){
 		return "SELECT ".$function;
 	}

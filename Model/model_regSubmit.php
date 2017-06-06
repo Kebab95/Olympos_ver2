@@ -34,9 +34,11 @@ else{
         <div class="alert alert-success text-center">
             <strong>Sikeres!</strong> Sikeres regisztráció
         </div>
+        <!---
         <div class="alert alert-info text-center">
             <strong>Figyelem!</strong> Regisztráció megerősítő email cím elküldve a megadott email-címre
         </div>
+        !-->
         <?php
     }
     else {

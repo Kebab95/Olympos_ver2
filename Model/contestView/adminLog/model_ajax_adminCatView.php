@@ -132,7 +132,7 @@ if(pg_num_rows($strugleResult)>0){
 			<div class="col-md-8">
 				<?php
 				//Mehet tovább a verseny
-				$switch = false;
+				$switch =false;
 				if($compType["fight"]=="t"){
 					switch(count($userArray)){
 						case 2:

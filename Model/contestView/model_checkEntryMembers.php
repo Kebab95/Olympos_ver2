@@ -3,6 +3,7 @@ include "../../includeClasses.php";
 $DBTasks = new DBTasks();
 $result = $DBTasks->selectGetResult(DBData::getEntryTable(),"
 data.main_user.mu_name,
+data.main_user.mu_bdate,
   data.member_data.md_weight,
   data.belt_grades_data.bgd_name,
   data.belt_grades_data.bgd_klevel_id,
@@ -63,7 +64,7 @@ if(count($MemberArray)>0 && count($OrgArray)>0){
 			if($memberItem[DBData::$entryorgID] == $orgItem[DBData::$mainUserID]){
 				$user = new SportUser(null,
 										$memberItem[DBData::$mainUserName],
-										null,null,null,null,null,
+										null,null,null,null,$memberItem[DBData::$mainUserBDate],
 						$memberItem[DBData::$mainUserBDate],
 						$memberItem[DBData::$memberDataWeight],
 						$memberItem[DBData::$beltGradesName],
@@ -73,7 +74,7 @@ if(count($MemberArray)>0 && count($OrgArray)>0){
 						<div class='col-md-3'>Név: <?php echo $user->getName()?></div>
 						<div class='col-md-3'>Súly: <?php echo $user->getWeight_toString()?></div>
 						<div class='col-md-3'>Öv fokozat: <?php echo $user->getKnowLedgeId_toString()?></div>
-						<div class='col-md-3'>Életkor: <?php echo $user->getSex()?></div>
+						<div class='col-md-3'>Életkor: <?php echo $user->getAge()?></div>
 					</div>
 				<hr>
 				<?php

@@ -3,7 +3,7 @@ class DBTasks extends Database
 {
 	public function __construct()
 	{
-		parent::__construct("localhost","postgres","root123","olympos_0.1");
+		parent::__construct("localhost","postgres","root123","postgres");
 	}
 	public function checkEmailPass($email,$pass){
 		$result = $this->selectGetResult(DBData::getMainUserTable(),
@@ -272,9 +272,17 @@ class DBTasks extends Database
 		$leader ="";
 		$columm="";
 		switch($type){
-			case 2: $leader=$this->returnInsertQuery(DBData::getFedLeaderTable(),"*","default,".$leaderID.",(select ".DBData::$mainUserID." from userInsert)","returning ".DBData::$fedLeaderMUID);
+			case 2: $leader=$this->returnInsertQuery(
+							DBData::getFedLeaderTable(),
+							"*",
+							"default,".$leaderID.",(select ".DBData::$mainUserID." from userInsert)","returning ".DBData::$fedLeaderMUID
+						);
 				$columm=DBData::$permissionFedLeader;break;
-			case 3: $leader=$this->returnInsertQuery(DBData::getClubLeaderTable(),"*","default,".$leaderID.",(select ".DBData::$mainUserID." from userInsert)","returning ".DBData::$clubLeaderMUID);
+			case 3: $leader=$this->returnInsertQuery(
+							DBData::getClubLeaderTable(),
+							"*",
+							"default,".$leaderID.",(select ".DBData::$mainUserID." from userInsert)","returning ".DBData::$clubLeaderMUID
+						);
 				$columm=DBData::$permissionClubLeader;break;
 		}
 		$query ="with email as (
@@ -324,25 +332,6 @@ class DBTasks extends Database
 					".$this->returnUpdateQuery(DBData::getPermissionTable(),
 								$columm."=true",
 								DBData::$permissionMainUserID."=(select * from leader)");
-		/*
-		//self::regUser($name,$type,$email,$tel,"null");
-		$id = $this->getMainUserSeqCurrVal();
-		$query ="with postal as (
-			".$this->returnInsertQuery(DBData::getPostalAddDataTable(),"*",
-						"default,".$pCode.",'".$pTown."','".$pStreet."'","returning ".DBData::$postalAddID)."
-		),".($fax!=null?" telefon as (
-			".$this->returnInsertQuery(DBData::getTelefonDataTable(),
-						"*",
-						"default,'".$fax."'",
-						"returning ".DBData::$telefonDataID)."
-		)
-		":"")." org as (
-			".$this->returnInsertQuery(DBData::getOrganizationTable(),"*",
-						"default,(select last_value from data.main_user_seq),'".$shortName."','".$regNum."',(select ".DBData::$postalAddID." from postal)
-						,".($fax!=null?"(select ".DBData::$telefonDataID." from telefon)":"null").",'".$website."','".$title."'
-						,'".$taxNum."'","returning ".DBData::$orgID)."
-		)".$leader;
-		*/
 		$this->Connect();
 		$temp = $this->sql($query);
 		$this->ConnClose();
@@ -396,7 +385,7 @@ class DBTasks extends Database
         userInsert as (
                ".$this->returnInsertQuery(DBData::getMainUserTable(),"*",
 						"default,".$type.",(select ".DBData::$emailDataID." from email),(select ".DBData::$telefonDataID." from telefon),
-                '".$name."','".md5($pass)."',false,NOW(),NOW(),'".$bday."',".($sex==0?"true":"false"),"returning ".DBData::$mainUserID)."
+                '".$name."','".md5($pass)."',true,NOW(),NOW(),'".$bday."',".($sex==0?"true":"false"),"returning ".DBData::$mainUserID)."
         )
         ".$this->returnInsertQuery(DBData::getPermissionTable(),DBData::$permissionMainUserID.",".DBData::$permissionVisitor
 						,"(select ".DBData::$mainUserID." from userInsert),TRUE","returning ".DBData::$permissionMainUserID);
@@ -405,17 +394,6 @@ class DBTasks extends Database
 		$row = pg_fetch_row($temp, NULL, PGSQL_ASSOC);
 		if($row[DBData::$permissionMainUserID] != null){
 			return true;
-			/*
-			$code = $this->RandomString(10);
-			$asd =$this->sqlWithConn('INSERT INTO data.email_request_data (erd_gen_code,erd_mu_id)
-								VALUES (\''.$code.'\',\''.$row[DBData::$permissionMainUserID].'\')');
-			if($asd){
-				$emailText="<html><head><title>Olympos regisztráció</title></head><body>REgisztrált az Olympos weboldalra. Regsztrálását itt tudja véglegesíteni: </body></html>";
-				$this->SendEmail($email,"Regisztrációs email","");
-			}else {
-				return false;
-			}
-			*/
 		}
 		else {
 			return false;

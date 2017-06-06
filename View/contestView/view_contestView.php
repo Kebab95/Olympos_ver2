@@ -1,46 +1,170 @@
 <div class="panel panel-default">
-	<div class="panel-heading text-center">
-		<h4><?php echo $data[DBData::$contestName];?></h4>
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4 text-center">
+				<h4><?php echo $data[DBData::$contestName];?></h4>
+			</div>
+			<div class="col-xs-4">
+				<?php
+				if($data[DBData::$contestClosed]){
+					?>
+					<label class="label-danger">Lezáródtt a verseny</label>
+					<?php
+				}
+				else if($data[DBData::$contestDataChecks]){
+					?>
+					<label class="label-info">Zajlik a verseny</label>
+					<?php
+				}
+				else if($data[DBData::$contestIsEntry]){
+					?>
+					<label class="label-info">Nevezési fázis</label>
+					<?php
+				}
+				else {
+					?>
+						<label class="label-info">Szerkesztés alatt</label>
+					<?php
+				}
+				?>
+			</div>
+		</div>
+
 	</div>
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-3">
-				<div class="row">
 				<?php
-					if($creator){
-					    echo "<div class='col-md-12 text-center'>
-							<button class='btn btn-default btn-block'>Szerkesztés</button>
-							</div>";
-						echo "<div class='col-md-12'>
-						<button class='btn btn-info btn-block' id='dataChecksButton'>Élesítés ".(!$data[DBData::$contestDataChecks]?"bekapcsolása":"kikapcsolása")."</button>
-</div>";
+				if($creator){
+					if($data[DBData::$contestClosed]){
 						?>
-							<script>
-								$("#dataChecksButton").click(function(){
-									$.ajax({
-										url:"Model/contestView/model_ajax_dataChecksFlag.php",
-										type: "POST",
-										data: {contestID:<?php echo $data[DBData::$contestID] ?>,
-											flag:<?php echo (!$data[DBData::$contestDataChecks]?"true":"false")?>},
-										dataType:"text"
-									}).done(function(data){
-										//console.log(data);
-										location.reload();
-									}).fail(function(){
-										alert("asd");
-									});
-								});
-							</script>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<a href='?contestview=<?php echo $data[DBData::$contestID]?>&more=closed'><button class='btn btn-info btn-block'>Lejátszott futamok</button></a>
+							</div>
+						</div>
 						<?php
 					}
-					if($creator && $data[DBData::$contestDataChecks]){
-						echo "<div class='col-md-12'>&nbsp;</div>";
-					    echo "<div class='col-md-12'>";
-						echo "<a href='?contestview=".$data[DBData::$contestID]."&more=schedule'><button class='btn btn-info2 btn-block'>Versenyszámok beosztása</button></a>";
-						echo "</div>";
+					else if($data[DBData::$contestDataChecks]){
+						?>
+							<div class="row form-group">
+								<div class="col-xs-12">
+									<a href='?contestview=<?php echo $data[DBData::$contestID]?>&more=datacheck'><button type='button' class='btn btn-block btn-success'>Mérlegelés</button></a>
+								</div>
+							</div>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<a href='?contestview=<?php echo $data[DBData::$contestID]?>&more=schedule'><button type="button" class='btn btn-info btn-block'>Versenyszámok beosztása</button></a>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<a href='?contestview=<?php echo $data[DBData::$contestID]?>&more=closed'><button class='btn btn-info btn-block'>Lejátszott futamok</button></a>
+							</div>
+						</div>
+						<hr>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<button class='btn btn-warning btn-block' onclick="closeContest(<?php echo $_GET["contestview"]?>)">Verseny lezárása</button>
+							</div>
+							<div class="col-xs-12 text-justify">
+								<label>Csak akkor tudja lezárni a vesenyt ha minden versenyszám futama lezárult!</label>
+							</div>
+						</div>
+						<script>
+							function closeContest(contestID){
+								$.ajax({
+									url:'Model/contestView/closed/model_ajax_closeContest.php',
+									type: 'POST',
+									data: {contestID:contestID},
+									dataType:'html'
+								}).done(function(data){
+									if(data==2 || data=="2"){
+										alert("Verseny sikeresen lezárva");
+										location.reload();
+									}
+									else if(data==0 || data=="0"){
+										alert("Nem sikerült lezártni a Versenyt mert vannak még lezáratlan versenyszámok.");
+									}
+									else if(data==1 || data=="1"){
+										alert("Hiba esett a verseny lezárásánál");
+									}
+								}).fail(function(){
+									alert("Hiba!");
+								});
+							}
+						</script>
+						<?php
 					}
+					else if($data[DBData::$contestIsEntry]){
+						if($data["entryCount"]==0){
+							?>
+							<div class="row form-group">
+								<div class="col-xs-12">
+									<button class="btn btn-danger btn-block entryEnable" id="entryEnable">Nevezés visszavonása</button>
+								</div>
+							</div>
+							<?php
+						}
+						?>
+							<div class="row form-group">
+								<div class="col-xs-12">
+									<button class="btn btn-info2 btn-block" id="dataChecksButton">Nevezés lezárása</button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<label>Nevezés lezárás után megjelnik a mérlegelés menüpont, verseny beosz</label>
+								</div>
+							</div>
+						<?php
+					}
+					else {
+						?>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<button class='btn btn-default btn-block'>Szerkesztés</button>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-xs-12">
+								<button class="btn btn-info2 btn-block entryClose" id="entryEnable">Nevezés megnyitása</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 text-justify">
+								<label>Ha megnyitja a nevezést, addig vissza tudja majd vonni ameddig megnem érkezik az első nevezés</label>
+							</div>
+						</div>
+						<?php
+					}
+				    ?>
+
+					<?php
+				}
+				else {
+						if($data[DBData::$contestClosed]){
+								?>
+							<div class="row form-group">
+								<div class="col-xs-12">
+									<a href='?contestview=<?php echo $data[DBData::$contestID]?>&more=closed'><button class='btn btn-info btn-block'>Lejátszott futamok</button></a>
+								</div>
+							</div>
+						<?php
+						}
+						else if($data[DBData::$contestDataChecks]){
+						?>
+							<div class="row form-group">
+								<div class="col-xs-12">
+									<a href='?contestview=<?php echo $data[DBData::$contestID]?>&more=closed'><button class='btn btn-info btn-block'>Lejátszott futamok</button></a>
+								</div>
+							</div>
+
+							<?php
+						}
+				}
 				?>
-				</div>
 			</div>
 
 			<div class="col-md-6">
@@ -52,46 +176,39 @@
 						<div id="collapse2" class="panel-collapse collapse in">
 							<div class="panel-body">
 								<div class="row">
-									<label class="col-xs-6 "><strong>Szervező szervezet</strong></label>
-									<label class="col-xs-6 "><?php echo $data[DBData::$contestOrgID]?></label>
-									<label class="col-xs-6 span6"><strong>Helyszín</strong></label>
+									<label class="col-xs-6 text-right"><strong>Szervező szervezet</strong></label>
+									<label class="col-xs-6 ">
+										<a onclick="showModalOrg(<?php echo UserTasks::getUser()->getId().",".$data[DBData::$contestOrgID]->getId()?>)">
+											<?php echo $data[DBData::$contestOrgID]->getName()?>
+										</a>
+									</label>
+								</div>
+								<div class="row">
+									<label class="col-xs-6 text-right"><strong>Helyszín</strong></label>
 									<label class="col-xs-6 "><?php echo $data[DBData::$contestLocaleID]?></label>
-									<label class="col-xs-6">Dátum</label>
+								</div>
+								<div class="row">
+									<label class="col-xs-6 text-right">Dátum</label>
 									<label class="col-xs-6"><?php echo $data[DBData::$contestDate]?></label>
-									<label class="col-xs-6">Alap nevezési díj</label>
+								</div>
+								<div class="row">
+									<label class="col-xs-6 text-right">Alap nevezési díj</label>
 									<label class="col-xs-6"><?php echo $data[DBData::$contestEntryFee]?></label>
-									<label class="col-xs-6">Leírás</label>
+								</div>
+								<div class="row">
+									<label class="col-xs-6 text-right">Leírás</label>
 									<label class="col-xs-6"><?php echo $data[DBData::$contestDesc]?></label>
+								</div>
+								<div class="row">
+
+
+
+
+
 									<input type='hidden' name='contestID' id="contestID" value="<?php echo $data[DBData::$contestID]?>">
 									<?php
 									if($creator){
-										if($data[DBData::$contestDataChecks]){
-											echo "<div class='col-xs-6'>";
-											echo "<strong>Mérlegelés:</strong>";
-											echo "</div>";
-											echo "<div class='col-xs-6'>";
-											echo "<a href='?contestview=".$data[DBData::$contestID]."&more=datacheck'><button type='button' class='btn btn-block btn-success'>Szerkesztés</button></a>";
-											echo "</div>";
-										}
-										else {
-											if($data[DBData::$contestIsEntry]){
-												echo "<div class='col-xs-6'>
-													<div class='alert alert-success' id='entryTitle'>Lehet nevezni</div>
-													</div>";
-												echo "<div class='col-xs-6'>
-													<button class='btn btn-warning btn-block btn-responsive entryEnable' id='entryEnable'>Nevezési lehetőség bezárása</button>
-												</div>";
-											}
-											else {
-												echo "<div class='col-xs-6'>
-													<div class='alert alert-danger' id='entryTitle'>Nem lehet még nevezni</div>
-													</div>";
-												echo "<div class='col-xs-6'>
-													<button class='btn btn-warning btn-block btn-responsive entryClose' id='entryEnable'>Nevezési lehetőség engedélyazésa</button>
 
-												</div>";
-											}
-										}
 
 									}
 
@@ -150,13 +267,13 @@
 								</div>
 								<div id="nevezes" class="panel-collapse collapse in">
 									<div class="panel-body">
-										<div id="entryButton">
+										<div id="entryButton" class="text-justify">
 											<?php
 											if($data[DBData::$contestDataChecks]){
 												echo "<label>Végleg lezáródott a nevezés! A verseny jelenleg zajlik.</label>";
 											}
 											else {
-												if($data[DBData::$contestIsEntry]){
+												if($data[DBData::$contestIsEntry] && UserTasks::isClubLeader()){
 													echo '<a href="?contestview='.$data[DBData::$contestID].'&more=entry" <button class="btn btn-default btn-block btn-responsive">Nevezem a szövetségi tagokat erre a versenyre</button></a>';
 												}
 												else {
@@ -177,10 +294,11 @@
 					if($creator && $data[DBData::$contestDataChecks]){
 						?>
 							<div class="col-md-12">
-								<div class="panel panel-default">
-									<div class="panel-heading">
+								<div class="panel panel-default" id="jegyzo">
+									<div class="panel-heading" data-toggle="collapse" data-parent="#jegyzo" href="#jegyz">
 										Jegyzők kezelése
 									</div>
+									<div id="jegyz" class="panel-collapse collapse">
 									<div class="panel-body">
 										<div id="administratorsList">
 											<?php
@@ -279,6 +397,7 @@
 											}
 										</script>
 									</div>
+									</div>
 								</div>
 							</div>
 
@@ -297,7 +416,7 @@
 							<div class="col-md-8 col-xs-2"></div>
 							<div class="col-md-2 col-xs-6">
 								<?php
-									if($creator&& !$data[DBData::$contestDataChecks]){
+									if($creator&& !$data[DBData::$contestDataChecks] && !$data[DBData::$contestIsEntry]){
 										echo '<button class="btn btn-default" data-toggle=\'modal\' data-target=\'#newComp\'>Új hozzáadása</button> ';
 										include "View/contestView/Modal/modal_newCompetetion.php";
 
@@ -327,7 +446,7 @@
 																			?></div>
 													<div class="col-md-4 col-xs-12">
 														<?php
-															if($creator && !$data[DBData::$contestDataChecks]){
+															if($creator && !$data[DBData::$contestDataChecks] && !$data[DBData::$contestIsEntry]){
 																?>
 																	<button class='btn btn-info2 btn-block' data-toggle='modal' data-target='#myModal<?php echo $item->getId()?>'>Kategóriák hozzáadása</button>
 
@@ -343,7 +462,7 @@
 												include "View/contestView/Modal/modal_newCategorys.php";
 											}
 											?>
-											<div id="compCollapse<?php echo $i?>" class="panel-collapse collapse in">
+											<div id="compCollapse<?php echo $i?>" class="panel-collapse collapse">
 												<div class="panel-body">
 
 												</div>
@@ -352,7 +471,7 @@
 												if(isset($compCat[$compid])){
 													?>
 													<div class="table-responsive">
-														<table class="table table-stried table-hover table-bordered">
+														<table class="table  table-hover table-bordered">
 															<thead>
 															<tr>
 																<th>Életkor</th>
@@ -363,9 +482,17 @@
 															</thead>
 															<tbody>
 															<?php
+															$age = array(0,0);
+															$change = true;
 															/** @var CompCategory $value */
 															foreach ($compCat[$compid] as $value) {
-																echo "<tr>";
+																if($age[0] !=$value->getAgeMin() && $age[1]!=$value->getAgeMax()){
+																	$change = !$change;
+																	$age[0] = $value->getAgeMin();
+																	$age[1] = $value->getAgeMax();
+																}
+																echo "<tr style='background-color: ".($change?"#4F79A1":"#4E5D6C")."'>";
+
 																echo "<td>".$value->getAgeMin()."-".$value->getAgeMax()."</td>";
 																if($value->isSexWoman() || $value->isSexMan() || $value->isSexMixed() ||$value->isGroupFight()){
 																	$group ="";
@@ -455,35 +582,50 @@
 		</div>
 	</div>
 </div>
+
 <script>
+	$("#dataChecksButton").click(function(){
+		$.ajax({
+			url:"Model/contestView/model_ajax_dataChecksFlag.php",
+			type: "POST",
+			data: {contestID:<?php echo $data[DBData::$contestID] ?>,
+				flag:<?php echo (!$data[DBData::$contestDataChecks]?"true":"false")?>},
+			dataType:"text"
+		}).done(function(data){
+			//console.log(data);
+			location.reload();
+		}).fail(function(){
+			alert("asd");
+		});
+	});
 	$(document).ready(function(){
+
 		$("#entryEnable").on('click',function (e) {
 			var id = $("#contestID").val();
 			console.log(id+" enable");
 			if ($(this).hasClass('entryEnable')){
 				entryCloseFun(id, function(asd){
-					console.log(asd);
-					if(asd == "true" || asd== true){
-						$("#entryTitle").removeClass("alert-success").addClass("alert-danger").text("Nem lehet még nevezni");
-						$('.entryEnable').removeClass("entryEnable").addClass("entryClose");
-						$('#entryEnable').text('Nevezési lehetőség engedélyezése');
-						$("#entryButton").html('<label>Sajnáljuk jelenleg nem lehet jelentkezni a versenyre</label>');
+					//console.log(asd);
+					if(asd == true){
+						location.reload();
+						//$("#entryTitle").removeClass("alert-success").addClass("alert-danger").text("Nem lehet még nevezni");
+						//$("#entryButton").html('<label>Sajnáljuk jelenleg nem lehet jelentkezni a versenyre</label>');
 					}
 					else {
 						console.log("Szívás");
 					}
 				});
+				//location.reload();
 
 			}
 			else {
 
 				entryEnableFun(id, function(asd){
 					console.log(asd);
-					if(asd == "true" || asd== true){
-						$("#entryTitle").removeClass("alert-danger").addClass("alert-success").text("Lehet még nevezni");
-						$('.entryClose').removeClass("entryClose").addClass("entryEnable");
-						$('#entryEnable').text('Nevezési lehetőség bezárása');
-						$("#entryButton").html('<a href="?contestview=<?php echo $data[DBData::$contestID]?>&entry=in" <button class="btn btn-default btn-block btn-responsive">Nevezem a szövetségi tagokat erre a versenyre</button></a>');
+					if(asd == true){
+						location.reload();
+						//$("#entryTitle").removeClass("alert-danger").addClass("alert-success").text("Lehet még nevezni");
+						//$("#entryButton").html('<a href="?contestview=<?php echo $data[DBData::$contestID]?>&entry=in" <button class="btn btn-default btn-block btn-responsive">Nevezem a szövetségi tagokat erre a versenyre</button></a>');
 
 
 					}

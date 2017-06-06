@@ -25,17 +25,7 @@ else {
 			$orgList[$key]["UserId"] = $user->getId();
 		}
 		$member = false;
-		$asdRes = $DBTasks->sqlWithConn('Select
-				  org.federation_leader.fl_mu_id
-				From
-				  org.federation_leader
-				Where
-				  org.federation_leader.fl_fed_id ='.$item->getId());
-		while($asd = pg_fetch_row($asdRes, NULL, PGSQL_ASSOC)){
-			if($asd["fl_mu_id"] == UserTasks::getUser()->getId()){
-				$member = true;
-			}
-		}
+
 		if(UserTasks::isFederationMember()){
 			$club = DBLoad::loadOrgLeader(UserTasks::getUser()->getId(),3);
 			if(count($club)>0){
